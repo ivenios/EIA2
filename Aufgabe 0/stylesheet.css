@@ -1,0 +1,34 @@
+
+body {
+    background-color: rgb(219, 219, 219);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+p {
+    border:black 1px solid;
+    cursor: pointer;
+    margin: 1rem 44rem 1rem 1rem;
+    text-align: center;
+    
+}
+
+p:hover {
+    font-weight: 400;
+    border:red 1.2px solid;
+    
+}
+#htmlText {
+    border:  none;
+
+}
+.Name {
+    font-size: larger;
+}
+/*
+Aufgabe: Aufgabe 0 Arbeitsfähigkeit
+Name: Iven Otis Sieglen
+Matrikel: 261012
+Datum: 24.März 2019
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
