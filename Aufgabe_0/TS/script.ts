@@ -2,18 +2,19 @@
 //hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
 function YourNameHere() {
     document.getElementById("htmlText").innerHTML="";
-    var YouName = prompt("Bitte gib nun dein Vor- und Zunamen ein!");
+    var ThyName = prompt("We ask thee, to give us thy name");
         
 //wenn kein Name angegeben wurde, wird eine Fehlermeldung auf der Konsole ausgegeben bei abbruch gibt es nur einen Console.log
-    if (YouName ==null) {
-        console.log("Vorgang abgebrochen!");
+    if (ThyName ==null) {
+        console.log("All's well that ends well");
     }
-    else if(YouName =="") {
-        alert("Bitte geben Sie einen Namen ein")
+    else if(ThyName =="") {
+        alert("More matter, with less art. We need thy name")
     }
     else { //wenn alles erfüllt ist, kann alles geschrieben haben 
-        console.log("Herzlich Willkommen " + YouName + " Wir freuen uns über deine Interesse!");
-        document.getElementById("htmlText").innerHTML="Lebe Lange und in Frieden <span class='Name'>"+ YouName +"</span>. Gerne Helfen wir dir.";
+        document.getElementById("htmlText").innerHTML="Lebe Lange und in Frieden <span class='Name'>"+ ThyName +"</span>. Gerne Helfen wir dir.";
+        console.log("Herzlich Willkommen " + ThyName + " Wir freuen uns über deine Interesse!");
+        
     }
         
         
