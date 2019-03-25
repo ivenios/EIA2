@@ -1,5 +1,6 @@
 
 //hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
+
 function YourNameHere() {
     document.getElementById("htmlText").innerHTML="";
     var ThyName = prompt("We ask thee, to give us thy name");
@@ -20,7 +21,10 @@ function YourNameHere() {
         
 
 }
-
+function init() {
+    YourNameHere();
+}
+document.addEventListener('DOMContentLoaded', init);
 /*
 Aufgabe: Aufgabe 0 Arbeitsfähigkeit
 Name: Iven Otis Sieglen
