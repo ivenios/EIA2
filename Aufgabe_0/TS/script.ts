@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function YourNameHere() {
     document.getElementById("htmlText").innerHTML="";
-    var ThyName = prompt("We ask thee, to give us thy name");
+    var ThyName: string = prompt("We ask thee, to give us thy name");
         
 //wenn kein Name angegeben wurde, wird eine Fehlermeldung auf der Konsole ausgegeben bei abbruch gibt es nur einen Console.log
     if (ThyName ==null) {
