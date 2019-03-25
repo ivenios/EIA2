@@ -1,4 +1,8 @@
 //hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
+function init() {
+    YourNameHere();
+}
+document.addEventListener('DOMContentLoaded', init);
 function YourNameHere() {
     document.getElementById("htmlText").innerHTML = "";
     var ThyName = prompt("We ask thee, to give us thy name");
@@ -7,14 +11,14 @@ function YourNameHere() {
         console.log("All's well that ends well");
     }
     else if (ThyName == "") {
-        alert("More matter, with less art. We need thy name");
+        alert("More matter, with less art. We need thy name!!!");
+        console.log("More matter, with less art. We need thy name!!!");
     }
     else { //wenn alles erfüllt ist, kann alles geschrieben haben 
         document.getElementById("htmlText").innerHTML = "Lebe Lange und in Frieden <span class='Name'>" + ThyName + "</span>. Gerne Helfen wir dir.";
-        console.log("Herzlich Willkommen " + ThyName + " Wir freuen uns über deine Interesse!");
+        console.log("Lebe Lange und in Frieden " + ThyName + ". Gerne Helfen wir dir.");
     }
 }
-document.addEventListener('DOMContentLoaded', YourNameHere);
 /*
 Aufgabe: Aufgabe 0 Arbeitsfähigkeit
 Name: Iven Otis Sieglen
