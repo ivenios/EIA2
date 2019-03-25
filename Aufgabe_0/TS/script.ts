@@ -21,10 +21,8 @@ function YourNameHere() {
         
 
 }
-function init() {
-    YourNameHere();
-}
-document.addEventListener('DOMContentLoaded', init);
+
+document.addEventListener('DOMContentLoaded', YourNameHere);
 /*
 Aufgabe: Aufgabe 0 Arbeitsfähigkeit
 Name: Iven Otis Sieglen
