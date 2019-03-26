@@ -1,22 +1,22 @@
 //hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
 function init() {
-    YourNameHere();
+    thyNameHere();
 }
 document.addEventListener('DOMContentLoaded', init);
-function YourNameHere() {
+function thyNameHere() {
     document.getElementById("htmlText").innerHTML = "";
-    var ThyName = prompt("We ask thee, to give us thy name");
+    var thyName = prompt("We ask thee, to give us thy name");
     //wenn kein Name angegeben wurde, wird eine Fehlermeldung auf der Konsole ausgegeben bei abbruch gibt es nur einen Console.log
-    if (ThyName == null) {
+    if (thyName == null) {
         console.log("All's well that ends well");
     }
-    else if (ThyName == "") {
+    else if (thyName == "") {
         alert("More matter, with less art. We need thy name!!!");
         console.log("More matter, with less art. We need thy name!!!");
     }
     else { //wenn alles erfüllt ist, kann alles geschrieben haben 
-        document.getElementById("htmlText").innerHTML = "Lebe Lange und in Frieden <span class='Name'>" + ThyName + "</span>. Gerne Helfen wir dir.";
-        console.log("Lebe Lange und in Frieden " + ThyName + ". Gerne Helfen wir dir.");
+        document.getElementById("htmlText").innerHTML = "Lebe Lange und in Frieden <span class='Name'>" + thyName + "</span>. Gerne Helfen wir dir.";
+        console.log("Lebe Lange und in Frieden " + thyName + ". Gerne Helfen wir dir.");
     }
 }
 /*
