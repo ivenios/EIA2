@@ -6,7 +6,7 @@ function init() {
 }
 document.addEventListener('DOMContentLoaded', init);
 
-function thyNameHere() {
+function thyNameHere():void {
     document.getElementById("htmlText").innerHTML="";
     var thyName: string = prompt("We ask thee, to give us thy name");
         
