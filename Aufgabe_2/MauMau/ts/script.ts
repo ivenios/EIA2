@@ -36,12 +36,13 @@ function askPlayerForCards (numCard:number) {
 function getRandomCards(_numCard:number){
 
     while(_numCard>0) {
-        randomNumber(ranNum);
+        randomNumber(ranNum); // Funktion für 
         handCards.push(cards.splice(ranNum,1)[0]); 
-        console.log(handCards);       
+        console.log(handCards);    
+        displayRandomCards(handCards);   //Funktion um die Divs zu erstellen
         _numCard--;
     }
-    displayRandomCards(handCards);
+    
 }
 
 function randomNumber(_x:number){
