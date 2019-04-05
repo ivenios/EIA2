@@ -227,7 +227,7 @@ function askPlayerForCards (numCard:number) {
         do {
             numCard = parseInt(prompt("Wie viele Karten möchtest du?"))
         }
-        while (numCard > 1 && numCard < 32)
+        while (numCard == 0 || numCard < 1 || numCard > 32)
     }
     getRandomCards(numCard)
 
