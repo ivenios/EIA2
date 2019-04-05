@@ -236,7 +236,7 @@ function askPlayerForCards (numCard:number) {
 function getRandomCards(_numCard:number){
 
     while(_numCard>0) {
-        randomNumber(ranNum); // Funktion für Randome Number
+        randomNumber(ranNum,_numCard); // Funktion für Randome Number
         handCards.push(cards.splice(ranNum,1)[0]); 
         console.log(handCards);    
         _numCard--;
@@ -244,8 +244,8 @@ function getRandomCards(_numCard:number){
     renderCards(handCards); //Funktion um die Divs zu erstellen
 }
 
-function randomNumber(_x:number){
-    let max:number = 32;
+function randomNumber(_x:number,_y:number){
+    let max:number = cards.length;
     _x=Math.floor(Math.random() * Math.floor(max));
     return ranNum=_x;
 
@@ -261,11 +261,11 @@ function renderCards(handCards: card[]) {
 }
 
 
-function displayRandomCards(html: string, oneCard:card){
+function displayRandomCards(html: string, handCards:card){
     let cardDiv = document.createElement('div');
-    let div =`<div class="${oneCard.classcss}">
-        <p>${oneCard.value}</p>
-        <p>${oneCard.symbol}</p>
+    let div =`<div class="${handCards.classcss}">
+        <p>${handCards.value}</p>
+        <p class="symbol">${handCards.symbol}</p>
         </div>
     `;
 
