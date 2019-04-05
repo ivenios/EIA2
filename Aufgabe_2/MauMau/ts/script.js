@@ -7,9 +7,202 @@ Datum: <Datum der letzten Bearbeitung>
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 let cards = [];
-{
-    let;
-}
+// Herz Karten
+let herzSieben = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzAcht = {
+    value: 8,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzNeun = {
+    value: 9,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzZehn = {
+    value: 10,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzBube = {
+    value: 11,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzDame = {
+    value: 12,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzKoenig = {
+    value: 13,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let herzAss = {
+    value: 1,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+// Pik Karten 
+let pikSieben = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikAcht = {
+    value: 8,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikNeun = {
+    value: 9,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikZehn = {
+    value: 10,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikBube = {
+    value: 11,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikDame = {
+    value: 12,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikKoenig = {
+    value: 13,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let pikAss = {
+    value: 1,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+//Karo Karten
+let karoSieben = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoAcht = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoNeun = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoZehn = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoBube = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoDame = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoKoenig = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let karoAss = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+//Kreuz Karten
+let kreuzSieben = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzAcht = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzNeun = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzZehn = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzBube = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzDame = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzKoenig = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
+let kreuzAss = {
+    value: 7,
+    color: "",
+    symbol: "",
+    classcss: "",
+};
 let handCards = [];
 let stackCards = [];
 let numCard = 0;
@@ -54,6 +247,7 @@ function displayRandomCards(html, oneCard) {
     document.getElementById(html).appendChild(cardDiv);
 }
 function init() {
+    cards.push(herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss);
     askPlayerForCards(numCard);
 }
 document.addEventListener('DOMContentLoaded', init);
