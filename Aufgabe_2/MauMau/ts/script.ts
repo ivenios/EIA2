@@ -7,7 +7,7 @@ Datum: 07.04.19
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
-interface card {
+interface Card {
     value: number;
     color: string;
     symbol: string;
@@ -15,210 +15,210 @@ interface card {
 
 }
 
-let cards: card[] = [];
+let cards: Card[] = [];
 
 // Herz Karten
-let herzSieben: card = {
+let herzSieben: Card = {
     value: 7,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzAcht: card = {
+let herzAcht: Card = {
     value: 8,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzNeun: card = {
+let herzNeun: Card = {
     value: 9,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzZehn: card = {
+let herzZehn: Card = {
     value: 10,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzBube: card = {
+let herzBube: Card = {
     value: 11,
     color: "",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzDame: card = {
+let herzDame: Card = {
     value: 12,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzKoenig: card = {
+let herzKoenig: Card = {
     value: 13,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let herzAss: card = {
+let herzAss: Card = {
     value: 1,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
 
 // Pik Karten 
-let pikSieben: card = {
+let pikSieben: Card = {
     value: 7,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikAcht: card = {
+let pikAcht: Card = {
     value: 8,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikNeun: card = {
+let pikNeun: Card = {
     value: 9,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikZehn: card = {
+let pikZehn: Card = {
     value: 10,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikBube: card = {
+let pikBube: Card = {
     value: 11,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikDame: card = {
+let pikDame: Card = {
     value: 12,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikKoenig: card = {
+let pikKoenig: Card = {
     value: 13,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let pikAss: card = {
+let pikAss: Card = {
     value: 1,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
 
 //Karo Karten
-let karoSieben: card = {
+let karoSieben: Card = {
     value: 7,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoAcht: card = {
+let karoAcht: Card = {
     value: 8,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoNeun: card = {
+let karoNeun: Card = {
     value: 9,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoZehn: card = {
+let karoZehn: Card = {
     value: 10,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoBube: card = {
+let karoBube: Card = {
     value: 11,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoDame: card = {
+let karoDame: Card = {
     value: 12,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoKoenig: card = {
+let karoKoenig: Card = {
     value: 13,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
-let karoAss: card = {
+let karoAss: Card = {
     value: 1,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 }
 
 //Kreuz Karten
-let kreuzSieben: card = {
+let kreuzSieben: Card = {
     value: 7,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzAcht: card = {
+let kreuzAcht: Card = {
     value: 8,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzNeun: card = {
+let kreuzNeun: Card = {
     value: 9,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzZehn: card = {
+let kreuzZehn: Card = {
     value: 10,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzBube: card = {
+let kreuzBube: Card = {
     value: 11,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzDame: card = {
+let kreuzDame: Card = {
     value: 12,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzKoenig: card = {
+let kreuzKoenig: Card = {
     value: 13,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
-let kreuzAss: card = {
+let kreuzAss: Card = {
     value: 1,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 }
 
-let handCards: card[] = [];
-let stackCards: card[] = [];
+let handCards: Card[] = [];
+let stackCards: Card[] = [];
 let numCard: number = 0;
 let ranNum: number;
 
@@ -251,7 +251,7 @@ function randomNumber(_x: number, _y: number) {
 
 }
 
-function renderCards(handCards: card[]): void {
+function renderCards(_handCards: Card[]): void {
     let m: number = 0;
 
     while (m < handCards.length) {
@@ -261,30 +261,30 @@ function renderCards(handCards: card[]): void {
 
 }
 
-function displayRandomCards(html: string, handCards: card) {
+function displayRandomCards(_html: string, _handCards: Card) {
     let cardDiv = document.createElement('div');
-    let div = `<div class="${handCards.classcss}">
-        <p>${handCards.value}</p>
-        <p class="symbol">${handCards.symbol}</p>
+    let div = `<div class="${_handCards.classcss}">
+        <p>${_handCards.value}</p>
+        <p class="symbol">${_handCards.symbol}</p>
         </div>
     `;
 
     cardDiv.innerHTML = div;
 
-    document.getElementById(html).appendChild(cardDiv);
+    document.getElementById(_html).appendChild(cardDiv);
     return;
 }
-function renderStapelz(stapel: string):void {
+function renderStapelz(_stapel: string):void {
     let stapelzDiv = document.createElement('div');
-    let div = `<div class="masterStapel">
+    let div = `<div class="MasterStapel">
          <img src="./KartenMuster.jpg" alt="" height="280px" width="200px"srcset="">
         </div>
-        <div class="ablegeStapel" >
+        <div class="AblegeStapel" >
 
         </div>
     `;
     stapelzDiv.innerHTML = div;
-    document.getElementById(stapel).appendChild(stapelzDiv);
+    document.getElementById(_stapel).appendChild(stapelzDiv);
 
 
 }

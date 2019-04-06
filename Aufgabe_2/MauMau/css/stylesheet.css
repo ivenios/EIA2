@@ -17,14 +17,14 @@ h1 {
     color: white;
 
 }
-.sektion div {
+.Sektion div {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content:space-evenly;
 }
  
-.ablegeStapel {
+.AblegeStapel {
     outline: 2px solid white;
     right: 80px;
     padding: 200px 100px 80px 100px;
@@ -35,7 +35,7 @@ h1 {
 }
 
 
-.masterStapel {
+.MasterStapel {
     outline: 2px solid white;
     left: 100px;
     background-color: white;
@@ -47,7 +47,7 @@ h1 {
 
 
 
-.spielerKarten {
+.SpielerKarten {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -56,7 +56,7 @@ h1 {
 
 }
 
-.cardSchwarz {
+.CardSchwarz {
     padding: 100px 100px 80px 100px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -69,7 +69,7 @@ h1 {
 
 }
 
-.cardRed{
+.CardRed{
     padding: 100px 100px 80px 100px;
     margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -83,7 +83,7 @@ h1 {
 }
 
 
-.symbol  {
+.Symbol  {
     margin-bottom: -45px;
     font-size: 50px;
 

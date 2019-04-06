@@ -12,196 +12,196 @@ let herzSieben = {
     value: 7,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzAcht = {
     value: 8,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzNeun = {
     value: 9,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzZehn = {
     value: 10,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzBube = {
     value: 11,
     color: "",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzDame = {
     value: 12,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzKoenig = {
     value: 13,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let herzAss = {
     value: 1,
     color: "Rot",
     symbol: "♥",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 // Pik Karten 
 let pikSieben = {
     value: 7,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikAcht = {
     value: 8,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikNeun = {
     value: 9,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikZehn = {
     value: 10,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikBube = {
     value: 11,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikDame = {
     value: 12,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikKoenig = {
     value: 13,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let pikAss = {
     value: 1,
     color: "Schwarz",
     symbol: "♠",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 //Karo Karten
 let karoSieben = {
     value: 7,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoAcht = {
     value: 8,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoNeun = {
     value: 9,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoZehn = {
     value: 10,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoBube = {
     value: 11,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoDame = {
     value: 12,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoKoenig = {
     value: 13,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 let karoAss = {
     value: 1,
     color: "Rot",
     symbol: "♦",
-    classcss: "cardRed",
+    classcss: "CardRed",
 };
 //Kreuz Karten
 let kreuzSieben = {
     value: 7,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzAcht = {
     value: 8,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzNeun = {
     value: 9,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzZehn = {
     value: 10,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzBube = {
     value: 11,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzDame = {
     value: 12,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzKoenig = {
     value: 13,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let kreuzAss = {
     value: 1,
     color: "Schwarz",
     symbol: "♣",
-    classcss: "cardSchwarz",
+    classcss: "CardSchwarz",
 };
 let handCards = [];
 let stackCards = [];
@@ -229,35 +229,35 @@ function randomNumber(_x, _y) {
     _x = Math.floor(Math.random() * Math.floor(max));
     return ranNum = _x;
 }
-function renderCards(handCards) {
+function renderCards(_handCards) {
     let m = 0;
     while (m < handCards.length) {
         displayRandomCards('html', handCards[m]);
         m++;
     }
 }
-function displayRandomCards(html, handCards) {
+function displayRandomCards(_html, _handCards) {
     let cardDiv = document.createElement('div');
-    let div = `<div class="${handCards.classcss}">
-        <p>${handCards.value}</p>
-        <p class="symbol">${handCards.symbol}</p>
+    let div = `<div class="${_handCards.classcss}">
+        <p>${_handCards.value}</p>
+        <p class="symbol">${_handCards.symbol}</p>
         </div>
     `;
     cardDiv.innerHTML = div;
-    document.getElementById(html).appendChild(cardDiv);
+    document.getElementById(_html).appendChild(cardDiv);
     return;
 }
-function renderStapelz(stapel) {
+function renderStapelz(_stapel) {
     let stapelzDiv = document.createElement('div');
-    let div = `<div class="masterStapel">
+    let div = `<div class="MasterStapel">
          <img src="./KartenMuster.jpg" alt="" height="280px" width="200px"srcset="">
         </div>
-        <div class="ablegeStapel" >
+        <div class="AblegeStapel" >
 
         </div>
     `;
     stapelzDiv.innerHTML = div;
-    document.getElementById(stapel).appendChild(stapelzDiv);
+    document.getElementById(_stapel).appendChild(stapelzDiv);
 }
 function init() {
     renderStapelz('stapel');
