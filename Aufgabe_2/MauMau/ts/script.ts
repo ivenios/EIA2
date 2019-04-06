@@ -222,7 +222,7 @@ let stackCards: card []=[];
 let numCard: number = 0;
 let ranNum: number;
 
-function askPlayerForCards (numCard:number) {
+function askPlayerForCards (numCard:number):void  {
     if (numCard==0) {
         do {
             numCard = parseInt(prompt("Wie viele Karten möchtest du?"))
@@ -233,7 +233,7 @@ function askPlayerForCards (numCard:number) {
 
 }
 
-function getRandomCards(_numCard:number){
+function getRandomCards(_numCard:number):void{
 
     while(_numCard>0) {
         randomNumber(ranNum,_numCard); // Funktion für Randome Number
@@ -251,13 +251,14 @@ function randomNumber(_x:number,_y:number){
 
 }
 
-function renderCards(handCards: card[]) {
-    var m: number = 0;
+function renderCards(handCards: card[]):void {
+    let m: number = 0;
 
     while (m < handCards.length) {
         displayRandomCards('html', handCards[m]);
         m++;
     }
+    
 }
 
 
@@ -272,12 +273,30 @@ function displayRandomCards(html: string, handCards:card){
     cardDiv.innerHTML = div;
 
     document.getElementById(html).appendChild(cardDiv);
-    
+    return;
 }    
+
+function renderStapelz(html:string):void{
+    let stapelzDiv = document.createElement('div');
+    let div =`            <div class="masterStapel">
+    <img src="./KartenMuster.jpg" alt="" height="280px" width="200px"srcset="">
+</div>
+<div class="ablegeStapel" >
+
+</div>
+    `;
+
+    stapelzDiv.innerHTML = div;
+
+    document.getElementById(html).appendChild(stapelzDiv);
+
+
+}
 
 function init() {
     cards.push(herzSieben,herzAcht,herzNeun,herzZehn,herzBube,herzDame,herzKoenig,herzAss,pikSieben,pikAcht,pikNeun,pikZehn,pikBube,pikDame,pikKoenig,pikAss,karoSieben,karoAcht,karoNeun,karoZehn,karoBube,karoDame,karoKoenig,karoAss,kreuzSieben,kreuzAcht,kreuzNeun,kreuzZehn,kreuzBube,kreuzDame,kreuzKoenig,kreuzAss);
     askPlayerForCards(numCard);
+    renderStapelz("html");
 }
 
 document.addEventListener('DOMContentLoaded', init);
