@@ -17,13 +17,13 @@ h1 {
     color: white;
 
 }
-.sektion {
+.sektion div {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content:space-evenly;
 }
-
+ 
 .ablegeStapel {
     outline: 2px solid white;
     right: 80px;

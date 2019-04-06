@@ -230,7 +230,7 @@ function randomNumber(_x, _y) {
     return ranNum = _x;
 }
 function renderCards(handCards) {
-    var m = 0;
+    let m = 0;
     while (m < handCards.length) {
         displayRandomCards('html', handCards[m]);
         m++;
@@ -245,8 +245,22 @@ function displayRandomCards(html, handCards) {
     `;
     cardDiv.innerHTML = div;
     document.getElementById(html).appendChild(cardDiv);
+    return;
+}
+function renderStapelz(stapel) {
+    let stapelzDiv = document.createElement('div');
+    let div = `<div class="masterStapel">
+         <img src="./KartenMuster.jpg" alt="" height="280px" width="200px"srcset="">
+        </div>
+        <div class="ablegeStapel" >
+
+        </div>
+    `;
+    stapelzDiv.innerHTML = div;
+    document.getElementById(stapel).appendChild(stapelzDiv);
 }
 function init() {
+    renderStapelz('stapel');
     cards.push(herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss);
     askPlayerForCards(numCard);
 }
