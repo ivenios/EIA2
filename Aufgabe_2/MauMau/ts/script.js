@@ -239,11 +239,11 @@ let handCards = [];
 let stackCards = [];
 let numCard = 0;
 let ranNum;
-function askPlayerForCards(numCard) {
+function howManyCards(numCard) {
     if (numCard == 0) {
         do {
-            numCard = parseInt(prompt("Wie viele Karten möchtest du?"));
-        } while (numCard == 0 || numCard < 1 || numCard > 32);
+            numCard = parseInt(prompt("Mit wie viele Karten möchtest du spielen?", "..."));
+        } while (isNaN(numCard) || numCard < 1 || numCard > 32);
     }
     getRandomCards(numCard);
 }
@@ -294,7 +294,7 @@ function renderStapelz(_stapel) {
 function init() {
     renderStapelz('stapel');
     cards.push(herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss);
-    askPlayerForCards(numCard);
+    howManyCards(numCard);
 }
 document.addEventListener('DOMContentLoaded', init);
 //# sourceMappingURL=script.js.map

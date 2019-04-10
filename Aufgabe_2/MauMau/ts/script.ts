@@ -255,15 +255,13 @@ let stackCards: Card[] = [];
 let numCard: number = 0;
 let ranNum: number;
 
-function askPlayerForCards(numCard: number): void {
-    if (numCard == 0) {
+function howManyCards(numCard:number):void{
+    if(numCard==0){
         do {
-            numCard = parseInt(prompt("Wie viele Karten möchtest du?"))
-        }
-        while (numCard == 0 || numCard < 1 || numCard > 32)
-    }
-    getRandomCards(numCard);
-
+            numCard=parseInt(prompt("Mit wie viele Karten möchtest du spielen?", "..."));
+        }while (isNaN(numCard)|| numCard<1 || numCard>32);
+    }   
+    getRandomCards(numCard); 
 }
 
 function getRandomCards(_numCard: number): void {
@@ -326,7 +324,7 @@ function renderStapelz(_stapel: string):void {
 function init() {
     renderStapelz('stapel');
     cards.push(herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss);
-    askPlayerForCards(numCard);
+    howManyCards(numCard);
 
 }
 
