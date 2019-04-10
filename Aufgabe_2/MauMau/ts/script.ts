@@ -292,7 +292,7 @@ function renderCards(_handCards: Card[]): void {
 
 }
 
-function displayRandomCards(_html: string, _handCards: Card) {
+function displayRandomCards(_html: string, _handCards: Card): void {
     let cardDiv = document.createElement('div');
     let div = `<div class="${_handCards.classcss}">
         <p>${_handCards.renderValue}</p>
@@ -303,7 +303,6 @@ function displayRandomCards(_html: string, _handCards: Card) {
     cardDiv.innerHTML = div;
 
     document.getElementById(_html).appendChild(cardDiv);
-    return;
 }
 function renderStapelz(_stapel: string):void {
     let stapelzDiv = document.createElement('div');

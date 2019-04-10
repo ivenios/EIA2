@@ -277,7 +277,6 @@ function displayRandomCards(_html, _handCards) {
     `;
     cardDiv.innerHTML = div;
     document.getElementById(_html).appendChild(cardDiv);
-    return;
 }
 function renderStapelz(_stapel) {
     let stapelzDiv = document.createElement('div');
