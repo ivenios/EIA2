@@ -21,60 +21,59 @@ interface Card {
 
 }
 
-let cards: Card[] = [];
 
 // Herz Karten
 let herzSieben: Card = {
-    value: 7,
+    value: 1,
     renderValue:"Sieben",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzAcht: Card = {
-    value: 8,
+    value: 2,
     renderValue:"Acht",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzNeun: Card = {
-    value: 9,
+    value: 3,
     renderValue:"Neun",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzZehn: Card = {
-    value: 10,
+    value: 4,
     renderValue:"Zehn",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzBube: Card = {
-    value: 11,
+    value: 5,
     renderValue:"Bube",
     color: "",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzDame: Card = {
-    value: 12,
+    value: 6,
     renderValue:"Dame",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzKoenig: Card = {
-    value: 13,
+    value: 7,
     renderValue:"König",
     color: "Rot",
     symbol: "♥",
     classcss: "CardRed",
 }
 let herzAss: Card = {
-    value: 1,
+    value: 8,
     renderValue:"Ass",
     color: "Rot",
     symbol: "♥",
@@ -83,56 +82,56 @@ let herzAss: Card = {
 
 // Pik Karten 
 let pikSieben: Card = {
-    value: 7,
+    value: 9,
     renderValue:"Sieben",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikAcht: Card = {
-    value: 8,
+    value: 10,
     renderValue:"Acht",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikNeun: Card = {
-    value: 9,
+    value: 11,
     renderValue:"Neun",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikZehn: Card = {
-    value: 10,
+    value: 12,
     renderValue:"Zehn",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikBube: Card = {
-    value: 11,
+    value: 13,
     renderValue:"Bube",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikDame: Card = {
-    value: 12,
+    value: 14,
     renderValue:"Dame",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikKoenig: Card = {
-    value: 13,
+    value: 15,
     renderValue:"König",
     color: "Schwarz",
     symbol: "♠",
     classcss: "CardSchwarz",
 }
 let pikAss: Card = {
-    value: 1,
+    value: 16,
     renderValue:"Ass",
     color: "Schwarz",
     symbol: "♠",
@@ -141,56 +140,56 @@ let pikAss: Card = {
 
 //Karo Karten
 let karoSieben: Card = {
-    value: 7,
+    value: 17,
     renderValue:"Sieben",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoAcht: Card = {
-    value: 8,
+    value: 18,
     renderValue:"Acht",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoNeun: Card = {
-    value: 9,
+    value: 19,
     renderValue:"Neun",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoZehn: Card = {
-    value: 10,
+    value: 20,
     renderValue:"Zehn",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoBube: Card = {
-    value: 11,
+    value: 21,
     renderValue:"Bube",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoDame: Card = {
-    value: 12,
+    value: 22,
     renderValue:"Dame",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoKoenig: Card = {
-    value: 13,
+    value: 23,
     renderValue:"König",
     color: "Rot",
     symbol: "♦",
     classcss: "CardRed",
 }
 let karoAss: Card = {
-    value: 1,
+    value: 24,
     renderValue:"Ass",
     color: "Rot",
     symbol: "♦",
@@ -199,62 +198,62 @@ let karoAss: Card = {
 
 //Kreuz Karten
 let kreuzSieben: Card = {
-    value: 7,
+    value: 25,
     renderValue:"Sieben",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzAcht: Card = {
-    value: 8,
+    value: 26,
     renderValue:"Acht",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzNeun: Card = {
-    value: 9,
+    value: 27,
     renderValue:"Neun",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzZehn: Card = {
-    value: 10,
+    value: 28,
     renderValue:"Zehn",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzBube: Card = {
-    value: 11,
+    value: 29,
     renderValue:"Bube",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzDame: Card = {
-    value: 12,
+    value: 30,
     renderValue:"Dame",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzKoenig: Card = {
-    value: 13,
+    value: 31,
     renderValue:"König",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
 let kreuzAss: Card = {
-    value: 1,
+    value: 32,
     renderValue:"Ass",
     color: "Schwarz",
     symbol: "♣",
     classcss: "CardSchwarz",
 }
-
+let cards: Card[] = [herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss];
 let handCards: Card[] = [];
 let stackCards: Card[] = [];
 let numCard: number = 0;
@@ -277,20 +276,46 @@ function addListeners(){
 
 }
 
-function drawCard():void {
-    console.log("test");
-    randomNumber(handCards.length);
+function drawCard():void { 
+    if (cards.length == 0) { //abfrage, wieviele Karten noch da sind. 
+        alert("All work and no play, make Iven a dull boy. - Du hast alle Karten aufgebraucht")
+    }
+
+    else {
+    document.getElementById("html").innerHTML="";
+    //console.log("test");
+    randomNumber(cards.length);
     handCards.push(cards.splice(ranNum,1)[0]);
     renderCards(handCards);
-
+    console.log(handCards);
+    }
 }
 
 function layCard(){
     console.log("test2");
+
 }
 
 function sortCards(){
-    console.log("test3");
+    //console.log("test3");
+    arraySort();
+    document.getElementById("html").innerHTML = "";
+    console.log(handCards);
+    renderCards(handCards);
+}
+
+function arraySort() {
+    handCards.sort(arraySortCondition);
+}
+
+function arraySortCondition(a: Card, b: Card): number { //warum hier ein fehler ist raffe ich nicht :/ 
+    var sortA: number = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
+    var sortB: number = b.value;
+    if (sortA > sortB) {return 1};
+    if (sortA == sortB) {return 0};
+    if (sortA < sortB) {return -1};
+
+
 }
 
 
@@ -328,8 +353,8 @@ function randomNumber(_y:number) {
 function renderCards(_handCards: Card[]): void {
     let m: number = 0;
 
-    while (m < handCards.length) {
-        displayRandomCards('html', handCards[m]);
+    while (m < _handCards.length) {
+        displayRandomCards('html', _handCards[m]);
         m++;
     }
 
@@ -363,9 +388,10 @@ function renderStapelz(_stapel: string):void {
 }
 
 
+ 
+
 function init() {
     renderStapelz('stapel');
-    cards.push(herzSieben, herzAcht, herzNeun, herzZehn, herzBube, herzDame, herzKoenig, herzAss, pikSieben, pikAcht, pikNeun, pikZehn, pikBube, pikDame, pikKoenig, pikAss, karoSieben, karoAcht, karoNeun, karoZehn, karoBube, karoDame, karoKoenig, karoAss, kreuzSieben, kreuzAcht, kreuzNeun, kreuzZehn, kreuzBube, kreuzDame, kreuzKoenig, kreuzAss);
     howManyCards(numCard);
 
 }
