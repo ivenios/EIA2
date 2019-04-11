@@ -7,6 +7,11 @@ Datum: 07.04.19
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
+namespace MauMau {
+    //funktionen die zubeginn ausgeführt werden müssen
+    document.addEventListener('DOMContentLoaded', init); //rest der Funktion 
+    document.addEventListener('DOMContentLoaded', addListeners); //eventlisteners 
+
 interface Card {
     value: number;
     renderValue:string;
@@ -255,6 +260,40 @@ let stackCards: Card[] = [];
 let numCard: number = 0;
 let ranNum: number;
 
+function addListeners(){
+    document.getElementById("zieheKarte").addEventListener('click',drawCard);
+    document.addEventListener("keydown", event => { //abfrage ob die leertaste (32) auch gedrückt wird, wenn nicht, dann passiert nichts 
+        console.log(event);
+        if (event.keyCode == 32){
+            drawCard();
+        }
+        else { //wenn falsch, wird nicht ausgeführt
+            return;
+        }
+    });
+    document.getElementById("html").addEventListener('click',layCard); //wie kommen wir an den eigentlichen wert der Karte ??
+    document.getElementById("butt").addEventListener('click',sortCards);
+    return;
+
+}
+
+function drawCard():void {
+    console.log("test");
+    randomNumber(handCards.length);
+    handCards.push(cards.splice(ranNum,1)[0]);
+    renderCards(handCards);
+
+}
+
+function layCard(){
+    console.log("test2");
+}
+
+function sortCards(){
+    console.log("test3");
+}
+
+
 function howManyCards(numCard:number):void{
     if(numCard==0){
         do {
@@ -264,10 +303,13 @@ function howManyCards(numCard:number):void{
     getRandomCards(numCard); 
 }
 
+
+
+
 function getRandomCards(_numCard: number): void {
 
     while (_numCard > 0) {
-        randomNumber(ranNum, _numCard); // Funktion für Randome Number
+        randomNumber(cards.length); // Funktion für Randome Number
         handCards.push(cards.splice(ranNum, 1)[0]);
         console.log(handCards);
         _numCard--;
@@ -275,8 +317,9 @@ function getRandomCards(_numCard: number): void {
     renderCards(handCards); //Funktion um die Divs zu erstellen
 }
 
-function randomNumber(_x: number, _y: number) {
-    let max: number = cards.length;
+function randomNumber(_y:number) {
+    let _x:number;
+    let max: number = _y;
     _x = Math.floor(Math.random() * Math.floor(max));
     return ranNum = _x;
 
@@ -306,10 +349,10 @@ function displayRandomCards(_html: string, _handCards: Card): void {
 }
 function renderStapelz(_stapel: string):void {
     let stapelzDiv = document.createElement('div');
-    let div = `<div class="MasterStapel">
+    let div = `<div class="MasterStapel" id="zieheKarte">
          <img src="./KartenMuster.jpg" alt="" height="280px" width="200px"srcset="">
         </div>
-        <div class="AblegeStapel" >
+        <div class="AblegeStapel" id="legeKarte" >
 
         </div>
     `;
@@ -327,4 +370,7 @@ function init() {
 
 }
 
-document.addEventListener('DOMContentLoaded', init);
+
+
+
+}
