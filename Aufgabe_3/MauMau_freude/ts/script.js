@@ -282,6 +282,7 @@ var MauMau;
             console.log(event);
             if (event.keyCode == 32) {
                 drawCard();
+                return;
             }
             else { //wenn falsch, wird nicht ausgeführt
                 return;
@@ -350,8 +351,8 @@ var MauMau;
     }
     //thanks very much to developer.mozilla
     function arraySortCondition(a, b) {
-        var sortA = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
-        var sortB = b.value;
+        let sortA = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
+        let sortB = b.value;
         if (sortA > sortB) {
             return 1;
         }

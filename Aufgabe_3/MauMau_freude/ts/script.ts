@@ -298,6 +298,7 @@ function addListeners(){
         console.log(event);
         if (event.keyCode == 32){
             drawCard();
+            return;
         }
         else { //wenn falsch, wird nicht ausgeführt
             return;
@@ -375,8 +376,8 @@ function sortCards(){
 
 //thanks very much to developer.mozilla
 function arraySortCondition(a: Card, b: Card): number { //warum hier ein fehler ist raffe ich nicht :/ 
-    var sortA: number = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
-    var sortB: number = b.value;
+    let sortA: number = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
+    let sortB: number = b.value;
     if (sortA > sortB) {return 1};
     if (sortA == sortB) {return 0};
     if (sortA < sortB) {return -1};
