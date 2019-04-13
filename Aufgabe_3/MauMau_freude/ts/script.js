@@ -314,24 +314,15 @@ var MauMau;
         console.log(clickedCard.getAttribute("id"));
         for (let a = 0; a < handCards.length; a++) {
             if (clickedCard.getAttribute("id") == handCards[a].layValue) {
-                document.getElementById("legeKarte").innerHTML = ""; //den ablgenestapel leeren 
                 stackCards.push(handCards.splice(a, 1)[0]);
                 console.log(stackCards);
-                let f = stackCards.length - 1; //immer die letzte Karte an die funktion übergeben 
-                displayLayedCards(stackCards[f]);
-                document.getElementById("html").innerHTML = ""; //alle Karten löschen um die übringen neu darzustellen
-                renderCards(handCards); //dann wieder alle Karten neu schreiben
-            }
-            else if (clickedCard.getAttribute("id") == null || clickedCard.getAttribute("id") == "html") {
-                alert("Bitte nur auf die Kartenflächen clicken!");
-                return;
-            }
-            else {
-                return;
+                let f = stackCards.length; //immer die letzte Karte an die funktion übergeben 
+                displayLayedCards('legeKarte', stackCards[f - 1]);
             }
         }
     }
-    function displayLayedCards(_layCards) {
+    function displayLayedCards(htmlid, _layCards) {
+        document.getElementById(htmlid).innerHTML = ""; //den ablegenestapel leeren 
         let cardDiv = document.createElement('div');
         let div = `<div class="${_layCards.classcss}" id="${_layCards.value}">
         <p>${_layCards.renderValue}</p>
@@ -339,7 +330,9 @@ var MauMau;
         </div>
     `;
         cardDiv.innerHTML = div;
-        document.getElementById('legeKarte').appendChild(cardDiv);
+        document.getElementById(htmlid).appendChild(cardDiv);
+        document.getElementById("html").innerHTML = ""; //alle Karten löschen um die übringen neu darzustellen
+        renderCards(handCards); //dann wieder alle Karten neu schreiben
     }
     //hier kommt alles zum sortieren
     function sortCards() {
