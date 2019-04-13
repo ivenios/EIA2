@@ -342,7 +342,12 @@ function layCard(_event:Event){
             displayLayedCards(stackCards[f]);
             document.getElementById("html").innerHTML=""; //alle Karten löschen um die übringen neu darzustellen
             renderCards(handCards); //dann wieder alle Karten neu schreiben
+        }
+        else if (clickedCard.getAttribute("id") == null || clickedCard.getAttribute("id") == "html"){
+            alert("Bitte nur auf die Kartenflächen clicken!");
+            return;
     }
+    else {return;}
     }
 }
 
