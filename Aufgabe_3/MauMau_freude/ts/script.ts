@@ -14,6 +14,7 @@ namespace MauMau {
 
 interface Card {
     value: number;
+    layValue:string;
     renderValue:string;
     color: string;
     symbol: string;
@@ -25,6 +26,7 @@ interface Card {
 // Herz Karten
 let herzSieben: Card = {
     value: 1,
+    layValue: "1",
     renderValue:"Sieben",
     color: "Rot",
     symbol: "♥",
@@ -32,6 +34,7 @@ let herzSieben: Card = {
 }
 let herzAcht: Card = {
     value: 2,
+    layValue: "2",
     renderValue:"Acht",
     color: "Rot",
     symbol: "♥",
@@ -39,6 +42,7 @@ let herzAcht: Card = {
 }
 let herzNeun: Card = {
     value: 3,
+    layValue: "3",
     renderValue:"Neun",
     color: "Rot",
     symbol: "♥",
@@ -46,6 +50,7 @@ let herzNeun: Card = {
 }
 let herzZehn: Card = {
     value: 4,
+    layValue: "4",
     renderValue:"Zehn",
     color: "Rot",
     symbol: "♥",
@@ -53,6 +58,7 @@ let herzZehn: Card = {
 }
 let herzBube: Card = {
     value: 5,
+    layValue: "5",
     renderValue:"Bube",
     color: "",
     symbol: "♥",
@@ -60,6 +66,7 @@ let herzBube: Card = {
 }
 let herzDame: Card = {
     value: 6,
+    layValue: "6",
     renderValue:"Dame",
     color: "Rot",
     symbol: "♥",
@@ -67,6 +74,7 @@ let herzDame: Card = {
 }
 let herzKoenig: Card = {
     value: 7,
+    layValue: "7",
     renderValue:"König",
     color: "Rot",
     symbol: "♥",
@@ -74,6 +82,7 @@ let herzKoenig: Card = {
 }
 let herzAss: Card = {
     value: 8,
+    layValue: "8",
     renderValue:"Ass",
     color: "Rot",
     symbol: "♥",
@@ -83,6 +92,7 @@ let herzAss: Card = {
 // Pik Karten 
 let pikSieben: Card = {
     value: 9,
+    layValue: "9",
     renderValue:"Sieben",
     color: "Schwarz",
     symbol: "♠",
@@ -90,6 +100,7 @@ let pikSieben: Card = {
 }
 let pikAcht: Card = {
     value: 10,
+    layValue: "10",
     renderValue:"Acht",
     color: "Schwarz",
     symbol: "♠",
@@ -97,6 +108,7 @@ let pikAcht: Card = {
 }
 let pikNeun: Card = {
     value: 11,
+    layValue: "11",
     renderValue:"Neun",
     color: "Schwarz",
     symbol: "♠",
@@ -104,6 +116,7 @@ let pikNeun: Card = {
 }
 let pikZehn: Card = {
     value: 12,
+    layValue: "12",
     renderValue:"Zehn",
     color: "Schwarz",
     symbol: "♠",
@@ -111,6 +124,7 @@ let pikZehn: Card = {
 }
 let pikBube: Card = {
     value: 13,
+    layValue: "13",
     renderValue:"Bube",
     color: "Schwarz",
     symbol: "♠",
@@ -118,6 +132,7 @@ let pikBube: Card = {
 }
 let pikDame: Card = {
     value: 14,
+    layValue: "14",
     renderValue:"Dame",
     color: "Schwarz",
     symbol: "♠",
@@ -125,6 +140,7 @@ let pikDame: Card = {
 }
 let pikKoenig: Card = {
     value: 15,
+    layValue: "15",
     renderValue:"König",
     color: "Schwarz",
     symbol: "♠",
@@ -132,6 +148,7 @@ let pikKoenig: Card = {
 }
 let pikAss: Card = {
     value: 16,
+    layValue: "16",
     renderValue:"Ass",
     color: "Schwarz",
     symbol: "♠",
@@ -141,6 +158,7 @@ let pikAss: Card = {
 //Karo Karten
 let karoSieben: Card = {
     value: 17,
+    layValue: "17",
     renderValue:"Sieben",
     color: "Rot",
     symbol: "♦",
@@ -148,6 +166,7 @@ let karoSieben: Card = {
 }
 let karoAcht: Card = {
     value: 18,
+    layValue: "18",
     renderValue:"Acht",
     color: "Rot",
     symbol: "♦",
@@ -155,6 +174,7 @@ let karoAcht: Card = {
 }
 let karoNeun: Card = {
     value: 19,
+    layValue: "19",
     renderValue:"Neun",
     color: "Rot",
     symbol: "♦",
@@ -162,6 +182,7 @@ let karoNeun: Card = {
 }
 let karoZehn: Card = {
     value: 20,
+    layValue: "20",
     renderValue:"Zehn",
     color: "Rot",
     symbol: "♦",
@@ -169,6 +190,7 @@ let karoZehn: Card = {
 }
 let karoBube: Card = {
     value: 21,
+    layValue: "21",
     renderValue:"Bube",
     color: "Rot",
     symbol: "♦",
@@ -176,6 +198,7 @@ let karoBube: Card = {
 }
 let karoDame: Card = {
     value: 22,
+    layValue: "22",
     renderValue:"Dame",
     color: "Rot",
     symbol: "♦",
@@ -183,6 +206,7 @@ let karoDame: Card = {
 }
 let karoKoenig: Card = {
     value: 23,
+    layValue: "23",
     renderValue:"König",
     color: "Rot",
     symbol: "♦",
@@ -190,6 +214,7 @@ let karoKoenig: Card = {
 }
 let karoAss: Card = {
     value: 24,
+    layValue: "24",
     renderValue:"Ass",
     color: "Rot",
     symbol: "♦",
@@ -199,6 +224,7 @@ let karoAss: Card = {
 //Kreuz Karten
 let kreuzSieben: Card = {
     value: 25,
+    layValue: "25",
     renderValue:"Sieben",
     color: "Schwarz",
     symbol: "♣",
@@ -206,6 +232,7 @@ let kreuzSieben: Card = {
 }
 let kreuzAcht: Card = {
     value: 26,
+    layValue: "26",
     renderValue:"Acht",
     color: "Schwarz",
     symbol: "♣",
@@ -213,6 +240,7 @@ let kreuzAcht: Card = {
 }
 let kreuzNeun: Card = {
     value: 27,
+    layValue: "27",
     renderValue:"Neun",
     color: "Schwarz",
     symbol: "♣",
@@ -220,6 +248,7 @@ let kreuzNeun: Card = {
 }
 let kreuzZehn: Card = {
     value: 28,
+    layValue: "28",
     renderValue:"Zehn",
     color: "Schwarz",
     symbol: "♣",
@@ -227,6 +256,7 @@ let kreuzZehn: Card = {
 }
 let kreuzBube: Card = {
     value: 29,
+    layValue: "29",
     renderValue:"Bube",
     color: "Schwarz",
     symbol: "♣",
@@ -234,6 +264,7 @@ let kreuzBube: Card = {
 }
 let kreuzDame: Card = {
     value: 30,
+    layValue: "30",
     renderValue:"Dame",
     color: "Schwarz",
     symbol: "♣",
@@ -241,6 +272,7 @@ let kreuzDame: Card = {
 }
 let kreuzKoenig: Card = {
     value: 31,
+    layValue: "31",
     renderValue:"König",
     color: "Schwarz",
     symbol: "♣",
@@ -248,6 +280,7 @@ let kreuzKoenig: Card = {
 }
 let kreuzAss: Card = {
     value: 32,
+    layValue: "32",
     renderValue:"Ass",
     color: "Schwarz",
     symbol: "♣",
@@ -270,7 +303,12 @@ function addListeners(){
             return;
         }
     });
-    document.getElementById("html").addEventListener('click',layCard); //wie kommen wir an den eigentlichen wert der Karte ??
+
+    document.getElementById("html").addEventListener('click',_cardEvent => {
+        console.log(_cardEvent);
+        layCard(_cardEvent);
+
+    }); //wie kommen wir an den eigentlichen wert der Karte ??
     document.getElementById("butt").addEventListener('click',sortCards);
     return;
 
@@ -278,12 +316,12 @@ function addListeners(){
 
 function drawCard():void { 
     if (cards.length == 0) { //abfrage, wieviele Karten noch da sind. 
-        alert("All work and no play, make Iven a dull boy. - Du hast alle Karten aufgebraucht")
+        alert("All work and no play, makes Iven a dull boy. - Du hast alle Karten aufgebraucht")
     }
 
     else {
     document.getElementById("html").innerHTML="";
-    //console.log("test");
+    console.log("Karte wurde gezogen");
     randomNumber(cards.length);
     handCards.push(cards.splice(ranNum,1)[0]);
     renderCards(handCards);
@@ -291,23 +329,46 @@ function drawCard():void {
     }
 }
 
-function layCard(){
-    console.log("test2");
-
+function layCard(_event:Event){
+    console.log("Karte legen wurde gewählt");
+    let clickedCard: HTMLElement = <HTMLElement>event.target;
+    console.log(clickedCard.getAttribute("id"));
+    for(let a:number = 0; a < handCards.length; a++){
+        if (clickedCard.getAttribute("id") == handCards[a].layValue) {
+            document.getElementById("legeKarte").innerHTML=""; //den ablgenestapel leeren 
+            stackCards.push(handCards.splice(a, 1)[0]);
+            console.log(stackCards);
+            let f:number = stackCards.length-1 //immer die letzte Karte an die funktion übergeben 
+            displayLayedCards(stackCards[f]);
+            document.getElementById("html").innerHTML=""; //alle Karten löschen um die übringen neu darzustellen
+            renderCards(handCards); //dann wieder alle Karten neu schreiben
+    }
+    }
 }
 
+function displayLayedCards(_layCards: Card): void {
+    let cardDiv = document.createElement('div');
+    let div = `<div class="${_layCards.classcss}" id="${_layCards.value}">
+        <p>${_layCards.renderValue}</p>
+        <p class="symbol">${_layCards.symbol}</p>
+        </div>
+    `;
+
+    cardDiv.innerHTML = div;
+
+    document.getElementById('legeKarte').appendChild(cardDiv);
+}
+
+//hier kommt alles zum sortieren
 function sortCards(){
     //console.log("test3");
-    arraySort();
-    document.getElementById("html").innerHTML = "";
-    console.log(handCards);
-    renderCards(handCards);
-}
-
-function arraySort() {
     handCards.sort(arraySortCondition);
+    document.getElementById("html").innerHTML = ""; //überschreibt die alten karten 
+    console.log(handCards); //zur sicherheit mal ausgeben 
+    renderCards(handCards); //das neu sortierte Array wird abgebildet 
 }
 
+//thanks very much to developer.mozilla
 function arraySortCondition(a: Card, b: Card): number { //warum hier ein fehler ist raffe ich nicht :/ 
     var sortA: number = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
     var sortB: number = b.value;
@@ -315,9 +376,8 @@ function arraySortCondition(a: Card, b: Card): number { //warum hier ein fehler 
     if (sortA == sortB) {return 0};
     if (sortA < sortB) {return -1};
 
-
 }
-
+//hier geht es weiter zu den altern funktionen
 
 function howManyCards(numCard:number):void{
     if(numCard==0){
@@ -362,7 +422,7 @@ function renderCards(_handCards: Card[]): void {
 
 function displayRandomCards(_html: string, _handCards: Card): void {
     let cardDiv = document.createElement('div');
-    let div = `<div class="${_handCards.classcss}">
+    let div = `<div class="${_handCards.classcss}" id="${_handCards.value}">
         <p>${_handCards.renderValue}</p>
         <p class="symbol">${_handCards.symbol}</p>
         </div>
