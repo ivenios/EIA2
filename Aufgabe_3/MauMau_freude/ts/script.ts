@@ -10,7 +10,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace MauMau {
     //funktionen die zubeginn ausgeführt werden müssen
     document.addEventListener('DOMContentLoaded', init); //rest der Funktion 
-    document.addEventListener('DOMContentLoaded', addListeners); //eventlisteners 
 
 interface Card {
     value: number;
@@ -294,26 +293,32 @@ let ranNum: number;
 
 function addListeners(){
     document.getElementById("zieheKarte").addEventListener('click',drawCard);
-    document.addEventListener("keydown", event => { //abfrage ob die leertaste (32) auch gedrückt wird, wenn nicht, dann passiert nichts 
-        console.log(event);
-        if (event.keyCode == 32){
+    document.addEventListener("keydown", keyEvent);//abfrage ob die leertaste (32) auch gedrückt wird, wenn nicht, dann passiert nichts 
+        
+
+    document.getElementById("html").addEventListener('click',_cardEvent);
+
+
+ //wie kommen wir an den eigentlichen wert der Karte ??
+    document.getElementById("butt").addEventListener('click',sortCards);
+    return;
+
+}
+function _cardEvent(_event:Event) :void {
+    console.log(_event);
+    layCard(_event);
+}
+function keyEvent(_event:KeyboardEvent):void {
+    console.log(_event);
+        if (_event.keyCode == 32){
             drawCard();
             return;
         }
         else { //wenn falsch, wird nicht ausgeführt
             return;
         }
-    });
-
-    document.getElementById("html").addEventListener('click',_cardEvent => {
-        console.log(_cardEvent);
-        layCard(_cardEvent);
-
-    }); //wie kommen wir an den eigentlichen wert der Karte ??
-    document.getElementById("butt").addEventListener('click',sortCards);
-    return;
-
 }
+
 
 function drawCard():void { 
     if (cards.length == 0) { //abfrage, wieviele Karten noch da sind. 
@@ -330,9 +335,10 @@ function drawCard():void {
     }
 }
 
-function layCard(_event:Event){
+function layCard(_event:Event):void{
     console.log("Karte legen wurde gewählt");
     let clickedCard: HTMLElement = <HTMLElement>event.target;
+    console.log(event);
     console.log(clickedCard.getAttribute("id"));
     for(let a:number = 0; a < handCards.length; a++){
         if (clickedCard.getAttribute("id") == handCards[a].layValue) {
@@ -348,9 +354,9 @@ function layCard(_event:Event){
 function displayLayedCards(htmlid:string , _layCards: Card): void {
     document.getElementById(htmlid).innerHTML=""; //den ablegenestapel leeren 
     let cardDiv = document.createElement('div');
-    let div = `<div class="${_layCards.classcss}" id="${_layCards.value}">
-        <p>${_layCards.renderValue}</p>
-        <p class="symbol">${_layCards.symbol}</p>
+    let div:string = `<div class="${_layCards.classcss}" id="${_layCards.value}">
+        <p id="${_layCards.value}">${_layCards.renderValue}</p>
+        <p id="${_layCards.value}" class="symbol">${_layCards.symbol}</p>
         </div>
     `;
 
@@ -362,7 +368,7 @@ function displayLayedCards(htmlid:string , _layCards: Card): void {
 }
 
 //hier kommt alles zum sortieren
-function sortCards(){
+function sortCards():void{
     //console.log("test3");
     handCards.sort(arraySortCondition);
     document.getElementById("html").innerHTML = ""; //überschreibt die alten karten 
@@ -371,12 +377,16 @@ function sortCards(){
 }
 
 //thanks very much to developer.mozilla
-function arraySortCondition(a: Card, b: Card): number { //warum hier ein fehler ist raffe ich nicht :/ 
+function arraySortCondition(a: Card, b: Card): 1 |0|-1 { //warum hier ein fehler ist raffe ich nicht :/ 
     let sortA: number = a.value; //value dient als universelle Reihenfolge der Karten (alle karten sind von 1 bis 32 durchnummeriert)
     let sortB: number = b.value;
-    if (sortA > sortB) {return 1};
-    if (sortA == sortB) {return 0};
-    if (sortA < sortB) {return -1};
+    if (sortA > sortB) 
+    {return 1};
+    if (sortA == sortB) 
+    {return 0};
+    if (sortA < sortB) 
+    {return -1};
+    return 0;
 
 }
 //hier geht es weiter zu den altern funktionen
@@ -425,8 +435,8 @@ function renderCards(_handCards: Card[]): void {
 function displayRandomCards(_html: string, _handCards: Card): void {
     let cardDiv = document.createElement('div');
     let div = `<div class="${_handCards.classcss}" id="${_handCards.value}">
-        <p>${_handCards.renderValue}</p>
-        <p class="symbol">${_handCards.symbol}</p>
+        <p id="${_handCards.value}">${_handCards.renderValue}</p>
+        <p class="symbol" id="${_handCards.value}">${_handCards.symbol}</p>
         </div>
     `;
 
@@ -455,6 +465,7 @@ function renderStapelz(_stapel: string):void {
 function init() {
     renderStapelz('stapel');
     howManyCards(numCard);
+    addListeners();
 
 }
 

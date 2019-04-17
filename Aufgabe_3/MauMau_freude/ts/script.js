@@ -10,7 +10,6 @@ var MauMau;
 (function (MauMau) {
     //funktionen die zubeginn ausgeführt werden müssen
     document.addEventListener('DOMContentLoaded', init); //rest der Funktion 
-    document.addEventListener('DOMContentLoaded', addListeners); //eventlisteners 
     // Herz Karten
     let herzSieben = {
         value: 1,
@@ -278,22 +277,25 @@ var MauMau;
     let ranNum;
     function addListeners() {
         document.getElementById("zieheKarte").addEventListener('click', drawCard);
-        document.addEventListener("keydown", event => {
-            console.log(event);
-            if (event.keyCode == 32) {
-                drawCard();
-                return;
-            }
-            else { //wenn falsch, wird nicht ausgeführt
-                return;
-            }
-        });
-        document.getElementById("html").addEventListener('click', _cardEvent => {
-            console.log(_cardEvent);
-            layCard(_cardEvent);
-        }); //wie kommen wir an den eigentlichen wert der Karte ??
+        document.addEventListener("keydown", keyEvent); //abfrage ob die leertaste (32) auch gedrückt wird, wenn nicht, dann passiert nichts 
+        document.getElementById("html").addEventListener('click', _cardEvent);
+        //wie kommen wir an den eigentlichen wert der Karte ??
         document.getElementById("butt").addEventListener('click', sortCards);
         return;
+    }
+    function _cardEvent(_event) {
+        console.log(_event);
+        layCard(_event);
+    }
+    function keyEvent(_event) {
+        console.log(_event);
+        if (_event.keyCode == 32) {
+            drawCard();
+            return;
+        }
+        else { //wenn falsch, wird nicht ausgeführt
+            return;
+        }
     }
     function drawCard() {
         if (cards.length == 0) { //abfrage, wieviele Karten noch da sind. 
@@ -311,6 +313,7 @@ var MauMau;
     function layCard(_event) {
         console.log("Karte legen wurde gewählt");
         let clickedCard = event.target;
+        console.log(event);
         console.log(clickedCard.getAttribute("id"));
         for (let a = 0; a < handCards.length; a++) {
             if (clickedCard.getAttribute("id") == handCards[a].layValue) {
@@ -325,8 +328,8 @@ var MauMau;
         document.getElementById(htmlid).innerHTML = ""; //den ablegenestapel leeren 
         let cardDiv = document.createElement('div');
         let div = `<div class="${_layCards.classcss}" id="${_layCards.value}">
-        <p>${_layCards.renderValue}</p>
-        <p class="symbol">${_layCards.symbol}</p>
+        <p id="${_layCards.value}">${_layCards.renderValue}</p>
+        <p id="${_layCards.value}" class="symbol">${_layCards.symbol}</p>
         </div>
     `;
         cardDiv.innerHTML = div;
@@ -358,6 +361,7 @@ var MauMau;
             return -1;
         }
         ;
+        return 0;
     }
     //hier geht es weiter zu den altern funktionen
     function howManyCards(numCard) {
@@ -393,8 +397,8 @@ var MauMau;
     function displayRandomCards(_html, _handCards) {
         let cardDiv = document.createElement('div');
         let div = `<div class="${_handCards.classcss}" id="${_handCards.value}">
-        <p>${_handCards.renderValue}</p>
-        <p class="symbol">${_handCards.symbol}</p>
+        <p id="${_handCards.value}">${_handCards.renderValue}</p>
+        <p class="symbol" id="${_handCards.value}">${_handCards.symbol}</p>
         </div>
     `;
         cardDiv.innerHTML = div;
@@ -415,6 +419,7 @@ var MauMau;
     function init() {
         renderStapelz('stapel');
         howManyCards(numCard);
+        addListeners();
     }
 })(MauMau || (MauMau = {}));
 //# sourceMappingURL=script.js.map
