@@ -291,7 +291,7 @@ let stackCards: Card[] = [];
 let numCard: number = 0;
 let ranNum: number;
 
-function addListeners(){
+function addListeners():void{
     document.getElementById("zieheKarte").addEventListener('click',drawCard);
     document.addEventListener("keydown", keyEvent);//abfrage ob die leertaste (32) auch gedrückt wird, wenn nicht, dann passiert nichts 
         
@@ -301,7 +301,7 @@ function addListeners(){
 
  //wie kommen wir an den eigentlichen wert der Karte ??
     document.getElementById("butt").addEventListener('click',sortCards);
-    return;
+
 
 }
 function _cardEvent(_event:Event) :void {

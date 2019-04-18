@@ -281,7 +281,6 @@ var MauMau;
         document.getElementById("html").addEventListener('click', _cardEvent);
         //wie kommen wir an den eigentlichen wert der Karte ??
         document.getElementById("butt").addEventListener('click', sortCards);
-        return;
     }
     function _cardEvent(_event) {
         console.log(_event);

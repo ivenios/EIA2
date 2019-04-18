@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DE.eis - Es kartongt im Rappel </title>#
+    <title>DE.eis - Es kartongt im Rappel </title>
     <script src="./ts/DEeis_script.js"></script>   
     <link rel="stylesheet" href="./css/DEeis_css.css"> 
 </head>
@@ -14,12 +14,57 @@
         <p>Dein Bestellwert:<span></span> </p>
     </header>
     <aside>
+        <div>
+            <fieldset id="Fortschritt">
+                <legend> Dein Fortschritt: </legend>
+                        Es ist nicht mehr lange, versprochen!
+                        <progress value="0" max="1"> </progress>
+                        <br/>
+            </fieldset>
+        </div>
         <p>
             Hier die Live Bestellzusammenfassung
         </p>
     </aside>
     <section>
-        hier die fieldsets
+        <fieldset id="Eissorten">
+            <legend>Unsere Eissorten</legend>
+        </fieldset>
+        <fieldset id="Darreichungsform">
+            <legend>Wie möchtest du dein Eis</legend>
+        </fieldset>
+        <fieldset id="Toppings"> 
+            <legend>Das beste kommt oben drauf:</legend>
+            <fieldset id="Streußel">
+                <legend>Streu-Streu-Streußel:</legend>
+            </fieldset>
+            <fieldset id="Saucen">
+                <legend>Sauce:</legend>
+            </fieldset>
+            <fieldset id="Sahne">
+                <legend>Aber bitte mit Sahne:</legend>
+            </fieldset>
+            <fieldset id="Specials">
+                <legend>Specials:</legend>
+            </fieldset>
+        </fieldset>
+        <fieldset id="Besteck">
+            <legend>Göffel oder Label?</legend>
+        </fieldset>
+        <fieldset id="Shipping">
+            <legend>Lieferung</legend>
+
+        </fieldset>
+        <fieldset id="Adressfeld">
+            <legend>Deine Daten:</legend>
+        </fieldset>
+        <fieldset id="AGB">
+            <legend>Unsere AGB:</legend>
+        </fieldset>
+        <fieldset id="Zahlung">
+            <legend>Jetzt fehlt nur noch das Geld: </legend>
+        </fieldset>
+        <button>Bestellung abschicken</button>
     </section>
 
 
