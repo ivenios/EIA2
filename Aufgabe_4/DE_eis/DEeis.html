@@ -17,18 +17,19 @@
         <div>
             <fieldset id="Fortschritt">
                 <legend> Dein Fortschritt: </legend>
-                        Es ist nicht mehr lange, versprochen!
-                        <progress value="0" max="1"> </progress>
-                        <br/>
+                    Es ist nicht mehr lange, versprochen!
+                <progress value="0" max="1"> </progress>
+                <p id="zusammenfassung">
+                  Hier die Live Bestellzusammenfassung
+                </p>
             </fieldset>
         </div>
-        <p>
-            Hier die Live Bestellzusammenfassung
-        </p>
+        
     </aside>
-    <section>
+    <section class="fieldsetcontainer">
         <fieldset id="Eissorten">
             <legend>Unsere Eissorten</legend>
+            <div>
                 <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
                 <select name="Select" id="select">
                     <optgroup label="Langweilig">
@@ -39,71 +40,151 @@
                     <option value="option3">Third Option</option>
                     <option value="option4">Fourth Option</option>
                 </select> 
+            </div>
+            <div>
+                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
+                <select name="Select" id="select">
+                    <optgroup label="Langweilig">
+                        <option value="option1">First Option</option>
+                        <option value="option2" selected>Second Option</option>
+                    </optgroup>
+                    <optgroup label="Mal was anderes!"></optgroup>
+                    <option value="option3">Third Option</option>
+                    <option value="option4">Fourth Option</option>
+                </select> 
+            </div>
+            <div>
+                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
+                <select name="Select" id="select">
+                    <optgroup label="Langweilig">
+                        <option value="option1">First Option</option>
+                        <option value="option2" selected>Second Option</option>
+                    </optgroup>
+                    <optgroup label="Mal was anderes!"></optgroup>
+                    <option value="option3">Third Option</option>
+                    <option value="option4">Fourth Option</option>
+                </select> 
+            </div>
+            <div>
+                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
+                <select name="Select" id="select">
+                    <optgroup label="Langweilig">
+                        <option value="option1">First Option</option>
+                        <option value="option2" selected>Second Option</option>
+                    </optgroup>
+                    <optgroup label="Mal was anderes!"></optgroup>
+                    <option value="option3">Third Option</option>
+                    <option value="option4">Fourth Option</option>
+                </select> 
+            </div>
         </fieldset>
         <fieldset id="Darreichungsform">
             <legend>Wie möchtest du dein Eis</legend>
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
+            <input type="radio" name="Formgroup" id="radio1">
+            <label for="radio1">Im Becher</label>
+            <input type="radio" name="Formgroup" id="radio2">
+            <label for="radio2">In der Waffel</label>
+            <input type="radio" name="Formgroup" id="radio3">
+            <label for="radio3">Im Bonzen Becher</label>
+            <input type="radio" name="Formgroup" id="radio4">
+            <label for="radio4">In der Schoko-Waffel</label>
         </fieldset>
         <fieldset id="Toppings"> 
             <legend>Das beste kommt oben drauf:</legend>
             <fieldset id="Streußel">
                 <legend>Streu-Streu-Streußel:</legend>
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="Streu1">
+                <label for="Streu1">Schoko</label>
+                <input type="checkbox" name="" id="Streu2">
+                <label for="Streu2">Snickers</label>
+                <input type="checkbox" name="" id="Streu3">
+                <label for="Streu3">Tropical</label>
+                <input type="checkbox" name="" id="Streu4">
+                <label for="Streu4">Schokolinsen</label>
+                <input type="checkbox" name="" id="Streu5">
+                <label for="Streu5">Lions</label>
+                <input type="checkbox" name="" id="Streu6">
+                <label for="Streu6">Bounty</label>
+                <input type="checkbox" name="" id="Streu7">
+                <label for="Streu7">Kit-Kat</label>
+                <input type="checkbox" name="" id="Streu8">
+                <label for="Streu8">Buchstabenstreußel</label>
             </fieldset>
             <fieldset id="Saucen">
                 <legend>Sauce:</legend>
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="Sau1">
+                <label for="Sau1">Schoko</label>
+                <input type="checkbox" name="" id="Sau2">
+                <label for="Sau2">Karamell</label>
+                <input type="checkbox" name="" id="Sau3">
+                <label for="Sau3">Vanille</label>
+                <input type="checkbox" name="" id="Sau4">
+                <label for="Sau4">Himbeere</label>
+                <input type="checkbox" name="" id="Sau5">
+                <label for="Sau5">Schlumpf</label>
+                <input type="checkbox" name="" id="Sau6">
+                <label for="Sau6">Apfel</label>
+                <input type="checkbox" name="" id="Sau7">
+                <label for="Sau7">Erdbeere</label>
+                <input type="checkbox" name="" id="Sau8">
+                <label for="Sau8">Salzsäure</label>
             </fieldset>
             <fieldset id="Sahne">
                 <legend>Aber bitte mit Sahne:</legend>
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
+                <input type="radio" name="Sahngroup" id="Sahn1">
+                <label for="Sahn1">Gewöhnliche Schlagsahne</label>
+                <input type="radio" name="Sahngroup" id="Sahn2">
+                <label for="Sahn2">Lactose-Frei</label>
+                <input type="radio" name="Sahngroup" id="Sahn3">
+                <label for="Sahn3">Vegane Sahneersatzprodukte</label>
+                <input type="radio" name="Sahngroup" id="Sahn4">
+                <label for="Sahn4">Schokosahne</label>
+                <input type="radio" name="Sahngroup" id="Sahn5">
+                <label for="Sahn5">Mehr Sahne als Eis</label>
             </fieldset>
             <fieldset id="Specials">
                 <legend>Specials:</legend>
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="Spec1">
+                <label for="Spec1">Wasabi</label>
+                <input type="checkbox" name="" id="Spec2">
+                <label for="Spec2">Geschmeltze Zwiebeln</label>
+                <input type="checkbox" name="" id="Spec3">
+                <label for="Spec3">Ibuprofen 800mg</label>
+                <input type="checkbox" name="" id="Spec4">
+                <label for="Spec4">Tabasco</label>
+                <input type="checkbox" name="" id="Spec5">
+                <label for="Spec5">Parmesan</label>
             </fieldset>
         </fieldset>
         <fieldset id="Besteck">
             <legend>Göffel oder Label?</legend>
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
+            <input type="radio" name="Besteckgroup" id="Best1">
+            <label for="Best1">Löffel</label>
+            <input type="radio" name="Besteckgroup" id="Best2">
+            <label for="Best2">Gabel</label>
+            <input type="radio" name="Besteckgroup" id="Best3">
+            <label for="Best3">Stäbchen</label>
+            <input type="radio" name="Besteckgroup" id="Best4">
+            <label for="Best4">Nur ich will ein Eis, aber jemand anderes ist auch noch dabei.</label>
         </fieldset>
         <fieldset id="Shipping">
             <legend>Lieferung</legend>
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
+            Wie willst du dein Eis? <br>
+            <input type="radio" name="Shipping1" id="Ship1">
+            <label for="Ship1">Gefroren</label>
+            <input type="radio" name="Shipping1" id="Ship2">
+            <label for="Ship2">DIY-Kit</label>
+            Wie schnell willst du dein Eis? <br>
+            <input type="radio" name="Shipping2" id="Ship3">
+            <label for="Ship3">Same Day</label>
+            <input type="radio" name="Shipping2" id="Ship4">
+            <label for="Ship4">Same Hour</label>
+            <input type="radio" name="Shipping2" id="Ship5">
+            <label for="Ship5">5-10 Werktage</label>
+            <input type="radio" name="Shipping2" id="Ship6">
+            <label for="Ship6">Beamen</label>
+            <input type="radio" name="Shipping2" id="Ship7">
+            <label for="Ship7">Möpsgeschwindigkeit</label>
         </fieldset>
         <fieldset id="Adressfeld">
             <legend>Deine Daten:</legend>
@@ -123,23 +204,31 @@
         </fieldset>
         <fieldset id="AGB">
             <legend>Unsere AGB:</legend>
-            <input type="checkbox" name="" id="">
-            <input type="checkbox" name="" id="">
-            <input type="checkbox" name="" id="">
-            <input type="checkbox" name="" id="">
+            <input type="radio" name="Agbgroup"  id="Agb2">
+            <label for="Agb1">Habe gelesen und bin einverstanden</label>
+            <input type="radio" name="Agbgroup"  id="Agb2">
+            <label for="Agb2">Nicht einverstanden</label>
+            <input type="radio" name="Agbgroup"  id="Agb3">
+            <label for="Agb3">Ich kann nicht lesen</label>
         </fieldset>
         <fieldset id="Zahlung">
             <legend>Jetzt fehlt nur noch das Geld: </legend>
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
-            <input type="radio" name="" id="">
+            <input type="radio" name="Zahlungsgroup" id="Zahl1">
+            <label for="Zahl1">PayMusk</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl2">
+            <label for="Zahl2">Überweisung</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl3">
+            <label for="Zahl3">Kreditkarte</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl4">
+            <label for="Zahl4">Rechnung</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl5">
+            <label for="Zahl5">Ivan kommt vorbei!</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl6">
+            <label for="Zahl6">Niere</label>
         </fieldset>
-        <button>Bestellung abschicken</button>
+        
     </section>
-
+    <button>Bestellung abschicken</button>
 
 
 </body>
