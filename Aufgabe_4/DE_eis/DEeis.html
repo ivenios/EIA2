@@ -29,19 +29,16 @@
     <section>
         <fieldset id="Eissorten">
             <legend>Unsere Eissorten</legend>
-            <input type="text" name="Datalist" list="options" id=""><input type="number" name="Stepper" step="1" min="0" max="25" value="0" id="">
-            <input type="text" name="Datalist" list="options" id=""><input type="number" name="Stepper" step="1" min="0" max="25" value="0" id="">
-            <input type="text" name="Datalist" list="options" id=""><input type="number" name="Stepper" step="1" min="0" max="25" value="0" id="">
-            <input type="text" name="Datalist" list="options" id=""><input type="number" name="Stepper" step="1" min="0" max="25" value="0" id="">
-            <datalist id="options">
-                    <option value="Butter"> </option>
-                    <option value="Milk"> </option>
-                    <option value="Flour"> </option>
-                    <option value="Sugar"> </option>
-                    <option value="Eggs"> </option>
-                    <option value="Salt"> </option>
-                    <option value="Bread"> </option>
-                </datalist>
+                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
+                <select name="Select" id="select">
+                    <optgroup label="Langweilig">
+                        <option value="option1">First Option</option>
+                        <option value="option2" selected>Second Option</option>
+                    </optgroup>
+                    <optgroup label="Mal was anderes!"></optgroup>
+                    <option value="option3">Third Option</option>
+                    <option value="option4">Fourth Option</option>
+                </select> 
         </fieldset>
         <fieldset id="Darreichungsform">
             <legend>Wie möchtest du dein Eis</legend>
@@ -54,32 +51,91 @@
             <legend>Das beste kommt oben drauf:</legend>
             <fieldset id="Streußel">
                 <legend>Streu-Streu-Streußel:</legend>
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
             </fieldset>
             <fieldset id="Saucen">
                 <legend>Sauce:</legend>
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
             </fieldset>
             <fieldset id="Sahne">
                 <legend>Aber bitte mit Sahne:</legend>
+                <input type="radio" name="" id="">
+                <input type="radio" name="" id="">
+                <input type="radio" name="" id="">
+                <input type="radio" name="" id="">
+                <input type="radio" name="" id="">
             </fieldset>
             <fieldset id="Specials">
                 <legend>Specials:</legend>
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" id="">
             </fieldset>
         </fieldset>
         <fieldset id="Besteck">
             <legend>Göffel oder Label?</legend>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
         </fieldset>
         <fieldset id="Shipping">
             <legend>Lieferung</legend>
-
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
         </fieldset>
         <fieldset id="Adressfeld">
             <legend>Deine Daten:</legend>
+            Dein Name:
+            <input type="text" name="Text" placeholder="type here" required/>
+            Deine e-Mail:
+            <input type="email" name="Mail" placeholder="place @ between"/>
+            Straße und Hausnummer:
+            <input type="text" name="Text" placeholder="type here" required/><input type="text" name="Text" placeholder="type here" required/>
+            PLZ: 
+            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" required/>
+            Stadt: 
+            <input type="text" name="Text" placeholder="type here" required/>
+            Telefonnummer: 
+            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597"/>
+            
         </fieldset>
         <fieldset id="AGB">
             <legend>Unsere AGB:</legend>
+            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="">
         </fieldset>
         <fieldset id="Zahlung">
             <legend>Jetzt fehlt nur noch das Geld: </legend>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
         </fieldset>
         <button>Bestellung abschicken</button>
     </section>

@@ -1,0 +1,30 @@
+* {
+	display: block;
+}
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+label::after {
+	content:"";
+	display: block;
+}
+head {
+	display: none;
+}
+input:invalid {
+	background: #F0C060;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: #aaaaaa;
+}
+fieldset {
+	width: 300px;
+}
+svg, figure, button, option {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
