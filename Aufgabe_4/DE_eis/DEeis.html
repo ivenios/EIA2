@@ -1,214 +1,406 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+    <!--
+        Aufgabe: Aufgabe 4 Eisdealer
+        Name: Iven Otis Sieglen 
+        Matrikel: 261012
+        Datum: Sonntag der 21. April
+            
+        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+        -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DE.eis - Es kartongt im Rappel </title>
-    <script src="./ts/DEeis_script.js"></script>   
-    <link rel="stylesheet" href="./css/DEeis_css.css"> 
+    <script src="./ts/DEeis_script.js"></script>
+    <link rel="stylesheet" href="./css/DEeis_css.css">
 </head>
+
 <body>
     <header>
         <h1>DE.eis - Lust auf Eis</h1>
-        <p>Dein Bestellwert:<span></span> </p>
+
     </header>
     <aside>
         <div>
-            <fieldset id="Fortschritt">
-                <legend> Dein Fortschritt: </legend>
-                    Es ist nicht mehr lange, versprochen!
-                <progress value="0" max="1"> </progress>
+            <div id="Fortschritt" class="fortschrittcointainer">
+
                 <p id="zusammenfassung">
-                  Hier die Live Bestellzusammenfassung
+                    Hier die Live Bestellzusammenfassung
                 </p>
-            </fieldset>
+                <p>
+                    Deine Eissorten:
+                    <p id="Sorte1"></p>
+                    <p id="Sorte2"></p>
+                    <p id="Sorte3"></p>
+                    <p id="Sorte4"></p>
+                </p>
+                <p id="BechoWaff"></p>
+                <p> Deine Toppings:
+                    <p id="Schoko-Steußel"></p>
+                    <p id="Snickers"></p>
+                    <p id="Tropical"></p>
+                    <p id="Schokolinsen"></p>
+                    <p id="Lions"></p>
+                    <p id="Bounty"></p>
+                    <p id="Kit-Kat"></p>
+                    <p id="Buchstabenstreußel"></p>
+                    <p id="Schoko-Sauce"></p>
+                    <p id="Karamell-Sauce"></p>
+                    <p id="Vanille-Sauce""></p>
+                    <p id="Himbeere-Sauce"></p>
+                    <p id="Schlumpf-Sauce"></p>
+                    <p id="Apfel-Sauce"></p>
+                    <p id="Erdbeere-Value"></p>
+                    <p id="Salzsäure"></p>
+                    <p id="Wasabi"></p>
+                    <p id="Geschmeltze Zwiebeln"></p>
+                    <p id="Ibuprofen 800mg"></p>
+                    <p id="Tabasco"></p>
+                    <p id="Parmesan"></p>
+                </p>
+                <p>Erste Sahne alles hier: 
+                    <p id="Gewohnliche Schlagsahne"></p>
+                    <p id="Lactose-Frei Schlagsahne"></p>
+                    <p id="Vegane Sahneersatzprodukte"></p> 
+                    <p id="Schokosahne"></p>
+                    <p id="Mehr Sahne als Eis"></p>   
+                
+                </p>
+                <p>Dein Bestellwert:<span id="Preis"></span> </p>
+                <button id="BestellButton">Bestellung abschicken</button>
+            </div>
         </div>
-        
+
     </aside>
     <section class="fieldsetcontainer">
-        <fieldset id="Eissorten">
+        <fieldset id="eisflavors">
+            <p>Eine Kugel egal welche Sorte, immer 1,55 Euro. </p>
             <legend>Unsere Eissorten</legend>
             <div>
-                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
-                <select name="Select" id="select">
+
+                <select name="Select1" id="select">
+                    <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup label="Langweilig">
-                        <option value="option1">First Option</option>
-                        <option value="option2" selected>Second Option</option>
+                            <option value="Erdbeere">Erdbeere</option>
+                            <option value="Vanille">Vanille</option>
+                            <option value="Schokolade">Schokolade</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Pistanzie">Pistanzi</option>
+                            <option value="Walnuss">Walnuss</option>
+                            <option value="Haselnuss">Haselnuss</option>
+                            <option value="Dunkle Schokolade">Dunkle Schokolade</option>
+                            <option value="Jogurt">Jogurt</option>
+                            <option value="Zitrone">Zitrone</option>
+                            <option value="Melone">Melone</option>
+                            <option value="Cassis">Cassis</option>
+                            <option value="Blaubeere">Blaubeere</option>
                     </optgroup>
-                    <optgroup label="Mal was anderes!"></optgroup>
-                    <option value="option3">Third Option</option>
-                    <option value="option4">Fourth Option</option>
-                </select> 
+                    <optgroup label="Mal was anderes!">
+                            <option value="Karamell-Meersalz">Karamell-Meersalz/option>
+                                    <option value="Weiße Schokolade">Weiße Schokolade</option>
+                                    <option value="Viagra">Hard Time ;)</option>
+                                    <option value="Muttermilch">Mutterlich</option>
+                                    <option value="Pferdefleisch">Pferdefleisch</option>
+                                    <option value="Tintenfischtinte">Tintenfischtinte</option>
+                                    <option value="Braunkohle">Braunkohle</option>
+                                    <option value="Farbwechselnde Eiscreme">Farbwechselnde Eiscreme</option>
+                                    <option value="Krokodileier">Krokodileier</option>
+                                    <option value="Tierfette">Tierfette</option>
+                                    <option value="Hummer">Hummer</option>
+                                    <option value="Cheesburger">Cheesburger</option>
+                                    <option value="Kiwi">Kiwi</option>
+                                    <option value="Beton&Asphalt">Beton&Asphalt</option>
+                                    <option value="Feinstaub aus Stuttgart">Euroklassen 1-5</option>
+                                    <option value="Black Mamba">Black Mamba</option>
+                                    <option value="Weißbier-Eis">Weißbier-Eis</option>
+                                    <option value="Erdbeer-Balsamico">Erdbeer-Balsamico</option>
+                                    <option value="Matcha-Eis">Matcha-Eis</option>
+                                    <option value="Acai-Beeren">Acai-Beeren</option>
+                                    <option value="Rote-Bete">Rote-Bete</option>
+                                    <option value="Sellerie-Eis">Sellerie-Eis</option>
+                    </optgroup>
+                </select>
+                <input type="number" name="Stepper1" step="1" min="0" max="55" value="0" />
             </div>
             <div>
-                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
-                <select name="Select" id="select">
+
+                <select name="Select2" id="select">
+                    <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup label="Langweilig">
-                        <option value="option1">First Option</option>
-                        <option value="option2" selected>Second Option</option>
+                            <option value="Erdbeere">Erdbeere</option>
+                            <option value="Vanille">Vanille</option>
+                            <option value="Schokolade">Schokolade</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Pistanzie">Pistanzi</option>
+                            <option value="Walnuss">Walnuss</option>
+                            <option value="Haselnuss">Haselnuss</option>
+                            <option value="Dunkle Schokolade">Dunkle Schokolade</option>
+                            <option value="Jogurt">Jogurt</option>
+                            <option value="Zitrone">Zitrone</option>
+                            <option value="Melone">Melone</option>
+                            <option value="Cassis">Cassis</option>
+                            <option value="Blaubeere">Blaubeere</option>
                     </optgroup>
-                    <optgroup label="Mal was anderes!"></optgroup>
-                    <option value="option3">Third Option</option>
-                    <option value="option4">Fourth Option</option>
-                </select> 
+                    <optgroup label="Mal was anderes!">
+                        <option value="Karamell-Meersalz">Karamell-Meersalz/option>
+                        <option value="Weiße Schokolade">Weiße Schokolade</option>
+                        <option value="Viagra">Hard Time ;)</option>
+                        <option value="Muttermilch">Mutterlich</option>
+                        <option value="Pferdefleisch">Pferdefleisch</option>
+                        <option value="Tintenfischtinte">Tintenfischtinte</option>
+                        <option value="Braunkohle">Braunkohle</option>
+                        <option value="Farbwechselnde Eiscreme">Farbwechselnde Eiscreme</option>
+                        <option value="Krokodileier">Krokodileier</option>
+                        <option value="Tierfette">Tierfette</option>
+                        <option value="Hummer">Hummer</option>
+                        <option value="Cheesburger">Cheesburger</option>
+                        <option value="Kiwi">Kiwi</option>
+                        <option value="Beton&Asphalt">Beton&Asphalt</option>
+                        <option value="Feinstaub aus Stuttgart">Euroklassen 1-5</option>
+                        <option value="Black Mamba">Black Mamba</option>
+                        <option value="Weißbier-Eis">Weißbier-Eis</option>
+                        <option value="Erdbeer-Balsamico">Erdbeer-Balsamico</option>
+                        <option value="Matcha-Eis">Matcha-Eis</option>
+                        <option value="Acai-Beeren">Acai-Beeren</option>
+                        <option value="Rote-Bete">Rote-Bete</option>
+                        <option value="Sellerie-Eis">Sellerie-Eis</option>
+
+                    </optgroup>
+                </select>
+                <input type="number" name="Stepper2" step="1" min="0" max="55" value="0" />
             </div>
             <div>
-                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
-                <select name="Select" id="select">
+
+                <select name="Select3" id="select">
+                    <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup label="Langweilig">
-                        <option value="option1">First Option</option>
-                        <option value="option2" selected>Second Option</option>
+                            <option value="Erdbeere">Erdbeere</option>
+                            <option value="Vanille">Vanille</option>
+                            <option value="Schokolade">Schokolade</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Pistanzie">Pistanzi</option>
+                            <option value="Walnuss">Walnuss</option>
+                            <option value="Haselnuss">Haselnuss</option>
+                            <option value="Dunkle Schokolade">Dunkle Schokolade</option>
+                            <option value="Jogurt">Jogurt</option>
+                            <option value="Zitrone">Zitrone</option>
+                            <option value="Melone">Melone</option>
+                            <option value="Cassis">Cassis</option>
+                            <option value="Blaubeere">Blaubeere</option>
                     </optgroup>
-                    <optgroup label="Mal was anderes!"></optgroup>
-                    <option value="option3">Third Option</option>
-                    <option value="option4">Fourth Option</option>
-                </select> 
+                    <optgroup label="Mal was anderes!">
+                            <option value="Karamell-Meersalz">Karamell-Meersalz/option>
+                                    <option value="Weiße Schokolade">Weiße Schokolade</option>
+                                    <option value="Viagra">Hard Time ;)</option>
+                                    <option value="Muttermilch">Mutterlich</option>
+                                    <option value="Pferdefleisch">Pferdefleisch</option>
+                                    <option value="Tintenfischtinte">Tintenfischtinte</option>
+                                    <option value="Braunkohle">Braunkohle</option>
+                                    <option value="Farbwechselnde Eiscreme">Farbwechselnde Eiscreme</option>
+                                    <option value="Krokodileier">Krokodileier</option>
+                                    <option value="Tierfette">Tierfette</option>
+                                    <option value="Hummer">Hummer</option>
+                                    <option value="Cheesburger">Cheesburger</option>
+                                    <option value="Kiwi">Kiwi</option>
+                                    <option value="Beton&Asphalt">Beton&Asphalt</option>
+                                    <option value="Feinstaub aus Stuttgart">Euroklassen 1-5</option>
+                                    <option value="Black Mamba">Black Mamba</option>
+                                    <option value="Weißbier-Eis">Weißbier-Eis</option>
+                                    <option value="Erdbeer-Balsamico">Erdbeer-Balsamico</option>
+                                    <option value="Matcha-Eis">Matcha-Eis</option>
+                                    <option value="Acai-Beeren">Acai-Beeren</option>
+                                    <option value="Rote-Bete">Rote-Bete</option>
+                                    <option value="Sellerie-Eis">Sellerie-Eis</option>
+                    </optgroup>
+                </select>
+                <input type="number" name="Stepper3" step="1" min="0" max="55" value="0" />
             </div>
             <div>
-                <input type="number" name="Stepper" step="1" min="0" max="5" value="0"/>
-                <select name="Select" id="select">
+
+                <select name="Select4" id="select">
+                    <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup label="Langweilig">
-                        <option value="option1">First Option</option>
-                        <option value="option2" selected>Second Option</option>
+                        <option value="Erdbeere">Erdbeere</option>
+                        <option value="Vanille">Vanille</option>
+                        <option value="Schokolade">Schokolade</option>
+                        <option value="Mango">Mango</option>
+                        <option value="Pistanzie">Pistanzi</option>
+                        <option value="Walnuss">Walnuss</option>
+                        <option value="Haselnuss">Haselnuss</option>
+                        <option value="Dunkle Schokolade">Dunkle Schokolade</option>
+                        <option value="Jogurt">Jogurt</option>
+                        <option value="Zitrone">Zitrone</option>
+                        <option value="Melone">Melone</option>
+                        <option value="Cassis">Cassis</option>
+                        <option value="Blaubeere">Blaubeere</option>
                     </optgroup>
-                    <optgroup label="Mal was anderes!"></optgroup>
-                    <option value="option3">Third Option</option>
-                    <option value="option4">Fourth Option</option>
-                </select> 
+                    <optgroup label="Mal was anderes!">
+                            <option value="Karamell-Meersalz">Karamell-Meersalz/option>
+                                    <option value="Weiße Schokolade">Weiße Schokolade</option>
+                                    <option value="Viagra">Hard Time ;)</option>
+                                    <option value="Muttermilch">Mutterlich</option>
+                                    <option value="Pferdefleisch">Pferdefleisch</option>
+                                    <option value="Tintenfischtinte">Tintenfischtinte</option>
+                                    <option value="Braunkohle">Braunkohle</option>
+                                    <option value="Farbwechselnde Eiscreme">Farbwechselnde Eiscreme</option>
+                                    <option value="Krokodileier">Krokodileier</option>
+                                    <option value="Tierfette">Tierfette</option>
+                                    <option value="Hummer">Hummer</option>
+                                    <option value="Cheesburger">Cheesburger</option>
+                                    <option value="Kiwi">Kiwi</option>
+                                    <option value="Beton&Asphalt">Beton&Asphalt</option>
+                                    <option value="Feinstaub aus Stuttgart">Euroklassen 1-5</option>
+                                    <option value="Black Mamba">Black Mamba</option>
+                                    <option value="Weißbier-Eis">Weißbier-Eis</option>
+                                    <option value="Erdbeer-Balsamico">Erdbeer-Balsamico</option>
+                                    <option value="Matcha-Eis">Matcha-Eis</option>
+                                    <option value="Acai-Beeren">Acai-Beeren</option>
+                                    <option value="Rote-Bete">Rote-Bete</option>
+                                    <option value="Sellerie-Eis">Sellerie-Eis</option>
+                    </optgroup>
+                </select>
+                <input type="number" name="Stepper4" step="1" min="0" max="55" value="0" />
             </div>
         </fieldset>
+
+
+
         <fieldset id="Darreichungsform">
             <legend>Wie möchtest du dein Eis</legend>
-            <input type="radio" name="Formgroup" id="radio1">
-            <label for="radio1">Im Becher</label>
-            <input type="radio" name="Formgroup" id="radio2">
-            <label for="radio2">In der Waffel</label>
-            <input type="radio" name="Formgroup" id="radio3">
-            <label for="radio3">Im Bonzen Becher</label>
-            <input type="radio" name="Formgroup" id="radio4">
-            <label for="radio4">In der Schoko-Waffel</label>
+            <input type="radio" name="Formgroup" id="radio1" value="Becher">
+            <label for="radio1">Im Becher (kostenlos)</label>
+            <input type="radio" name="Formgroup" id="radio2" value="Waffel">
+            <label for="radio2">In der Waffel (kostenlos)</label>
+            <input type="radio" name="Formgroup" id="radio4" value="Schoko-Waffel">
+            <label for="radio4">In der Schoko-Waffel (kostenlos)</label>
         </fieldset>
-        <fieldset id="Toppings"> 
-            <legend>Das beste kommt oben drauf:</legend>
-            <fieldset id="Streußel">
+
+
+
+        <div id="Toppings">
+            <p>Das beste kommt oben drauf (für 80ct das Stück):</p>
+            <fieldset id="Steußel">
                 <legend>Streu-Streu-Streußel:</legend>
-                <input type="checkbox" name="" id="Streu1">
+                <input type="checkbox" name="Schoko-Steußel" id="Streu1">
                 <label for="Streu1">Schoko</label>
-                <input type="checkbox" name="" id="Streu2">
+                <input type="checkbox" name="Snickers" id="Streu2">
                 <label for="Streu2">Snickers</label>
-                <input type="checkbox" name="" id="Streu3">
+                <input type="checkbox" name="Tropical" id="Streu3">
                 <label for="Streu3">Tropical</label>
-                <input type="checkbox" name="" id="Streu4">
+                <input type="checkbox" name="Schokolinsen" id="Streu4">
                 <label for="Streu4">Schokolinsen</label>
-                <input type="checkbox" name="" id="Streu5">
+                <input type="checkbox" name="Lions" id="Streu5">
                 <label for="Streu5">Lions</label>
-                <input type="checkbox" name="" id="Streu6">
+                <input type="checkbox" name="Bounty" id="Streu6">
                 <label for="Streu6">Bounty</label>
-                <input type="checkbox" name="" id="Streu7">
+                <input type="checkbox" name="Kit-Kat" id="Streu7">
                 <label for="Streu7">Kit-Kat</label>
-                <input type="checkbox" name="" id="Streu8">
+                <input type="checkbox" name="Buchstabenstreußel" id="Streu8">
                 <label for="Streu8">Buchstabenstreußel</label>
             </fieldset>
             <fieldset id="Saucen">
                 <legend>Sauce:</legend>
-                <input type="checkbox" name="" id="Sau1">
+                <input type="checkbox" name="Schoko-Sauce" id="Sau1">
                 <label for="Sau1">Schoko</label>
-                <input type="checkbox" name="" id="Sau2">
+                <input type="checkbox" name="Karamell-Sauce" id="Sau2">
                 <label for="Sau2">Karamell</label>
-                <input type="checkbox" name="" id="Sau3">
+                <input type="checkbox" name="Vanille-Sauce" id="Sau3">
                 <label for="Sau3">Vanille</label>
-                <input type="checkbox" name="" id="Sau4">
+                <input type="checkbox" name="Himbeere-Sauce" id="Sau4">
                 <label for="Sau4">Himbeere</label>
-                <input type="checkbox" name="" id="Sau5">
+                <input type="checkbox" name="Schlumpf-Sauce" id="Sau5">
                 <label for="Sau5">Schlumpf</label>
-                <input type="checkbox" name="" id="Sau6">
+                <input type="checkbox" name="Apfel-Sauce" id="Sau6">
                 <label for="Sau6">Apfel</label>
-                <input type="checkbox" name="" id="Sau7">
+                <input type="checkbox" name="Erdbeere-Value" id="Sau7">
                 <label for="Sau7">Erdbeere</label>
-                <input type="checkbox" name="" id="Sau8">
+                <input type="checkbox" name="Salzsäure" id="Sau8">
                 <label for="Sau8">Salzsäure</label>
             </fieldset>
             <fieldset id="Sahne">
                 <legend>Aber bitte mit Sahne:</legend>
-                <input type="radio" name="Sahngroup" id="Sahn1">
+                <input type="checkbox" name="Gewohnliche Schlagsahne" id="Sahn1" value="Gewohnliche Schlagsahne">
                 <label for="Sahn1">Gewöhnliche Schlagsahne</label>
-                <input type="radio" name="Sahngroup" id="Sahn2">
+                <input type="checkbox" name="Lactose-Frei Schlagsahne" id="Sahn2" value="Lactose-Frei Schlagsahne">
                 <label for="Sahn2">Lactose-Frei</label>
-                <input type="radio" name="Sahngroup" id="Sahn3">
+                <input type="checkbox" name="Vegane Sahneersatzprodukte" id="Sahn3" value="Vegane Sahneersatzprodukte">
                 <label for="Sahn3">Vegane Sahneersatzprodukte</label>
-                <input type="radio" name="Sahngroup" id="Sahn4">
+                <input type="checkbox" name="Schokosahne" id="Sahn4" value="Schokosahne">
                 <label for="Sahn4">Schokosahne</label>
-                <input type="radio" name="Sahngroup" id="Sahn5">
+                <input type="checkbox" name="Mehr Sahne als Eis" id="Sahn5" value="Mehr Sahne als Eis">
                 <label for="Sahn5">Mehr Sahne als Eis</label>
             </fieldset>
             <fieldset id="Specials">
                 <legend>Specials:</legend>
-                <input type="checkbox" name="" id="Spec1">
+                <input type="checkbox" name="Wasabi" id="Spec1" value="Wasabi">
                 <label for="Spec1">Wasabi</label>
-                <input type="checkbox" name="" id="Spec2">
+                <input type="checkbox" name="Geschmeltze Zwiebeln" id="Spec2" value="Geschmeltze Zwiebeln">
                 <label for="Spec2">Geschmeltze Zwiebeln</label>
-                <input type="checkbox" name="" id="Spec3">
+                <input type="checkbox" name="Ibuprofen 800mg" id="Spec3" value="Ibuprofen 800mg">
                 <label for="Spec3">Ibuprofen 800mg</label>
-                <input type="checkbox" name="" id="Spec4">
+                <input type="checkbox" name="Tabasco" id="Spec4" value="Tabasco">
                 <label for="Spec4">Tabasco</label>
-                <input type="checkbox" name="" id="Spec5">
+                <input type="checkbox" name="Parmesan" id="Spec5" value="Parmesan">
                 <label for="Spec5">Parmesan</label>
             </fieldset>
-        </fieldset>
+        </div>
         <fieldset id="Besteck">
             <legend>Göffel oder Label?</legend>
-            <input type="radio" name="Besteckgroup" id="Best1">
+            <input type="radio" name="Besteckgroup" id="Best1" value="Löffel">
             <label for="Best1">Löffel</label>
-            <input type="radio" name="Besteckgroup" id="Best2">
+            <input type="radio" name="Besteckgroup" id="Best2" value="Gabel">
             <label for="Best2">Gabel</label>
-            <input type="radio" name="Besteckgroup" id="Best3">
+            <input type="radio" name="Besteckgroup" id="Best3" value="Stäbchen">
             <label for="Best3">Stäbchen</label>
-            <input type="radio" name="Besteckgroup" id="Best4">
+            <input type="radio" name="Besteckgroup" id="Best4" value="Zwei Löffel">
             <label for="Best4">Nur ich will ein Eis, aber jemand anderes ist auch noch dabei.</label>
         </fieldset>
         <fieldset id="Shipping">
             <legend>Lieferung</legend>
             Wie willst du dein Eis? <br>
-            <input type="radio" name="Shipping1" id="Ship1">
+            <input type="radio" name="Shipping1" id="Ship1" value="Fertiges Eis">
             <label for="Ship1">Gefroren</label>
-            <input type="radio" name="Shipping1" id="Ship2">
+            <input type="radio" name="Shipping1" id="Ship2" value="Nicht fertiges Eis">
             <label for="Ship2">DIY-Kit</label>
             Wie schnell willst du dein Eis? <br>
-            <input type="radio" name="Shipping2" id="Ship3">
+            <input type="radio" name="Shipping2" id="Ship3" value="Same Day Delivery">
             <label for="Ship3">Same Day</label>
-            <input type="radio" name="Shipping2" id="Ship4">
+            <input type="radio" name="Shipping2" id="Ship4" value="Same Hour Delivery">
             <label for="Ship4">Same Hour</label>
-            <input type="radio" name="Shipping2" id="Ship5">
+            <input type="radio" name="Shipping2" id="Ship5" value="5-10 Werktage ">
             <label for="Ship5">5-10 Werktage</label>
-            <input type="radio" name="Shipping2" id="Ship6">
+            <input type="radio" name="Shipping2" id="Ship6" value="Beamen">
             <label for="Ship6">Beamen</label>
-            <input type="radio" name="Shipping2" id="Ship7">
+            <input type="radio" name="Shipping2" id="Ship7" value="Möpsgeschwindigkeit">
             <label for="Ship7">Möpsgeschwindigkeit</label>
         </fieldset>
         <fieldset id="Adressfeld">
             <legend>Deine Daten:</legend>
             Dein Name:
-            <input type="text" name="Text" placeholder="type here" required/>
+            <input type="text" name="Text" placeholder="type here" required />
             Deine e-Mail:
-            <input type="email" name="Mail" placeholder="place @ between"/>
+            <input type="email" name="Mail" placeholder="place @ between" />
             Straße und Hausnummer:
-            <input type="text" name="Text" placeholder="type here" required/><input type="text" name="Text" placeholder="type here" required/>
-            PLZ: 
-            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" required/>
-            Stadt: 
-            <input type="text" name="Text" placeholder="type here" required/>
-            Telefonnummer: 
-            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597"/>
-            
+            <input type="text" name="Text" placeholder="type here" required /><input type="text" name="Text"
+                placeholder="type here" required />
+            PLZ:
+            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" required />
+            Stadt:
+            <input type="text" name="Text" placeholder="type here" required />
+            Telefonnummer:
+            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" />
+
         </fieldset>
         <fieldset id="AGB">
             <legend>Unsere AGB:</legend>
-            <input type="radio" name="Agbgroup"  id="Agb2">
+            <input type="radio" name="Agbgroup" id="Agb2">
             <label for="Agb1">Habe gelesen und bin einverstanden</label>
-            <input type="radio" name="Agbgroup"  id="Agb2">
+            <input type="radio" name="Agbgroup" id="Agb2">
             <label for="Agb2">Nicht einverstanden</label>
-            <input type="radio" name="Agbgroup"  id="Agb3">
+            <input type="radio" name="Agbgroup" id="Agb3">
             <label for="Agb3">Ich kann nicht lesen</label>
         </fieldset>
         <fieldset id="Zahlung">
@@ -226,10 +418,11 @@
             <input type="radio" name="Zahlungsgroup" id="Zahl6">
             <label for="Zahl6">Niere</label>
         </fieldset>
-        
+
     </section>
-    <button>Bestellung abschicken</button>
+
 
 
 </body>
+
 </html>
