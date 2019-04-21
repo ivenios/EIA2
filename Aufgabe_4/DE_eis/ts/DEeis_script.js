@@ -19,6 +19,7 @@ var DEeis;
     let iceFlavor3;
     let iceFlavor4;
     let toppingNumber = 0;
+    let userName;
     function dealIce() {
         let formSet = document.getElementsByTagName('fieldset'); //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
         //console.log(formSet);
@@ -153,6 +154,28 @@ var DEeis;
         }
         else if (change.value == "Möpsgeschwindigkeit") {
             renderCategories("es kommt vielleicht an", "ShipTime");
+        }
+        // hier die Abfragen über Namen und co 
+        else if (change.name == "Name") {
+            renderCategories(change.value, "UserName");
+        }
+        else if (change.name == "Mail") {
+            renderCategories(change.value, "UserMail");
+        }
+        else if (change.name == "Street") {
+            renderCategories(change.value, "UserStreet");
+        }
+        else if (change.name == "Hausnr") {
+            renderCategories(change.value, "UserHouseNum");
+        }
+        else if (change.name == "PLZ") {
+            renderCategories(change.value, "UserPLZ");
+        }
+        else if (change.name == "Stadt") {
+            renderCategories(change.value, "UserCity");
+        }
+        else if (change.name == "Telenr") {
+            renderCategories(change.value, "UserTele");
         }
     }
     function completeOrder() {
