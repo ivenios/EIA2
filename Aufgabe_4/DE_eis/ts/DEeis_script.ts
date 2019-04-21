@@ -20,6 +20,11 @@ namespace DEeis {
     let iceFlavor4:string;
     let toppingNumber:number = 0;
     let userName:string;
+    let userStreet:string;
+    let userHousnr:string;
+    let userPLZ:string;
+    let UserCity:string;
+    let userMail:string;
 
 
 function dealIce ():void{
@@ -90,7 +95,6 @@ function checkValueAndChange(_event:Event):void{
     }
     //In welchem Gefäß möchte der Kunde sein Eis ? 
     else if(change.value == "Becher") {
-        console.log("test");
         renderCategories("Becher","BechoWaff");
     }
     else if(change.value == "Waffel"){
@@ -161,37 +165,66 @@ function checkValueAndChange(_event:Event):void{
     // hier die Abfragen über Namen und co 
     else if(change.name == "Name") {
         renderCategories(change.value,"UserName");
+        userName = change.value;
     }
     else if(change.name == "Mail") {
         renderCategories(change.value,"UserMail")
+        userMail = change.value;
     }
     else if(change.name == "Street") {
         renderCategories(change.value,"UserStreet")
+        userStreet = change.value;
     }
     else if(change.name == "Hausnr") {
         renderCategories(change.value,"UserHouseNum")
+        userHousnr = change.value;
     }
     else if(change.name == "PLZ") {
         renderCategories(change.value, "UserPLZ")
+        userPLZ = change.value;
     }
     else if(change.name == "Stadt") {
         renderCategories(change.value, "UserCity")
+        UserCity = change.value;
     }
     else if(change.name == "Telenr") {
         renderCategories(change.value, "UserTele")
     }
-
-
-
-
-
-
-
-
-
 }
 
 function completeOrder():void{
+    if(iceQuantity1+iceQuantity2+iceQuantity3+iceQuantity4 < 1) {
+        alert("Du musst Eis bestellen um Eis zu bekommen...");
+    }
+    else if(userName == undefined){
+        alert("Dein Namen, so schwer kann es doch nicht sein...");
+    }
+    else if(userMail == undefined) {
+        alert("Bist du auf den Kopf gefallen???? DEINE MAIL, GIB SIE AN!");
+    }
+    else if(userHousnr == undefined){
+        alert("WO sollen wir HIN LIEFERN... WENN WIR DEINE HAUSNUMMER NICHT HABEN ???");
+    }
+    else if(userPLZ == undefined){
+        alert("Mir reichts, deine POSTLEITZAHL BITTE");
+    }
+    else if(userStreet == undefined) {
+        alert("Bitte gib uns noch deine Straße an!");
+    }
+    else if(UserCity == undefined) {
+        alert("Deine Stadt bräuchten wir auch noch. ")
+    }
+    //hier dann noch die Abfrage für Becher, Zahlubngsmittel, shipping, AGB
+
+
+
+
+
+
+    else {
+        alert("Vielen Dank für deine Bestellung, sie wird in kürze bearbeitet")
+    }
+
 
 }
 
