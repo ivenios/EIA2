@@ -56,5 +56,9 @@ button {background-color: greenyellow;
     position:fixed;
     top: 0;
     right: 0;
+    border: 0.3rem solid blue;
+    width:40%;
+    height:30%;
+    overflow:scroll;
 
 }

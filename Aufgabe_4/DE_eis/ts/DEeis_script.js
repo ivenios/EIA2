@@ -25,6 +25,12 @@ var DEeis;
     let userPLZ;
     let UserCity;
     let userMail;
+    let userBecher;
+    let userGabel;
+    let userShipping;
+    let userShippingSpeed;
+    let userAGB;
+    let userPayment;
     function dealIce() {
         let formSet = document.getElementsByTagName('fieldset'); //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
         //console.log(formSet);
@@ -100,13 +106,15 @@ var DEeis;
         //In welchem Gefäß möchte der Kunde sein Eis ? 
         else if (change.value == "Becher") {
             renderCategories("Becher", "BechoWaff");
+            userBecher = change.value;
         }
         else if (change.value == "Waffel") {
             renderCategories("Waffel", "BechoWaff");
+            userBecher = change.value;
         }
         else if (change.value == "Schoko-Waffel") {
-            iceWorth += 2.50;
             renderCategories("Schoko-Waffel", "BechoWaff");
+            userBecher = change.value;
         }
         //jetzt kommen die ganzen Toppings, da toppings einen pauschal Preis haben, wird zubeginn gezählt, wie viele Toppings gewählt wurden
         else if (change.type == "checkbox") {
@@ -127,37 +135,48 @@ var DEeis;
         //jetzt kommt die Abfrage gabel oder löffel
         else if (change.value == "Löffel") {
             renderCategories("Löffel", "GaboLoff");
+            userGabel = change.value;
         }
         else if (change.value == "Gabel") {
             renderCategories("Gabel", "GaboLoff");
+            userGabel = change.value;
         }
         else if (change.value == "Stäbchen") {
             renderCategories("Stäbchen", "GaboLoff");
+            userGabel = change.value;
         }
         else if (change.value == "Zwei Löffel") {
             renderCategories("Zwei Löffel", "GaboLoff");
+            userGabel = change.value;
         }
         // jetzt kommt der Part mit den Delivery Arten
         else if (change.value == "Fertiges Eis") {
             renderCategories("als fertiges Eis", "ShipFormat");
+            userShipping = change.value;
         }
         else if (change.value == "Nicht fertiges Eis") {
             renderCategories("als DIY-Kit für extra Spass", "ShipFormat");
+            userShipping = change.value;
         }
         else if (change.value == "Same Day Delivery") {
             renderCategories("noch am selben Tag", "ShipTime");
+            userShippingSpeed = change.value;
         }
         else if (change.value == "Same Hour Delivery") {
             renderCategories("noch in der selben Stunde", "ShipTime");
+            userShippingSpeed = change.value;
         }
         else if (change.value == "5-10 Werktage ") {
             renderCategories("in 5-10 Werktagen", "ShipTime");
+            userShippingSpeed = change.value;
         }
         else if (change.value == "Beamen") {
             renderCategories(" das in den nächsten 10 Sekunden ", "ShipTime");
+            userShippingSpeed = change.value;
         }
         else if (change.value == "Möpsgeschwindigkeit") {
             renderCategories("es kommt vielleicht an", "ShipTime");
+            userShippingSpeed = change.value;
         }
         // hier die Abfragen über Namen und co 
         else if (change.name == "Name") {
@@ -187,30 +206,58 @@ var DEeis;
         else if (change.name == "Telenr") {
             renderCategories(change.value, "UserTele");
         }
+        else if (change.name == "Agbgroup") {
+            //console.log("test2")
+            userAGB = true;
+        }
+        else if (change.name == "Zahlungsgroup") {
+            userPayment = true;
+        }
     }
-    function completeOrder() {
+    function completeOrder(_event) {
         if (iceQuantity1 + iceQuantity2 + iceQuantity3 + iceQuantity4 < 1) {
             alert("Du musst Eis bestellen um Eis zu bekommen...");
         }
         else if (userName == undefined) {
-            alert("Dein Namen, so schwer kann es doch nicht sein...");
+            alert("Ohne Namen wird es sehr schwer das Eis zu liefen.");
         }
         else if (userMail == undefined) {
-            alert("Bist du auf den Kopf gefallen???? DEINE MAIL, GIB SIE AN!");
+            alert("Bitte gibt uns noch deine Mail-Adresse an, damit wir die Bestätigung versenden können");
         }
         else if (userHousnr == undefined) {
-            alert("WO sollen wir HIN LIEFERN... WENN WIR DEINE HAUSNUMMER NICHT HABEN ???");
+            alert("Bitte gib noch deine Hausnummer an");
         }
         else if (userPLZ == undefined) {
-            alert("Mir reichts, deine POSTLEITZAHL BITTE");
+            alert("Na, wie sieht es aus, welche PLZ hast du?");
         }
         else if (userStreet == undefined) {
-            alert("Bitte gib uns noch deine Straße an!");
+            alert("Bitte gib uns noch deine Straße an");
         }
         else if (UserCity == undefined) {
-            alert("Deine Stadt bräuchten wir auch noch. ");
+            alert("Bitte gib uns noch die Stadt an, in der du lebst");
         }
-        //hier dann noch die Abfrage für Becher, Zahlubngsmittel, shipping, AGB
+        else if (toppingNumber == 0) {
+            alert("Möchtest du keine Toppings? ;)");
+        }
+        else if (userBecher == undefined) {
+            alert("In was möchtest du dein Eis?");
+        }
+        else if (userShipping == undefined) {
+            alert("Wie möchtest du dein Eis erhalten?");
+        }
+        else if (userShippingSpeed == undefined) {
+            alert("Wie schnell soll dein Eis dich erreichen?");
+        }
+        else if (userGabel == undefined) {
+            alert("Möchtest du keinen Löffel?");
+        }
+        else if (userAGB == undefined) {
+            console.log("test");
+            alert("Bitte kreuze die AGB optionen an!");
+        }
+        else if (userPayment == undefined) {
+            alert("Bitte gib noch eine Zahlungsmöglichkeit an");
+        }
         else {
             alert("Vielen Dank für deine Bestellung, sie wird in kürze bearbeitet");
         }
