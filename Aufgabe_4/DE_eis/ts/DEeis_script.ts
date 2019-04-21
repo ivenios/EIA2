@@ -19,6 +19,7 @@ namespace DEeis {
     let iceFlavor3:string;
     let iceFlavor4:string;
     let toppingNumber:number = 0;
+    
 
 function dealIce ():void{
     let formSet: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName('fieldset'); //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
@@ -119,10 +120,43 @@ function checkValueAndChange(_event:Event):void{
             renderPrize();
         }
     }
+    //jetzt kommt die Abfrage gabel oder löffel
 
+    else if(change.value == "Löffel") {
+        renderCategories("Löffel","GaboLoff");
+    }
+    else if(change.value == "Gabel") {
+        renderCategories("Gabel","GaboLoff");
+    }
+    else if(change.value == "Stäbchen") {
+        renderCategories("Stäbchen","GaboLoff");
+    }
+    else if(change.value == "Zwei Löffel") {
+        renderCategories("Zwei Löffel", "GaboLoff");
+    }
 
-
-
+    // jetzt kommt der Part mit den Delivery Arten
+    else if(change.value == "Fertiges Eis") {
+        renderCategories("als fertiges Eis","ShipFormat");
+    }
+    else if(change.value == "Nicht fertiges Eis") {
+        renderCategories("als DIY-Kit für extra Spass", "ShipFormat");
+    }
+    else if(change.value == "Same Day Delivery") {
+        renderCategories("noch am selben Tag", "ShipTime");
+    }
+    else if(change.value == "Same Hour Delivery"){
+        renderCategories("noch in der selben Stunde", "ShipTime");
+    }
+    else if(change.value == "5-10 Werktage "){
+        renderCategories("in 5-10 Werktagen", "ShipTime");
+    }
+    else if(change.value == "Beamen") {
+        renderCategories(" das in den nächsten 10 Sekunden ","ShipTime");
+    }
+    else if(change.value == "Möpsgeschwindigkeit") {
+        renderCategories("es kommt vielleicht an","ShipTime");
+    }
 
 
 
@@ -175,12 +209,12 @@ function writeQuantiy4(_x:number, _y:string, _html:string):void{
     document.getElementById(_html).appendChild(pCon);
 
 }
-//funkion die die Darreichungsform anzeigt
+//funkion die die Darreichungsform und Löffel anzeigt
 function renderCategories(_r:string,_id:string):void{
     document.getElementById(_id).innerHTML="";
-    let pCon = document.createElement('p');
-    let p = `${_r}`;
-    pCon.innerHTML = p;
+    let pCon = document.createElement('span');
+    let span = `${_r}`;
+    pCon.innerHTML = span;
     document.getElementById(_id).appendChild(pCon);
 
     renderPrize();

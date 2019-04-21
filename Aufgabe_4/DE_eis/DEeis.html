@@ -37,7 +37,7 @@
                     <p id="Sorte3"></p>
                     <p id="Sorte4"></p>
                 </p>
-                <p id="BechoWaff"></p>
+                <p><span id="BechoWaff"></span> mit <span id="GaboLoff"></span></p> 
                 <p> Deine Toppings:
                     <p id="Schoko-Steußel"></p>
                     <p id="Snickers"></p>
@@ -68,6 +68,9 @@
                     <p id="Schokosahne"></p>
                     <p id="Mehr Sahne als Eis"></p>   
                 
+                </p>
+                <p>
+                    Du bekommst dein Eis <span id="ShipFormat"></span> und <span id="ShipTime"></span>
                 </p>
                 <p>Dein Bestellwert:<span id="Preis"></span> </p>
                 <button id="BestellButton">Bestellung abschicken</button>
@@ -380,27 +383,27 @@
         <fieldset id="Adressfeld">
             <legend>Deine Daten:</legend>
             Dein Name:
-            <input type="text" name="Text" placeholder="type here" required />
+            <input type="text" name="Text" placeholder="Miriam Musterfrau" required />
             Deine e-Mail:
-            <input type="email" name="Mail" placeholder="place @ between" />
+            <input type="email" name="Mail" placeholder="miriamxXxx.musterwoman@mail.com" />
             Straße und Hausnummer:
-            <input type="text" name="Text" placeholder="type here" required /><input type="text" name="Text"
-                placeholder="type here" required />
+            <input type="text" name="Text" placeholder="Langustenweg" required /><input type="text" name="Text"
+                placeholder="z.b.:2" required pattern="[0-9]" />
             PLZ:
-            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" required />
+            <input type="text" name="Pattern" pattern="[0-9]{5}" placeholder="z.B.70597" required />
             Stadt:
-            <input type="text" name="Text" placeholder="type here" required />
+            <input type="text" name="Text" placeholder="Furtwangen im Schwarzwald" required />
             Telefonnummer:
-            <input type="text" name="Pattern" pattern="[7-9]{3}" placeholder="z.B.70597" />
+            <input type="text" name="Pattern" pattern="[0-9]" placeholder="071112456" />
 
         </fieldset>
         <fieldset id="AGB">
             <legend>Unsere AGB:</legend>
-            <input type="radio" name="Agbgroup" id="Agb2">
+            <input type="radio" name="Agbgroup" id="Agb2" value="AGB gelesen">
             <label for="Agb1">Habe gelesen und bin einverstanden</label>
-            <input type="radio" name="Agbgroup" id="Agb2">
+            <input type="radio" name="Agbgroup" id="Agb2" value="AGB nnicht einverstanden">
             <label for="Agb2">Nicht einverstanden</label>
-            <input type="radio" name="Agbgroup" id="Agb3">
+            <input type="radio" name="Agbgroup" id="Agb3" value="Dumm">
             <label for="Agb3">Ich kann nicht lesen</label>
         </fieldset>
         <fieldset id="Zahlung">
