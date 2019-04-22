@@ -93,15 +93,15 @@ var DEeis;
         }
         else if (change.name == "Select2") {
             iceFlavor2 = change.value;
-            writeQuantiy1(iceQuantity2, iceFlavor2, "Sorte2");
+            writeQuantiy2(iceQuantity2, iceFlavor2, "Sorte2");
         }
         else if (change.name == "Select3") {
             iceFlavor3 = change.value;
-            writeQuantiy1(iceQuantity3, iceFlavor3, "Sorte3");
+            writeQuantiy3(iceQuantity3, iceFlavor3, "Sorte3");
         }
         else if (change.name == "Select4") {
             iceFlavor4 = change.value;
-            writeQuantiy1(iceQuantity4, iceFlavor4, "Sorte4");
+            writeQuantiy4(iceQuantity4, iceFlavor4, "Sorte4");
         }
         //In welchem Gefäß möchte der Kunde sein Eis ? 
         else if (change.value == "Becher") {
