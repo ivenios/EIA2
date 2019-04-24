@@ -36,7 +36,8 @@ input:required {
 	background: #aaaaaa;
 }
 fieldset {
-	width:450px;;
+    width:450px;
+    margin-top:10px;
 }
 svg, figure, button, option {
 	display: inline;
@@ -47,6 +48,7 @@ button {background-color: greenyellow;
 }
 
 .fieldsetcontainer {
+   
     display: flex;
     flex-wrap:wrap;
     flex-direction: column;
