@@ -1,0 +1,66 @@
+/*
+Aufgabe: Aufgabe 4 Eisdealer
+Name: Iven Otis Sieglen 
+Matrikel: 261012
+Datum: Sonntag der 21. April
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+* {
+    display: block;
+    background-color: dodgerblue;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+select {
+    background-color: white;
+    width: 250px;
+}
+head {
+	display: none;
+}
+label::after {
+	content:"";
+	display: block;
+}
+input:invalid {
+	background: #F0C060;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: #aaaaaa;
+}
+fieldset {
+    width:450px;
+    margin-top:10px;
+}
+svg, figure, button, option {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
+button {background-color: greenyellow;
+}
+
+.fieldsetcontainer {
+   
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+.fortschrittcointainer{
+    position:fixed;
+    top: 0;
+    right: 0;
+    border: 0.3rem solid blue;
+    width:40%;
+    height:30%;
+    overflow:scroll;
+
+}
