@@ -145,7 +145,6 @@ namespace EisDealerFreude {
     let userMail: string;
     let userBecher: string;
     let userGabel: string;
-    let userShipping: string;
     let userShippingSpeed: string;
     let userAGB: boolean;
     let userPayment:boolean;
@@ -158,7 +157,7 @@ namespace EisDealerFreude {
             if (iceFlavor1 == undefined) { alert("Bitte zuerst die Eissorte Wählen") }
             else {
                 iceQuantity1 = parseInt(change.value);
-                writeQuantiy1(iceQuantity1, iceFlavor1, "Sorte1");
+                writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
                 renderPrize();
             }
         }
@@ -166,7 +165,7 @@ namespace EisDealerFreude {
             if (iceFlavor2 == undefined) { alert("Bitte zuerst die Eissorte Wählen") }
             else {
                 iceQuantity2 = parseInt(change.value);
-                writeQuantiy2(iceQuantity2, iceFlavor2, "Sorte2");
+                writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
                 renderPrize();
             }
         }
@@ -174,7 +173,7 @@ namespace EisDealerFreude {
             if (iceFlavor3 == undefined) { alert("Bitte zuerst die Eissorte Wählen") }
             else {
                 iceQuantity3 = parseInt(change.value);
-                writeQuantiy3(iceQuantity3, iceFlavor3, "Sorte3");
+                writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
                 renderPrize();
             }
         }
@@ -182,26 +181,26 @@ namespace EisDealerFreude {
             if (iceFlavor4 == undefined) { alert("Bitte zuerst die Eissorte Wählen") }
             else {
                 iceQuantity4 = parseInt(change.value);
-                writeQuantiy4(iceQuantity4, iceFlavor4, "Sorte4");
+                writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
                 renderPrize();
             }
         }
         //Bestimmung welche Eissorte gewählt wurde. 
         else if (change.name == "Select1") {
             iceFlavor1 = change.value;
-            writeQuantiy1(iceQuantity1, iceFlavor1, "Sorte1");
+            writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
         }
         else if (change.name == "Select2") {
             iceFlavor2 = change.value;
-            writeQuantiy2(iceQuantity2, iceFlavor2, "Sorte2");
+            writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
         }
         else if (change.name == "Select3") {
             iceFlavor3 = change.value;
-            writeQuantiy3(iceQuantity3, iceFlavor3, "Sorte3");
+            writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
         }
         else if (change.name == "Select4") {
             iceFlavor4 = change.value;
-            writeQuantiy4(iceQuantity4, iceFlavor4, "Sorte4");
+            writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
         }
         //In welchem Gefäß möchte der Kunde sein Eis ? 
         else if (change.value == "Becher") {
@@ -223,11 +222,11 @@ namespace EisDealerFreude {
             if (change.checked == true) {
                 toppingNumber += 1;
                 let pCon = document.createElement('p');
-                let span = `${change.name}`;
+                let span = `${change.value}`;
 
                 pCon.innerHTML = span;
 
-                document.getElementById(change.name).appendChild(pCon);
+                document.getElementById("TopÜbersicht").appendChild(pCon);
                 renderPrize();
             }
 
@@ -257,14 +256,6 @@ namespace EisDealerFreude {
         }
 
         // jetzt kommt der Part mit den Delivery Arten
-        else if (change.value == "Fertiges Eis") {
-            renderCategories("als fertiges Eis", "ShipFormat");
-            userShipping = change.value;
-        }
-        else if (change.value == "Nicht fertiges Eis") {
-            renderCategories("als DIY-Kit für extra Spass", "ShipFormat");
-            userShipping = change.value;
-        }
         else if (change.value == "Same Day Delivery") {
             renderCategories("noch am selben Tag", "ShipTime");
             userShippingSpeed = change.value;
@@ -279,10 +270,6 @@ namespace EisDealerFreude {
         }
         else if (change.value == "Beamen") {
             renderCategories(" das in den nächsten 10 Sekunden ", "ShipTime");
-            userShippingSpeed = change.value;
-        }
-        else if (change.value == "Möpsgeschwindigkeit") {
-            renderCategories("es kommt vielleicht an", "ShipTime");
             userShippingSpeed = change.value;
         }
         // hier die Abfragen über Namen und co 
@@ -350,9 +337,6 @@ namespace EisDealerFreude {
             else if (userBecher == undefined) {
                 alert("In was möchtest du dein Eis?");
             }
-            else if (userShipping == undefined) {
-                alert("Wie möchtest du dein Eis erhalten?");
-            }
             else if (userShippingSpeed == undefined) {
                 alert("Wie schnell soll dein Eis dich erreichen?");
             }
@@ -374,7 +358,7 @@ namespace EisDealerFreude {
     
 
 
-    function writeQuantiy1(_x: number, _y: string, _html: string): void {
+    function writeIceChoice(_x: number, _y: string, _html: string): void {
         document.getElementById(_html).innerHTML = "";
         let pCon = document.createElement('p');
         let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
@@ -384,36 +368,7 @@ namespace EisDealerFreude {
         document.getElementById(_html).appendChild(pCon);
 
     }
-    function writeQuantiy2(_x: number, _y: string, _html: string): void {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-
-        pCon.innerHTML = p;
-
-        document.getElementById(_html).appendChild(pCon);
-
-    }
-    function writeQuantiy3(_x: number, _y: string, _html: string): void {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-
-        pCon.innerHTML = p;
-
-        document.getElementById(_html).appendChild(pCon);
-
-    }
-    function writeQuantiy4(_x: number, _y: string, _html: string): void {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-
-        pCon.innerHTML = p;
-
-        document.getElementById(_html).appendChild(pCon);
-
-    }
+   
     //funkion die die Darreichungsform und Löffel anzeigt
     function renderCategories(_r: string, _id: string): void {
         document.getElementById(_id).innerHTML = "";

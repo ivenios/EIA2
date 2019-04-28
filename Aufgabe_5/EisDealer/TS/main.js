@@ -119,7 +119,6 @@ var EisDealerFreude;
     let userMail;
     let userBecher;
     let userGabel;
-    let userShipping;
     let userShippingSpeed;
     let userAGB;
     let userPayment;
@@ -133,7 +132,7 @@ var EisDealerFreude;
             }
             else {
                 iceQuantity1 = parseInt(change.value);
-                writeQuantiy1(iceQuantity1, iceFlavor1, "Sorte1");
+                writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
                 renderPrize();
             }
         }
@@ -143,7 +142,7 @@ var EisDealerFreude;
             }
             else {
                 iceQuantity2 = parseInt(change.value);
-                writeQuantiy2(iceQuantity2, iceFlavor2, "Sorte2");
+                writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
                 renderPrize();
             }
         }
@@ -153,7 +152,7 @@ var EisDealerFreude;
             }
             else {
                 iceQuantity3 = parseInt(change.value);
-                writeQuantiy3(iceQuantity3, iceFlavor3, "Sorte3");
+                writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
                 renderPrize();
             }
         }
@@ -163,26 +162,26 @@ var EisDealerFreude;
             }
             else {
                 iceQuantity4 = parseInt(change.value);
-                writeQuantiy4(iceQuantity4, iceFlavor4, "Sorte4");
+                writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
                 renderPrize();
             }
         }
         //Bestimmung welche Eissorte gewählt wurde. 
         else if (change.name == "Select1") {
             iceFlavor1 = change.value;
-            writeQuantiy1(iceQuantity1, iceFlavor1, "Sorte1");
+            writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
         }
         else if (change.name == "Select2") {
             iceFlavor2 = change.value;
-            writeQuantiy2(iceQuantity2, iceFlavor2, "Sorte2");
+            writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
         }
         else if (change.name == "Select3") {
             iceFlavor3 = change.value;
-            writeQuantiy3(iceQuantity3, iceFlavor3, "Sorte3");
+            writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
         }
         else if (change.name == "Select4") {
             iceFlavor4 = change.value;
-            writeQuantiy4(iceQuantity4, iceFlavor4, "Sorte4");
+            writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
         }
         //In welchem Gefäß möchte der Kunde sein Eis ? 
         else if (change.value == "Becher") {
@@ -202,9 +201,9 @@ var EisDealerFreude;
             if (change.checked == true) {
                 toppingNumber += 1;
                 let pCon = document.createElement('p');
-                let span = `${change.name}`;
+                let span = `${change.value}`;
                 pCon.innerHTML = span;
-                document.getElementById(change.name).appendChild(pCon);
+                document.getElementById("TopÜbersicht").appendChild(pCon);
                 renderPrize();
             }
             if (change.checked == false) {
@@ -231,14 +230,6 @@ var EisDealerFreude;
             userGabel = change.value;
         }
         // jetzt kommt der Part mit den Delivery Arten
-        else if (change.value == "Fertiges Eis") {
-            renderCategories("als fertiges Eis", "ShipFormat");
-            userShipping = change.value;
-        }
-        else if (change.value == "Nicht fertiges Eis") {
-            renderCategories("als DIY-Kit für extra Spass", "ShipFormat");
-            userShipping = change.value;
-        }
         else if (change.value == "Same Day Delivery") {
             renderCategories("noch am selben Tag", "ShipTime");
             userShippingSpeed = change.value;
@@ -253,10 +244,6 @@ var EisDealerFreude;
         }
         else if (change.value == "Beamen") {
             renderCategories(" das in den nächsten 10 Sekunden ", "ShipTime");
-            userShippingSpeed = change.value;
-        }
-        else if (change.value == "Möpsgeschwindigkeit") {
-            renderCategories("es kommt vielleicht an", "ShipTime");
             userShippingSpeed = change.value;
         }
         // hier die Abfragen über Namen und co 
@@ -323,9 +310,6 @@ var EisDealerFreude;
         else if (userBecher == undefined) {
             alert("In was möchtest du dein Eis?");
         }
-        else if (userShipping == undefined) {
-            alert("Wie möchtest du dein Eis erhalten?");
-        }
         else if (userShippingSpeed == undefined) {
             alert("Wie schnell soll dein Eis dich erreichen?");
         }
@@ -343,28 +327,7 @@ var EisDealerFreude;
             alert("Vielen Dank für deine Bestellung, sie wird in kürze bearbeitet");
         }
     }
-    function writeQuantiy1(_x, _y, _html) {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-        pCon.innerHTML = p;
-        document.getElementById(_html).appendChild(pCon);
-    }
-    function writeQuantiy2(_x, _y, _html) {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-        pCon.innerHTML = p;
-        document.getElementById(_html).appendChild(pCon);
-    }
-    function writeQuantiy3(_x, _y, _html) {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-        pCon.innerHTML = p;
-        document.getElementById(_html).appendChild(pCon);
-    }
-    function writeQuantiy4(_x, _y, _html) {
+    function writeIceChoice(_x, _y, _html) {
         document.getElementById(_html).innerHTML = "";
         let pCon = document.createElement('p');
         let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
