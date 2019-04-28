@@ -81,10 +81,7 @@ namespace EisDealerFreude {
                     }
                 }
             }
-            else if (group == "Bestellübersicht") {
-                console.log("Bestellübersicht wird initialisiert");
-
-            }
+            
         }
     }
 
