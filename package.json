@@ -2,15 +2,16 @@
 	"name": "miniserver",
 	"version": "1.0.0",
 	"description": "Minimal server just bouncing the URL",
-	"author": "Jirka, adapted by Lukas",
+	"author": "Lukas, adapted by iOS",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufgabe_6/Server/Server.js"
+		"start": "node Aufgabe_6/EisDealerNode/Server/Server.ts"
 	},
 	"engines": {
 		"node": "8.11.3"
 	},
 	"dependencies": {
-		"@types/node": "^11.13.8"
+		"@types/node": "^11.13.8",
+		"node": "^12.1.0"
 	}
 }

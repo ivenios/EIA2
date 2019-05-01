@@ -1,4 +1,4 @@
-import * as Http from "http"; //importiert weitere nötige commands aus der package-lock damit der lint nicht ausrastet
+import * as Http from "http"; //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
 
 namespace EisDealerFreude {
 	console.log("Starting server"); //Starting Server wird ausgegeben
@@ -11,7 +11,7 @@ namespace EisDealerFreude {
 	server.addListener("listening", handleListen); //fügt einen eventListerner auf unseren Server, welche handleListen ausführt, wenn sich der Status des Servers auf "Listening" stellt
 	server.listen(port); // Gibt an, ob der Server auf Verbindungen wartet oder nicht.
 
-	function handleListen(): void {
+	function handleListen():void {
 		console.log("Listening"); //Listening wird ausgegeben 
 	}
 
@@ -27,4 +27,5 @@ namespace EisDealerFreude {
 
 		_response.end(); // beendet den response des servers und gibt in frei für weitere eingaben ? 
 	}
+	console.log(EisDealerFreude);
 }
