@@ -5,7 +5,7 @@
 	"author": "Jirka, adapted by Lukas",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufgabe_5/EisDealer/TS/main.js"
+		"start": "node Aufgabe_5/EisDealerNode/TS/main.js"
 	},
 	"engines": {
 		"node": "8.11.3"
