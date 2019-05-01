@@ -5,7 +5,7 @@
 	"author": "Jirka, adapted by Lukas",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufgabe_5/Client/SendData.html"
+		"start": "node Aufgabe_5/Client/SendData.js"
 	},
 	"engines": {
 		"node": "8.11.3"
