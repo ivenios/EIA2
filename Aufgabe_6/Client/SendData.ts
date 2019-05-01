@@ -1,8 +1,8 @@
 namespace L06_SendData {
     
-    let address: string = "http://localhost:8100";
+    //let address: string = "http://localhost:8100";
     document.addEventListener("DOMContentLoaded", init);
-    //let address: string = "ios-eia2.herokuapp.com";
+    let address: string = "ios-eia2.herokuapp.com";
 
     function init(_event: Event): void {
         setupColorDivs();

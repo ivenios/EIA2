@@ -1,53 +1,20 @@
 var EisDealerFreude;
 (function (EisDealerFreude) {
     /*
-        Aufgabe: Aufgabe 5 Eisdealer Reloaded
+        Aufgabe: Aufgabe 6 Eisdealer
         Name: Iven Otis Sieglen
         Matrikel: 261012
-        Datum: Sonntag der 28. April
+        Datum: Sonntag der 1. Mai
             
         Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
         */
-    let address = "https://ios-eia2.herokuapp.com";
     document.addEventListener('DOMContentLoaded', init);
     let lableNum = 0;
     function init() {
         renderFieldsets();
         addListeners();
-        setupColorDivs();
-    }
-    function setupColorDivs() {
-        let colors = ["red", "green", "blue"];
-        let divs = document.getElementsByTagName("div");
-        for (let i = 0; i < divs.length; i++) {
-            divs[i].style.backgroundColor = colors[i];
-            divs[i].addEventListener("click", handleClickOnDiv);
-        }
-    }
-    function handleClickOnDiv(_event) {
-        let style = _event.target.style;
-        console.log(style.backgroundColor);
-        sendRequestWithCustomData(style.backgroundColor);
-    }
-    function sendRequestWithCustomData(_color) {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?color=" + _color, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
-    }
-    function handleStateChange(_event) {
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
-            console.log("response: " + xhr.response);
-        }
     }
     function renderFieldsets() {
-        //zuerst werden alle inneren groups des iceDealerData Arrays durchgegangen mit for in 
-        //dannach abfrage um welchen Typ es sich handelt 
-        // Typ Options wird direkt zu einer anderen funktion verwiesen ( render Ice Cream), da dort nur die Optgroups geändert werden müssen
-        // dannach werden die Radiobuttons abgefragt, diese werden auf eine extra funktion verwiesen die sich allein um Radio Buttons kümmert
-        //zu guter letzt kommen noch die Checkboxen diese werden dann auch in eine extra funtkion verwiesen die sich nur um checkboxen kümmert #divideandconquer
         for (let group in EisDealerFreude.iceDealerData) {
             if (group == "Eissorten") { //mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 
                 console.log("Eissorten sind da");

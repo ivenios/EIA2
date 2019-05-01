@@ -1,15 +1,14 @@
 
 namespace EisDealerFreude {
     /*
-        Aufgabe: Aufgabe 5 Eisdealer Reloaded
+        Aufgabe: Aufgabe 6 Eisdealer
         Name: Iven Otis Sieglen 
         Matrikel: 261012
-        Datum: Sonntag der 28. April
+        Datum: Sonntag der 1. Mai
             
         Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
         */
 
-    let address: string = "https://ios-eia2.herokuapp.com";
 
     document.addEventListener('DOMContentLoaded', init);
     let lableNum: number = 0;
@@ -24,45 +23,11 @@ namespace EisDealerFreude {
     function init():void {
         renderFieldsets();
         addListeners();
-        setupColorDivs();
 
     }
-
-    function setupColorDivs(): void {
-        let colors: string[] = ["red", "green", "blue"];
-        let divs: HTMLCollectionOf<HTMLDivElement> = document.getElementsByTagName("div");
-        for (let i: number = 0; i < divs.length; i++) {
-            divs[i].style.backgroundColor = colors[i];
-            divs[i].addEventListener("click", handleClickOnDiv);
-        }
-    }
-    function handleClickOnDiv(_event: Event): void {
-        let style: CSSStyleDeclaration = (<HTMLElement>_event.target).style;
-        console.log(style.backgroundColor);
-        sendRequestWithCustomData(style.backgroundColor);
-    }
-    function sendRequestWithCustomData(_color: string): void {
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?color=" + _color, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
-    }
-
-    function handleStateChange(_event: ProgressEvent): void {
-        var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
-            console.log("response: " + xhr.response);
-        }
-    }
-
 
     function renderFieldsets(): void {
-        //zuerst werden alle inneren groups des iceDealerData Arrays durchgegangen mit for in 
-        //dannach abfrage um welchen Typ es sich handelt 
-        // Typ Options wird direkt zu einer anderen funktion verwiesen ( render Ice Cream), da dort nur die Optgroups geändert werden müssen
-        // dannach werden die Radiobuttons abgefragt, diese werden auf eine extra funktion verwiesen die sich allein um Radio Buttons kümmert
-        //zu guter letzt kommen noch die Checkboxen diese werden dann auch in eine extra funtkion verwiesen die sich nur um checkboxen kümmert #divideandconquer
+        
 
         for (let group in iceDealerData) {
             if (group == "Eissorten") {//mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 

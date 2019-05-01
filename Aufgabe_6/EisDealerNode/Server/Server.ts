@@ -1,6 +1,6 @@
 import * as Http from "http"; //importiert weitere nötige commands aus der package-lock damit der lint nicht ausrastet
 
-namespace L05_Server {
+namespace EisDealerFreude {
 	console.log("Starting server"); //Starting Server wird ausgegeben
 	let port: number = Number(process.env.PORT); //wir legen die globale Variable port an, um unseren Server zusagen, auf welchen port er hören soll
 	if (!port) //ist der port noch unklar, wird er in der Zeile darunter auf 8100 gesetzt
