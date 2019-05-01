@@ -1,5 +1,5 @@
 namespace L06_SendData {
-    let address: string = "https://ios-eia2.herokuapp.com";
+    //let address: string = "https://ios-eia2.herokuapp.com";
     //let address: string = "http://localhost:8100";
     window.addEventListener("load", init);
 
