@@ -21,7 +21,25 @@ var EisDealerFreude;
         let divs = document.getElementsByTagName("div");
         for (let i = 0; i < divs.length; i++) {
             divs[i].style.backgroundColor = colors[i];
-            //divs[i].addEventListener("click", handleClickOnDiv);
+            divs[i].addEventListener("click", handleClickOnDiv);
+        }
+    }
+    function handleClickOnDiv(_event) {
+        let style = _event.target.style;
+        console.log(style.backgroundColor);
+        sendRequestWithCustomData(style.backgroundColor);
+    }
+    function sendRequestWithCustomData(_color) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", address + "?color=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
         }
     }
     function renderFieldsets() {
