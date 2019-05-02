@@ -18,7 +18,8 @@ namespace EisDealerFreude {
 	//IncomingMessage: als erstes Argument an das Ereignis'request' bzw.'response' übergeben. Es kann verwendet werden, um auf den Antwortstatus, die Überschriften und die Daten zuzugreifen.
 	//ServerResponse: Er wird als zweiter Parameter an das Ereignis'request' übergeben.
 	function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //handleRequest übernummr die eingehendeMessage ( das was hinter das / geschrieben wird) und die Respons des Servers auf die Eingabe
-		console.log("I hear voices!"); // I hear voices wird ausgegben 
+		console.log("I hear voices!"); // I hear voices wird ausgegben
+		console.log(_request.url);  //sendet einen Teil des Antwortkörpers. an die Console
 
 		_response.setHeader("content-type", "text/html; charset=utf-8"); //gibt Vorgaben für den content und die vorschriften für das eingegebene in der URL-Zeile an
 		_response.setHeader("Access-Control-Allow-Origin", "*"); //CORS (Cross-Origin Resource Sharing) Header.Access-Control-Allow-Origin-Antwortkopf, um dem Browser mitzuteilen, dass der Inhalt dieser Seite für bestimmte Herkunft zugänglich ist.
