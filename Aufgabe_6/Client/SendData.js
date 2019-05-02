@@ -1,7 +1,7 @@
 var L06_SendData;
 (function (L06_SendData) {
-    let address = "https://ios-eia2.herokuapp.com";
-    //let address: string = "http://localhost:8100";
+    //let address: string = "https://ios-eia2.herokuapp.com";
+    let address = "http://localhost:8100";
     window.addEventListener("load", init);
     function init(_event) {
         setupColorDivs();
