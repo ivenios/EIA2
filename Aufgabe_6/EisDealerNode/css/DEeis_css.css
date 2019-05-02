@@ -45,6 +45,8 @@ svg, figure, button, option {
 	padding: 0px;
 }
 button {background-color: greenyellow;
+    display: block;
+    padding: 10px 10px 10px 10px;
 }
 
 .fieldsetcontainer {

@@ -347,14 +347,15 @@ var EisDealerFreude;
     //funktion mit den Server Sachen:
     function submitData() {
         console.log("Submit gefunden");
-        let urlSchreiben = "https://ios-eia2.herokuapp.com/";
+        let urlSchreiben = "http://ios-eia2.herokuapp.com/";
         let xhr = new XMLHttpRequest();
         for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
             urlSchreiben += `${EisDealerFreude.iceDealerData["Eissorten"][i].name}&`;
         }
         xhr.open("GET", urlSchreiben, true);
         xhr.send();
-        console.log(urlSchreiben);
+        // console.log(urlSchreiben);
+        // window.open(urlSchreiben);
     }
 })(EisDealerFreude || (EisDealerFreude = {}));
 //# sourceMappingURL=main.js.map
