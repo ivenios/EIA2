@@ -93,21 +93,21 @@ namespace EisDealerFreude {
             {name:"Mehr Sahne als Eis", type:"checkbox", value:"true" , price: 0.8, inStock: true},
         ],
         "Becher":[
-            {name:"Im Becher (kostenlos)", type:"radio", value:"radiogroup1" , price: 0, inStock: true},
-            {name:"In der Waffel (kostenlos)", type:"radio", value:"radiogroup1" , price: 0, inStock: true},
-            {name:"In der Schoko-Waffel (kostenlos)", type:"radio", value:"radiogroup1" , price: 0, inStock: true},
+            {name:"radiogroup1", type:"radio", value:"Im Becher (kostenlos)" , price: 0, inStock: true},
+            {name:"radiogroup1", type:"radio", value:"In der Waffel (kostenlos)" , price: 0, inStock: true},
+            {name:"radiogroup1", type:"radio", value:"In der Schoko-Waffel (kostenlos)" , price: 0, inStock: true},
         ],
         "Löffel":[
-            {name:"Löffel", type:"radio", value:"radiogroup2" , price: 0, inStock: true},
-            {name:"Gabel", type:"radio", value:"radiogroup2" , price: 0, inStock: true},
-            {name:"Stäbchen", type:"radio", value:"radiogroup2" , price: 0, inStock: true},
-            {name:"Wir sind zu Zweit", type:"radio", value:"radiogroup2" , price: 0, inStock: true},
+            {name:"radiogroup2", type:"radio", value:"Löffel" , price: 0, inStock: true},
+            {name:"radiogroup2", type:"radio", value:"Gabel" , price: 0, inStock: true},
+            {name:"radiogroup2", type:"radio", value:"Stäbchen" , price: 0, inStock: true},
+            {name:"radiogroup2", type:"radio", value:"Wir sind zu Zweit" , price: 0, inStock: true},
         ],
         "Lieferung":[
-            {name:"Same Day", type:"radio", value:"radiogroup3" , price: 0, inStock: true},
-            {name:"Same Hour", type:"radio", value:"radiogroup3" , price: 0, inStock: true},
-            {name:"5-10 Werktage", type:"radio", value:"radiogroup3" , price: 0, inStock: true},
-            {name:"Beamen", type:"radio", value:"radiogroup3" , price: 0, inStock: true},
+            {name:"radiogroup3", type:"radio", value:"Same Day" , price: 0, inStock: true},
+            {name:"radiogroup3", type:"radio", value:"Same Hour" , price: 0, inStock: true},
+            {name:"radiogroup3", type:"radio", value:"5-10 Werktage" , price: 0, inStock: true},
+            {name:"radiogroup3", type:"radio", value:"Beamen" , price: 0, inStock: true},
         ],
 
 	};

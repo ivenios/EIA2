@@ -54,7 +54,7 @@ var EisDealerFreude;
             else if (group == "Becher" || group == "Löffel" || group == "Lieferung") {
                 for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
                     if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                        writeHTML(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
+                        writeHTML2(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
                         lableNum++; //diese Variable ist dafür da, dass jeder Input und das dazugehörige Label eine gleiche ID bekommen, damit sie zusammen passen. 
                     }
                 }
@@ -93,6 +93,18 @@ var EisDealerFreude;
         topData.innerHTML = htmlString;
         document.getElementById(_currentID).appendChild(topData);
     }
+    //und Gott sah, dass der Code scheiße war und brachte ampelstufen auf diese Welt. 
+    function writeHTML2(_currentData, _currentID, _labelID) {
+        console.log(_currentData);
+        let topData = document.createElement("div");
+        let htmlString = `
+            <input type="${_currentData.type}" value="${_currentData.value}" name="${_currentData.name}" id="${_labelID}"> 
+            <label for="${_labelID}">${_currentData.value}</label>
+        
+        `;
+        topData.innerHTML = htmlString;
+        document.getElementById(_currentID).appendChild(topData);
+    }
     let iceWorth = 0;
     let iceFlavor1;
     let iceFlavor2;
@@ -103,7 +115,6 @@ var EisDealerFreude;
     let iceQuantity3 = 0;
     let iceQuantity4 = 0;
     let toppingNumber = 0;
-    let userGabel;
     let userAGB;
     let userPayment;
     function checkValueAndChange(_event) {
@@ -148,14 +159,14 @@ var EisDealerFreude;
             writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
         }
         //In welchem Gefäß möchte der Kunde sein Eis ? 
-        else if (change.name == "Im Becher (kostenlos)") {
-            renderCategories("Becher", "BechoWaff");
+        else if (change.value == "Im Becher (kostenlos)") {
+            renderCategories(change.value, "BechoWaff");
         }
-        else if (change.name == "In der Waffel (kostenlos)") {
-            renderCategories("Waffel", "BechoWaff");
+        else if (change.value == "In der Waffel (kostenlos)") {
+            renderCategories(change.value, "BechoWaff");
         }
-        else if (change.name == "In der Schoko-Waffel (kostenlos)") {
-            renderCategories("Schoko-Waffel", "BechoWaff");
+        else if (change.value == "In der Schoko-Waffel (kostenlos)") {
+            renderCategories(change.value, "BechoWaff");
         }
         //jetzt kommen die ganzen Toppings, da toppings einen pauschal Preis haben, wird zubeginn gezählt, wie viele Toppings gewählt wurden
         else if (change.type == "checkbox") {
@@ -175,33 +186,29 @@ var EisDealerFreude;
         }
         //jetzt kommt die Abfrage gabel oder löffel
         else if (change.value == "Löffel") {
-            renderCategories("Löffel", "GaboLoff");
-            userGabel = change.value;
+            renderCategories(change.value, "GaboLoff");
         }
         else if (change.value == "Gabel") {
-            renderCategories("Gabel", "GaboLoff");
-            userGabel = change.value;
+            renderCategories(change.value, "GaboLoff");
         }
         else if (change.value == "Stäbchen") {
-            renderCategories("Stäbchen", "GaboLoff");
-            userGabel = change.value;
+            renderCategories(change.value, "GaboLoff");
         }
-        else if (change.value == "Zwei Löffel") {
-            renderCategories("Zwei Löffel", "GaboLoff");
-            userGabel = change.value;
+        else if (change.value == "Wir sind zu Zweit") {
+            renderCategories(change.value, "GaboLoff");
         }
         // jetzt kommt der Part mit den Delivery Arten
         else if (change.value == "Same Day Delivery") {
-            renderCategories("noch am selben Tag", "ShipTime");
+            renderCategories(change.value, "ShipTime");
         }
         else if (change.value == "Same Hour Delivery") {
-            renderCategories("noch in der selben Stunde", "ShipTime");
+            renderCategories(change.value, "ShipTime");
         }
         else if (change.value == "5-10 Werktage ") {
-            renderCategories("in 5-10 Werktagen", "ShipTime");
+            renderCategories(change.value, "ShipTime");
         }
         else if (change.value == "Beamen") {
-            renderCategories(" das in den nächsten 10 Sekunden ", "ShipTime");
+            renderCategories(change.value, "ShipTime");
         }
         // hier die Abfragen über Namen und co 
         else if (change.name == "Name") {
@@ -236,9 +243,6 @@ var EisDealerFreude;
     function completeOrder(_event) {
         if (iceQuantity1 + iceQuantity2 + iceQuantity3 + iceQuantity4 < 1) {
             alert("Du musst Eis bestellen um Eis zu bekommen...");
-        }
-        else if (userGabel == undefined) {
-            alert("Möchtest du keinen Löffel?");
         }
         else if (userAGB == undefined) {
             console.log("test");
@@ -282,8 +286,6 @@ var EisDealerFreude;
         let xhr = new XMLHttpRequest();
         xhr.open("GET", urlSchreiben, true);
         xhr.send();
-        // console.log(urlSchreiben);
-        // window.open(urlSchreiben);
     }
     console.log(submitData);
 })(EisDealerFreude || (EisDealerFreude = {}));
