@@ -68,7 +68,7 @@
 
             <div>
 
-                <select name="Select1" id="IceOptGroup1">
+                <select name="EisSorte1" id="IceOptGroup1">
                     <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup id="IceOptionsOne1" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
                     <optgroup id="IceOptionsTwo1" label="Moderne Eissorten">Moderne Eissorten</optgroup>
@@ -78,7 +78,7 @@
             </div>
             <div>
 
-                <select name="Select2" id="IceOptGroup2">
+                <select name="EisSorte2" id="IceOptGroup2">
                     <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup id="IceOptionsOne2" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
                     <optgroup id="IceOptionsTwo2" label="Moderne Eissorten">Moderne Eissorten</optgroup>
@@ -87,7 +87,7 @@
             </div>
             <div>
 
-                <select name="Select3" id="IceOptGroup3">
+                <select name="EisSorte3" id="IceOptGroup3">
                     <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup id="IceOptionsOne3" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
                     <optgroup id="IceOptionsTwo3" label="Moderne Eissorten">Moderne Eissorten</optgroup>
@@ -97,7 +97,7 @@
             </div>
             <div>
 
-                <select name="Select4" id="IceOptGroup4">
+                <select name="EisSorte4" id="IceOptGroup4">
                     <option value="" selected>Wähle eine Eissorte</option>
                     <optgroup id="IceOptionsOne4" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
                     <optgroup id="IceOptionsTwo4" label="Moderne Eissorten">Moderne Eissorten</optgroup>
@@ -136,18 +136,18 @@
         <fieldset id="Adressfeld">
             <legend>Deine Daten:</legend>
             Dein Name:
-            <input type="text" name="Name" placeholder="Miriam Musterfrau" required />
+            <input type="text" name="Name" placeholder="Miriam Musterfrau" required value="" />
             Deine e-Mail:
             <input type="email" name="Mail" placeholder="miriamxXxx.musterwoman@mail.com" />
             Straße und Hausnummer:
             <input type="text" name="Street" placeholder="Langustenweg" required /><input type="text" name="Hausnr"
-                placeholder="z.b.:2" required pattern="[0-9]" />
+                placeholder="z.b.:2" required />
             PLZ:
             <input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="z.B.70597" required />
             Stadt:
             <input type="text" name="Stadt" placeholder="Furtwangen im Schwarzwald" required />
             Telefonnummer:
-            <input type="number" name="Telenr" placeholder="071112456" />
+            <input type="text" name="Telenr" pattern="[0-9] placeholder="071112456" />
 
         </fieldset>
         <fieldset id="AGB">
@@ -174,7 +174,7 @@
             <input type="radio" name="Zahlungsgroup" id="Zahl6">
             <label for="Zahl6">Niere</label>
         </fieldset>
-        <button type="submit"></button>
+        <button type="submit"> Bestellung absenden </button>
     </form>
 
 

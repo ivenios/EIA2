@@ -61,8 +61,9 @@ var EisDealerFreude;
             }
         }
     }
+    let formSet = document.getElementsByTagName('fieldset');
     function addListeners() {
-        let formSet = document.getElementsByTagName('fieldset'); //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
+        //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
         //console.log(formSet);
         let i = 0;
         while (i < formSet.length) {
@@ -71,14 +72,12 @@ var EisDealerFreude;
             i++;
         }
         document.getElementById('BestellButton').addEventListener('click', completeOrder); //wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
-        document.getElementById('SendeBestellung').addEventListener('click', submitData);
     }
     function writeHTMLIceFlavor(_currentData, _currentID) {
         console.log(_currentData);
         let optData = document.createElement("option");
         let htmlString = `
             <option value="${_currentData.name}">${_currentData.name}</option>
-        
         `;
         optData.innerHTML = htmlString;
         document.getElementById(_currentID).appendChild(optData);
@@ -87,7 +86,7 @@ var EisDealerFreude;
         console.log(_currentData);
         let topData = document.createElement("div");
         let htmlString = `
-            <input type="${_currentData.type}" value="${_currentData.name}" name="${_currentData.value}" id="${_labelID}"> 
+            <input type="${_currentData.type}" value="${_currentData.name}" name="${_currentData.name}" id="${_labelID}"> 
             <label for="${_labelID}">${_currentData.name}</label>
         
         `;
@@ -95,24 +94,16 @@ var EisDealerFreude;
         document.getElementById(_currentID).appendChild(topData);
     }
     let iceWorth = 0;
-    let iceQuantity1 = 0;
-    let iceQuantity2 = 0;
-    let iceQuantity3 = 0;
-    let iceQuantity4 = 0;
     let iceFlavor1;
     let iceFlavor2;
     let iceFlavor3;
     let iceFlavor4;
+    let iceQuantity1 = 0;
+    let iceQuantity2 = 0;
+    let iceQuantity3 = 0;
+    let iceQuantity4 = 0;
     let toppingNumber = 0;
-    let userName;
-    let userStreet;
-    let userHousnr;
-    let userPLZ;
-    let UserCity;
-    let userMail;
-    let userBecher;
     let userGabel;
-    let userShippingSpeed;
     let userAGB;
     let userPayment;
     function checkValueAndChange(_event) {
@@ -120,86 +111,63 @@ var EisDealerFreude;
         let change = _event.target;
         //zuerst die Anzahl der Eiskugeln bestimmen 
         if (change.name == "Stepper1") {
-            if (iceFlavor1 == undefined) {
-                alert("Bitte zuerst die Eissorte Wählen");
-            }
-            else {
-                iceQuantity1 = parseInt(change.value);
-                writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
-                renderPrize();
-            }
+            iceQuantity1 = parseInt(change.value);
+            writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
+            renderPrize();
         }
         else if (change.name == "Stepper2") {
-            if (iceFlavor2 == undefined) {
-                alert("Bitte zuerst die Eissorte Wählen");
-            }
-            else {
-                iceQuantity2 = parseInt(change.value);
-                writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
-                renderPrize();
-            }
+            iceQuantity2 = parseInt(change.value);
+            writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
+            renderPrize();
         }
         else if (change.name == "Stepper3") {
-            if (iceFlavor3 == undefined) {
-                alert("Bitte zuerst die Eissorte Wählen");
-            }
-            else {
-                iceQuantity3 = parseInt(change.value);
-                writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
-                renderPrize();
-            }
+            iceQuantity3 = parseInt(change.value);
+            writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
+            renderPrize();
         }
         else if (change.name == "Stepper4") {
-            if (iceFlavor4 == undefined) {
-                alert("Bitte zuerst die Eissorte Wählen");
-            }
-            else {
-                iceQuantity4 = parseInt(change.value);
-                writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
-                renderPrize();
-            }
+            iceQuantity4 = parseInt(change.value);
+            writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
+            renderPrize();
         }
         //Bestimmung welche Eissorte gewählt wurde. 
-        else if (change.name == "Select1") {
+        else if (change.name == "EisSorte1") {
             iceFlavor1 = change.value;
             writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
         }
-        else if (change.name == "Select2") {
+        else if (change.name == "EisSorte2") {
             iceFlavor2 = change.value;
             writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
         }
-        else if (change.name == "Select3") {
+        else if (change.name == "EisSorte3") {
             iceFlavor3 = change.value;
             writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
         }
-        else if (change.name == "Select4") {
+        else if (change.name == "EisSorte4") {
             iceFlavor4 = change.value;
             writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
         }
         //In welchem Gefäß möchte der Kunde sein Eis ? 
-        else if (change.value == "Becher") {
+        else if (change.name == "Im Becher (kostenlos)") {
             renderCategories("Becher", "BechoWaff");
-            userBecher = change.value;
         }
-        else if (change.value == "Waffel") {
+        else if (change.name == "In der Waffel (kostenlos)") {
             renderCategories("Waffel", "BechoWaff");
-            userBecher = change.value;
         }
-        else if (change.value == "Schoko-Waffel") {
+        else if (change.name == "In der Schoko-Waffel (kostenlos)") {
             renderCategories("Schoko-Waffel", "BechoWaff");
-            userBecher = change.value;
         }
         //jetzt kommen die ganzen Toppings, da toppings einen pauschal Preis haben, wird zubeginn gezählt, wie viele Toppings gewählt wurden
         else if (change.type == "checkbox") {
             if (change.checked == true) {
                 toppingNumber += 1;
-                let pCon = document.createElement('p');
-                let span = `${change.value}`;
-                pCon.innerHTML = span;
-                document.getElementById("TopÜbersicht").appendChild(pCon);
+                let ul = document.createElement('ul');
+                let span = `<li id="${change.name}">${change.name}</li>`;
+                ul.innerHTML = span;
+                document.getElementById("TopÜbersicht").appendChild(ul);
                 renderPrize();
             }
-            if (change.checked == false) {
+            else if (change.checked == false) {
                 toppingNumber -= 1;
                 document.getElementById(change.name).innerHTML = "";
                 renderPrize();
@@ -225,44 +193,34 @@ var EisDealerFreude;
         // jetzt kommt der Part mit den Delivery Arten
         else if (change.value == "Same Day Delivery") {
             renderCategories("noch am selben Tag", "ShipTime");
-            userShippingSpeed = change.value;
         }
         else if (change.value == "Same Hour Delivery") {
             renderCategories("noch in der selben Stunde", "ShipTime");
-            userShippingSpeed = change.value;
         }
         else if (change.value == "5-10 Werktage ") {
             renderCategories("in 5-10 Werktagen", "ShipTime");
-            userShippingSpeed = change.value;
         }
         else if (change.value == "Beamen") {
             renderCategories(" das in den nächsten 10 Sekunden ", "ShipTime");
-            userShippingSpeed = change.value;
         }
         // hier die Abfragen über Namen und co 
         else if (change.name == "Name") {
             renderCategories(change.value, "UserName");
-            userName = change.value;
         }
         else if (change.name == "Mail") {
             renderCategories(change.value, "UserMail");
-            userMail = change.value;
         }
         else if (change.name == "Street") {
             renderCategories(change.value, "UserStreet");
-            userStreet = change.value;
         }
         else if (change.name == "Hausnr") {
             renderCategories(change.value, "UserHouseNum");
-            userHousnr = change.value;
         }
         else if (change.name == "PLZ") {
             renderCategories(change.value, "UserPLZ");
-            userPLZ = change.value;
         }
         else if (change.name == "Stadt") {
             renderCategories(change.value, "UserCity");
-            UserCity = change.value;
         }
         else if (change.name == "Telenr") {
             renderCategories(change.value, "UserTele");
@@ -278,33 +236,6 @@ var EisDealerFreude;
     function completeOrder(_event) {
         if (iceQuantity1 + iceQuantity2 + iceQuantity3 + iceQuantity4 < 1) {
             alert("Du musst Eis bestellen um Eis zu bekommen...");
-        }
-        else if (userName == undefined) {
-            alert("Ohne Namen wird es sehr schwer das Eis zu liefen.");
-        }
-        else if (userMail == undefined) {
-            alert("Bitte gibt uns noch deine Mail-Adresse an, damit wir die Bestätigung versenden können");
-        }
-        else if (userHousnr == undefined) {
-            alert("Bitte gib noch deine Hausnummer an");
-        }
-        else if (userPLZ == undefined) {
-            alert("Na, wie sieht es aus, welche PLZ hast du?");
-        }
-        else if (userStreet == undefined) {
-            alert("Bitte gib uns noch deine Straße an");
-        }
-        else if (UserCity == undefined) {
-            alert("Bitte gib uns noch die Stadt an, in der du lebst");
-        }
-        else if (toppingNumber == 0) {
-            alert("Möchtest du keine Toppings? ;)");
-        }
-        else if (userBecher == undefined) {
-            alert("In was möchtest du dein Eis?");
-        }
-        else if (userShippingSpeed == undefined) {
-            alert("Wie schnell soll dein Eis dich erreichen?");
         }
         else if (userGabel == undefined) {
             alert("Möchtest du keinen Löffel?");
@@ -349,13 +280,11 @@ var EisDealerFreude;
         console.log("Submit gefunden");
         let urlSchreiben = "http://ios-eia2.herokuapp.com/";
         let xhr = new XMLHttpRequest();
-        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
-            urlSchreiben += `${EisDealerFreude.iceDealerData["Eissorten"][i].name}&`;
-        }
         xhr.open("GET", urlSchreiben, true);
         xhr.send();
         // console.log(urlSchreiben);
         // window.open(urlSchreiben);
     }
+    console.log(submitData);
 })(EisDealerFreude || (EisDealerFreude = {}));
 //# sourceMappingURL=main.js.map
