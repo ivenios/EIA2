@@ -86,7 +86,7 @@ var EisDealerFreude;
         console.log(_currentData);
         let topData = document.createElement("div");
         let htmlString = `
-            <input type="${_currentData.type}" value="${_currentData.name}" name="${_currentData.name}" id="${_labelID}"> 
+            <input type="${_currentData.type}" value="${_currentData.value}" name="${_currentData.name}" id="${_labelID}"> 
             <label for="${_labelID}">${_currentData.name}</label>
         
         `;

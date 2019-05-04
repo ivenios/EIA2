@@ -105,7 +105,7 @@ namespace EisDealerFreude {
         console.log(_currentData);
         let topData = document.createElement("div");
         let htmlString = `
-            <input type="${_currentData.type}" value="${_currentData.name}" name="${_currentData.name}" id="${_labelID}"> 
+            <input type="${_currentData.type}" value="${_currentData.value}" name="${_currentData.name}" id="${_labelID}"> 
             <label for="${_labelID}">${_currentData.name}</label>
         
         `;
@@ -332,6 +332,7 @@ namespace EisDealerFreude {
         console.log("Submit gefunden"); 
         let urlSchreiben: string = "http://ios-eia2.herokuapp.com/";
         let xhr: XMLHttpRequest = new XMLHttpRequest();
+
 
 
         xhr.open("GET", urlSchreiben, true);
