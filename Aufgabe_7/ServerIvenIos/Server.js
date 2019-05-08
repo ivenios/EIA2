@@ -22,6 +22,7 @@ var EisDealerFreude;
         console.log(_request.url); //sendet einen Teil des Antwortkörpers. an die Console
         _response.setHeader("content-type", "text/html; charset=utf-8"); //gibt Vorgaben für den content und die vorschriften für das eingegebene in der URL-Zeile an
         _response.setHeader("Access-Control-Allow-Origin", "*"); //CORS (Cross-Origin Resource Sharing) Header.Access-Control-Allow-Origin-Antwortkopf, um dem Browser mitzuteilen, dass der Inhalt dieser Seite für bestimmte Herkunft zugänglich ist.
+        _response.write("<h1>Ihr Bestellung:</h1> <p>Wir werden ihre Bestellung in kürze bearbeiten, bitte checken Sie ihre Emails, gelegentlich landen Mails im Spam Ordner</p><br/><br/><br/><br/>");
         let url = Url.parse(_request.url, true);
         for (let key in url.query)
             _response.write(key + ":" + url.query[key] + "<br/>"); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
