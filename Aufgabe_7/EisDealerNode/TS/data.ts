@@ -16,20 +16,21 @@ namespace EisDealerFreude {
 			//{name:"Langweilige Eissorten", type:"optgroup", value:"IceOptionsOne" , price: 0, inStock: true },
             //{name:"Moderne Eissorten", type:"optgroup", value:"IceOptionsTwo" , price: 0, inStock: true },
             //dann werden die Eissorten sortiert 
-            {name:"Erdbeere", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Vanille", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Schokolade", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Mango", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Pistanzie", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Walnuss", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Haselnuss", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Dunkle-Schokolade", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Jogurt", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Zitrone", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Melone", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Cassis", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
-            {name:"Blaubeere", type:"options", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Erdbeere", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Vanille", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Schokolade", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Mango", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Pistanzie", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Walnuss", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Haselnuss", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Dunkle-Schokolade", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Jogurt", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Zitrone", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Melone", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Cassis", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
+            {name:"Blaubeere", type:"number", value:"Langweilige Eissorten" , price: 1.55, inStock: true },
             //optgroup2
+            /*
             {name:"Karamell-Meersalz", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
             {name:"Weiße-Schokolade", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
             {name:"HardTime", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
@@ -51,7 +52,7 @@ namespace EisDealerFreude {
             {name:"Matcha-Eis", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
             {name:"Acai-Beeren", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
             {name:"Rote-Bete", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true },
-            {name:"Sellerie-Eis", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true }
+            {name:"Sellerie-Eis", type:"options", value:"Moderne Eissorten" , price: 1.55, inStock: true }*/
 		],
 		"Streußel": [
             {name:"Schoko-Steußel", type:"checkbox", value:"true" , price: 0.80, inStock: true},

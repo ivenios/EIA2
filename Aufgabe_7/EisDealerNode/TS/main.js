@@ -19,25 +19,8 @@ var EisDealerFreude;
             if (group == "Eissorten") { //mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 
                 console.log("Eissorten sind da");
                 for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].type == "options") {
-                        console.log("Eissorte " + EisDealerFreude.iceDealerData[group][i].name + " wird geladen");
-                        if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                            if (EisDealerFreude.iceDealerData[group][i].value == "Langweilige Eissorten") {
-                                let a = 1;
-                                while (a <= 4) {
-                                    writeHTMLIceFlavor(EisDealerFreude.iceDealerData[group][i], "IceOptionsOne" + a);
-                                    a++;
-                                }
-                            }
-                            else if (EisDealerFreude.iceDealerData[group][i].value == "Moderne Eissorten") {
-                                let a = 1;
-                                while (a <= 4) {
-                                    writeHTMLIceFlavor(EisDealerFreude.iceDealerData[group][i], "IceOptionsTwo" + a);
-                                    a++;
-                                }
-                            }
-                        }
-                    }
+                    writeHTML(EisDealerFreude.iceDealerData[group][i], "Eissorten", "Lable" + lableNum);
+                    lableNum++;
                 }
                 //hier eine funktion die sich um die Eissorten kümmert
             }
@@ -73,15 +56,6 @@ var EisDealerFreude;
         }
         document.getElementById('BestellButton').addEventListener('click', completeOrder); //wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
         document.getElementById('submit').addEventListener('click', submitData);
-    }
-    function writeHTMLIceFlavor(_currentData, _currentID) {
-        console.log(_currentData);
-        let optData = document.createElement("option");
-        let htmlString = `
-            <option value="${_currentData.name}">${_currentData.name}</option>
-        `;
-        optData.innerHTML = htmlString;
-        document.getElementById(_currentID).appendChild(optData);
     }
     function writeHTML(_currentData, _currentID, _labelID) {
         console.log(_currentData);
