@@ -90,6 +90,7 @@ namespace EisDealerFreude {
             i++;
         }
         document.getElementById('BestellButton').addEventListener('click', completeOrder);//wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
+        document.getElementById('submit').addEventListener('click', submitData);
     }
 
     function writeHTMLIceFlavor(_currentData: fieldsetData, _currentID: string): void {
@@ -337,13 +338,10 @@ namespace EisDealerFreude {
 
     function submitData(): void {
         console.log("Submit gefunden"); 
-        let urlSchreiben: string = "http://ios-eia2.herokuapp.com/";
+        let urlSchreiben: string = "http://ios-eia2.herokuapp.com/?name=hello";
         let xhr: XMLHttpRequest = new XMLHttpRequest();
 
-
-
-        xhr.open("GET", urlSchreiben, true);
-        xhr.send();
+        xhr.send(urlSchreiben);
     }
     console.log(submitData);
 

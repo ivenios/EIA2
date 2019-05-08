@@ -72,6 +72,7 @@ var EisDealerFreude;
             i++;
         }
         document.getElementById('BestellButton').addEventListener('click', completeOrder); //wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
+        document.getElementById('submit').addEventListener('click', submitData);
     }
     function writeHTMLIceFlavor(_currentData, _currentID) {
         console.log(_currentData);
@@ -282,10 +283,9 @@ var EisDealerFreude;
     //funktion mit den Server Sachen:
     function submitData() {
         console.log("Submit gefunden");
-        let urlSchreiben = "http://ios-eia2.herokuapp.com/";
+        let urlSchreiben = "http://ios-eia2.herokuapp.com/?name=hello";
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", urlSchreiben, true);
-        xhr.send();
+        xhr.send(urlSchreiben);
     }
     console.log(submitData);
 })(EisDealerFreude || (EisDealerFreude = {}));
