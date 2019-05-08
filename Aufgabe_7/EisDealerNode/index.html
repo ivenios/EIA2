@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<!--
+        Aufgabe: Aufgabe 5 Eisdealer Reloaded
+        Name: Iven Otis Sieglen 
+        Matrikel: 261012
+        Datum: Sonntag der 28. April
+            
+        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+        -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/DEeis_css.css">
+    <script src="./TS/main.js"></script>
+    <script src="./TS/data.js"></script>
+    <title>Eis.de ;)</title>
+</head>
+
+<body>
+        <header>
+                <h1>DE.eis - Lust auf Eis</h1>
+        
+            </header>
+            <aside>
+                <div>
+                    <div id="Fortschritt" class="fortschrittcointainer">
+        
+                        <p id="zusammenfassung">
+                            Hier die Live Bestellzusammenfassung
+                        </p>
+                        <p>
+                            Deine Eissorten:
+                            <p id="Sorte1"></p>
+                            <p id="Sorte2"></p>
+                            <p id="Sorte3"></p>
+                            <p id="Sorte4"></p>
+                        </p>
+                        <p><span id="BechoWaff"></span> mit <span id="GaboLoff"></span></p> 
+                        <p> Deine Toppings:
+                            <span id="TopÜbersicht"></span>
+                            
+                        </p>
+                        <p>
+                            Du bekommst dein Eis <span id="ShipFormat"></span> und <span id="ShipTime"></span>
+                        </p>
+                        <p>
+                            Deine Daten:
+                            <p>Name: <span id="UserName"></span></p>
+                            <p>Mail: <span id="UserMail"></span></p>
+                            <p>Adresse: <span id="UserStreet"></span> / <span id="UserHouseNum"></span></p>
+                            <p>PLZ/Stadt: <span id="UserPLZ"></span> / <span id="UserCity"></span></p>
+                            <p>Telefonnummer: <span id="UserTele"></span></p>
+                        </p>
+                        <p>Dein Bestellwert:<span id="Preis"></span> <span id="Zahlungsmittel"></span></p>
+                        <button id="BestellButton">Bestellung überprüfen!</button>
+                        
+                    </div>
+                </div>
+        
+            </aside>
+
+    <form class="fieldsetcontainer" action="http://ios-eia2.herokuapp.com/" method="GET">
+           
+        <fieldset>
+
+            <div>
+
+                <select name="EisSorte1" id="IceOptGroup1">
+                    <option value="" selected>Wähle eine Eissorte</option>
+                    <optgroup id="IceOptionsOne1" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
+                    <optgroup id="IceOptionsTwo1" label="Moderne Eissorten">Moderne Eissorten</optgroup>
+
+                </select>
+                <input type="number" name="Stepper1" step="1" min="0" max="55" value="0" />
+            </div>
+            <div>
+
+                <select name="EisSorte2" id="IceOptGroup2">
+                    <option value="" selected>Wähle eine Eissorte</option>
+                    <optgroup id="IceOptionsOne2" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
+                    <optgroup id="IceOptionsTwo2" label="Moderne Eissorten">Moderne Eissorten</optgroup>
+                </select>
+                <input type="number" name="Stepper2" step="1" min="0" max="55" value="0" />
+            </div>
+            <div>
+
+                <select name="EisSorte3" id="IceOptGroup3">
+                    <option value="" selected>Wähle eine Eissorte</option>
+                    <optgroup id="IceOptionsOne3" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
+                    <optgroup id="IceOptionsTwo3" label="Moderne Eissorten">Moderne Eissorten</optgroup>
+
+                </select>
+                <input type="number" name="Stepper3" step="1" min="0" max="55" value="0" />
+            </div>
+            <div>
+
+                <select name="EisSorte4" id="IceOptGroup4">
+                    <option value="" selected>Wähle eine Eissorte</option>
+                    <optgroup id="IceOptionsOne4" label="Langweilige Eissorte">Langweilige Eissorten</optgroup>
+                    <optgroup id="IceOptionsTwo4" label="Moderne Eissorten">Moderne Eissorten</optgroup>
+                </select>
+                <input type="number" name="Stepper4" step="1" min="0" max="55" value="0" />
+            </div>
+        </fieldset>
+
+        <div id="Toppings">
+            <p>Das beste kommt oben drauf (für 80ct das Stück):</p>
+            <fieldset id="Streußel">
+                <legend>Streu-Streu-Streußel:</legend>
+            </fieldset>
+            <fieldset id="Saucen">
+                <legend>Saucen:</legend>
+            </fieldset>
+            <fieldset id="Specials">
+                <legend>Specials:</legend>
+            </fieldset>
+            <fieldset id="Sahne">
+                <legend>Aber bitte mit Sahne:</legend>
+            </fieldset>
+        </div>
+        <fieldset id="Becher">
+            <legend>Wie möchtest du dein Eis</legend>
+
+        </fieldset>
+        <fieldset id="Löffel">
+            <legend>Göffel oder Label?</legend>
+
+        </fieldset>
+        <fieldset id="Lieferung">
+            <legend>Lieferoptionen</legend>
+
+        </fieldset>
+        <fieldset id="Adressfeld">
+            <legend>Deine Daten:</legend>
+            Dein Name:
+            <input type="text" name="Name" placeholder="Miriam Musterfrau" required value="" />
+            Deine e-Mail:
+            <input type="email" name="Mail" placeholder="miriamxXxx.musterwoman@mail.com" />
+            Straße und Hausnummer:
+            <input type="text" name="Street" placeholder="Langustenweg" required /><input type="text" name="Hausnr"
+                placeholder="z.b.:2" required />
+            PLZ:
+            <input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="z.B.70597" required />
+            Stadt:
+            <input type="text" name="Stadt" placeholder="Furtwangen im Schwarzwald" required />
+            Telefonnummer:
+            <input type="text" name="Telenr" pattern="[0-9] placeholder="071112456" />
+
+        </fieldset>
+        <fieldset id="AGB">
+            <legend>Unsere AGB:</legend>
+            <input type="radio" name="Agbgroup" id="Agb2" value="AGB gelesen">
+            <label for="Agb1">Habe gelesen und bin einverstanden</label>
+            <input type="radio" name="Agbgroup" id="Agb2" value="AGB nicht einverstanden">
+            <label for="Agb2">Nicht einverstanden</label>
+            <input type="radio" name="Agbgroup" id="Agb3" value="Dumm">
+            <label for="Agb3">Ich kann nicht lesen</label>
+        </fieldset>
+        <fieldset id="Zahlung">
+            <legend>Jetzt fehlt nur noch das Geld: </legend>
+            <input type="radio" name="Zahlungsgroup" id="Zahl1">
+            <label for="Zahl1">PayMusk</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl2">
+            <label for="Zahl2">Überweisung</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl3">
+            <label for="Zahl3">Kreditkarte</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl4">
+            <label for="Zahl4">Rechnung</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl5">
+            <label for="Zahl5">Ivan kommt vorbei!</label>
+            <input type="radio" name="Zahlungsgroup" id="Zahl6">
+            <label for="Zahl6">Niere</label>
+        </fieldset>
+        <button type="submit"> Bestellung absenden </button>
+    </form>
+
+
+
+</body>
+
+</html>
