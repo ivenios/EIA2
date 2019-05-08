@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Http = require("http"); //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
+const Http = require("http");
+const Url = require("url"); //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
 var EisDealerFreude2;
 (function (EisDealerFreude2) {
     console.log("Starting server"); //Starting Server wird ausgegeben
@@ -21,7 +22,9 @@ var EisDealerFreude2;
         console.log(_request.url); //sendet einen Teil des Antwortkörpers. an die Console
         _response.setHeader("content-type", "text/html; charset=utf-8"); //gibt Vorgaben für den content und die vorschriften für das eingegebene in der URL-Zeile an
         _response.setHeader("Access-Control-Allow-Origin", "*"); //CORS (Cross-Origin Resource Sharing) Header.Access-Control-Allow-Origin-Antwortkopf, um dem Browser mitzuteilen, dass der Inhalt dieser Seite für bestimmte Herkunft zugänglich ist.
-        _response.write(_request.url); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
+        let url = Url.parse(_request.url, true);
+        for (let key in url.query)
+            _response.write(key + ":" + url.query[key] + "<br/>"); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
         _response.end(); // beendet den response des servers und gibt in frei für weitere eingaben ? 
     }
     console.log(EisDealerFreude);
