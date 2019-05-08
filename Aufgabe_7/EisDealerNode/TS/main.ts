@@ -18,6 +18,7 @@ namespace EisDealerFreude {
         value: string;
         price: number;
         inStock: boolean;
+        anzahl:number;
     }
 
     function init():void {
@@ -33,8 +34,16 @@ namespace EisDealerFreude {
             if (group == "Eissorten") {//mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 
                 console.log("Eissorten sind da");
                 for (let i: number = 0; i < iceDealerData[group].length; i++) {
-                    writeHTML(iceDealerData[group][i], "Eissorten", "Lable" + lableNum);
-                    lableNum++;
+                    if (iceDealerData[group][i].type == "options") {
+                        console.log("Eissorte " + iceDealerData[group][i].name + " wird geladen")
+                        if (iceDealerData[group][i].inStock == true) {
+                                let a: number = 1;
+                                while (a <= 4) {
+                                    writeHTMLIceFlavor(iceDealerData[group][i], "IceOptionsOne" + a);
+                                    a++;
+                            }
+                        }
+                    }
                 }
 
                 //hier eine funktion die sich um die Eissorten kümmert
@@ -72,10 +81,18 @@ namespace EisDealerFreude {
             i++;
         }
         document.getElementById('BestellButton').addEventListener('click', completeOrder);//wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
-        document.getElementById('submit').addEventListener('click', submitData);
+      //  document.getElementById('submit').addEventListener('click', submitData);
     }
 
-  
+    function writeHTMLIceFlavor(_currentData: fieldsetData, _currentID: string): void {
+        console.log(_currentData);
+        let optData = document.createElement("option");
+        let htmlString = `
+            <option value="${_currentData.name}">${_currentData.name}</option>
+        `;
+        optData.innerHTML = htmlString;
+        document.getElementById(_currentID).appendChild(optData);
+    }
     function writeHTML(_currentData: fieldsetData, _currentID: string, _labelID: string): void {
 
         console.log(_currentData);
@@ -312,7 +329,7 @@ namespace EisDealerFreude {
 
     function submitData(): void {
         console.log("Submit gefunden"); 
-        let urlSchreiben: string = "http://ios-eia2.herokuapp.com/?name=hello";
+        let urlSchreiben: string = "http://ios-eia2.herokuapp.com/";
         let xhr: XMLHttpRequest = new XMLHttpRequest();
 
         xhr.send(urlSchreiben);
