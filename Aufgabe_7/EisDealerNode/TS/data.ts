@@ -1,5 +1,5 @@
 
-namespace EisDealerFreude2 {
+namespace EisDealerFreude {
     /*
         Aufgabe: Aufgabe 5 Eisdealer Reloaded
         Name: Iven Otis Sieglen 

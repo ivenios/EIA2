@@ -1,5 +1,5 @@
-var EisDealerFreude;
-(function (EisDealerFreude) {
+var EisDealerFreude3;
+(function (EisDealerFreude3) {
     /*
         Aufgabe: Aufgabe 6 Eisdealer
         Name: Iven Otis Sieglen
@@ -15,24 +15,24 @@ var EisDealerFreude;
         addListeners();
     }
     function renderFieldsets() {
-        for (let group in EisDealerFreude.iceDealerData) {
+        for (let group in EisDealerFreude3.iceDealerData) {
             if (group == "Eissorten") { //mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 
                 console.log("Eissorten sind da");
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].type == "options") {
-                        console.log("Eissorte " + EisDealerFreude.iceDealerData[group][i].name + " wird geladen");
-                        if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                            if (EisDealerFreude.iceDealerData[group][i].value == "Langweilige Eissorten") {
+                for (let i = 0; i < EisDealerFreude3.iceDealerData[group].length; i++) {
+                    if (EisDealerFreude3.iceDealerData[group][i].type == "options") {
+                        console.log("Eissorte " + EisDealerFreude3.iceDealerData[group][i].name + " wird geladen");
+                        if (EisDealerFreude3.iceDealerData[group][i].inStock == true) {
+                            if (EisDealerFreude3.iceDealerData[group][i].value == "Langweilige Eissorten") {
                                 let a = 1;
                                 while (a <= 4) {
-                                    writeHTMLIceFlavor(EisDealerFreude.iceDealerData[group][i], "IceOptionsOne" + a);
+                                    writeHTMLIceFlavor(EisDealerFreude3.iceDealerData[group][i], "IceOptionsOne" + a);
                                     a++;
                                 }
                             }
-                            else if (EisDealerFreude.iceDealerData[group][i].value == "Moderne Eissorten") {
+                            else if (EisDealerFreude3.iceDealerData[group][i].value == "Moderne Eissorten") {
                                 let a = 1;
                                 while (a <= 4) {
-                                    writeHTMLIceFlavor(EisDealerFreude.iceDealerData[group][i], "IceOptionsTwo" + a);
+                                    writeHTMLIceFlavor(EisDealerFreude3.iceDealerData[group][i], "IceOptionsTwo" + a);
                                     a++;
                                 }
                             }
@@ -44,17 +44,17 @@ var EisDealerFreude;
             else if (group == "Streußel" || group == "Saucen" || group == "Specials" || group == "Sahne") {
                 //hier dann eine funtkion die sich allein um die Checkboxen kümmert
                 console.log("Toppings werden geladen");
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                        writeHTML(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
+                for (let i = 0; i < EisDealerFreude3.iceDealerData[group].length; i++) {
+                    if (EisDealerFreude3.iceDealerData[group][i].inStock == true) {
+                        writeHTML(EisDealerFreude3.iceDealerData[group][i], group, "Lable" + lableNum);
                         lableNum++; //diese Variable ist dafür da, dass jeder Input und das dazugehörige Label eine gleiche ID bekommen, damit sie zusammen passen. 
                     }
                 }
             }
             else if (group == "Becher" || group == "Löffel" || group == "Lieferung") {
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                        writeHTML2(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
+                for (let i = 0; i < EisDealerFreude3.iceDealerData[group].length; i++) {
+                    if (EisDealerFreude3.iceDealerData[group][i].inStock == true) {
+                        writeHTML2(EisDealerFreude3.iceDealerData[group][i], group, "Lable" + lableNum);
                         lableNum++; //diese Variable ist dafür da, dass jeder Input und das dazugehörige Label eine gleiche ID bekommen, damit sie zusammen passen. 
                     }
                 }
@@ -288,5 +288,5 @@ var EisDealerFreude;
         xhr.send();
     }
     console.log(submitData);
-})(EisDealerFreude || (EisDealerFreude = {}));
+})(EisDealerFreude3 || (EisDealerFreude3 = {}));
 //# sourceMappingURL=main.js.map

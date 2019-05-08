@@ -1,7 +1,7 @@
 import * as Http from "http";
 import * as Url from "url"; //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
 
-namespace EisDealerFreude2 {
+namespace EisDealerFreude {
 	console.log("Starting server"); //Starting Server wird ausgegeben
 	let port: number = Number(process.env.PORT); //wir legen die globale Variable port an, um unseren Server zusagen, auf welchen port er hören soll
 	if (!port) //ist der port noch unklar, wird er in der Zeile darunter auf 8100 gesetzt

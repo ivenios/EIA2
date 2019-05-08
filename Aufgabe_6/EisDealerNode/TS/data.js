@@ -1,5 +1,5 @@
-var EisDealerFreude;
-(function (EisDealerFreude) {
+var EisDealerFreude3;
+(function (EisDealerFreude3) {
     /*
         Aufgabe: Aufgabe 5 Eisdealer Reloaded
         Name: Iven Otis Sieglen
@@ -8,7 +8,7 @@ var EisDealerFreude;
             
         Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
         */
-    EisDealerFreude.iceDealerData = {
+    EisDealerFreude3.iceDealerData = {
         "Eissorten": [
             //zuerst die Optgroups, value wird dabei als ID verwendet,wo die einzelnen Eissorten hin müssen
             //{name:"Langweilige Eissorten", type:"optgroup", value:"IceOptionsOne" , price: 0, inStock: true },
@@ -107,5 +107,5 @@ var EisDealerFreude;
             { name: "radiogroup3", type: "radio", value: "Beamen", price: 0, inStock: true },
         ],
     };
-})(EisDealerFreude || (EisDealerFreude = {}));
+})(EisDealerFreude3 || (EisDealerFreude3 = {}));
 //# sourceMappingURL=data.js.map
