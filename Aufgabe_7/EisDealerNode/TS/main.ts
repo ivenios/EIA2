@@ -31,8 +31,8 @@ namespace EisDealerFreude {
         }
 
         document.getElementById("eisauswahl").innerHTML = schreibEis;
-        document.getElementById("submitButton").addEventListener("click", submitData); /* Für Augabe 6 */
-        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
+        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete); //ich lege die submit funktion und die überprüffunktion in einen Button
+       // document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
 
 
         let schreibZutaten: string = ``;
@@ -162,10 +162,6 @@ namespace EisDealerFreude {
         zuSchreiben += `<hr><button id="checkButton">Beam me up!</button>`;
         document.getElementById("zusammenfassung").innerHTML = zuSchreiben;
 
-        /* let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
-         button.addEventListener("click", checkWhetherComplete); */
-        document.getElementById("submitButton").addEventListener("click", submitData);
-        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
     }
     /* ÜBERPRÜFUNG ob die Bestellung komlett ist */
     function checkWhetherComplete(): void {
@@ -195,15 +191,16 @@ namespace EisDealerFreude {
         }
 
         else {
-            alert("Spaceshuttle würde ankommen!");
+            submitData(); //hier werden dann die Daten an den Heroku Server gesendet 
         }
+       
 
     }
 
     /* SUBMIT-DATA-FUNKTION - Für Aufgabe 6 geschrieben */
+    let urlSchreiben: string = "https://ios-eia2.herokuapp.com/?";
     function submitData(): void {
         console.log("Submit gefunden");
-        let urlSchreiben: string = "https://ios-eia2.herokuapp.com/?";
         for (let i: number = 0; i < iceDealerData["Eissorten"].length; i++) {
             if (iceDealerData["Eissorten"][i].value != 0) {
                 urlSchreiben += `${iceDealerData["Eissorten"][i].name}=${iceDealerData["Eissorten"][i].value}&`;
@@ -233,8 +230,30 @@ namespace EisDealerFreude {
 
 
         console.log(urlSchreiben);
-        window.open(urlSchreiben);
+        sendRequestWithCustomData();
+    }
+    function sendRequestWithCustomData(): void {
+        console.log("test");
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", urlSchreiben, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
     }
 
+    function handleStateChange(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            document.getElementById('UserInterface').innerHTML = "";
+            let htmlString:string = `
+                <div class="EndÜbersicht">
+                    <p> Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
+                    <p> ${xhr.response}</p>
+                </div>
+            `;
+            document.getElementById('UserInterface').innerHTML = htmlString;
+            //console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            //console.log("response: " + xhr.response);
+        }
+    }
 
 }

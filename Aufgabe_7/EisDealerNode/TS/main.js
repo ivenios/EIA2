@@ -21,8 +21,8 @@ var EisDealerFreude;
             schreibEis += `<input type="number" name="Eissorte${i}" step="1" min="0" max="30" value="0"/> Kugeln ${EisDealerFreude.iceDealerData["Eissorten"][i].name}<br>`;
         }
         document.getElementById("eisauswahl").innerHTML = schreibEis;
-        document.getElementById("submitButton").addEventListener("click", submitData); /* Für Augabe 6 */
-        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
+        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete); //ich lege die submit funktion und die überprüffunktion in einen Button
+        // document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
         let schreibZutaten = ``;
         for (let i = 0; i < EisDealerFreude.iceDealerData["zutat"].length; i++) {
             schreibZutaten += `<input type="checkbox" name="Zutat${i}" id="check${i + 1}"> <label for="check${i + 1}"> ${EisDealerFreude.iceDealerData["zutat"][i].name}</label>`;
@@ -118,10 +118,6 @@ var EisDealerFreude;
         zuSchreiben += `<hr>Summe: ${summe.toFixed(2)} Euro`;
         zuSchreiben += `<hr><button id="checkButton">Beam me up!</button>`;
         document.getElementById("zusammenfassung").innerHTML = zuSchreiben;
-        /* let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
-         button.addEventListener("click", checkWhetherComplete); */
-        document.getElementById("submitButton").addEventListener("click", submitData);
-        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
     }
     /* ÜBERPRÜFUNG ob die Bestellung komlett ist */
     function checkWhetherComplete() {
@@ -144,13 +140,13 @@ var EisDealerFreude;
             alert("For Research reasons, please tell me about you!");
         }
         else {
-            alert("Spaceshuttle würde ankommen!");
+            submitData(); //hier werden dann die Daten an den Heroku Server gesendet 
         }
     }
     /* SUBMIT-DATA-FUNKTION - Für Aufgabe 6 geschrieben */
+    let urlSchreiben = "https://ios-eia2.herokuapp.com/?";
     function submitData() {
         console.log("Submit gefunden");
-        let urlSchreiben = "https://ios-eia2.herokuapp.com/?";
         for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
             if (EisDealerFreude.iceDealerData["Eissorten"][i].value != 0) {
                 urlSchreiben += `${EisDealerFreude.iceDealerData["Eissorten"][i].name}=${EisDealerFreude.iceDealerData["Eissorten"][i].value}&`;
@@ -175,7 +171,29 @@ var EisDealerFreude;
             urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
         }
         console.log(urlSchreiben);
-        window.open(urlSchreiben);
+        sendRequestWithCustomData();
+    }
+    function sendRequestWithCustomData() {
+        console.log("test");
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", urlSchreiben, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            document.getElementById('UserInterface').innerHTML = "";
+            let htmlString = `
+                <div class="EndÜbersicht">
+                    <p> Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
+                    <p> ${xhr.response}</p>
+                </div>
+            `;
+            document.getElementById('UserInterface').innerHTML = htmlString;
+            //console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            //console.log("response: " + xhr.response);
+        }
     }
 })(EisDealerFreude || (EisDealerFreude = {}));
 //# sourceMappingURL=main.js.map

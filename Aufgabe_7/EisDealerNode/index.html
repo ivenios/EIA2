@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="img/shuttle.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/DEeis_css.css">
     <script src="./TS/main.js"></script>
@@ -18,14 +17,15 @@
     Datum: 09.05.2019
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. Dieser Code entstand in Nacharbeit mit Michel Orlik und Pascal Michel. -->
 
-    <main>
     
-    <div>
+    <header>
+    <div class="headings">
     <h1>EIS.de</h1>
     <h2>Die neue und verbesserte Eisdealer-Seite</h2> 
     <h3>Neuer Look und neue Eissorten - nur neuer Besitzer. Für euch ändert sich nichts.</br> Eis.de wurde von Schwarzwald Eis und Intergalaktische Eisdeale gekauft.</h3>
     </div>
-
+</header>
+    <main id="UserInterface">
     <aside id="zusammenfassung" class="fortschrittcointainer">
         <h4></h4>
 
@@ -41,9 +41,8 @@
         Zu Zahlen: 0.00 Euro
         <hr>
 
-        <button id="checkButton">Beam me up!</button>
     </aside>
-    <button id="submitButton">Submit data</button>
+    <button id="checkButton">Sende deine Bestellung ab.</button>
     <fieldset>
         <legend>Kosmisch-gutes Eis!</legend>
         <p>Astronomisch niedrige 2€ pro Kugel</p>
@@ -91,7 +90,7 @@
 
         <p>Nur hier kann man uns nicht finden!</p>
 
-        <select name="PLZOrt" id="ort">
+        <select name="PLZOrt" id="ort" required>
             <option value="Bitte wählen" selected>Wohin soll das Eis kommen?</option>
 
 				<option value="78120-Furtwangen-im-Schwarzwald">78120 Furtwangen im Schwarzwald (Stadtgebiet)</option>

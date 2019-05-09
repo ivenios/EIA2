@@ -67,3 +67,11 @@ button {background-color: greenyellow;
     overflow:scroll;
 
 }
+
+.EndÜbersicht {
+    border: 0.3rem solid blue;
+    width:40%;
+    height:30%;
+    overflow:scroll;
+    justify-content: center;
+}
