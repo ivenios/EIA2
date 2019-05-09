@@ -1,5 +1,10 @@
 import * as Http from "http";
 import * as Url from "url"; //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
+/* Aufgabe 7 
+Name: Iven Otis Sieglen
+Matrikel: 261012
+Datum: 09.05.2019
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. Dieser Code entstand in Nacharbeit mit Michel Orlik und Pascal Michel*/
 
 namespace EisDealerFreude {
 	console.log("Starting server"); //Starting Server wird ausgegeben
@@ -24,7 +29,7 @@ namespace EisDealerFreude {
 		console.log(_request.url);  //sendet einen Teil des Antwortkörpers. an die Console
 		_response.setHeader("content-type", "text/html; charset=utf-8"); //gibt Vorgaben für den content und die vorschriften für das eingegebene in der URL-Zeile an
 		_response.setHeader("Access-Control-Allow-Origin", "*"); //CORS (Cross-Origin Resource Sharing) Header.Access-Control-Allow-Origin-Antwortkopf, um dem Browser mitzuteilen, dass der Inhalt dieser Seite für bestimmte Herkunft zugänglich ist.
-		let url: Url.UrlWithParsedQuery = JSON.parse(_request.url);
+		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 		for (let key in url.query)
 		_response.write(key + ":" + url.query[key] + "<br/>"); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
 

@@ -56,6 +56,7 @@ button {background-color: greenyellow;
     flex-direction: column;
     justify-content:flex-start;
 }
+
 .fortschrittcointainer{
     position:fixed;
     top: 0;

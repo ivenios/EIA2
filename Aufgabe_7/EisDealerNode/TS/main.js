@@ -1,283 +1,181 @@
 var EisDealerFreude;
 (function (EisDealerFreude) {
-    /*
-        Aufgabe: Aufgabe 6 Eisdealer
+    /* Aufgabe 7
         Name: Iven Otis Sieglen
         Matrikel: 261012
-        Datum: Sonntag der 1. Mai
-            
-        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-        */
-    document.addEventListener('DOMContentLoaded', init);
-    let lableNum = 0;
-    function init() {
-        renderFieldsets();
-        addListeners();
-    }
-    function renderFieldsets() {
-        for (let group in EisDealerFreude.iceDealerData) {
-            if (group == "Eissorten") { //mit forschleife und iceDealerData[group][hier mit for schleife durch gehen] und dann die einzelnen types mit if abfrage abfragen 
-                console.log("Eissorten sind da");
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].type == "options") {
-                        console.log("Eissorte " + EisDealerFreude.iceDealerData[group][i].name + " wird geladen");
-                        if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                            let a = 1;
-                            while (a <= 4) {
-                                writeHTMLIceFlavor(EisDealerFreude.iceDealerData[group][i], "IceOptionsOne" + a);
-                                a++;
-                            }
-                        }
-                    }
-                }
-                //hier eine funktion die sich um die Eissorten kümmert
-            }
-            else if (group == "Streußel" || group == "Saucen" || group == "Specials" || group == "Sahne") {
-                //hier dann eine funtkion die sich allein um die Checkboxen kümmert
-                console.log("Toppings werden geladen");
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                        writeHTML(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
-                        lableNum++; //diese Variable ist dafür da, dass jeder Input und das dazugehörige Label eine gleiche ID bekommen, damit sie zusammen passen. 
-                    }
-                }
-            }
-            else if (group == "Becher" || group == "Löffel" || group == "Lieferung") {
-                for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
-                    if (EisDealerFreude.iceDealerData[group][i].inStock == true) {
-                        writeHTML2(EisDealerFreude.iceDealerData[group][i], group, "Lable" + lableNum);
-                        lableNum++; //diese Variable ist dafür da, dass jeder Input und das dazugehörige Label eine gleiche ID bekommen, damit sie zusammen passen. 
-                    }
-                }
-            }
+        Datum: 09.05.2019
+        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. Dieser Code entstand in Nacharbeit mit Michel Orlik und Pascal Michel*/
+    window.addEventListener("load", init);
+    let namen;
+    let strasseHN;
+    let ort;
+    /* INIT FUNKTION */
+    function init(_event) {
+        let fieldsets = document.getElementsByTagName("fieldset");
+        for (let i = 0; i < fieldsets.length; i++) {
+            let fieldset = fieldsets[i];
+            fieldset.addEventListener("change", aenderungen);
         }
-    }
-    let formSet = document.getElementsByTagName('fieldset');
-    function addListeners() {
-        //alle fieldsets in ein Array, um daraus dann die Daten zu bekommen
-        //console.log(formSet);
-        let i = 0;
-        while (i < formSet.length) {
-            let form = formSet[i];
-            form.addEventListener('change', checkValueAndChange); //jedes element in dem Array bekommt nochmals einen Eventlistener, der auf veränderungen des Wert achtet 
-            i++;
+        let schreibEis = ``;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
+            schreibEis += `<input type="number" name="Eissorte${i}" step="1" min="0" max="30" value="0"/> Kugeln ${EisDealerFreude.iceDealerData["Eissorten"][i].name}<br>`;
         }
-        document.getElementById('BestellButton').addEventListener('click', completeOrder); //wenn kunde fertig, funktion ausführen, die testet ob alles ausgefüllt
-        //  document.getElementById('submit').addEventListener('click', submitData);
+        document.getElementById("eisauswahl").innerHTML = schreibEis;
+        document.getElementById("submitButton").addEventListener("click", submitData); /* Für Augabe 6 */
+        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
+        let schreibZutaten = ``;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["zutat"].length; i++) {
+            schreibZutaten += `<input type="checkbox" name="Zutat${i}" id="check${i + 1}"> <label for="check${i + 1}"> ${EisDealerFreude.iceDealerData["zutat"][i].name}</label>`;
+        }
+        document.getElementById("zutatenauswahl").innerHTML = schreibZutaten;
     }
-    function writeHTMLIceFlavor(_currentData, _currentID) {
-        console.log(_currentData);
-        let optData = document.createElement("option");
-        let htmlString = `
-            <option value="${_currentData.name}">${_currentData.name}</option>
-        `;
-        optData.innerHTML = htmlString;
-        document.getElementById(_currentID).appendChild(optData);
-    }
-    function writeHTML(_currentData, _currentID, _labelID) {
-        console.log(_currentData);
-        let topData = document.createElement("div");
-        let htmlString = `
-            <input type="${_currentData.type}" value="${_currentData.value}" name="${_currentData.name}" id="${_labelID}"> 
-            <label for="${_labelID}">${_currentData.name}</label>
-        
-        `;
-        topData.innerHTML = htmlString;
-        document.getElementById(_currentID).appendChild(topData);
-    }
-    //und Gott sah, dass der Code scheiße war und brachte ampelstufen auf diese Welt. 
-    function writeHTML2(_currentData, _currentID, _labelID) {
-        console.log(_currentData);
-        let topData = document.createElement("div");
-        let htmlString = `
-            <input type="${_currentData.type}" value="${_currentData.value}" name="${_currentData.name}" id="${_labelID}"> 
-            <label for="${_labelID}">${_currentData.value}</label>
-        
-        `;
-        topData.innerHTML = htmlString;
-        document.getElementById(_currentID).appendChild(topData);
-    }
-    let iceWorth = 0;
-    let iceFlavor1;
-    let iceFlavor2;
-    let iceFlavor3;
-    let iceFlavor4;
-    let iceQuantity1 = 0;
-    let iceQuantity2 = 0;
-    let iceQuantity3 = 0;
-    let iceQuantity4 = 0;
-    let toppingNumber = 0;
-    let userAGB;
-    let userPayment;
-    function checkValueAndChange(_event) {
+    /* ÄNDERUNGEN-FUNKTION */
+    function aenderungen(_event) {
         console.log(_event);
-        let change = _event.target;
-        //zuerst die Anzahl der Eiskugeln bestimmen 
-        if (change.name == "Stepper1") {
-            iceQuantity1 = parseInt(change.value);
-            writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
-            renderPrize();
+        let zuSchreiben;
+        let target = _event.target;
+        console.log("Changed " + target.name + " to " + target.value);
+        if (target.name.substr(0, 8) == "Eissorte") {
+            let nummer = parseInt(target.name.substr(8, 2));
+            EisDealerFreude.iceDealerData["Eissorten"][nummer].value = parseInt(target.value);
         }
-        else if (change.name == "Stepper2") {
-            iceQuantity2 = parseInt(change.value);
-            writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
-            renderPrize();
-        }
-        else if (change.name == "Stepper3") {
-            iceQuantity3 = parseInt(change.value);
-            writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
-            renderPrize();
-        }
-        else if (change.name == "Stepper4") {
-            iceQuantity4 = parseInt(change.value);
-            writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
-            renderPrize();
-        }
-        //Bestimmung welche Eissorte gewählt wurde. 
-        else if (change.name == "EisSorte1") {
-            iceFlavor1 = change.value;
-            writeIceChoice(iceQuantity1, iceFlavor1, "Sorte1");
-        }
-        else if (change.name == "EisSorte2") {
-            iceFlavor2 = change.value;
-            writeIceChoice(iceQuantity2, iceFlavor2, "Sorte2");
-        }
-        else if (change.name == "EisSorte3") {
-            iceFlavor3 = change.value;
-            writeIceChoice(iceQuantity3, iceFlavor3, "Sorte3");
-        }
-        else if (change.name == "EisSorte4") {
-            iceFlavor4 = change.value;
-            writeIceChoice(iceQuantity4, iceFlavor4, "Sorte4");
-        }
-        //In welchem Gefäß möchte der Kunde sein Eis ? 
-        else if (change.value == "Im Becher (kostenlos)") {
-            renderCategories(change.value, "BechoWaff");
-        }
-        else if (change.value == "In der Waffel (kostenlos)") {
-            renderCategories(change.value, "BechoWaff");
-        }
-        else if (change.value == "In der Schoko-Waffel (kostenlos)") {
-            renderCategories(change.value, "BechoWaff");
-        }
-        //jetzt kommen die ganzen Toppings, da toppings einen pauschal Preis haben, wird zubeginn gezählt, wie viele Toppings gewählt wurden
-        else if (change.type == "checkbox") {
-            if (change.checked == true) {
-                toppingNumber += 1;
-                let ul = document.createElement('ul');
-                let span = `<li id="${change.name}">${change.name}</li>`;
-                ul.innerHTML = span;
-                document.getElementById("TopÜbersicht").appendChild(ul);
-                renderPrize();
+        if (target.name.substr(0, 5) == "Zutat") {
+            let nummer = parseInt(target.name.substr(5, 2));
+            let ausgewaehlt = 0;
+            if (target.checked == true) {
+                ausgewaehlt = 1;
             }
-            else if (change.checked == false) {
-                toppingNumber -= 1;
-                document.getElementById(change.name).innerHTML = "";
-                renderPrize();
+            EisDealerFreude.iceDealerData["zutat"][nummer].value = ausgewaehlt;
+        }
+        if (target.name == "waffelBecher") {
+            if (target.value == "Waffel") {
+                EisDealerFreude.iceDealerData["waffelBecher"][0].value = 1;
+                EisDealerFreude.iceDealerData["waffelBecher"][1].value = 0;
+            }
+            else {
+                EisDealerFreude.iceDealerData["waffelBecher"][0].value = 0;
+                EisDealerFreude.iceDealerData["waffelBecher"][1].value = 1;
             }
         }
-        //jetzt kommt die Abfrage gabel oder löffel
-        else if (change.value == "Löffel") {
-            renderCategories(change.value, "GaboLoff");
+        if (target.name == "RadiogroupLog") {
+            for (let i = 0; i < EisDealerFreude.iceDealerData["logistik"].length; i++) {
+                if (EisDealerFreude.iceDealerData["logistik"][i].name == target.value) {
+                    EisDealerFreude.iceDealerData["logistik"][i].value = 1;
+                }
+                else {
+                    EisDealerFreude.iceDealerData["logistik"][i].value = 0;
+                }
+            }
         }
-        else if (change.value == "Gabel") {
-            renderCategories(change.value, "GaboLoff");
+        if (target.name == "Namen") {
+            namen = target.value;
         }
-        else if (change.value == "Stäbchen") {
-            renderCategories(change.value, "GaboLoff");
+        if (target.name == "StrasseHN") {
+            strasseHN = target.value;
         }
-        else if (change.value == "Wir sind zu Zweit") {
-            renderCategories(change.value, "GaboLoff");
+        if (target.name == "PLZOrt") {
+            ort = target.value;
         }
-        // jetzt kommt der Part mit den Delivery Arten
-        else if (change.value == "Same Day Delivery") {
-            renderCategories(change.value, "ShipTime");
+        let summe = 0;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
+            summe += EisDealerFreude.iceDealerData["Eissorten"][i].price * EisDealerFreude.iceDealerData["Eissorten"][i].value;
         }
-        else if (change.value == "Same Hour Delivery") {
-            renderCategories(change.value, "ShipTime");
+        for (let i = 0; i < EisDealerFreude.iceDealerData["zutat"].length; i++) {
+            summe += EisDealerFreude.iceDealerData["zutat"][i].price * EisDealerFreude.iceDealerData["zutat"][i].value;
         }
-        else if (change.value == "5-10 Werktage ") {
-            renderCategories(change.value, "ShipTime");
+        for (let i = 0; i < EisDealerFreude.iceDealerData["logistik"].length; i++) {
+            summe += EisDealerFreude.iceDealerData["logistik"][i].price * EisDealerFreude.iceDealerData["logistik"][i].value;
         }
-        else if (change.value == "Beamen") {
-            renderCategories(change.value, "ShipTime");
+        zuSchreiben = `<h4>Ihre Bestellung:</h4><hr>Gewähltes Eis:<br>`;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
+            if (EisDealerFreude.iceDealerData["Eissorten"][i].value == 1) {
+                zuSchreiben += `<br>${EisDealerFreude.iceDealerData["Eissorten"][i].value.toString()} Kugel ${EisDealerFreude.iceDealerData["Eissorten"][i].name}<br>`;
+            }
+            else if (EisDealerFreude.iceDealerData["Eissorten"][i].value > 1) {
+                zuSchreiben += `<br>${EisDealerFreude.iceDealerData["Eissorten"][i].value.toString()} Kugeln ${EisDealerFreude.iceDealerData["Eissorten"][i].name}<br>`;
+            }
         }
-        // hier die Abfragen über Namen und co 
-        else if (change.name == "Name") {
-            renderCategories(change.value, "UserName");
+        zuSchreiben += `<hr>Zusätze:<br>`;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["zutat"].length; i++) {
+            if (EisDealerFreude.iceDealerData["zutat"][i].value == 1) {
+                zuSchreiben += `<br>${EisDealerFreude.iceDealerData["zutat"][i].name}<br>`;
+            }
         }
-        else if (change.name == "Mail") {
-            renderCategories(change.value, "UserMail");
+        zuSchreiben += `<hr>Darreichungsform: `;
+        if (EisDealerFreude.iceDealerData["waffelBecher"][0].value == 1) {
+            zuSchreiben += `Waffel<br>`;
         }
-        else if (change.name == "Street") {
-            renderCategories(change.value, "UserStreet");
+        else if (EisDealerFreude.iceDealerData["waffelBecher"][1].value == 1) {
+            zuSchreiben += `Becher<br>`;
         }
-        else if (change.name == "Hausnr") {
-            renderCategories(change.value, "UserHouseNum");
+        zuSchreiben += `<hr>Lieferung: `;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["logistik"].length; i++) {
+            if (EisDealerFreude.iceDealerData["logistik"][i].value == 1) {
+                zuSchreiben += `${EisDealerFreude.iceDealerData["logistik"][i].name}<br>`;
+            }
         }
-        else if (change.name == "PLZ") {
-            renderCategories(change.value, "UserPLZ");
-        }
-        else if (change.name == "Stadt") {
-            renderCategories(change.value, "UserCity");
-        }
-        else if (change.name == "Telenr") {
-            renderCategories(change.value, "UserTele");
-        }
-        else if (change.name == "Agbgroup") {
-            //console.log("test2")
-            userAGB = true;
-        }
-        else if (change.name == "Zahlungsgroup") {
-            userPayment = true;
-        }
+        zuSchreiben += `<hr>Lieferadresse:<p>${namen}</p><p>${strasseHN}</p><p>${ort}</p>`;
+        zuSchreiben += `<hr>Summe: ${summe.toFixed(2)} Euro`;
+        zuSchreiben += `<hr><button id="checkButton">Beam me up!</button>`;
+        document.getElementById("zusammenfassung").innerHTML = zuSchreiben;
+        /* let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
+         button.addEventListener("click", checkWhetherComplete); */
+        document.getElementById("submitButton").addEventListener("click", submitData);
+        document.getElementById("checkButton").addEventListener("click", checkWhetherComplete);
     }
-    function completeOrder(_event) {
-        if (iceQuantity1 + iceQuantity2 + iceQuantity3 + iceQuantity4 < 1) {
-            alert("Du musst Eis bestellen um Eis zu bekommen...");
+    /* ÜBERPRÜFUNG ob die Bestellung komlett ist */
+    function checkWhetherComplete() {
+        let valueKugeln = 0;
+        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
+            if (EisDealerFreude.iceDealerData["Eissorten"][i].value > 0) {
+                valueKugeln += EisDealerFreude.iceDealerData["Eissorten"][i].value;
+            }
         }
-        else if (userAGB == undefined) {
-            console.log("test");
-            alert("Bitte kreuze die AGB optionen an!");
+        if (valueKugeln == 0) {
+            alert("Wir unterbrechen die Mission nur, wenn du Eis kaufst!");
         }
-        else if (userPayment == undefined) {
-            alert("Bitte gib noch eine Zahlungsmöglichkeit an");
+        else if (EisDealerFreude.iceDealerData["waffelBecher"][0].value == 0 && EisDealerFreude.iceDealerData["waffelBecher"][1].value == 0) {
+            alert("Das Eis kommt im Becher, oder in der Waffel und nicht anders!");
+        }
+        else if (EisDealerFreude.iceDealerData["logistik"][0].value == 0 && EisDealerFreude.iceDealerData["logistik"][1].value == 0 && EisDealerFreude.iceDealerData["logistik"][2].value == 0) {
+            alert("Also das Eis muss zu dir. Wie?  Das entscheidest du");
+        }
+        else if (namen == undefined || strasseHN == undefined || ort == undefined) {
+            alert("For Research reasons, please tell me about you!");
         }
         else {
-            alert("Vielen Dank für deine Bestellung, sie wird in kürze bearbeitet");
+            alert("Spaceshuttle würde ankommen!");
         }
     }
-    function writeIceChoice(_x, _y, _html) {
-        document.getElementById(_html).innerHTML = "";
-        let pCon = document.createElement('p');
-        let p = `<span>  ${_x} Kugel(n) ${_y}</span>`;
-        pCon.innerHTML = p;
-        document.getElementById(_html).appendChild(pCon);
-    }
-    //funkion die die Darreichungsform und Löffel anzeigt
-    function renderCategories(_r, _id) {
-        document.getElementById(_id).innerHTML = "";
-        let pCon = document.createElement('span');
-        let span = `${_r}`;
-        pCon.innerHTML = span;
-        document.getElementById(_id).appendChild(pCon);
-        renderPrize();
-    }
-    function renderPrize() {
-        iceWorth = (1.55 * (iceQuantity1 + iceQuantity2 + iceQuantity3 + iceQuantity4)) + (toppingNumber * 0.80);
-        document.getElementById('Preis').innerHTML = "";
-        let pCon = document.createElement('p');
-        let span = `Zu zahlen: ${iceWorth}€`;
-        pCon.innerHTML = span;
-        document.getElementById('Preis').appendChild(pCon);
-    }
-    //funktion mit den Server Sachen:
+    /* SUBMIT-DATA-FUNKTION - Für Aufgabe 6 geschrieben */
     function submitData() {
         console.log("Submit gefunden");
-        let urlSchreiben = "http://ios-eia2.herokuapp.com/";
-        let xhr = new XMLHttpRequest();
-        xhr.send(urlSchreiben);
+        let urlSchreiben = "https://ios-eia2.herokuapp.com/?";
+        for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
+            if (EisDealerFreude.iceDealerData["Eissorten"][i].value != 0) {
+                urlSchreiben += `${EisDealerFreude.iceDealerData["Eissorten"][i].name}=${EisDealerFreude.iceDealerData["Eissorten"][i].value}&`;
+            }
+        }
+        for (let i = 0; i < EisDealerFreude.iceDealerData["zutat"].length; i++) {
+            if (EisDealerFreude.iceDealerData["zutat"][i].value != 0) {
+                urlSchreiben += `${EisDealerFreude.iceDealerData["zutat"][i].name}=${EisDealerFreude.iceDealerData["zutat"][i].value}&`;
+            }
+        }
+        for (let i = 0; i < EisDealerFreude.iceDealerData["waffelBecher"].length; i++) {
+            if (EisDealerFreude.iceDealerData["waffelBecher"][i].value != 0) {
+                urlSchreiben += `${EisDealerFreude.iceDealerData["waffelBecher"][i].name}=${EisDealerFreude.iceDealerData["waffelBecher"][i].value}&`;
+            }
+        }
+        for (let i = 0; i < EisDealerFreude.iceDealerData["logistik"].length; i++) {
+            if (EisDealerFreude.iceDealerData["logistik"][i].value != 0) {
+                urlSchreiben += `${EisDealerFreude.iceDealerData["logistik"][i].name}=${EisDealerFreude.iceDealerData["logistik"][i].value}&`;
+            }
+        }
+        if (namen != undefined && strasseHN != undefined && ort != undefined && ort != undefined) {
+            urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
+        }
+        console.log(urlSchreiben);
+        window.open(urlSchreiben);
     }
-    console.log(submitData);
 })(EisDealerFreude || (EisDealerFreude = {}));
 //# sourceMappingURL=main.js.map

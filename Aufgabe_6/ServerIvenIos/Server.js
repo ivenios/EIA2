@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http"); //importiert weitere nötige commands aus der nodes.modules damit der lint nicht ausrastet
-var EisDealerFreude3;
-(function (EisDealerFreude3) {
+var EisDealerFreude234;
+(function (EisDealerFreude234) {
     console.log("Starting server"); //Starting Server wird ausgegeben
     let port = Number(process.env.PORT); //wir legen die globale Variable port an, um unseren Server zusagen, auf welchen port er hören soll
     if (!port) //ist der port noch unklar, wird er in der Zeile darunter auf 8100 gesetzt
@@ -24,6 +24,5 @@ var EisDealerFreude3;
         _response.write(_request.url); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
         _response.end(); // beendet den response des servers und gibt in frei für weitere eingaben ? 
     }
-    console.log(EisDealerFreude);
-})(EisDealerFreude3 || (EisDealerFreude3 = {}));
+})(EisDealerFreude234 || (EisDealerFreude234 = {}));
 //# sourceMappingURL=Server.js.map
