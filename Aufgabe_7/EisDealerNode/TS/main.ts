@@ -214,12 +214,12 @@ namespace EisDealerFreude {
             for (let i: number = 0; i < iceDealerData[group].length; i++) {
                 if (iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
-                        urlSchreiben += `IHRE EISSORTEN&`
+                        urlSchreiben += `IHREEISSORTEN&`
                         urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}_Kugel(n)&`;
                     }
                     else if (group == "Toppings")
                     {
-                        urlSchreiben += `IHRE TOPPINGS&`
+                        urlSchreiben += `IHRETOPPINGS&`
                         urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}&`
                     }
 

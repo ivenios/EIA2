@@ -168,11 +168,11 @@ var EisDealerFreude;
             for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
                 if (EisDealerFreude.iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
-                        urlSchreiben += `IHRE EISSORTEN&`;
+                        urlSchreiben += `IHREEISSORTEN&`;
                         urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}_Kugel(n)&`;
                     }
                     else if (group == "Toppings") {
-                        urlSchreiben += `IHRE TOPPINGS&`;
+                        urlSchreiben += `IHRETOPPINGS&`;
                         urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}&`;
                     }
                     else {

@@ -31,11 +31,11 @@ var EisDealerFreude;
         let url = Url.parse(_request.url, true);
         let urlResponse = ``;
         for (let key in url.query) {
-            if (key == "HRE EISSORTEN:") {
-                urlResponse += `<p>Diese Eissorten hast du gewählt</p>`;
+            if (key == "IHREEISSORTEN") {
+                urlResponse += `<p>Diese Eissorten hast du gewählt:</p>`;
             }
-            if (key == "IHRE TOPPINGS:") {
-                urlResponse += `<p>Diese Toppings hast du gewählt</p>`;
+            if (key == "IHRETOPPINGS") {
+                urlResponse += `<p>Diese Toppings hast du gewählt:</p>`;
             }
             else {
                 urlResponse += key + ":" + url.query[key] + "<br/>";
