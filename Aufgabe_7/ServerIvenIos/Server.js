@@ -49,11 +49,11 @@ var EisDealerFreude;
             }
             if (key == "Kundenname") {
                 urlResponse += `<p>Deine persönlichen Daten: </p>`;
-                urlResponse += `<p>${key} + ":" ${url.query[key]}</p>`;
+                urlResponse += `<p>${key}: ${url.query[key]}</p>`;
                 continue;
             }
             else {
-                urlResponse += key + ":" + url.query[key] + "<br/>";
+                urlResponse += `<p> ${key}: ${url.query[key]} </p>`;
             }
         }
         _response.write(urlResponse);
