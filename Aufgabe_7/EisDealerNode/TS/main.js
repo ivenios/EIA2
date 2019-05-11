@@ -139,20 +139,20 @@ var EisDealerFreude;
         document.getElementById("zusammenfassung").innerHTML = zuSchreiben;
     }
     function checkWhetherComplete() {
-        let valueKugeln = 0;
+        let iceValue = 0;
         for (let i = 0; i < EisDealerFreude.iceDealerData["Eissorten"].length; i++) {
             if (EisDealerFreude.iceDealerData["Eissorten"][i].value > 0) {
-                valueKugeln += EisDealerFreude.iceDealerData["Eissorten"][i].value;
+                iceValue += EisDealerFreude.iceDealerData["Eissorten"][i].value;
             }
         }
-        if (valueKugeln == 0) {
-            alert("Wir unterbrechen die Mission nur, wenn du Eis kaufst!");
+        if (iceValue == 0) {
+            alert("Du musst Eis bestellen um Eis zu erhalten.");
         }
         else if (EisDealerFreude.iceDealerData["Darrbietungsform:"][0].value == 0 && EisDealerFreude.iceDealerData["Darrbietungsform:"][1].value == 0) {
-            alert("Das Eis kommt im Becher, oder in der Waffel und nicht anders!");
+            alert("Bitte Wähle eine Darbierungsform");
         }
         else if (EisDealerFreude.iceDealerData["Lieferoptionen"][0].value == 0 && EisDealerFreude.iceDealerData["Lieferoptionen"][1].value == 0 && EisDealerFreude.iceDealerData["Lieferoptionen"][2].value == 0) {
-            alert("Also das Eis muss zu dir. Wie?  Das entscheidest du");
+            alert("Bitte gib eine Lieferoption an.");
         }
         else if (namen == undefined || strasseHN == undefined || ort == undefined) {
             alert("Bitte überprüfe deine persönlichen Angaben!");
@@ -167,11 +167,24 @@ var EisDealerFreude;
         for (let group in EisDealerFreude.iceDealerData) {
             for (let i = 0; i < EisDealerFreude.iceDealerData[group].length; i++) {
                 if (EisDealerFreude.iceDealerData[group][i].value != 0) {
-                    urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}Kugeln&`;
+                    if (group == "Eissorten") {
+                        urlSchreiben += `IHRE EISSORTEN&`;
+                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}_Kugel(n)&`;
+                    }
+                    else if (group == "Toppings") {
+                        urlSchreiben += `IHRE TOPPINGS&`;
+                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}&`;
+                    }
+                    else {
+                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}&`;
+                    }
                 }
             }
         }
-        /*
+        if (namen != undefined && strasseHN != undefined && ort != undefined && ort != undefined) {
+            urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
+        }
+        /* Alter Code:
                 for (let i: number = 0; i < iceDealerData["Toppings"].length; i++) {
                     if (iceDealerData["Toppings"][i].value != 0) {
                         urlSchreiben += `</br>TOPPINGS&${iceDealerData["Toppings"][i].name}=${iceDealerData["Toppings"][i].value}&`;
@@ -190,9 +203,6 @@ var EisDealerFreude;
                     }
                 }
         */
-        if (namen != undefined && strasseHN != undefined && ort != undefined && ort != undefined) {
-            urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
-        }
         console.log(urlSchreiben);
         sendRequestWithCustomData(urlSchreiben); //URl string wird an Funktion übergeben, welche diesen wiederum an Heruko sendet
     }

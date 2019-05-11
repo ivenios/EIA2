@@ -26,12 +26,23 @@ var EisDealerFreude;
     function handleRequest(_request, _response) {
         console.log("I hear voices!"); // I hear voices wird ausgegben
         console.log(_request.url); //sendet einen Teil des Antwortkörpers. an die Console
-        _response.setHeader("content-type", "text/html; charset=utf-8"); //gibt Vorgaben für den content und die vorschriften für das eingegebene in der URL-Zeile an
-        _response.setHeader("Access-Control-Allow-Origin", "*"); //CORS (Cross-Origin Resource Sharing) Header.Access-Control-Allow-Origin-Antwortkopf, um dem Browser mitzuteilen, dass der Inhalt dieser Seite für bestimmte Herkunft zugänglich ist.
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
         let url = Url.parse(_request.url, true);
-        for (let key in url.query)
-            _response.write(key + ":" + url.query[key] + "<br/>"); // Dies sendet einen Teil des Antwortkörpers.  An den HTML Body und schreibt in dort. 
-        _response.end(); // beendet den response des servers und gibt in frei für weitere eingaben ? 
+        let urlResponse = ``;
+        for (let key in url.query) {
+            if (key == "HRE EISSORTEN:") {
+                urlResponse += `<p>Diese Eissorten hast du gewählt</p>`;
+            }
+            if (key == "IHRE TOPPINGS:") {
+                urlResponse += `<p>Diese Toppings hast du gewählt</p>`;
+            }
+            else {
+                urlResponse += key + ":" + url.query[key] + "<br/>";
+            }
+        }
+        _response.write(urlResponse);
+        _response.end();
     }
     console.log(EisDealerFreude);
 })(EisDealerFreude || (EisDealerFreude = {}));

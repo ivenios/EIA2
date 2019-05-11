@@ -175,25 +175,25 @@ namespace EisDealerFreude {
 
     }
     function checkWhetherComplete(): void {
-        let valueKugeln: number = 0;
+        let iceValue: number = 0;
 
         for (let i: number = 0; i < iceDealerData["Eissorten"].length; i++) {
             if (iceDealerData["Eissorten"][i].value > 0) {
-                valueKugeln += iceDealerData["Eissorten"][i].value;
+                iceValue += iceDealerData["Eissorten"][i].value;
             }
 
         }
 
-        if (valueKugeln == 0) {
-            alert("Wir unterbrechen die Mission nur, wenn du Eis kaufst!");
+        if (iceValue == 0) {
+            alert("Du musst Eis bestellen um Eis zu erhalten.");
         }
 
         else if (iceDealerData["Darrbietungsform:"][0].value == 0 && iceDealerData["Darrbietungsform:"][1].value == 0) {
-            alert("Das Eis kommt im Becher, oder in der Waffel und nicht anders!");
+            alert("Bitte Wähle eine Darbierungsform");
         }
 
         else if (iceDealerData["Lieferoptionen"][0].value == 0 && iceDealerData["Lieferoptionen"][1].value == 0 && iceDealerData["Lieferoptionen"][2].value == 0) {
-            alert("Also das Eis muss zu dir. Wie?  Das entscheidest du");
+            alert("Bitte gib eine Lieferoption an.");
         }
 
         else if (namen == undefined || strasseHN == undefined || ort == undefined) {
@@ -213,17 +213,30 @@ namespace EisDealerFreude {
         for (let group in iceDealerData) {
             for (let i: number = 0; i < iceDealerData[group].length; i++) {
                 if (iceDealerData[group][i].value != 0) {
-                    urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}Kugeln&`;
+                    if (group == "Eissorten") {
+                        urlSchreiben += `IHRE EISSORTEN&`
+                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}_Kugel(n)&`;
+                    }
+                    else if (group == "Toppings")
+                    {
+                        urlSchreiben += `IHRE TOPPINGS&`
+                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}&`
+                    }
+
+                    else {
+                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}&`;
+                    }
                 }
             }
 
-
-
+        }
+        if (namen != undefined && strasseHN != undefined && ort != undefined && ort != undefined) {
+            urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
         }
 
 
         
-/*
+/* Alter Code:
         for (let i: number = 0; i < iceDealerData["Toppings"].length; i++) {
             if (iceDealerData["Toppings"][i].value != 0) {
                 urlSchreiben += `</br>TOPPINGS&${iceDealerData["Toppings"][i].name}=${iceDealerData["Toppings"][i].value}&`;
@@ -242,9 +255,7 @@ namespace EisDealerFreude {
             }
         }
 */
-        if (namen != undefined && strasseHN != undefined && ort != undefined && ort != undefined) {
-            urlSchreiben += `&Kundenname=${namen}&Kundenadresse=${strasseHN}&PostleitzahlOrt=${ort}`;
-        }
+        
 
 
         console.log(urlSchreiben);
