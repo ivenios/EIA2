@@ -33,24 +33,24 @@ var EisDealerFreude;
         for (let key in url.query) {
             if (key == "IHREEISSORTEN") {
                 urlResponse += `<p>Diese Eissorten hast du gewählt:</p>`;
-                break;
+                continue;
             }
             if (key == "IHRETOPPINGS") {
                 urlResponse += `<p>Diese Toppings hast du gewählt:</p>`;
-                break;
+                continue;
             }
             if (key == "Waffel" || key == "Becher") {
                 urlResponse += `<p>Dein Eis kommt in einem/in einer ${key}</p>`;
-                break;
+                continue;
             }
             if (key == "SameDayDelivery" || key == "SameHourDelivery" || key == "Beamemeup") {
                 urlResponse += `<p> Deine Lieferoption: ${key} </p>`;
-                break;
+                continue;
             }
             if (key == "Kundenname") {
                 urlResponse += `<p>Deine persönlichen Daten: </p>`;
                 urlResponse += `<p>${key} + ":" ${url.query[key]}</p>`;
-                break;
+                continue;
             }
             else {
                 urlResponse += key + ":" + url.query[key] + "<br/>";
