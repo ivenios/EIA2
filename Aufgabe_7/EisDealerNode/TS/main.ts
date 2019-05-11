@@ -215,7 +215,7 @@ namespace EisDealerFreude {
                 if (iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
                         urlSchreiben += `IHREEISSORTEN&`
-                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}&`;
+                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}Kugeln&`;
                     }
                     else if (group == "Toppings")
                     {

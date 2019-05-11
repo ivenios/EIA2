@@ -169,7 +169,7 @@ var EisDealerFreude;
                 if (EisDealerFreude.iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
                         urlSchreiben += `IHREEISSORTEN&`;
-                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}&`;
+                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}Kugeln&`;
                     }
                     else if (group == "Toppings") {
                         urlSchreiben += `IHRETOPPINGS&`;
