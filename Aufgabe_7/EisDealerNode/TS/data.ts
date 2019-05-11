@@ -6,43 +6,46 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace EisDealerFreude {
     
-    export interface HomogenousArray {
-        [key: string]: iceDealerInput[];
-    }
-    export let iceDealerData: HomogenousArray
+    export let iceDealerData: {[group: string]: fieldsetData[]}    
         = {
         "Eissorten": [
-            { name: "Cosmic-Splash", price: 2, value: 0 },
-            { name: "Cosmic-Wave", price: 2, value: 0 },
-            { name: "Seven-Lightyears", price: 2, value: 0 },
-            { name: "Galactical-Splash", price: 2, value: 0 },
-            { name: "Eternal-Splash", price: 2, value: 0 },
-            { name: "Captain-Kirk", price: 2, value: 0 },
-            { name: "Orbital-Order", price: 2, value: 0 },
-            { name: "Space-Mission", price: 2, value: 0 },
-            { name: "Deathstar-Explosion", price: 2, value: 0 },
-            { name: "Vaders-Favorite", price: 2, value: 0 },
-            { name: "Skyrider", price: 2, value: 0 },
-            { name: "Favorite-Yoda-Sort", price: 2, value: 0 }
+            { name: "Erdbeere", price: 1.55, value: 0 },
+            { name: "Mango", price: 1.55, value: 0 },
+            { name: "Schokolade", price: 1.55, value: 0 },
+            { name: "Weiße-Schokolade", price: 1.55, value: 0 },
+            { name: "Dunkle-Schokolade", price: 1.55, value: 0 },
+            { name: "Himbeere", price: 1.55, value: 0 },
+            { name:"Pistanzie", price: 1.55, value: 0 },
+            { name:"Walnuss", price: 1.55, value: 0 },
+            { name:"Haselnuss", price: 1.55, value: 0 },
+            { name:"Melone", price: 1.55, value: 0 },
+            { name:"Cassis", price: 1.55, value: 0 },
+            { name:"Blaubeere", price: 1.55, value: 0 }
+            
 
         ],
 
-        "zutat": [
-            { name: "Mooncrystal", price: 4, value: 0 },
-            { name: "Star-Flakes", price: 4, value: 0 },
-            { name: "Sparkle", price: 4, value: 0 },
-            { name: "Moonlight-Sauce", price: 4, value: 0 }
+        "Toppings": [
+            {name:"Schoko-Steußel",price: 0.8, value: 0},
+            {name:"Snickers",price: 0.8, value: 0},
+            {name:"Tropical",price: 0.8, value: 0},
+            {name:"Schokolinsen",price: 0.8, value: 0},
+            {name:"Lions-Steußel",price: 0.8, value: 0},
+            {name:"Bounty-Steußel",price: 0.8 , value: 0},
+            {name:"Kit-Kat-Steußel",price: 0.8, value: 0},
+            {name:"Buchstabenstreußel",price: 0.8 , value: 0},
+            {name:"HFU-Steußel",price: 0.8, value: 0}
         ],
 
-        "waffelBecher": [
+        "Darrbietungsform:": [
             { name: "Waffel", price: 0, value: 0 },
             { name: "Becher", price: 0, value: 0 }
         ],
 
-        "logistik": [
-            { name: "Spaceshuttle", price: 0, value: 0 },
-            { name: "Warp", price: 2, value: 0 },
-            { name: "Wurmloch", price: 5, value: 0 }
+        "Lieferoptionen": [
+            { name: "SameDayDelivery", price: 4.99, value: 0 },
+            { name: "SameHourDelivery", price: 19.99, value: 0 },
+            { name: "Beamemeup", price: 0, value: 0 }
         ]
     };
 

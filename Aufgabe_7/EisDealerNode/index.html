@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="./css/DEeis_css.css">
     <script src="./TS/main.js"></script>
     <script src="./TS/data.js"></script>
-    <title>Eis.de ;)</title>
 </head>
 
 <body>
@@ -20,78 +19,70 @@
     
     <header>
     <div class="headings">
-    <h1>EIS.de</h1>
+    <img src="./mg/eiskugeln.png" alt="" width="80px">
     <h2>Die neue und verbesserte Eisdealer-Seite</h2> 
-    <h3>Neuer Look und neue Eissorten - nur neuer Besitzer. Für euch ändert sich nichts.</br> Eis.de wurde von Schwarzwald Eis und Intergalaktische Eisdeale gekauft.</h3>
+    <h3>Neuer Look und neue Eissorten - und neuer Besitzer. Für euch ändert sich nichts.</br> Eis.de wurde von Schwarzwald Eis und der Intergalaktischen Eisdeale gekauft.</h3>
     </div>
 </header>
     <main id="UserInterface">
     <aside id="zusammenfassung" class="fortschrittcointainer">
-        <h4></h4>
-
-        <p>Deine Eissorten:</p>
-        <p>Deine Toppings:</p>
-        <p>Du bekommst dein Eis in: </p>
-        <p>Dein Eis Kommt:</p>
-        <p>Deine Daten:</p>
-        <p>Vor- und Nachname</p>
-        <p>Straße und Hausnummer</p>
-        <p>Postleitzahl und Ort</p>
-        <hr>
-        Zu Zahlen: 0.00 Euro
-        <hr>
-
+        <h4>Deine Bestellung:</h4>
     </aside>
-    <button id="checkButton">Sende deine Bestellung ab.</button>
+    <fieldset>
+        <legend>Becher oder Waffel?</legend>
+
+        <input type="radio" name="Darrbietungsform:" value="Waffel" id="Waffel" />
+        <label for="Waffel">Waffel</label>
+        <input type="radio" name="Darrbietungsform:" value="Becher" id="Becher"/>
+        <label for="Becher">Becher</label>   
+    </fieldset>
+        <form id="renderHere">
+
+        </form>
+    
+        <!--
     <fieldset>
         <legend>Kosmisch-gutes Eis!</legend>
-        <p>Astronomisch niedrige 2€ pro Kugel</p>
-        <p>Wegen ein paar Kugeln fliegen wir nicht zur Erde!</p>
+        <p>2€ pro Kugel</p>
+        <p>Bitte wähle deine Eissorten:</p>
         <p id="eisauswahl">
         </p>
 
     </fieldset>
 
     <fieldset>
-        <legend>Sternenstaub oder doch was anderes?</legend>
-        <p>Nur 4€ und die Eiskreation wird individueller!</p>
+        
+        <p>Tue dir etwas gutes für nur 80ct das Stück.</p>
         <p id="zutatenauswahl"></p>
+        <legend>Toppings für dein Eis</legend>
+
+    </fieldset>
+
+   -->
+    <fieldset>
+        <legend>Lieferoptionen:</legend>
+
+        <input type="radio" name="Lieferoptionen" value="SameDayDelivery" id="SameDay" />
+		<label for="SameDay">Same Day 4,99€</label>
+		<input type="radio" name="Lieferoptionen" value="SameHourDelivery" id="SameHour"/>
+        <label for="SameHour">Same Hour 19,99€</label>
+        <input type="radio" name="Lieferoptionen" value="Beamemeup" id="Beamemeup"/>
+        <label for="Beamemeup">Beamen free</label>
 
     </fieldset>
 
     <fieldset>
-        <legend>Space-Waffel oder Space-Becher?</legend>
+        <legend>Deine persönlichen Daten</legend>
 
-        <input type="radio" name="waffelBecher" value="Waffel" id="Waffel" />
-		<label for="Waffel">Waffel</label>
-		<input type="radio" name="waffelBecher" value="Becher" id="Becher"/>
-        <label for="Becher">Becher</label>   
-    </fieldset>
-
-    <fieldset>
-        <legend>Leider sind alles Spaceshuttles auf Mission</legend>
-
-        <input type="radio" name="RadiogroupLog" value="Spaceshuttle" id="Spaceshuttle" />
-		<label for="Spaceshuttle">Spaceshuttle</label>
-		<input type="radio" name="RadiogroupLog" value="Warp" id="Warp"/>
-        <label for="Warp">Warp</label>
-        <input type="radio" name="RadiogroupLog" value="Wurmloch" id="Wurmloch"/>
-        <label for="Wurmloch">Wurmloch</label>
-
-    </fieldset>
-
-    <fieldset>
-        <legend>Eis aus dem All, kommt an...</legend>
-
-        <p>Vor- und Nachnamen:</p>
+        <p>Dein Name</p>
         <input type="text" name="Namen" required/>   
         <p>Straße und Hausnummer:</p>
         <input type="text" name="StrasseHN" required/>
 
-        <p>Nur hier kann man uns nicht finden!</p>
+        <p>Deine Adresse (Straße,NR:</p>
 
         <select name="PLZOrt" id="ort" required>
-            <option value="Bitte wählen" selected>Wohin soll das Eis kommen?</option>
+            <option value="Bitte wählen sie Ihre Adresse" selected>Wohin soll das Eis kommen?</option>
 
 				<option value="78120-Furtwangen-im-Schwarzwald">78120 Furtwangen im Schwarzwald (Stadtgebiet)</option>
                 <option value="78120-Furtwangen-im-Schwarzwald">78120 Furtwangen-Linach</option>
@@ -104,10 +95,7 @@
 
     </fieldset>
 
-
-
-    
-
+    <button id="checkButton">Sende deine Bestellung ab.</button>
 
     </main>
 
