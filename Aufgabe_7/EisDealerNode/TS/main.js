@@ -169,7 +169,7 @@ var EisDealerFreude;
                 if (EisDealerFreude.iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
                         urlSchreiben += `IHREEISSORTEN&`;
-                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}_Kugel(n)&`;
+                        urlSchreiben += `${EisDealerFreude.iceDealerData[group][i].name}=${EisDealerFreude.iceDealerData[group][i].value}&`;
                     }
                     else if (group == "Toppings") {
                         urlSchreiben += `IHRETOPPINGS&`;
@@ -219,7 +219,7 @@ var EisDealerFreude;
             document.getElementById('UserInterface').innerHTML = "";
             let htmlString = `
                 <div class="EndÜbersicht">
-                    <p> Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
+                    <p class="ueberHead" > Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
                     <p> ${xhr.response}</p>
                 </div>
             `;

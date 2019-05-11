@@ -215,7 +215,7 @@ namespace EisDealerFreude {
                 if (iceDealerData[group][i].value != 0) {
                     if (group == "Eissorten") {
                         urlSchreiben += `IHREEISSORTEN&`
-                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}_Kugel(n)&`;
+                        urlSchreiben += `${iceDealerData[group][i].name}=${iceDealerData[group][i].value}&`;
                     }
                     else if (group == "Toppings")
                     {
@@ -275,7 +275,7 @@ namespace EisDealerFreude {
             document.getElementById('UserInterface').innerHTML = "";
             let htmlString:string = `
                 <div class="EndÜbersicht">
-                    <p> Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
+                    <p class="ueberHead" > Vielen Dank für deine Bestellung, hier ist nochmal eine Übersicht:</p>
                     <p> ${xhr.response}</p>
                 </div>
             `;

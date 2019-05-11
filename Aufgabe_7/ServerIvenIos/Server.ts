@@ -33,11 +33,11 @@ namespace EisDealerFreude {
 		let urlResponse:string = ``;
 		for (let key in url.query){ 
 				if (key == "IHREEISSORTEN") {
-					urlResponse += `<p>Diese Eissorten hast du gewählt:</p>`;
+					urlResponse += `<p class="ueberHead">Diese Eissorten hast du gewählt:</p>`;
 					continue;
 				}
 				if (key == "IHRETOPPINGS") {
-					urlResponse += `<p>Diese Toppings hast du gewählt:</p>`;
+					urlResponse += `<p class="ueberHead">Diese Toppings hast du gewählt:</p>`;
 					continue;
 				}
 				if (key == "Waffel" || key == "Becher") { 
@@ -50,7 +50,7 @@ namespace EisDealerFreude {
 
 				}
 				if (key == "Kundenname") {
-					urlResponse += `<p>Deine persönlichen Daten: </p>`;
+					urlResponse += `<p class="ueberHead" >Deine persönlichen Daten: </p>`;
 					urlResponse += `<p>${key}: ${url.query[key]}</p>`;
 					continue;
 				}

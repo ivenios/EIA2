@@ -18,6 +18,9 @@ select {
     background-color: white;
     width: 250px;
 }
+.ueberHead {
+    font-weight: bold;
+}
 .headings {
     float: left;
     color: black;
