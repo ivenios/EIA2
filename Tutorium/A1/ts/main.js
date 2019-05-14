@@ -2,7 +2,7 @@ var hiAndBye;
 (function (hiAndBye) {
     document.addEventListener('DOMContentLoaded', init);
     let helloArray = ["Herzlich", "Willkommen", "hier", "im", "Europa", "-", "Park", "!"];
-    let byeArray = ["Verpiss", "dich", ",", "aldeeeeeeeäeee", "."];
+    let byeArray = ["Verpiss", "dich", ",", "aldeeeeeeeäeee", "!"];
     function init() {
         document.getElementById("Hello").addEventListener('click', welcome);
         document.getElementById("ByeBye").addEventListener('click', goodBye);
