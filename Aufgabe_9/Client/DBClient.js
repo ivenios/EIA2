@@ -25,7 +25,7 @@ var DBClient;
         let query = "command=search";
         query += "&matrikel=" + inputs[3].value;
         // console.log(query);
-        sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleFindResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";

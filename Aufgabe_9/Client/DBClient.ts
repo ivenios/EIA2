@@ -26,7 +26,7 @@ namespace DBClient {
         let query: string = "command=search";
         query += "&matrikel=" + inputs[3].value;
        // console.log(query);
-        sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleFindResponse);
     }
 
     function refresh(_event: Event): void {
