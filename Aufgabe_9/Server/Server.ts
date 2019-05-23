@@ -6,6 +6,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./Database";
+import { parse } from "querystring";
 
 console.log("Server starting");
 
@@ -43,6 +44,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
+        case "search":
+            let matrikel: matrikelDat = {
+                matrikel :parseInt(query["matrikel"])
+            }
+            Database.searchStudentByMat(matrikel, findCallback);
+            break;
+
         default:
             respond(_response, "unknown command: " + command);
             break;

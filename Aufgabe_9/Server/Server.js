@@ -35,6 +35,12 @@ function handleRequest(_request, _response) {
         case "refresh":
             Database.findAll(findCallback);
             break;
+        case "search":
+            let matrikel = {
+                matrikel: parseInt(query["matrikel"])
+            };
+            Database.searchStudentByMat(matrikel, findCallback);
+            break;
         default:
             respond(_response, "unknown command: " + command);
             break;
