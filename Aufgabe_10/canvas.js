@@ -75,11 +75,16 @@ var ios_aqua_v1;
     }
     //AUFRUF FISCHE 
     function poisson() {
-        let f = Math.random() * (10 - 1) + 1;
+        let f = Math.random() * (6 - 0) + 0;
         for (let i = 0; i < f; i++) {
             let x = Math.random() * canvas.width - 10;
             let y = Math.random() * canvas.height - 350;
             fischi(x, y);
+        }
+        for (let i = 0; i < f; i++) {
+            let x = Math.random() * canvas.width - 10;
+            let y = Math.random() * canvas.height - 350;
+            fischi2(x, y);
         }
     }
     // ASSETS 
@@ -113,7 +118,7 @@ var ios_aqua_v1;
         crc.bezierCurveTo(_x, _y, _x + 50, _y - 90, _x - 90, _y - 160);
         crc.moveTo(_x + 190, _y - 200);
         crc.closePath();
-        crc.lineWidth = 8;
+        crc.lineWidth = 5;
         crc.strokeStyle = "#00C212";
         crc.stroke();
         let algenhead = new Path2D();
@@ -156,6 +161,52 @@ var ios_aqua_v1;
         crc.fillStyle = "black";
         crc.fill();
         crc.stroke();
+        crc.closePath();
+    }
+    function fischi2(_x, _y) {
+        //Körper
+        crc.beginPath();
+        crc.arc(_x, _y, 45, 0, Math.PI * 2);
+        crc.closePath();
+        crc.strokeStyle = "#66572A";
+        crc.lineWidth = 2;
+        crc.fillStyle = "#FFC51C";
+        crc.fill();
+        crc.stroke();
+        //Flossenseite
+        crc.beginPath();
+        crc.moveTo(_x, _y - 5);
+        crc.lineTo(_x + 15, _y - 20);
+        crc.moveTo(_x + 15, _y - 20);
+        crc.lineTo(_x + 15, _y + 20);
+        crc.moveTo(_x + 15, _y + 20);
+        crc.lineTo(_x, _y + 5);
+        crc.closePath();
+        crc.strokeStyle = "#66572A";
+        crc.lineWidth = 1;
+        crc.stroke();
+        //Augen 
+        crc.beginPath();
+        crc.arc(_x - 15, _y - 15, 5, 0, 2 * Math.PI);
+        crc.strokeStyle = "black";
+        crc.fillStyle = "black";
+        crc.closePath();
+        crc.fill();
+        crc.stroke();
+        //Flossenhinten
+        crc.beginPath();
+        crc.moveTo(_x + 45, _y);
+        crc.lineTo(_x + 60, _y - 20);
+        crc.moveTo(_x + 60, _y - 20);
+        crc.lineTo(_x + 60, _y + 20);
+        crc.moveTo(_x + 60, _y + 20);
+        crc.lineTo(_x + 45, _y + 5);
+        crc.moveTo(_x + 45, _y);
+        crc.fillStyle = "#FFC51C";
+        crc.strokeStyle = "#66572A";
+        crc.lineWidth = 2;
+        crc.stroke();
+        crc.fill();
         crc.closePath();
     }
 })(ios_aqua_v1 || (ios_aqua_v1 = {}));
