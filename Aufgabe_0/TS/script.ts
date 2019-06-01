@@ -1,5 +1,5 @@
 
-//hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
+/*//hier eine nette funktion, was aber wenn jemand auf abbrechen drückt, deswegen die if schleife
 function init() {
     thyNameHere();
 
@@ -19,7 +19,7 @@ function thyNameHere():void {
         console.log("More matter, with less art. We need thy name!!!");
     }
     else { //wenn alles erfüllt ist, kann alles geschrieben haben 
-        document.getElementById("htmlText").innerHTML="Lebe Lange und in Frieden <span class='Name'>"+ thyName +"</span>. Gerne Helfen wir dir.";
+  s      document.getElementById("htmlText").innerHTML="Lebe Lange und in Frieden <span class='Name'>"+ thyName +"</span>. Gerne Helfen wir dir.";
         console.log("Lebe Lange und in Frieden "+ thyName + ". Gerne Helfen wir dir.");
         
     }
