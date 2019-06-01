@@ -44,11 +44,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
+        case "search": // neuer Command aus der DBClient 
             let matrikel: matrikelDat = {
-                matrikel :parseInt(query["matrikel"])
+                matrikel :parseInt(query["matrikel"]) //matrikel nummer wird geparst 
             }
-            Database.searchStudentByMat(matrikel, findCallback);
+            Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
             break;
 
         default:

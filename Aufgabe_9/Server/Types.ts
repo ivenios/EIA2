@@ -8,6 +8,6 @@ interface StudentData {
     matrikel: number;
 }
 
-interface matrikelDat {
+interface matrikelDat { //neues Interface für mit dem Datentyp unserer Matrikelnummer kann aber eigentlich weg 
     matrikel:number;
 }

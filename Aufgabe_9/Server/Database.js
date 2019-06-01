@@ -54,6 +54,7 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+// neue suchfunktion, einfach die oben genannte funktion übernommen und mit students find angepasst
 function searchStudentByMat(_mat, _callback) {
     var cursor = students.find(_mat);
     cursor.toArray(prepareAnswer);

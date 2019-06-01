@@ -6,10 +6,10 @@ var DBClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("findButton"); //hier
+        let searchButton = document.getElementById("findButton"); //hier neuer events listener für den Suchen Button
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
+        searchButton.addEventListener("click", search); // neuer  eventlistener auf den Button. 
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -20,9 +20,10 @@ var DBClient;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
+    //neue Suchfunktion (das Event wird mit übergeben, damit wir die eingegebene Matrikeln nummer als such patrameter verwenden können) 
     function search(_event) {
         let inputs = document.getElementsByTagName("input");
-        let query = "command=search";
+        let query = "command=search"; // hier muss ein neuer Command angelegt werden, um dem Server zu sagen, welcheer command ausgeführt wird
         query += "&matrikel=" + inputs[3].value;
         // console.log(query);
         sendRequest(query, handleFindResponse);

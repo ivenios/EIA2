@@ -58,7 +58,7 @@ export function findAll(_callback: Function): void {
             _callback(JSON.stringify(studentArray));
     }
 }
-
+// neue suchfunktion, einfach die oben genannte funktion übernommen und mit students find angepasst
 export function searchStudentByMat(_mat:matrikelDat, _callback: Function ):void{
     var cursor: Mongo.Cursor = students.find(_mat);
     cursor.toArray(prepareAnswer);
@@ -68,5 +68,4 @@ export function searchStudentByMat(_mat:matrikelDat, _callback: Function ):void{
         else
             _callback(JSON.stringify(studentArray));
     }
-
 }
