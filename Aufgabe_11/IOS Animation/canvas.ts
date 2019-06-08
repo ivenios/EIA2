@@ -16,7 +16,7 @@ namespace ios_aqua_v1 {
 	function init(): void {
 		canvas = document.getElementsByTagName("canvas")[0];
 		crc = canvas.getContext("2d");
-		lamer(); //boden und hintergrund
+		drawbackground(); //boden und hintergrund
 		aerien(); //luftblasen ;
 		algue(); //algen
 		poisson(); //fische
@@ -24,7 +24,7 @@ namespace ios_aqua_v1 {
 	}
 
 	//HINTERGRUND AUFRUF
-	function lamer(): void {
+	function drawbackground(): void {
 		let eau: Path2D = new Path2D();
 		eau.rect(0, 0, 1330, 750);
 		crc.fillStyle = "#92D1FF";

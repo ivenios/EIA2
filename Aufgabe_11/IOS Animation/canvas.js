@@ -16,13 +16,13 @@ var ios_aqua_v1;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
-        lamer(); //boden und hintergrund
+        drawbackground(); //boden und hintergrund
         aerien(); //luftblasen ;
         algue(); //algen
         poisson(); //fische
     }
     //HINTERGRUND AUFRUF
-    function lamer() {
+    function drawbackground() {
         let eau = new Path2D();
         eau.rect(0, 0, 1330, 750);
         crc.fillStyle = "#92D1FF";
