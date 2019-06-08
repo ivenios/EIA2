@@ -54,17 +54,15 @@ var iLikeToMoveItMoveIt;
             console.log(fish2);
         }
         //Bubbles
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 65; i++) {
             let x = Math.random() * iLikeToMoveItMoveIt.canvas.width;
             let y = Math.random() * iLikeToMoveItMoveIt.canvas.height;
-            let dx = Math.random() * 10 - 5;
-            let dy = Math.random() * 10 - 5;
+            let dy = Math.random() * 4 - 2;
             let r = Math.random() * (30 - 5) + 5;
             let buble;
             buble = new iLikeToMoveItMoveIt.Bubbles();
             buble.x = x;
             buble.y = y;
-            buble.dx = dx;
             buble.dy = dy;
             buble.r = r;
             bubbleArray.push(buble);

@@ -57,17 +57,15 @@ namespace iLikeToMoveItMoveIt {
 			console.log(fish2);
 		}
 		//Bubbles
-		for (let i: number = 0; i < 10; i++) {
+		for (let i: number = 0; i < 65; i++) {
 			let x: number = Math.random() * canvas.width;
 			let y: number = Math.random() * canvas.height;
-			let dx: number = Math.random() * 10 - 5;
-			let dy: number = Math.random() * 10 - 5;
+			let dy: number = Math.random() * 4 - 2;
 			let r: number = Math.random() * (30 - 5) + 5;
 			let buble: Bubbles;
 			buble = new Bubbles();
 			buble.x = x;
 			buble.y = y;
-			buble.dx = dx;
 			buble.dy = dy;
 			buble.r = r;
 			bubbleArray.push(buble);

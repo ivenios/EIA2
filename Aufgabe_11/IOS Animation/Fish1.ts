@@ -49,8 +49,20 @@ namespace iLikeToMoveItMoveIt {
 		}
 
 		move(): void {
-			this.x += this.dx;
+			this.x -= this.dx;
 			this.y += this.dy;
+			if (this.x + 100 < 0) {
+				this.x = 1330;
+			}
+			if (this.y > 750) {
+				this.y = 0;
+			}
+			if (this.x  > 1330) {
+				this.x = -50;
+			}
+			if (this.y + 5 < 0) {
+				this.y = 750;
+			}
 		}
 	}
 }

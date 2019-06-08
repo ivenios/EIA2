@@ -2,11 +2,11 @@ namespace iLikeToMoveItMoveIt {
 	export class Bubbles {
 		x: number;
 		y: number;
-		dx: number;
 		dy: number;
 		r: number;
 
 		draw(): void {
+
 
 			let bubles: Path2D = new Path2D();
 			bubles.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
@@ -22,8 +22,12 @@ namespace iLikeToMoveItMoveIt {
 		}
 
 		move(): void {
-			this.x += this.dx;
+			this.dy = -Math.abs(this.dy);
 			this.y += this.dy;
+
+			if (this.y + 5 < 0) {
+				this.y = 790;
+			}
 		}
 	}
 }

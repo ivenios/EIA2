@@ -14,8 +14,11 @@ var iLikeToMoveItMoveIt;
             this.draw();
         }
         move() {
-            this.x += this.dx;
+            this.dy = -Math.abs(this.dy);
             this.y += this.dy;
+            if (this.y + 5 < 0) {
+                this.y = 790;
+            }
         }
     }
     iLikeToMoveItMoveIt.Bubbles = Bubbles;
