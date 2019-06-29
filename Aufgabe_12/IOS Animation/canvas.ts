@@ -8,67 +8,43 @@
 	_Position der Algen (immer unterschiedlich)
 
 */
-namespace iLikeToMoveItMoveIt {
+namespace Task12 {
 	document.addEventListener("DOMContentLoaded", init);
 	export let crc: CanvasRenderingContext2D;
 	export let canvas: HTMLCanvasElement;
-	let fish1Array: Fish1[] =  [] ;
-	let fish2Array: Fish2[] =  [];
-	let bubbleArray: Bubbles[] =  [];
+	let renderableObjectsArray: RenderableObjects[] = [];
+	//let fish1Array: Fish1[] =  [] ;
+	//let fish2Array: Fish2[] =  [];
+	//let bubbleArray: Bubbles[] =  [];
 	let fps: number = 30;
 	let imgData: ImageData;
 
 	function init(): void {
 		canvas = document.getElementsByTagName("canvas")[0];
+		canvas.addEventListener("click", foodoraDelivery);
 		crc = canvas.getContext("2d");
 		drawBackground();
 		imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
 		//Fish1
 		for (let i: number = 0; i < 10; i++) {
-			let x: number = Math.random() * canvas.width;
-			let y: number = Math.random() * canvas.height;
-			let dx: number = Math.random() * 10 - 5;
-			let dy: number = Math.random() * 10 - 5;
-			let fish1: Fish1;
-			fish1 = new Fish1();
-			fish1.x = x;
-			fish1.y = y;
-			fish1.dx = dx;
-			fish1.dy = dy;
-			fish1Array.push(fish1);
+			let fish1: Fish1 = new Fish1();
+			renderableObjectsArray.push(fish1);
 			fish1.draw();
 			console.log(fish1);
 		}
 		//Fish 2
 		for (let i: number = 0; i < 10; i++) {
-			let x: number = Math.random() * canvas.width;
-			let y: number = Math.random() * canvas.height;
-			let dx: number = Math.random() * 10 - 5;
-			let dy: number = Math.random() * 10 - 5;
-			let fish2: Fish2;
-			fish2 = new Fish2();
-			fish2.x = x;
-			fish2.y = y;
-			fish2.dx = dx;
-			fish2.dy = dy;
-			fish2Array.push(fish2);
+			let fish2: Fish2 = new Fish2();
+			renderableObjectsArray.push(fish2);
 			fish2.draw();
 			console.log(fish2);
 		}
 		//Bubbles
 		for (let i: number = 0; i < 65; i++) {
-			let x: number = Math.random() * canvas.width;
-			let y: number = Math.random() * canvas.height;
-			let dy: number = Math.random() * 4 - 2;
-			let r: number = Math.random() * (30 - 5) + 5;
-			let buble: Bubbles;
-			buble = new Bubbles();
-			buble.x = x;
-			buble.y = y;
-			buble.dy = dy;
-			buble.r = r;
-			bubbleArray.push(buble);
+
+			let buble: Bubbles = new Bubbles();
+			renderableObjectsArray.push(buble);
 			buble.draw();
 			console.log(buble);
 		}
@@ -77,21 +53,25 @@ namespace iLikeToMoveItMoveIt {
 
 	}
 
+	function foodoraDelivery(_event: MouseEvent): void {
+		let x: number = _event.clientX;
+		let y: number = _event.clientY;
+		let food: Foodora = new Foodora();
+		food.x = x - 9;
+		food.y = y - 12;
+		// Damit Futter direkt beim Mauscursor entsteht		
+		renderableObjectsArray.push(food);
+		food.draw();
+	}
+
 	function update(): void {
 		window.setTimeout(update, 1000 / fps);
 		crc.clearRect(0, 0, canvas.width, canvas.height);
 		crc.putImageData(imgData, 0, 0);
 
-		for (let i: number = 0; i < fish1Array.length; i++) { //Fish1
-			fish1Array[i].update();
-		}
-
-		for (let i: number = 0; i < fish2Array.length; i++) {  //fish2
-			fish2Array[i].update();
-		}
-
-		for (let i: number = 0; i < bubbleArray.length; i++) { //Buubles
-			bubbleArray[i].update();
+		for (let i: number = 0; i < renderableObjectsArray.length; i++) {
+			console.log(renderableObjectsArray[i]);
+			renderableObjectsArray[i].update();
 		}
 
 	}

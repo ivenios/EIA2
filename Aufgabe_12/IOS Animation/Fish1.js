@@ -1,42 +1,45 @@
-var iLikeToMoveItMoveIt;
-(function (iLikeToMoveItMoveIt) {
-    class Fish1 {
+var Task12;
+(function (Task12) {
+    class Fish1 extends Task12.MovingCompany {
+        constructor() {
+            super();
+            this.x = Math.random() * Task12.canvas.width;
+            this.y = Math.random() * Task12.canvas.height;
+            this.dx = Math.random() * 10 - 5;
+            this.dy = Math.random() * 10 - 5;
+        }
         draw() {
             //Körper
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.moveTo(this.x, this.y);
-            iLikeToMoveItMoveIt.crc.quadraticCurveTo(this.x + 40, this.y - 90, this.x + 180, this.y + 30);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x, this.y);
-            iLikeToMoveItMoveIt.crc.quadraticCurveTo(this.x - 40, this.y + 90, this.x + 180, this.y + 30);
-            iLikeToMoveItMoveIt.crc.closePath();
-            iLikeToMoveItMoveIt.crc.strokeStyle = "#D90D02";
-            iLikeToMoveItMoveIt.crc.fillStyle = "#D90D02";
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.stroke();
-            iLikeToMoveItMoveIt.crc.closePath();
+            Task12.crc.beginPath();
+            Task12.crc.moveTo(this.x, this.y);
+            Task12.crc.quadraticCurveTo(this.x + 40, this.y - 90, this.x + 180, this.y + 30);
+            Task12.crc.moveTo(this.x, this.y);
+            Task12.crc.quadraticCurveTo(this.x - 40, this.y + 90, this.x + 180, this.y + 30);
+            Task12.crc.closePath();
+            Task12.crc.strokeStyle = "#D90D02";
+            Task12.crc.fillStyle = "#D90D02";
+            Task12.crc.fill();
+            Task12.crc.stroke();
+            Task12.crc.closePath();
             //Flossen
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 180, this.y + 30);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 240, this.y - 60);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 240, this.y + 60);
-            iLikeToMoveItMoveIt.crc.strokeStyle = "#D90D02";
-            iLikeToMoveItMoveIt.crc.fillStyle = "#D90D02";
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.stroke();
-            iLikeToMoveItMoveIt.crc.closePath();
+            Task12.crc.beginPath();
+            Task12.crc.moveTo(this.x + 180, this.y + 30);
+            Task12.crc.lineTo(this.x + 240, this.y - 60);
+            Task12.crc.lineTo(this.x + 240, this.y + 60);
+            Task12.crc.strokeStyle = "#D90D02";
+            Task12.crc.fillStyle = "#D90D02";
+            Task12.crc.fill();
+            Task12.crc.stroke();
+            Task12.crc.closePath();
             //Augen
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.moveTo(this.x, this.y);
-            iLikeToMoveItMoveIt.crc.arc(this.x, this.y, 5, 0, 2 * Math.PI);
-            iLikeToMoveItMoveIt.crc.strokeStyle = "black";
-            iLikeToMoveItMoveIt.crc.fillStyle = "black";
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.stroke();
-            iLikeToMoveItMoveIt.crc.closePath();
-        }
-        update() {
-            this.move();
-            this.draw();
+            Task12.crc.beginPath();
+            Task12.crc.moveTo(this.x, this.y);
+            Task12.crc.arc(this.x, this.y, 5, 0, 2 * Math.PI);
+            Task12.crc.strokeStyle = "black";
+            Task12.crc.fillStyle = "black";
+            Task12.crc.fill();
+            Task12.crc.stroke();
+            Task12.crc.closePath();
         }
         move() {
             this.x -= this.dx;
@@ -55,6 +58,6 @@ var iLikeToMoveItMoveIt;
             }
         }
     }
-    iLikeToMoveItMoveIt.Fish1 = Fish1;
-})(iLikeToMoveItMoveIt || (iLikeToMoveItMoveIt = {}));
+    Task12.Fish1 = Fish1;
+})(Task12 || (Task12 = {}));
 //# sourceMappingURL=Fish1.js.map

@@ -1,55 +1,58 @@
-var iLikeToMoveItMoveIt;
-(function (iLikeToMoveItMoveIt) {
-    class Fish2 {
+var Task12;
+(function (Task12) {
+    class Fish2 extends Task12.MovingCompany {
+        constructor() {
+            super();
+            this.x = Math.random() * 725 + 50;
+            this.y = Math.random() * 450 + 50;
+            this.dx = Math.random() * 10 - 5;
+            this.dy = Math.random() * 10 - 5;
+        }
         draw() {
             //Körper
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.arc(this.x, this.y, 45, 0, Math.PI * 2);
-            iLikeToMoveItMoveIt.crc.closePath();
-            iLikeToMoveItMoveIt.crc.strokeStyle = "#66572A";
-            iLikeToMoveItMoveIt.crc.lineWidth = 2;
-            iLikeToMoveItMoveIt.crc.fillStyle = "#FFC51C";
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.stroke();
+            Task12.crc.beginPath();
+            Task12.crc.arc(this.x, this.y, 45, 0, Math.PI * 2);
+            Task12.crc.closePath();
+            Task12.crc.strokeStyle = "#66572A";
+            Task12.crc.lineWidth = 2;
+            Task12.crc.fillStyle = "#FFC51C";
+            Task12.crc.fill();
+            Task12.crc.stroke();
             //Flossenseite
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.moveTo(this.x, this.y - 5);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 15, this.y - 20);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 15, this.y - 20);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 15, this.y + 20);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 15, this.y + 20);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x, this.y + 5);
-            iLikeToMoveItMoveIt.crc.closePath();
-            iLikeToMoveItMoveIt.crc.strokeStyle = "#66572A";
-            iLikeToMoveItMoveIt.crc.lineWidth = 1;
-            iLikeToMoveItMoveIt.crc.stroke();
+            Task12.crc.beginPath();
+            Task12.crc.moveTo(this.x, this.y - 5);
+            Task12.crc.lineTo(this.x + 15, this.y - 20);
+            Task12.crc.moveTo(this.x + 15, this.y - 20);
+            Task12.crc.lineTo(this.x + 15, this.y + 20);
+            Task12.crc.moveTo(this.x + 15, this.y + 20);
+            Task12.crc.lineTo(this.x, this.y + 5);
+            Task12.crc.closePath();
+            Task12.crc.strokeStyle = "#66572A";
+            Task12.crc.lineWidth = 1;
+            Task12.crc.stroke();
             //Augen 
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.arc(this.x - 15, this.y - 15, 5, 0, 2 * Math.PI);
-            iLikeToMoveItMoveIt.crc.strokeStyle = "black";
-            iLikeToMoveItMoveIt.crc.fillStyle = "black";
-            iLikeToMoveItMoveIt.crc.closePath();
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.stroke();
+            Task12.crc.beginPath();
+            Task12.crc.arc(this.x - 15, this.y - 15, 5, 0, 2 * Math.PI);
+            Task12.crc.strokeStyle = "black";
+            Task12.crc.fillStyle = "black";
+            Task12.crc.closePath();
+            Task12.crc.fill();
+            Task12.crc.stroke();
             //Flossenhinten
-            iLikeToMoveItMoveIt.crc.beginPath();
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 45, this.y);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 60, this.y - 20);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 60, this.y - 20);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 60, this.y + 20);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 60, this.y + 20);
-            iLikeToMoveItMoveIt.crc.lineTo(this.x + 45, this.y + 5);
-            iLikeToMoveItMoveIt.crc.moveTo(this.x + 45, this.y);
-            iLikeToMoveItMoveIt.crc.fillStyle = "#FFC51C";
-            iLikeToMoveItMoveIt.crc.strokeStyle = "#66572A";
-            iLikeToMoveItMoveIt.crc.lineWidth = 2;
-            iLikeToMoveItMoveIt.crc.stroke();
-            iLikeToMoveItMoveIt.crc.fill();
-            iLikeToMoveItMoveIt.crc.closePath();
-        }
-        update() {
-            this.move();
-            this.draw();
+            Task12.crc.beginPath();
+            Task12.crc.moveTo(this.x + 45, this.y);
+            Task12.crc.lineTo(this.x + 60, this.y - 20);
+            Task12.crc.moveTo(this.x + 60, this.y - 20);
+            Task12.crc.lineTo(this.x + 60, this.y + 20);
+            Task12.crc.moveTo(this.x + 60, this.y + 20);
+            Task12.crc.lineTo(this.x + 45, this.y + 5);
+            Task12.crc.moveTo(this.x + 45, this.y);
+            Task12.crc.fillStyle = "#FFC51C";
+            Task12.crc.strokeStyle = "#66572A";
+            Task12.crc.lineWidth = 2;
+            Task12.crc.stroke();
+            Task12.crc.fill();
+            Task12.crc.closePath();
         }
         move() {
             this.x -= this.dx;
@@ -68,6 +71,6 @@ var iLikeToMoveItMoveIt;
             }
         }
     }
-    iLikeToMoveItMoveIt.Fish2 = Fish2;
-})(iLikeToMoveItMoveIt || (iLikeToMoveItMoveIt = {}));
+    Task12.Fish2 = Fish2;
+})(Task12 || (Task12 = {}));
 //# sourceMappingURL=Fish2.js.map

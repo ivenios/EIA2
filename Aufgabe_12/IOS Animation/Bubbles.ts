@@ -1,9 +1,17 @@
-namespace iLikeToMoveItMoveIt {
-	export class Bubbles {
-		x: number;
-		y: number;
-		dy: number;
-		r: number;
+namespace Task12 {
+
+
+	export class Bubbles extends MovingCompany {
+		r: number; //radius deklaration
+
+        constructor() {
+            super(); 
+            this.x  = Math.random() * crc.canvas.width;
+            this.y  = Math.random() * crc.canvas.height;
+            this.dx = 0;
+            this.dy  = Math.random() * 4 - 2;
+            this.r  =  Math.random() * (30 - 5) + 5;
+        }
 
 		draw(): void {
 
@@ -14,11 +22,6 @@ namespace iLikeToMoveItMoveIt {
 			crc.strokeStyle = "E0FFFA";
 			crc.fill(bubles);
 			crc.stroke(bubles);
-		}
-
-		update(): void {
-			this.move();
-			this.draw();
 		}
 
 		move(): void {

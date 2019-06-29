@@ -1,10 +1,14 @@
-namespace iLikeToMoveItMoveIt {
-	export class Fish2 {
-		x: number;
-		y: number;
-		dx: number;
-		dy: number;
+namespace Task12 {
+	export class Fish2 extends MovingCompany {
 
+		constructor() { 
+			super();
+   				this.x = Math.random() * 725 + 50;
+   				this.y = Math.random() * 450 + 50;
+   				this.dx = Math.random() * 10 - 5;
+   				this.dy = Math.random() * 10 - 5;
+
+		}
 		draw(): void {
 			//Körper
 			crc.beginPath();
@@ -55,11 +59,6 @@ namespace iLikeToMoveItMoveIt {
 			crc.closePath();
 
 
-		}
-
-		update(): void {
-			this.move();
-			this.draw();
 		}
 
 		move(): void {
