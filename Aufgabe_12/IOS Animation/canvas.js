@@ -52,7 +52,6 @@ var Task12;
         let food = new Task12.Foodora();
         food.x = x - 9;
         food.y = y - 12;
-        // Damit Futter direkt beim Mauscursor entsteht		
         renderableObjectsArray.push(food);
         food.draw();
     }

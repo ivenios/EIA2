@@ -59,7 +59,6 @@ namespace Task12 {
 		let food: Foodora = new Foodora();
 		food.x = x - 9;
 		food.y = y - 12;
-		// Damit Futter direkt beim Mauscursor entsteht		
 		renderableObjectsArray.push(food);
 		food.draw();
 	}
