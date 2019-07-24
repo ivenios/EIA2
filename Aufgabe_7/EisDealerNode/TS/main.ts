@@ -31,11 +31,11 @@ namespace EisDealerFreude {
         for(let group in iceDealerData){
             if(group == "Eissorten"){
                console.log(iceDealerData[group]);
-                writeInnerHTML += `<fieldset> <legend>Eissorten:</legend></br> <p>1.55 Pro Kugel</p>`;
-                for (let i: number = 0; i < iceDealerData[group].length; i++) {
+               writeInnerHTML += `<fieldset> <legend>Eissorten:</legend></br> <p>1.55 Pro Kugel</p>`;
+               for (let i: number = 0; i < iceDealerData[group].length; i++) {
                     writeInnerHTML += `<input type="number" name="Eissorte${i}" step="1" min="0" max="30" value="0"/> Kugel(n) ${iceDealerData[group][i].name}<br>`;
                 }
-                writeInnerHTML  += `</fieldset>`;
+               writeInnerHTML  += `</fieldset>`;
             }
             else  if (group == "Toppings"){
                 writeInnerHTML += `<fieldset> <legend>Toppings(unsere besten):</legend> </br> <p>Nur 80ct das Stück</p>`;

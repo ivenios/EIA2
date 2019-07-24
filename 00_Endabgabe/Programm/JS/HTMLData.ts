@@ -1,7 +1,7 @@
 namespace hfuChat {
-
+    export let test: string = "motherfucker";
     
-    export let iceDealerData: {[key: string]: string }
+    export let htmlData: {[key: string]: string }
         = {
             "Login": "hello",
             "Register": "there",

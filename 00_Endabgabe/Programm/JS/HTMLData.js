@@ -1,6 +1,7 @@
 var hfuChat;
 (function (hfuChat) {
-    hfuChat.iceDealerData = {
+    hfuChat.test = "motherfucker";
+    hfuChat.htmlData = {
         "Login": "hello",
         "Register": "there",
         "Login Error": "How",
