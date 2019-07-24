@@ -14,7 +14,7 @@ var iLikeToMoveItMoveIt;
     let fish1Array = [];
     let fish2Array = [];
     let bubbleArray = [];
-    let fps = 30;
+    let fps = 0;
     let imgData;
     function init() {
         iLikeToMoveItMoveIt.canvas = document.getElementsByTagName("canvas")[0];

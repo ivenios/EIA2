@@ -15,7 +15,7 @@ namespace iLikeToMoveItMoveIt {
 	let fish1Array: Fish1[] =  [] ;
 	let fish2Array: Fish2[] =  [];
 	let bubbleArray: Bubbles[] =  [];
-	let fps: number = 30;
+	let fps: number = 0;
 	let imgData: ImageData;
 
 	function init(): void {
