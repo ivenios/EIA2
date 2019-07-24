@@ -1,52 +1,46 @@
 namespace hfuChat {
     //zuerst die dynamischen HTML Elemente,Vielleicht später noch in externe Datein Packen !!!
-   
+    let serverAddress: string = "https://ios-eia2.herokuapp.com";
     let htmlData: {[key: string]: string }
     = {
         "Login": `<form>
         <div class="login">
             <h1 class="head-title">Login</h1>
             <div class="uid">
-                <label>Email or Username</label>
-                <input type="text" name="">
+                
+                <input type="text" placeholder="Benutzername" required>
             </div>
             <div class="pwd">
-                <label>Password</label>
-                <input type="password" name="">
+                
+                <input type="password" placeholder="Passwort" required >
             </div>
-            <button type="submit">Login</button>
-            <button id="registerButton">Register</button></form> `,
+            <button id="loginUserButton">Login</button>
+            <button id="registerButton">Neuer User</button> </form> `,
 
         "Register": `<form> <div class="register">
-        <span class="clopen">Register</span>
         <h1 class="head-title">Register</h1>
-        <div class="mail">
-            <label>Email</label>
-            <input type="text" name="">
-        </div>
         <div class="uid">
-            <label>Username</label>
-            <input type="text" name="">
+            <input type="text" name="" placeholder="Benutzername" >
         </div>
         <div class="mobile">
-            <label>Mobile Number</label>
-            <input type="text" name="">
+            <input type="text" name="" placeholder="Telefonnummer">
         </div>
         <div class="pwd">
-            <label>Password</label>
-            <input type="password" name="">
+            <input type="password" name="" placeholder="Dein Passwort" >
         </div>			
         <div class="c-pwd">
-            <label>Confirm Password</label>
-            <input type="password" name="">
+            <input type="password" name="" placeholder="Wiederhole dein Passwort" >
         </div>
         <div class="gender">
             <input id="male" type="radio" name="customer[gender]">
-            <label for="male">Male</label>
+            <label for="male">Männlich</label>
             <input id="female" type="radio" name="customer[gender]">
-            <label  for="female">Female</label>
+            <label  for="female">Weiblich</label>
+            <input id="divers" type="radio" name="customer[gender]">
+            <label  for="divers">Divers</label>
         </div>
-        <button type="submit">Register</button>
+        <button id="saveNewUserButton">Daten Speichern</button>
+        <button id="exitRegisterButton">Abbrechen</button>
     </div>	
 </form>`,
         "Login Error": "How",
@@ -56,19 +50,23 @@ namespace hfuChat {
     };
 
     document.addEventListener("DOMContentLoaded", init);
-    document.getElementById("registerButton").addEventListener("click", registerNewUser);
-    document.getElementById("exitRegisterButton").addEventListener("click", init);
-    document.getElementById("saveNewUserButton").addEventListener("click", saveNewUser);
-    document.getElementById("loginUserButton").addEventListener("click", loginUser);
-
+    
     
     function init(): void { //Init Funktion ruft zuerst das Login Fenster auf aus dem Array. 
         console.log("Loading Login");
         document.getElementById("htmlBox").innerHTML = htmlData["Login"];
+        //hier kommen alle EventListener die jemals gebraucht werden. Problem dabei, könnte sein, dass manche der Inhaltenoch nicht geladen sind, deswegen muss ich da mal aufpassen
+        document.getElementById("registerButton").addEventListener("click", registerNewUser);
+        document.getElementById("loginUserButton").addEventListener("click", loginUser);
+        document.getElementById("exitRegisterButton").addEventListener("click", init);
+        document.getElementById("saveNewUserButton").addEventListener("click", saveNewUser);
     }
+    
+
 
     function registerNewUser(): void {
         console.log("loading Register Menu");
+        document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = htmlData["Register"];
     }
     
@@ -77,9 +75,45 @@ namespace hfuChat {
     }
 
     function loginUser(): void {
-        console.log("User Data will be checked, if correct Chat will be displayed")
+        console.log("User Data will be checked, if correct Chat will be displayed");
+        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let query: string = "command=login";
+        query += "&name=" + inputs[0].value;
+        query += "&firstname=" + inputs[1].value;
+        query += "&matrikel=" + inputs[2].value;
+        console.log(query);
+        sendRequest(query, handleInsertResponse);
     }
 
+//server Angelegenheiten: 
 
+    function refresh(_event: Event): void {
+    let query: string = "command=refresh";
+    sendRequest(query, handleFindResponse);
+}
+
+    function sendRequest(_query: string, _callback: EventListener): void {
+    let xhr: XMLHttpRequest = new XMLHttpRequest();
+    xhr.open("GET", serverAddress + "?" + _query, true);
+    xhr.addEventListener("readystatechange", _callback);
+    xhr.send();
+}
+
+    function handleInsertResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        alert(xhr.response);
+    }
+}
+
+    function handleFindResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+        output.value = xhr.response;
+        let responseAsJson: JSON = JSON.parse(xhr.response);
+        console.log(responseAsJson);
+    }
+}
 
 }

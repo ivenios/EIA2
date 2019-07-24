@@ -1,85 +1,20 @@
-.clopen{
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    opacity: 1 !important;
-    display: inline-block;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 9;
-    font-size: 20px;
-    text-transform: uppercase;
+body {
+font-family: 'Work Sans', sans-serif;
 }
-.clopen.text{
-    left: auto;
-    bottom: auto;
-    top: 25px;
-    right: 25px;
-    height: 50px;
-    width: 50px;
-    font-size: 0;
-}
-.clopen:before, .clopen:after{
-    content: '';
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    position: absolute;
-    height: 2px;
-    background: #fff;
-    width: 50%;
-    transition: all .25s;
-    opacity: 0;	
-}
-.clopen.text:before{
-    transform: rotate(45deg);
-    opacity: 1;
 
-}
-.clopen.text:after{
-    transform: rotate(-45deg);
-    opacity: 1;
-
-}
-.body{
-    background: #2C343B;
-padding: 5px;
-}
-h1.head-title {
-    position: relative;
-    color: #c44741;
-    text-transform: uppercase;
-}
-h1.head-title:before {
-    content: '';
-    position: absolute;
-    left: -50px;
-    height: 100%;
-    width: 5px;
-    background: #c44741;
-}
 button{
     height: 45px;
     line-height: 39px;
     width: 50%;
-    background: #303030;
+    background: rgb(36, 202, 3);
     transition: all .25s;
     border: none;
-    border: solid 3px #303030;
+    border: solid 3px rgb(36, 202, 3);
     color: #fff;
     font-size: 20px;
     margin: 50px auto !important;
     display: block;
-color: #fff !important;
+    color: #fff !important;
     box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
 }
 button:focus{
@@ -87,7 +22,7 @@ button:focus{
 }
 button:hover{
     background: transparent;
-    color: #303030 !important;
+    color: rgb(0, 0, 0) !important;
     width: 55%;
     box-shadow: none;
 }
@@ -103,14 +38,12 @@ button:hover{
     box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
 }
 .register{
-    background: #C44741;
+    background: rgb(36, 202, 3);
     color: #fff;
 }
-.register h1.head-title{
-    color: #fff;
-}
-.register h1.head-title:before{
-    background: #fff;
+input ::placeholder {
+    font-size: 1.1em;
+    color: rgb(36, 202, 3);
 }
 .login input[type="text"],.register input[type="text"],.login input[type="password"],.register input[type="password"]{
     border: none;
@@ -119,13 +52,12 @@ button:hover{
     width: 100%;
     margin-top: 30px;
 }
+
 .login input:hover,.register input:hover,.login input:focus,.register input:focus{
     outline: none;
 }
-.login label,.register label{
-    display: block;
-}
-.login > div,.register > div{
+
+.login > div,.register > div{ /*Darstellugn der Linie */
     position: relative;
 }
 .login > div:after,.register > div:after, .login > div:before,.register > div:before{
@@ -133,11 +65,10 @@ button:hover{
     position: absolute;
     top: 100%;
     width: 0%;
-    background: #C44741;
+    background: rgb(36, 202, 3);
     left: 50%;
     height: 2px;
     transition: all .25s; 
-    //cubic-bezier(0.68,0.55,0.265,1.2)
 }
 .login > div:before{
     background: #303030;
@@ -165,6 +96,8 @@ button:hover{
     font-size: 12px;
     opacity: .5;
 }
+
+/* DISCLAIMER: Die Animation der Radiobuttons wurden von einem CodePen übernommen, damit es schön aussieht*/
 .gender:before, .gender:after{
     content: none !important;
 }
@@ -197,7 +130,7 @@ button:hover{
     height: 16px;
     width: 16px;
     position: absolute;
-    background: #c44741;
+    background:rgb(36, 202, 3);
     border-radius: 50%;
     box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
     transition: all .25s cubic-bezier(0.68,0.55,0.265,3);
@@ -208,25 +141,5 @@ button:hover{
 .gender input[type="radio"]:checked+label:after{
     transform: scale(1);
 }
-.register{
-    position: absolute;
-    height: 150px;
-    width: 150px;
-    top: 25px;
-    right: -75px;
-    border-radius: 50%;
-    transition: all .25s cubic-bezier(0.68,0.55,0.265,1.2);
-    overflow: hidden;
-}
-.register > *{
-    opacity: 0;
-}
-.register.opened{
-    width: 110%;
-    right: -5%;
-    border-radius: 0;
-    height: auto;
-}
-.register.opened > *{
-    opacity: 1;
-}
+
+
