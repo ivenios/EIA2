@@ -47,34 +47,56 @@ var hfuChat;
         "Chat Interface": "you"
     };
     document.addEventListener("DOMContentLoaded", init);
+    //LOGIN FENSTER DARSTELLEN  
     function init() {
         console.log("Loading Login");
         document.getElementById("htmlBox").innerHTML = htmlData["Login"];
         //hier kommen alle EventListener die jemals gebraucht werden. Problem dabei, könnte sein, dass manche der Inhaltenoch nicht geladen sind, deswegen muss ich da mal aufpassen
         document.getElementById("registerButton").addEventListener("click", registerNewUser);
         document.getElementById("loginUserButton").addEventListener("click", loginUser);
-        document.getElementById("exitRegisterButton").addEventListener("click", init);
-        document.getElementById("saveNewUserButton").addEventListener("click", saveNewUser);
     }
+    //REGISTRIER FENSTER DARSTELLEN
     function registerNewUser() {
         console.log("loading Register Menu");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = htmlData["Register"];
+        //EventListener für die jeweiligen neuen Buttons
+        document.getElementById("exitRegisterButton").addEventListener("click", init);
+        document.getElementById("saveNewUserButton").addEventListener("click", saveNewUser);
     }
+    //NEUEN USER SPEICHERN
     function saveNewUser() {
         console.log("New User will be checked and safed to Database");
+        let inputs = document.getElementsByTagName("input");
+        let query = "command=newUser";
+        console.log(inputs);
+        query += "&username=" + inputs[0].value;
+        query += "&telenum=" + inputs[1].value;
+        if (inputs[2] != inputs[3]) {
+            printError(htmlData["Register Error"]);
+        }
+        else {
+            query += "&pwd=" + inputs[2].value;
+        }
+        query += "&password=" + inputs[1].value;
+        console.log(query);
+        //sendRequest(query, handleInsertResponse);
     }
+    //LOGIN FÜR DEN USER
     function loginUser() {
         console.log("User Data will be checked, if correct Chat will be displayed");
         let inputs = document.getElementsByTagName("input");
         let query = "command=login";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        console.log(inputs);
+        query += "&username=" + inputs[0].value;
+        query += "&password=" + inputs[1].value;
         console.log(query);
-        sendRequest(query, handleInsertResponse);
+        //sendRequest(query, handleInsertResponse);
     }
-    //server Angelegenheiten: 
+    function printError(_Array) {
+        // hier muss dann die jeweilige Fehler meldung verarbeitet werden
+    }
+    //SERVER ANFRAGEN VERSCHICKEN: 
     function refresh(_event) {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
