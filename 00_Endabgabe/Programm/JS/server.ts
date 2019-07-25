@@ -35,7 +35,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                 gender: query["gender"]
             };
             Database.searchUserNames(query["username"], findCallback, user);
-            respond(_response, "Die Angaben werden verarbeitet");
+            //respond(_response, "Die Angaben werden verarbeitet");
             break;
         case "refresh":
             Database.findAll(findCallback);

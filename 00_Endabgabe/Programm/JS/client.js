@@ -122,7 +122,7 @@ var hfuChat;
     function handleInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.response);
+            console.log(xhr.response);
         }
     }
     function handleFindResponse(_event) {

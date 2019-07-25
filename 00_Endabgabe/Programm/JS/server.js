@@ -27,7 +27,7 @@ function handleRequest(_request, _response) {
                 gender: query["gender"]
             };
             Database.searchUserNames(query["username"], findCallback, user);
-            respond(_response, "Die Angaben werden verarbeitet");
+            //respond(_response, "Die Angaben werden verarbeitet");
             break;
         case "refresh":
             Database.findAll(findCallback);
