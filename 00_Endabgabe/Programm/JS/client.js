@@ -25,6 +25,7 @@ var hfuChat;
             <input type="text" name="" placeholder="Telefonnummer">
         </div>
         <div class="pwd">
+            <input type="password" name="" placeholder="Dein Passwort" required >
         </div>			
         <div class="c-pwd">
             <input type="password" name="" placeholder="Wiederhole dein Passwort" required >
