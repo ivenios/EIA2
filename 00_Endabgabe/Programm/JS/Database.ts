@@ -69,11 +69,12 @@ export function searchUserNames(_name: string, _callback: Function, _user: UserD
 
         for (let i: number = 0; i < userArray.length; i++ ) {
             if (userArray[i].user == _name) {
-                _callback(JSON.stringify("Leider ist dein Username schon vergeben, suche dir bitte einen anderen."));
-                return; //wenn den Name bereits vergeben ist soll die Funktion terminiert werden
+                _callback("Leider ist dein Username schon vergeben, suche dir bitte einen anderen.");
+                return; //wenn der Name bereits vergeben ist soll die Funktion terminiert werden
             }
             
         }
         insert(_user); // nur wenn if nicht ausgeführt wurde, wird der Username eingespeichert. 
+        _callback("Dein Account wurde erfolgreich erstellt. Logge dich nun ein.");
     }
 }

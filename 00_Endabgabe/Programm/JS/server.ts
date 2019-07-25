@@ -35,7 +35,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                 gender: query["gender"]
             };
             Database.searchUserNames(query["username"], findCallback, user);
-            respond(_response, "storing data");
+            respond(_response, "Die Angaben werden verarbeitet");
             break;
         case "refresh":
             Database.findAll(findCallback);
@@ -59,7 +59,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 }
 
 function respond(_response: Http.ServerResponse, _text: string): void {
-    //console.log("Preparing response: " + _text);
+    console.log("Preparing response: " + _text);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.write(_text);

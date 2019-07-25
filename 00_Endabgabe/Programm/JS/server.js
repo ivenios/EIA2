@@ -27,7 +27,7 @@ function handleRequest(_request, _response) {
                 gender: query["gender"]
             };
             Database.searchUserNames(query["username"], findCallback, user);
-            respond(_response, "storing data");
+            respond(_response, "Die Angaben werden verarbeitet");
             break;
         case "refresh":
             Database.findAll(findCallback);
@@ -48,7 +48,7 @@ function handleRequest(_request, _response) {
     }
 }
 function respond(_response, _text) {
-    //console.log("Preparing response: " + _text);
+    console.log("Preparing response: " + _text);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.write(_text);
