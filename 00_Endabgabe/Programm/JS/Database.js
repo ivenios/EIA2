@@ -82,7 +82,7 @@ function loginUser(_name, _pass, _callback) {
         else
             for (let i = 0; i < userArray.length; i++) {
                 if (userArray[i].user == _name) {
-                    if (userArray[i].user == _pass) {
+                    if (userArray[i].password == _pass) {
                         _callback("Login information correct");
                         return;
                     }

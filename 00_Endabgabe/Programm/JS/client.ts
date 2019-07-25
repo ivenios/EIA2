@@ -80,11 +80,11 @@ namespace hfuChat {
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=newUser";
         console.log(inputs);
-        if (inputs[0].value == "") {printError(htmlData["Register Error no User"]); }
+        if (inputs[0].value == "") {printError(htmlData["Register Error no User"]); return; }
         query += "&username=" + inputs[0].value;
         query += "&telenum=" + inputs[1].value;
         if (inputs[2].value != inputs[3].value) {
-            printError(htmlData["Register Error PW"]);
+            printError(htmlData["Register Error PW"]); return;
         } else {
             query += "&pwd=" + inputs[2].value;
         }
