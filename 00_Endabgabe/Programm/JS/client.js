@@ -3,7 +3,7 @@ var hfuChat;
     //zuerst die dynamischen HTML Elemente,Vielleicht später noch in externe Datein Packen !!!
     let serverAddress = "https://ios-eia2.herokuapp.com";
     let htmlData = {
-        "Login": `<form>
+        "Login": `
         <div class="login">
             <h1 class="head-title">Login</h1>
             <div class="uid">
@@ -15,20 +15,19 @@ var hfuChat;
                 <input type="password" placeholder="Passwort" required >
             </div>
             <button id="loginUserButton">Login</button>
-            <button id="registerButton">Neuer User</button> </form> `,
-        "Register": `<form> <div class="register">
+            <button id="registerButton">Neuer User</button> </div> `,
+        "Register": ` <div class="register">
         <h1 class="head-title">Register</h1>
         <div class="uid">
-            <input type="text" name="" placeholder="Benutzername" >
+            <input type="text" name="" placeholder="Benutzername" required >
         </div>
         <div class="mobile">
             <input type="text" name="" placeholder="Telefonnummer">
         </div>
         <div class="pwd">
-            <input type="password" name="" placeholder="Dein Passwort" >
         </div>			
         <div class="c-pwd">
-            <input type="password" name="" placeholder="Wiederhole dein Passwort" >
+            <input type="password" name="" placeholder="Wiederhole dein Passwort" required >
         </div>
         <div class="gender">
             <input id="male" type="radio" name="customer[gender]">
@@ -40,10 +39,11 @@ var hfuChat;
         </div>
         <button id="saveNewUserButton">Daten Speichern</button>
         <button id="exitRegisterButton">Abbrechen</button>
-    </div>	
-</form>`,
-        "Login Error": "How",
-        "Register Error": "Are",
+    </div>`,
+        "Login Error": "Passwort und/oder Benutzernamen sind falsch.",
+        "Register Error PW": "Bitte Überprüfe dein eingegebenes Passwort.",
+        "Register Error no User": "Bitte gib einen originellen Nutzernamen an.",
+        "Register Error User Twice": "Bitte suche dir einen anderen Nutzernamen, er ist bereits vergeben.",
         "Chat Interface": "you"
     };
     document.addEventListener("DOMContentLoaded", init);
@@ -70,17 +70,28 @@ var hfuChat;
         let inputs = document.getElementsByTagName("input");
         let query = "command=newUser";
         console.log(inputs);
+        if (inputs[0].value == "") {
+            printError(htmlData["Register Error no User"]);
+        }
         query += "&username=" + inputs[0].value;
         query += "&telenum=" + inputs[1].value;
-        if (inputs[2] != inputs[3]) {
-            printError(htmlData["Register Error"]);
+        if (inputs[2].value != inputs[3].value) {
+            printError(htmlData["Register Error PW"]);
         }
         else {
             query += "&pwd=" + inputs[2].value;
         }
-        query += "&password=" + inputs[1].value;
+        if (inputs[4].checked == true) {
+            query += "&gender=" + inputs[4].id;
+        }
+        if (inputs[5].checked == true) {
+            query += "&gender=" + inputs[5].id;
+        }
+        if (inputs[6].checked == true) {
+            query += "&gender=" + inputs[6].id;
+        }
         console.log(query);
-        //sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleInsertResponse);
     }
     //LOGIN FÜR DEN USER
     function loginUser() {
@@ -94,7 +105,7 @@ var hfuChat;
         //sendRequest(query, handleInsertResponse);
     }
     function printError(_Array) {
-        // hier muss dann die jeweilige Fehler meldung verarbeitet werden
+        alert(_Array);
     }
     //SERVER ANFRAGEN VERSCHICKEN: 
     function refresh(_event) {

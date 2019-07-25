@@ -27,23 +27,24 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     var command: string = query["command"];
 
     switch (command) {
-        case "insert":
-            let student: StudentData = {
-                name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+        case "newUser":
+            let user: UserData = {
+                user: query["username"],
+                tele: query["telenum"],
+                password: query["pwd"],
+                gender: query["gender"]
             };
-            Database.insert(student);
+            Database.searchUserNames(query["username"], findCallback, user);
             respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
             break;
         case "search": // neuer Command aus der DBClient 
-            let matrikel: matrikelDat = {
-                matrikel :parseInt(query["matrikel"]) //matrikel nummer wird geparst 
-            };
-            Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
+            //let matrikel: matrikelDat = {
+             //   matrikel :parseInt(query["matrikel"]) //matrikel nummer wird geparst 
+            //};
+           // Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
             break;
 
         default:

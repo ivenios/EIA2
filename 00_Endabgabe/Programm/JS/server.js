@@ -19,23 +19,24 @@ function handleRequest(_request, _response) {
     let query = Url.parse(_request.url, true).query;
     var command = query["command"];
     switch (command) {
-        case "insert":
-            let student = {
-                name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+        case "newUser":
+            let user = {
+                user: query["username"],
+                tele: query["telenum"],
+                password: query["pwd"],
+                gender: query["gender"]
             };
-            Database.insert(student);
+            Database.searchUserNames(query["username"], findCallback, user);
             respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
             break;
         case "search": // neuer Command aus der DBClient 
-            let matrikel = {
-                matrikel: parseInt(query["matrikel"]) //matrikel nummer wird geparst 
-            };
-            Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
+            //let matrikel: matrikelDat = {
+            //   matrikel :parseInt(query["matrikel"]) //matrikel nummer wird geparst 
+            //};
+            // Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
             break;
         default:
             respond(_response, "unknown command: " + command);
