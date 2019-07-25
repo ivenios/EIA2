@@ -18,6 +18,8 @@ var hfuChat;
             <button id="registerButton">Neuer User</button> </div> `,
         "Register": ` <div class="register">
         <h1 class="head-title">Register</h1>
+        <p> Bitte trage die unten erforderlichen Daten ein. Beim Passwort aber keines was du schon einmal verwendet hattest. 
+        Sicherheit steht bei uns an letzter Stelle. Wir bitten um dein Verständnis. </p>
         <div class="uid">
             <input type="text" name="" placeholder="Benutzername" required >
         </div>
@@ -25,10 +27,10 @@ var hfuChat;
             <input type="text" name="" placeholder="Telefonnummer">
         </div>
         <div class="pwd">
-            <input type="password" name="" placeholder="Dein Passwort" required >
+            <input type="password"  name="" placeholder="Dein Passwort" required >
         </div>			
         <div class="c-pwd">
-            <input type="password" name="" placeholder="Wiederhole dein Passwort" required >
+            <input type="password" name=""  placeholder="Wiederhole dein Passwort" required >
         </div>
         <div class="gender">
             <input id="male" type="radio" name="customer[gender]">
@@ -103,16 +105,12 @@ var hfuChat;
         query += "&username=" + inputs[0].value;
         query += "&password=" + inputs[1].value;
         console.log(query);
-        //sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleLoginResponse);
     }
     function printError(_Array) {
         alert(_Array);
     }
     //SERVER ANFRAGEN VERSCHICKEN: 
-    function refresh(_event) {
-        let query = "command=refresh";
-        sendRequest(query, handleFindResponse);
-    }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
@@ -122,17 +120,35 @@ var hfuChat;
     function handleInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.response);
+            alert(xhr.response);
         }
     }
-    function handleFindResponse(_event) {
+    //Verarbeitung der Login Antwort der Datenbank
+    function handleLoginResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            if (xhr.response == "Login information correct") {
+                console.log("Login completed");
+            }
+            else if (xhr.response == "Login information faulty") {
+                alert(htmlData["Login Error"]);
+            }
         }
     }
+    /*
+        function handleFindResponse(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+            output.value = xhr.response;
+            let responseAsJson: JSON = JSON.parse(xhr.response);
+            console.log(responseAsJson);
+        }
+    
+        function refresh(_event: Event): void {
+        let query: string = "command=refresh";
+        sendRequest(query, handleFindResponse);
+    }
+    */
 })(hfuChat || (hfuChat = {}));
 //# sourceMappingURL=client.js.map

@@ -19,6 +19,8 @@ namespace hfuChat {
 
         "Register": ` <div class="register">
         <h1 class="head-title">Register</h1>
+        <p> Bitte trage die unten erforderlichen Daten ein. Beim Passwort aber keines was du schon einmal verwendet hattest. 
+        Sicherheit steht bei uns an letzter Stelle. Wir bitten um dein Verständnis. </p>
         <div class="uid">
             <input type="text" name="" placeholder="Benutzername" required >
         </div>
@@ -26,10 +28,10 @@ namespace hfuChat {
             <input type="text" name="" placeholder="Telefonnummer">
         </div>
         <div class="pwd">
-            <input type="password" name="" placeholder="Dein Passwort" required >
+            <input type="password"  name="" placeholder="Dein Passwort" required >
         </div>			
         <div class="c-pwd">
-            <input type="password" name="" placeholder="Wiederhole dein Passwort" required >
+            <input type="password" name=""  placeholder="Wiederhole dein Passwort" required >
         </div>
         <div class="gender">
             <input id="male" type="radio" name="customer[gender]">
@@ -101,7 +103,7 @@ namespace hfuChat {
         query += "&username=" + inputs[0].value;
         query += "&password=" + inputs[1].value;
         console.log(query);
-        //sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleLoginResponse);
     }
     function printError(_Array: string): void {
         alert(_Array);
@@ -109,10 +111,7 @@ namespace hfuChat {
 
 //SERVER ANFRAGEN VERSCHICKEN: 
 
-    function refresh(_event: Event): void {
-    let query: string = "command=refresh";
-    sendRequest(query, handleFindResponse);
-}
+    
 
     function sendRequest(_query: string, _callback: EventListener): void {
     let xhr: XMLHttpRequest = new XMLHttpRequest();
@@ -124,10 +123,22 @@ namespace hfuChat {
     function handleInsertResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        console.log(xhr.response);
+        alert(xhr.response);
     }
 }
-
+    //Verarbeitung der Login Antwort der Datenbank
+    function handleLoginResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        if (xhr.response == "Login information correct") {
+            console.log("Login completed");
+        } else if (xhr.response == "Login information faulty") {
+            alert(htmlData["Login Error"]);
+        }
+        
+    }
+}
+/*
     function handleFindResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -136,6 +147,10 @@ namespace hfuChat {
         let responseAsJson: JSON = JSON.parse(xhr.response);
         console.log(responseAsJson);
     }
-}
 
+    function refresh(_event: Event): void {
+    let query: string = "command=refresh";
+    sendRequest(query, handleFindResponse);
+}
+*/
 }

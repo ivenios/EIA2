@@ -27,16 +27,14 @@ function handleRequest(_request, _response) {
                 gender: query["gender"]
             };
             Database.searchUserNames(query["username"], findCallback, user);
-            //respond(_response, "Die Angaben werden verarbeitet");
             break;
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search": // neuer Command aus der DBClient 
-            //let matrikel: matrikelDat = {
-            //   matrikel :parseInt(query["matrikel"]) //matrikel nummer wird geparst 
-            //};
-            // Database.searchStudentByMat(matrikel, findCallback); // die datenbank wird durchsucht 
+        case "login":
+            let username = query["username"]; //matrikel nummer wird geparst 
+            let password = query["pwd"];
+            Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;
         default:
             respond(_response, "unknown command: " + command);

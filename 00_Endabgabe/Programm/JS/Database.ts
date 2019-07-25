@@ -78,3 +78,20 @@ export function searchUserNames(_name: string, _callback: Function, _user: UserD
         _callback("Dein Account wurde erfolgreich erstellt. Logge dich nun ein.");
     }
 }
+export function loginUser(_name: string, _pass: string, _callback: Function ): void {
+    var cursor: Mongo.Cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else   
+
+        for (let i: number = 0; i < userArray.length; i++ ) {
+                if (userArray[i].user == _name && userArray[i].password == _pass) {
+                    _callback("Login information correct");
+                    return;
+                }
+            }
+        _callback("Login information faulty");
+        }
+} 

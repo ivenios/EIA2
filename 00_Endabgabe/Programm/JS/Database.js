@@ -73,4 +73,21 @@ function searchUserNames(_name, _callback, _user) {
     }
 }
 exports.searchUserNames = searchUserNames;
+function loginUser(_name, _pass, _callback) {
+    var cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, userArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i = 0; i < userArray.length; i++) {
+                if (userArray[i].user == _name && userArray[i].password == _pass) {
+                    _callback("Login information correct");
+                    return;
+                }
+            }
+        _callback("Login information faulty");
+    }
+}
+exports.loginUser = loginUser;
 //# sourceMappingURL=Database.js.map
