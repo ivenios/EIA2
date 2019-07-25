@@ -41,7 +41,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "login":
             let username: string = query["username"]; //matrikel nummer wird geparst 
-            let password: string = query["pwd"];
+            let password: string = query["password"];
             Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;
 

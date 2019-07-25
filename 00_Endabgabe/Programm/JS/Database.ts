@@ -90,7 +90,8 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
             if (userArray[i].user == _name ) {
                 if (userArray[i].password == _pass) {
                 _callback("Login information correct");
-                return; }
+                return; 
+                }
             }
         }
         _callback("Login information faulty");

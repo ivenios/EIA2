@@ -33,7 +33,7 @@ function handleRequest(_request, _response) {
             break;
         case "login":
             let username = query["username"]; //matrikel nummer wird geparst 
-            let password = query["pwd"];
+            let password = query["password"];
             Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;
         default:
