@@ -88,8 +88,9 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
 
         for (let i: number = 0; i < userArray.length; i++ ) {
             if (userArray[i].user == _name ) {
+                if (userArray[i].user == _pass) {
                 _callback("Login information correct");
-                return;
+                return; }
             }
         }
         _callback("Login information faulty");
