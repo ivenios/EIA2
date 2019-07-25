@@ -68,7 +68,7 @@ function searchUserNames(_name, _callback, _user) {
                     return; //wenn der Name bereits vergeben ist soll die Funktion terminiert werden
                 }
             }
-        insert(_user); // nur wenn if nicht ausgeführt wurde, wird der Username eingespeichert. 
+        insert(_user); // nur wenn if nicht ausgeführt wurde, wird der Username eingespeichert.    && userArray[i].password == _pass
         _callback("Dein Account wurde erfolgreich erstellt. Logge dich nun ein.");
     }
 }
@@ -81,7 +81,7 @@ function loginUser(_name, _pass, _callback) {
             _callback("Error" + _e);
         else
             for (let i = 0; i < userArray.length; i++) {
-                if (userArray[i].user == _name && userArray[i].password == _pass) {
+                if (userArray[i].user == _name) {
                     _callback("Login information correct");
                     return;
                 }
