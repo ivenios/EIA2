@@ -59,7 +59,12 @@ namespace hfuChat {
             <button id="Chat5">Beer with me - Chatroom</button>
             <p>Aus zeitlichen und budget Gründen, gibt es leider nicht die Möglichkeit eigene Chaträume zu erstellen.</p>
             </div>`,
-            "Chatroom Interface": ``
+            "Chatroom Interface": `<div class="login">
+                <div id="Chat"> </div>
+            
+            
+            
+            </div>`
 
 
     };
@@ -173,8 +178,6 @@ namespace hfuChat {
                 break;
             default: alert("Vergewissere dich, dass du einen Chatraum gewählt hast.");
         }
-        document.getElementById("htmlBox").innerHTML = " ";
-        document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Interface"];
         console.log(query);
         sendRequest(query, handleChatroomResponse);
 
@@ -182,6 +185,13 @@ namespace hfuChat {
         //let targetid: EventTarget = _event.target;
         //console.log();
     } 
+
+// LADEN UND FUNKTIONEN DES CHAT INTERFACES
+
+    function renderChatInterface(): void {
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Interface"];
+    }
 
 //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
 
@@ -210,21 +220,26 @@ namespace hfuChat {
             chatroomChoiceRender();
         } else if (xhr.response == "Login information faulty") {
             alert(htmlData["Login Error"]);
-            init();
+            init(); //jeder hasst es, wenn man sich vertippt hat muss man alles neu eingeben hihihi
         }
         
     }
 }
 
     function handleChatroomResponse(_event: ProgressEvent): void {
-    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-    if (xhr.readyState == XMLHttpRequest.DONE) {
+        renderChatInterface();
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+        let htmlString: string = " ";
+        htmlString += xhr.response;
+        document.getElementById("Chat").innerHTML = " ";
+        document.getElementById("Chat").innerHTML = htmlString;
 
         //hier dann eine Schleife die das respone Array durch geht und schreibt ( in einen HTML String.)
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-        output.value = xhr.response;
-        let responseAsJson: JSON = JSON.parse(xhr.response);
-        console.log(responseAsJson);
+        //let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+        //output.value = xhr.response;
+        //let responseAsJson: JSON = JSON.parse(xhr.response);
+       // console.log(responseAsJson);
     }
 
    //function refresh(_event: Event): void {
