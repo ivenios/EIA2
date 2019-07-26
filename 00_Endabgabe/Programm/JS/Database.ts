@@ -27,7 +27,7 @@ function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        users = db.collection("Userdatabase");
+        
     }
 }
 
@@ -56,6 +56,7 @@ export function loadingChatDB(_chatroomnum: string, _username: string, _callback
 }
 // neue suchfunktion, einfach die oben genannte funktion übernommen und mit Users find angepasst
 export function searchUserNames(_name: string, _callback: Function, _user: UserData ): void {
+    users = db.collection("Userdatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
@@ -75,6 +76,7 @@ export function searchUserNames(_name: string, _callback: Function, _user: UserD
     }
 }
 export function loginUser(_name: string, _pass: string, _callback: Function ): void {
+    users = db.collection("Userdatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {

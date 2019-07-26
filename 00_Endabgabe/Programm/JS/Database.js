@@ -25,7 +25,6 @@ function handleConnect(_e, _client) {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        users = db.collection("Userdatabase");
     }
 }
 function insert(_doc) {
@@ -52,6 +51,7 @@ function loadingChatDB(_chatroomnum, _username, _callback) {
 exports.loadingChatDB = loadingChatDB;
 // neue suchfunktion, einfach die oben genannte funktion übernommen und mit Users find angepasst
 function searchUserNames(_name, _callback, _user) {
+    users = db.collection("Userdatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, userArray) {
@@ -70,6 +70,7 @@ function searchUserNames(_name, _callback, _user) {
 }
 exports.searchUserNames = searchUserNames;
 function loginUser(_name, _pass, _callback) {
+    users = db.collection("Userdatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, userArray) {

@@ -226,7 +226,7 @@ var hfuChat;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let htmlString = " ";
-            htmlString += xhr.response;
+            htmlString += JSON.parse(xhr.response);
             document.getElementById("Chat").innerHTML = " ";
             document.getElementById("Chat").innerHTML = htmlString;
             //hier dann eine Schleife die das respone Array durch geht und schreibt ( in einen HTML String.)

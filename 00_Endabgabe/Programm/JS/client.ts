@@ -231,7 +231,12 @@ namespace hfuChat {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
         let htmlString: string = " ";
-        htmlString += xhr.response;
+        htmlString += JSON.parse(xhr.response);
+
+
+
+
+
         document.getElementById("Chat").innerHTML = " ";
         document.getElementById("Chat").innerHTML = htmlString;
 
