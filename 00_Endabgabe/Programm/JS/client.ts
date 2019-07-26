@@ -230,10 +230,26 @@ namespace hfuChat {
         renderChatInterface();
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
+        let chatArray: ChatData [] = JSON.parse(xhr.response);
         let htmlString: string = " ";
-        htmlString += JSON.parse(xhr.response);
+        for (let i: number = 0; i  < chatArray.length; i++) {
+            console.log(chatArray[i]);
+            if (globalUser == chatArray[i].user) {
+                htmlString += `<div> 
+                    <p> ${chatArray[i].msg}</p>
+                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user}</p>
+            
+            </div> `;
 
-
+            }
+            else {
+            htmlString += `<div> 
+                    <p> ${chatArray[i].msg}</p>
+                    <p><span> ${chatArray[i].time}</span> Du </p>
+            
+            </div> `;
+            }
+        }
 
 
 
