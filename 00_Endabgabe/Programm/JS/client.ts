@@ -1,6 +1,7 @@
 namespace hfuChat {
     //zuerst die dynamischen HTML Elemente,Vielleicht später noch in externe Datein Packen !!!
     let serverAddress: string = "https://ios-eia2.herokuapp.com";
+    let globalUser: string;
     let htmlData: {[key: string]: string }
     = {
         "Login": `
@@ -45,10 +46,21 @@ namespace hfuChat {
         <button id="exitRegisterButton">Abbrechen</button>
     </div>`,
         "Login Error": "Passwort und/oder Benutzernamen sind falsch.",
+        "Login Error stupid": "Wie es scheint, hast du eine der beiden Login Angaben vergessen",
         "Register Error PW": "Bitte Überprüfe dein eingegebenes Passwort.",
         "Register Error no User": "Bitte gib einen originellen Nutzernamen an.",
         "Register Error User Twice": "Bitte suche dir einen anderen Nutzernamen, er ist bereits vergeben.",
-        "Chat Interface": "you"
+        "Chatroom Choice": `<div class="login">
+            <h1 class="head-title">Chat-Rooms</h1>
+            <button id="Chat1">EIA Issue - Chatroom</button> 
+            <button id="Chat2">Lets Meet - Chatroom</button>
+            <button id="Chat3">Einsame Seelen - Chatroom</button>
+            <button id="Chat4">Musikalisches Wunderland - Chatroom</button>
+            <button id="Chat5">Beer with me - Chatroom</button>
+            <p>Aus zeitlichen und budget Gründen, gibt es leider nicht die Möglichkeit eigene Chaträume zu erstellen.</p>
+            </div>`,
+            "Chatroom Interface": ``
+
 
     };
 
@@ -99,7 +111,9 @@ namespace hfuChat {
         console.log("User Data will be checked, if correct Chat will be displayed");
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=login";
+        globalUser = inputs[0].value;
         console.log(inputs);
+        if (inputs[0].value == "" || inputs[1].value == "") {printError(htmlData["Login Error stupid"]); return; }
         query += "&username=" + inputs[0].value;
         query += "&password=" + inputs[1].value;
         console.log(query);
@@ -109,7 +123,65 @@ namespace hfuChat {
         alert(_Array);
     }
 
-//SERVER ANFRAGEN VERSCHICKEN: 
+// AUSWAHL DER CHATROOMS: 
+
+    function chatroomChoiceRender(): void {
+        console.log("Chatroom Choice loading");
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Choice"];
+        //wieder einmal die EventListerner:
+        document.getElementById("Chat1").addEventListener("click", loadingChatroom);
+        document.getElementById("Chat2").addEventListener("click", loadingChatroom);
+        document.getElementById("Chat3").addEventListener("click", loadingChatroom);
+        document.getElementById("Chat4").addEventListener("click", loadingChatroom);
+        document.getElementById("Chat5").addEventListener("click", loadingChatroom);
+    }
+
+    function loadingChatroom(_event: Event): void {
+        let query: string = "command=loadChatroom";
+        switch (_event.target.id) {
+            case "Chat1":
+                console.log("Chat1 will be loaded");
+                alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
+                query += "&chatroom=" + "Chat1";
+                query += "&username=" + globalUser;
+                break;
+            case "Chat2":
+                console.log("Chat2 will be loaded");
+                alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
+                query += "&chatroom=" + "Chat2";
+                query += "&username=" + globalUser;
+                break;
+            case "Chat3":
+                console.log("Chat3 will be loaded");
+                alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
+                query += "&chatroom=" + "Chat3";
+                query += "&username=" + globalUser;
+                break;
+            case "Chat4":
+                 console.log("Chat4 will be loaded");
+                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
+                 query += "&chatroom=" + "Chat4";
+                 query += "&username=" + globalUser;
+                 break;
+            case "Chat5":
+                console.log("Chat5 will be loaded");
+                alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
+                query += "&chatroom=" + "Chat5";
+                query += "&username=" + globalUser;
+                break;
+            default: alert("Vergewissere dich, dass du einen Chatraum gewählt hast.");
+        }
+
+        console.log(query);
+        sendRequest(query, handleChatroomResponse);
+
+        //console.log(_event);
+        //let targetid: EventTarget = _event.target;
+        //console.log();
+    } 
+
+//SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
 
     
 
@@ -119,11 +191,12 @@ namespace hfuChat {
     xhr.addEventListener("readystatechange", _callback);
     xhr.send();
 }
-
+    //Verarbeitung der Nutzer Insters Antwort
     function handleInsertResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         alert(xhr.response);
+        init(); //damit das Login Fenster nach der Speicherung angezeigt wird.
     }
 }
     //Verarbeitung der Login Antwort der Datenbank
@@ -132,14 +205,16 @@ namespace hfuChat {
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "Login information correct") {
             console.log("Login completed");
+            chatroomChoiceRender();
         } else if (xhr.response == "Login information faulty") {
             alert(htmlData["Login Error"]);
+            init();
         }
         
     }
 }
-/*
-    function handleFindResponse(_event: ProgressEvent): void {
+
+    function handleChatroomResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
@@ -148,9 +223,9 @@ namespace hfuChat {
         console.log(responseAsJson);
     }
 
-    function refresh(_event: Event): void {
-    let query: string = "command=refresh";
-    sendRequest(query, handleFindResponse);
-}
-*/
+   //function refresh(_event: Event): void {
+    //let query: string = "command=refresh";
+    //sendRequest(query, handleFindResponse);
+// }
+    }
 }
