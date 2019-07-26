@@ -36,8 +36,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             };
             Database.searchUserNames(query["username"], findCallback, user);
             break;
-        case "refresh":
-            Database.findAll(findCallback);
+        case "loadChatroom":
+            let chatnum: string = query["chatroom"];
+            let usernm: string = query["username"];
+            Database.loadingChatDB(chatnum, usernm, findCallback);
+            break;
+        case "sendingMSG":
+            //HIER MUSS NOCH ETWAS HIN 
             break;
         case "login":
             let username: string = query["username"]; //matrikel nummer wird geparst 

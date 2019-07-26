@@ -28,8 +28,13 @@ function handleRequest(_request, _response) {
             };
             Database.searchUserNames(query["username"], findCallback, user);
             break;
-        case "refresh":
-            Database.findAll(findCallback);
+        case "loadChatroom":
+            let chatnum = query["chatroom"];
+            let usernm = query["username"];
+            Database.loadingChatDB(chatnum, usernm, findCallback);
+            break;
+        case "sendingMSG":
+            //HIER MUSS NOCH ETWAS HIN 
             break;
         case "login":
             let username = query["username"]; //matrikel nummer wird geparst 

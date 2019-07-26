@@ -37,24 +37,20 @@ exports.insert = insert;
 function handleInsert(_e) {
     console.log("Database insertion returned -> " + _e);
 }
-// try to fetch all documents from database, then activate callback
-function findAll(_callback) {
-    // cursor points to the retreived set of documents in memory
+//LOADCHAT funktion ( ehemals find all) (username brauchen wir in dieres Version eigentlich gar nicht mehr, aber why not )
+function loadingChatDB(_chatroomnum, _username, _callback) {
+    users = db.collection(_chatroomnum);
     var cursor = users.find();
-    // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
-    // toArray-handler receives two standard parameters, an error object and the array
-    // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e, studentArray) {
+    function prepareAnswer(_e, _chatArray) {
         if (_e)
             _callback("Error" + _e);
         else
-            // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(_chatArray));
     }
 }
-exports.findAll = findAll;
-// neue suchfunktion, einfach die oben genannte funktion übernommen und mit students find angepasst
+exports.loadingChatDB = loadingChatDB;
+// neue suchfunktion, einfach die oben genannte funktion übernommen und mit Users find angepasst
 function searchUserNames(_name, _callback, _user) {
     var cursor = users.find();
     cursor.toArray(prepareAnswer);

@@ -142,6 +142,7 @@ var hfuChat;
     }
     function loadingChatroom(_event) {
         let query = "command=loadChatroom";
+        //switch abfrage welcher Button wurde gedrückt und jenachdem wird der query string angepasst.
         switch (_event.target.id) {
             case "Chat1":
                 console.log("Chat1 will be loaded");
@@ -175,6 +176,8 @@ var hfuChat;
                 break;
             default: alert("Vergewissere dich, dass du einen Chatraum gewählt hast.");
         }
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Interface"];
         console.log(query);
         sendRequest(query, handleChatroomResponse);
         //console.log(_event);
@@ -213,6 +216,7 @@ var hfuChat;
     function handleChatroomResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
+            //hier dann eine Schleife die das respone Array durch geht und schreibt ( in einen HTML String.)
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
             let responseAsJson = JSON.parse(xhr.response);

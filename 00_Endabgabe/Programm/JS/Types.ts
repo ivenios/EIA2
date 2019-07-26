@@ -9,3 +9,9 @@ interface UserData {
     gender: string;
 }
 
+interface ChatData {
+    user: string;
+    time: Date;
+    msg: string;
+
+}

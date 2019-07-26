@@ -40,25 +40,21 @@ export function insert(_doc: UserData): void {
 function handleInsert(_e: Mongo.MongoError): void {
     console.log("Database insertion returned -> " + _e);
 }
-
-// try to fetch all documents from database, then activate callback
-export function findAll(_callback: Function): void {
-    // cursor points to the retreived set of documents in memory
+//LOADCHAT funktion ( ehemals find all) (username brauchen wir in dieres Version eigentlich gar nicht mehr, aber why not )
+export function loadingChatDB(_chatroomnum: string, _username: string, _callback: Function): void {
+    users = db.collection(_chatroomnum);
+    
     var cursor: Mongo.Cursor = users.find();
-    // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
 
-    // toArray-handler receives two standard parameters, an error object and the array
-    // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: UserData[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, _chatArray: ChatData[]): void {
         if (_e)
             _callback("Error" + _e);
         else
-            // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(_chatArray));
     }
 }
-// neue suchfunktion, einfach die oben genannte funktion übernommen und mit students find angepasst
+// neue suchfunktion, einfach die oben genannte funktion übernommen und mit Users find angepasst
 export function searchUserNames(_name: string, _callback: Function, _user: UserData ): void {
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);

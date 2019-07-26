@@ -1,7 +1,7 @@
 /**
  * Simple database insertion and query for MongoDB
  * @author: Jirka Dell'Oro-Friedl
- */
+
 import * as Mongo from "mongodb";
 console.log("Database starting");
 
@@ -68,4 +68,4 @@ export function searchStudentByMat(_mat:matrikelDat, _callback: Function ):void{
         else
             _callback(JSON.stringify(studentArray));
     }
-}
+} */

@@ -139,6 +139,7 @@ namespace hfuChat {
 
     function loadingChatroom(_event: Event): void {
         let query: string = "command=loadChatroom";
+        //switch abfrage welcher Button wurde gedrückt und jenachdem wird der query string angepasst.
         switch (_event.target.id) {
             case "Chat1":
                 console.log("Chat1 will be loaded");
@@ -172,7 +173,8 @@ namespace hfuChat {
                 break;
             default: alert("Vergewissere dich, dass du einen Chatraum gewählt hast.");
         }
-
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Interface"];
         console.log(query);
         sendRequest(query, handleChatroomResponse);
 
@@ -217,6 +219,8 @@ namespace hfuChat {
     function handleChatroomResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
+
+        //hier dann eine Schleife die das respone Array durch geht und schreibt ( in einen HTML String.)
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
         output.value = xhr.response;
         let responseAsJson: JSON = JSON.parse(xhr.response);
