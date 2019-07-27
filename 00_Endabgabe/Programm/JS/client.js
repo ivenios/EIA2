@@ -215,10 +215,15 @@ var hfuChat;
             return;
         }
         else {
-            query += "&msg=" + inputs[0].value;
             query += "&user=" + globalUser;
             query += "&time=" + utcDate;
             query += "&chatroom=" + globalChat;
+            if (inputs[0].value.length > 180) {
+                alert("Bitte fasse dich Kurz. Deine Nachricht ist über 200 Zeichen lang, die liest eh niemand.");
+            }
+            else {
+                query += "&msg=" + inputs[0].value;
+            }
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
