@@ -42,7 +42,14 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.loadingChatDB(chatnum, usernm, findCallback);
             break;
         case "sendingMSG":
-            //HIER MUSS NOCH ETWAS HIN 
+            let newMSG: ChatData = {
+                user: query["user"],
+                time: query["time"],
+                msg: query["msg"]
+            };
+            let chatroom: string = query["chatroom"];
+            Database.insertNewMSG(chatroom, newMSG, findCallback);
+            
             break;
         case "login":
             let username: string = query["username"]; //matrikel nummer wird geparst 

@@ -218,11 +218,12 @@ var hfuChat;
         }
         else {
             query += "&msg=" + inputs[0].value;
-            query += "&password=" + globalUser;
+            query += "&user=" + globalUser;
             query += "&time=" + utcDate;
+            query += "&chatroom" + globalChat;
         }
         console.log(query);
-        //sendRequest(query, handleMSGSendResponse);
+        sendRequest(query, handleMSGSendResponse);
     }
     //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
     function sendRequest(_query, _callback) {
@@ -284,10 +285,19 @@ var hfuChat;
             //let responseAsJson: JSON = JSON.parse(xhr.response);
             // console.log(responseAsJson);
         }
-        //function refresh(_event: Event): void {
-        //let query: string = "command=refresh";
-        //sendRequest(query, handleFindResponse);
-        // }
+    }
+    function handleMSGSendResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log(xhr.response);
+            refresh();
+        }
+    }
+    function refresh() {
+        let query = "command=loadChatroom";
+        query += "&chatroom" + globalChat;
+        query += "&username=" + globalUser;
+        sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
     }
 })(hfuChat || (hfuChat = {}));
 //# sourceMappingURL=client.js.map

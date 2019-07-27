@@ -216,11 +216,12 @@ namespace hfuChat {
         if (inputs[0].value == "") {alert("Bitte gebe eine Nachricht ein!"); return; }
         else {
             query += "&msg=" + inputs[0].value;
-            query += "&password=" + globalUser;
+            query += "&user=" + globalUser;
             query += "&time=" + utcDate; 
+            query += "&chatroom" + globalChat;
         }
         console.log(query);
-        //sendRequest(query, handleMSGSendResponse);
+        sendRequest(query, handleMSGSendResponse);
 
     }
 
@@ -293,10 +294,24 @@ namespace hfuChat {
         //let responseAsJson: JSON = JSON.parse(xhr.response);
        // console.log(responseAsJson);
     }
+        
 
-   //function refresh(_event: Event): void {
-    //let query: string = "command=refresh";
-    //sendRequest(query, handleFindResponse);
-// }
+
     }
+
+    function handleMSGSendResponse(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+        console.log(xhr.response);
+        refresh();
+        
+    }
+       
+}
+    function refresh(): void {
+    let query: string = "command=loadChatroom";
+    query += "&chatroom" + globalChat;
+    query += "&username=" + globalUser;
+    sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
+}
 }

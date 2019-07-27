@@ -34,7 +34,13 @@ function handleRequest(_request, _response) {
             Database.loadingChatDB(chatnum, usernm, findCallback);
             break;
         case "sendingMSG":
-            //HIER MUSS NOCH ETWAS HIN 
+            let newMSG = {
+                user: query["user"],
+                time: query["time"],
+                msg: query["msg"]
+            };
+            let chatroom = query["chatroom"];
+            Database.insertNewMSG(chatroom, newMSG, findCallback);
             break;
         case "login":
             let username = query["username"]; //matrikel nummer wird geparst 

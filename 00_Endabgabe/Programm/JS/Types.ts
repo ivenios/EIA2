@@ -11,7 +11,7 @@ interface UserData {
 
 interface ChatData {
     user: string;
-    time: Date;
+    time: string;
     msg: string;
 
 }
