@@ -177,6 +177,7 @@ namespace hfuChat {
                  query += "&chatroom=" + "Chat4";
                  query += "&username=" + globalUser;
                  globalChat = "Chat4";
+                 break;
             case "Chat5":
                 console.log("Chat5 will be loaded");
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
