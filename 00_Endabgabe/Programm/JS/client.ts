@@ -312,6 +312,7 @@ namespace hfuChat {
     let query: string = "command=loadChatroom";
     query += "&chatroom" + globalChat;
     query += "&username=" + globalUser;
+    console.log(query);
     sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
 }
 }
