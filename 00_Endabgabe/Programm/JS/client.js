@@ -3,6 +3,7 @@ var hfuChat;
     //zuerst die dynamischen HTML Elemente,Vielleicht später noch in externe Datein Packen !!!
     let serverAddress = "https://ios-eia2.herokuapp.com";
     let globalUser;
+    let globalChat;
     let htmlData = {
         "Login": `
         <div class="login">
@@ -59,8 +60,12 @@ var hfuChat;
             <p>Aus zeitlichen und budget Gründen, gibt es leider nicht die Möglichkeit eigene Chaträume zu erstellen.</p>
             </div>`,
         "Chatroom Interface": `<div class="login">
+                <button id="backRooms">Chatrooms</button> <button id="logout"> Logout </button>
                 <div id="Chat"> </div>
-            
+                <div class="uid">
+                    <input type="text" name="" placeholder="Schreibe eine Nachricht" required > <button id="sendMSG"> Senden </button>
+                </div>
+
             
             
             </div>`
@@ -154,30 +159,34 @@ var hfuChat;
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
                 query += "&chatroom=" + "Chat1";
                 query += "&username=" + globalUser;
+                globalChat = "Chat1";
                 break;
             case "Chat2":
                 console.log("Chat2 will be loaded");
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
                 query += "&chatroom=" + "Chat2";
                 query += "&username=" + globalUser;
+                globalChat = "Chat2";
                 break;
             case "Chat3":
                 console.log("Chat3 will be loaded");
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
                 query += "&chatroom=" + "Chat3";
                 query += "&username=" + globalUser;
+                globalChat = "Chat3";
                 break;
             case "Chat4":
                 console.log("Chat4 will be loaded");
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
                 query += "&chatroom=" + "Chat4";
                 query += "&username=" + globalUser;
-                break;
+                globalChat = "Chat4";
             case "Chat5":
                 console.log("Chat5 will be loaded");
                 alert("Hallo " + globalUser + " Du wirst 'sicher' in den Chatraum eingeloggt");
                 query += "&chatroom=" + "Chat5";
                 query += "&username=" + globalUser;
+                globalChat = "Chat5";
                 break;
             default: alert("Vergewissere dich, dass du einen Chatraum gewählt hast.");
         }
@@ -191,6 +200,29 @@ var hfuChat;
     function renderChatInterface() {
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = htmlData["Chatroom Interface"];
+        document.getElementById("backRooms").addEventListener("click", chatroomChoiceRender);
+        document.getElementById("logout").addEventListener("click", init);
+        document.getElementById("sendMSG").addEventListener("click", sendMessage);
+    }
+    function sendMessage() {
+        //Nachrichten Sende Zeit 
+        let dateNew = new Date();
+        let utcDate = dateNew.toUTCString();
+        console.log(utcDate);
+        let query = "command=sendingMSG";
+        console.log("New Message will be sent and displayed");
+        let inputs = document.getElementsByTagName("input");
+        if (inputs[0].value == "") {
+            alert("Bitte gebe eine Nachricht ein!");
+            return;
+        }
+        else {
+            query += "&msg=" + inputs[0].value;
+            query += "&password=" + globalUser;
+            query += "&time=" + utcDate;
+        }
+        console.log(query);
+        //sendRequest(query, handleMSGSendResponse);
     }
     //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
     function sendRequest(_query, _callback) {
@@ -229,17 +261,17 @@ var hfuChat;
             let htmlString = " ";
             for (let i = 0; i < chatArray.length; i++) {
                 console.log(chatArray[i]);
-                if (globalUser == chatArray[i].user) {
+                if (globalUser == chatArray[i].user) { //HIER DANN NOCH UNTERSCHIEDLICHE CSS VERBINDUNGEN!!!!!
                     htmlString += `<div> 
                     <p> ${chatArray[i].msg}</p>
-                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user}</p>
+                    <p><span> ${chatArray[i].time}</span> Du </p>
             
             </div> `;
                 }
                 else {
                     htmlString += `<div> 
                     <p> ${chatArray[i].msg}</p>
-                    <p><span> ${chatArray[i].time}</span> Du </p>
+                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user} </p>
             
             </div> `;
                 }
