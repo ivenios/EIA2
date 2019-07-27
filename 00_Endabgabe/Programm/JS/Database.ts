@@ -98,5 +98,6 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
 
 export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
     users = db.collection(_chatroom);
-    users.insertOne(_chatData, handleInsert);
+    users.insertOne(_chatData);
+    _callback("insertion sucessfull");
 }
