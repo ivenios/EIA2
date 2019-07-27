@@ -51,8 +51,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.insertNewMSG(chatroom, newMSG, findCallback);
             
             break;
+        case "refresh":
+            let chatnum2: string = query["chatroom"];
+            let usernm2: string = query["username"];
+            Database.loadingChatDB(chatnum2, usernm2, findCallback);
+            break;
         case "login":
-            let username: string = query["username"]; //matrikel nummer wird geparst 
+            let username: string = query["username"]; 
             let password: string = query["password"];
             Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;

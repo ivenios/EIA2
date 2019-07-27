@@ -192,9 +192,6 @@ var hfuChat;
         }
         console.log(query);
         sendRequest(query, handleChatroomResponse);
-        //console.log(_event);
-        //let targetid: EventTarget = _event.target;
-        //console.log();
     }
     // LADEN UND FUNKTIONEN DES CHAT INTERFACES
     function renderChatInterface() {
@@ -224,6 +221,14 @@ var hfuChat;
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
+        refresh();
+    }
+    function refresh() {
+        let query = "command=refresh";
+        query += "&chatroom" + globalChat;
+        query += "&username=" + globalUser;
+        console.log(query);
+        sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
     }
     //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
     function sendRequest(_query, _callback) {
@@ -290,15 +295,7 @@ var hfuChat;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            //refresh();
         }
-    }
-    function refresh() {
-        let query = "command=loadChatroom";
-        query += "&chatroom" + globalChat;
-        query += "&username=" + globalUser;
-        console.log(query);
-        sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
     }
 })(hfuChat || (hfuChat = {}));
 //# sourceMappingURL=client.js.map
