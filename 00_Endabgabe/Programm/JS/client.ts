@@ -302,8 +302,8 @@ namespace hfuChat {
     function handleMSGSendResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-        console.log(xhr.response);
-        refresh();
+            console.log(xhr.response);
+            refresh();
         
     }
        

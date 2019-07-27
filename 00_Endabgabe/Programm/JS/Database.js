@@ -95,8 +95,8 @@ function loginUser(_name, _pass, _callback) {
 }
 exports.loginUser = loginUser;
 function insertNewMSG(_chatroom, _chatData, _callback) {
-    users = db.collection(_chatroom);
-    insertMSG(_chatData);
+    //users = db.collection(_chatroom);
+    //insertMSG(_chatData);
     _callback("insertion sucessfull");
 }
 exports.insertNewMSG = insertNewMSG;
