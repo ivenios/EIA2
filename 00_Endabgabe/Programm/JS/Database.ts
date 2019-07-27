@@ -35,6 +35,10 @@ export function insert(_doc: UserData): void {
     // try insertion then activate callback "handleInsert"
     users.insertOne(_doc, handleInsert);
 }
+export function insertMSG(_doc: ChatData): void {
+    // try insertion then activate callback "handleInsert"
+    users.insertOne(_doc, handleInsert);
+}
 
 // insertion-handler receives an error object as standard parameter
 function handleInsert(_e: Mongo.MongoError): void {
@@ -98,6 +102,6 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
 
 export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
     users = db.collection(_chatroom);
-    users.insertOne(_chatData);
+    insertMSG(_chatData);
     _callback("insertion sucessfull");
 }
