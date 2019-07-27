@@ -220,16 +220,16 @@ namespace hfuChat {
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
-        refresh();
 
     }
+    /*
     function refresh(): void {
-        let query: string = "command=refresh";
+        let query: string = "command=loadChatroom";
         query += "&chatroom" + globalChat;
         query += "&username=" + globalUser;
         console.log(query);
         sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
-    }
+    }*/
 
 //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
 
@@ -309,8 +309,11 @@ namespace hfuChat {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            
-        
+            let query: string = "command=loadChatroom";
+            query += "&chatroom" + globalChat;
+            query += "&username=" + globalUser;
+            console.log(query);
+            sendRequest(query, handleChatroomResponse);
     }
 }
     

@@ -221,15 +221,15 @@ var hfuChat;
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
-        refresh();
     }
-    function refresh() {
-        let query = "command=refresh";
+    /*
+    function refresh(): void {
+        let query: string = "command=loadChatroom";
         query += "&chatroom" + globalChat;
         query += "&username=" + globalUser;
         console.log(query);
         sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
-    }
+    }*/
     //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -295,6 +295,11 @@ var hfuChat;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
+            let query = "command=loadChatroom";
+            query += "&chatroom" + globalChat;
+            query += "&username=" + globalUser;
+            console.log(query);
+            sendRequest(query, handleChatroomResponse);
         }
     }
 })(hfuChat || (hfuChat = {}));

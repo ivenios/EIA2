@@ -42,11 +42,6 @@ function handleRequest(_request, _response) {
             let chatroom = query["chatroom"];
             Database.insertNewMSG(chatroom, newMSG, findCallback);
             break;
-        case "refresh":
-            let chatnum2 = query["chatroom"];
-            let usernm2 = query["username"];
-            Database.loadingChatDB(chatnum2, usernm2, findCallback);
-            break;
         case "login":
             let username = query["username"];
             let password = query["password"];
