@@ -163,3 +163,46 @@ body {
       flex: none; 
     }
     
+
+
+
+/* DIE CHAT BUBLES*/
+
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 600px;
+    height: 700px;
+    margin: 20px auto;
+    padding: 1rem;
+    border: 1px solid #eee;
+  }
+    .owner {
+      max-width: 75%;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .recipient {
+      max-width: 75%;
+      align-self: flex-start;
+      text-align: left;
+    }
+    
+  .owner > p,
+  .recipient > p{
+        padding: .5rem;
+        border-radius: 5px;
+  }
+  
+    .owner p {
+        background-color: #eee;
+        color: #333;
+    }
+    
+    .recipient p{
+        background-color:rgb(36, 202, 3);
+        color: #000;
+    }
+  

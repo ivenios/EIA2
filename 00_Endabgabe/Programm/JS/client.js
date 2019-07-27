@@ -60,15 +60,14 @@ var hfuChat;
             <p>Aus zeitlichen und budget Gründen, gibt es leider nicht die Möglichkeit eigene Chaträume zu erstellen.</p>
             </div>`,
         "Chatroom Interface": `<div class="login">
-                <button id="backRooms">Chatrooms</button> <button id="logout"> Logout </button>
-                <div id="Chat"> </div>
-                <div class="uid">
-                    <input type="text" name="" placeholder="Schreibe eine Nachricht" required > <button id="sendMSG"> Senden </button>
-                </div>
-
-            
-            
-            </div>`
+            <button id="backRooms">Chatrooms</button> <button id="logout">Logout</button><button id="refresh">Refresh</button>
+                             </div>
+            <div class="chat" id="Chat">
+              
+            </div>
+                            <div class="uid">
+                                <input type="text" name="" placeholder="Schreibe eine Nachricht" required > <button id="sendMSG"> Senden </button>
+                            </div>`
     };
     document.addEventListener("DOMContentLoaded", init);
     //LOGIN FENSTER DARSTELLEN  
@@ -200,6 +199,7 @@ var hfuChat;
         document.getElementById("backRooms").addEventListener("click", chatroomChoiceRender);
         document.getElementById("logout").addEventListener("click", init);
         document.getElementById("sendMSG").addEventListener("click", sendMessage);
+        document.getElementById("refresh").addEventListener("click", refresh);
     }
     function sendMessage() {
         //Nachrichten Sende Zeit 
@@ -222,14 +222,13 @@ var hfuChat;
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
     }
-    /*
-    function refresh(): void {
-        let query: string = "command=loadChatroom";
-        query += "&chatroom" + globalChat;
+    function refresh() {
+        let query = "command=loadChatroom";
+        query += "&chatroom=" + globalChat;
         query += "&username=" + globalUser;
         console.log(query);
-        sendRequest(query, handleChatroomResponse); //da die Funktion schomn durchgeht, kann ich die einfach wiederverwenden für die Refresh funktion s
-    }*/
+        sendRequest(query, handleChatroomResponse);
+    }
     //SERVER ANFRAGEN VERSCHICKEN UND ANTWORTEN VERABREITEN 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -268,18 +267,16 @@ var hfuChat;
             for (let i = 0; i < chatArray.length; i++) {
                 console.log(chatArray[i]);
                 if (globalUser == chatArray[i].user) { //HIER DANN NOCH UNTERSCHIEDLICHE CSS VERBINDUNGEN!!!!!
-                    htmlString += `<div> 
+                    htmlString += `<div class="owner"> 
                     <p> ${chatArray[i].msg}</p>
-                    <p><span> ${chatArray[i].time}</span> Du </p>
-            
-            </div> `;
+                    </div> 
+                    <p><span> ${chatArray[i].time}</span> Du </p>`;
                 }
                 else {
-                    htmlString += `<div> 
+                    htmlString += `<div class="recipient"> 
                     <p> ${chatArray[i].msg}</p>
-                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user} </p>
-            
-            </div> `;
+                    </div> 
+                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user} </p>`;
                 }
             }
             document.getElementById("Chat").innerHTML = " ";
@@ -295,11 +292,7 @@ var hfuChat;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            let query = "command=loadChatroom";
-            query += "&chatroom" + globalChat;
-            query += "&username=" + globalUser;
-            console.log(query);
-            sendRequest(query, handleChatroomResponse);
+            refresh();
         }
     }
 })(hfuChat || (hfuChat = {}));
