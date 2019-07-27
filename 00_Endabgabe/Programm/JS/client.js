@@ -220,7 +220,7 @@ var hfuChat;
             query += "&msg=" + inputs[0].value;
             query += "&user=" + globalUser;
             query += "&time=" + utcDate;
-            query += "&chatroom" + globalChat;
+            query += "&chatroom=" + globalChat;
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
@@ -290,7 +290,7 @@ var hfuChat;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            refresh();
+            //refresh();
         }
     }
     function refresh() {

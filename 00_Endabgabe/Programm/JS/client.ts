@@ -218,7 +218,7 @@ namespace hfuChat {
             query += "&msg=" + inputs[0].value;
             query += "&user=" + globalUser;
             query += "&time=" + utcDate; 
-            query += "&chatroom" + globalChat;
+            query += "&chatroom=" + globalChat;
         }
         console.log(query);
         sendRequest(query, handleMSGSendResponse);
@@ -303,7 +303,7 @@ namespace hfuChat {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            refresh();
+            //refresh();
         
     }
        
