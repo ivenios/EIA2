@@ -172,12 +172,13 @@ body {
 .chat {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+   
     width: 600px;
-    height: 700px;
+    height: 80%px;
     margin: 20px auto;
     padding: 1rem;
     border: 1px solid #eee;
+    overflow: scroll;
   }
     .owner {
       max-width: 75%;
@@ -204,5 +205,15 @@ body {
     .recipient p{
         background-color:rgb(36, 202, 3);
         color: #000;
+    }
+    .left {
+        text-align: left;
+        font-size: 0.5rem;
+        color: grey;
+    }
+    .right {
+        text-align: right;
+        font-size: 0.5rem;
+        color: gray;
     }
   

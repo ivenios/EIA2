@@ -61,13 +61,13 @@ var hfuChat;
             </div>`,
         "Chatroom Interface": `<div class="login">
             <button id="backRooms">Chatrooms</button> <button id="logout">Logout</button><button id="refresh">Refresh</button>
-                             </div>
+                             
             <div class="chat" id="Chat">
               
             </div>
                             <div class="uid">
                                 <input type="text" name="" placeholder="Schreibe eine Nachricht" required > <button id="sendMSG"> Senden </button>
-                            </div>`
+                            </div></div>`
     };
     document.addEventListener("DOMContentLoaded", init);
     //LOGIN FENSTER DARSTELLEN  
@@ -270,13 +270,13 @@ var hfuChat;
                     htmlString += `<div class="owner"> 
                     <p> ${chatArray[i].msg}</p>
                     </div> 
-                    <p><span> ${chatArray[i].time}</span> Du </p>`;
+                    <p class="right"><span> ${chatArray[i].time}</span> Du </p>`;
                 }
                 else {
                     htmlString += `<div class="recipient"> 
                     <p> ${chatArray[i].msg}</p>
                     </div> 
-                    <p><span> ${chatArray[i].time}</span> ${chatArray[i].user} </p>`;
+                    <p class="left"><span> ${chatArray[i].time}</span> ${chatArray[i].user} </p>`;
                 }
             }
             document.getElementById("Chat").innerHTML = " ";
