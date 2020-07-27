@@ -1,0 +1,45 @@
+Here we go Endabgabe die zweite: 
+
+Die Endabgabe muss können: 
+
+[ ] Individuell gestaltbare Zeichenfläche (Größe & "Hintergrunddarstellung")
+	 [ ] Platzierung von grafischen Elementen und Symbolen 
+		[ ] Verschiedene Formen 
+		[ ] Gezielte Platzierung
+		[ ] Animiert in Farbe, Position und Größe, Rotation 
+			[ ] Verschiedene Animationsmuster
+			[ ] Nachträgliche Änderung Objektanimationen 
+			[ ] Löschbar
+			[ ] Verschiebbar
+			[ ] Änderung der Farbe, Form 
+[ ] Serveranbindung 
+	[ ] Nutzererstellung 
+	[ ] Login 
+	[ ] Übersicht über erstellte Bilder 
+    [ ] Nachträgliches Öffnen bereits erstellter Bild 
+
+
+Naive Aproach (as usual): 
+
+[ ] Aufbau eines ersten grobkonzeptes 
+    [ ] Design Konzept 
+    [ ] Anwendungsfall Diagramme
+    [ ] 
+[ ] erneut Verständnis zu heroku und MongoDB einholen
+[ ] How to Canvas 
+[ ] Schritt für schritt den Verlauf des Programmes programmieren 
+[ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
+[ ] Vorbereitung der "Verteidigung"
+
+
+Was lässt sich wieder verwenden aus meiner Alten abgabe: 
+
+-> Komplete Serveranbindung 
+    - Verabeitung der Anfragen 
+    - Parsen 
+    - Antwort 
+-> Kompletes Login und Struktur der Usererstellung 
+    - Design Seitig muss eventuell angepasst werden 
+    - Serverseitige Verarbeitung funktioniert noch 
+
+
