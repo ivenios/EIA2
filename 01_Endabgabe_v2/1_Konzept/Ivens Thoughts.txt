@@ -35,10 +35,12 @@ Wierde Anforderungen:
 Naive Aproach (as usual): 
 
 [ ] Aufbau eines ersten grobkonzeptes 
-    [ ] Design Konzept 
-    [ ] Anwendungsfall Diagramme
-    [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer
-[ ] erneut Verständnis zu heroku und MongoDB einholen
+    [ ] Design Konzept ->UX
+    [ ] Anwendungsfall Diagramme ->UX
+    [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer ->UX oder draw.io
+    [ ] Datenformate konzeptionieren ->Hier 
+    [x] Welche tätigkeiten muss der Server erledigen können -> Funktions Wording erstellen und beschreibung
+[x] erneut Verständnis zu heroku und MongoDB einholen
 [ ] How to Canvas 
 [ ] Schritt für schritt den Verlauf des Programmes programmieren 
 [ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
@@ -56,8 +58,70 @@ Was lässt sich wieder verwenden aus meiner Alten abgabe:
     - Serverseitige Verarbeitung funktioniert noch 
 
 
-Goodies: 
+Goodies aka feature creep: 
 
 [ ] Anzeige von "Informationen" im Rand unten je nach Maus position 
 [ ] Anzeige der "Koordinaten" im Rand unten Je nach Mausposition auf der Canvas 
 [ ] Darstellung auf Mobil (Funktion probably schwer) ->Erkennung der Rotation da nur im Horizontalmodus probably passend 
+[ ] Zeit der letzten Änderung abspeichern und in der Nutzer bild liste angeben
+[ ] Papierkorb für die Nutzer? 
+[ ] Anzeige dem Nutzer wie viele Bilde er hat. -> wenn es zu viele Bilder werden, sodass nicht mehr alle Bilder in den URL string passen -> issue erstellen!
+
+
+Maybe Problems: 
+[ ] Wie viele Änderungen kann der nutzer machen, bevore der URL String gekappt wird? -> Bearbeitungsgrenze?
+[ ] Wie  viele Bilder soll der Nutzer ertstellen können? 
+
+
+*********CLIENT*******
+
+___Design
+    MS Paint nur mit fiesen Kommentaren ;) 
+    CSS Design  mithilfe von svgs und Screenshots 
+
+__Login
+
+
+__Canvas :/ 
+
+
+
+
+*********SERVER********* 
+
+___Welche Funktionen muss der Server ausführen:
+                Nutzer erstellen - registerUser - Der nutzer füllt die geforderten Daten aus und sendet diese. Der Server holt sich die aktuelle 
+                                                    Nutezerliste und vergleicht diese mit dem neuen, wenn dieser nicht bereits existiert, 
+                                                    wird der Nutzer angelegt. 
+                Nutzer login -  loginUser - Der Nutezr loggt sich ein. Der Server greift sich die Nutzerdaten und vergleich diese komplett. 
+                                            Stimmen Nutzer und Passwort überein, wird der nutzer eingeloggt. Das Menü Baut sich auf. 
+                [Bild das "initiieren" - initiatePicture] - der Nutzer legt das  erste  mal eine Canvas an. 
+                                                            Diese wird sofort in der Datenbank angelegt und automatisch gespeichert.
+                Bild speichern - safePicture - Die Änderungen durch deen Nutzer werden über einen URL string an den Server gesendet. 
+                                                Dieser speichert die Daten in einer
+                Liste der Bilder eines Nutzers Abrufen - loadPictureList - Der Client stellt eine Anfrage an den Server. Dieser greift sich eine 
+                                                                            Liste aller Bilder die mit einem User Name in Verbindunge gebracht 
+                                                                            werden und pusht diese in ein Array welches als Liste dem Nutzer 
+                                                                            ausgegeben wird. 
+                                                                            (Oder immer beim erstellen des Bildes wird den Nutzerdaten von 
+                                                                            diesem Nutzer das Neue  "Bild" im A.Array gespeichert. )
+                Bild abrufen -  loadSelectedPicture - Jedes der Bilder besitzt eine automatisch erstellte ID, welche einzigartig ist.
+                                                            Nach Wahl des Bildes wird diese ID an den Server weiter gegeben um die benötigten 
+                                                            Daten aus der Datenbank zu holen
+                Bild Löschen - deleteUserPicture - It was ugly anyways. Der Nutzer wählt diese Option. Nach Sicherheits tests (z.B. 
+                                                    Tippen des PWs oder Tippen des bild Namens) bekommt der Server die Anweisung das Bild aus 
+                                                    der Datenbank zu entfernen. Ebenso wird der Eintrag in den Nutzerdaten entfernt. 
+
+
+****Datenstruktur für das Projekt: 
+
+___Welche Daten benötigen wir: 
+    - Nuter Daten 
+    - Bild Daten 
+
+___Was beinhalten diese Daten: 
+    XXXX
+
+
+
+
