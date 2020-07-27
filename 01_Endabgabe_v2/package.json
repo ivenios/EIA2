@@ -1,0 +1,29 @@
+{
+	"name": "miniserver",
+	"version": "1.0.0",
+	"description": "Minimal server just bouncing the URL",
+	"author": "Lukas, adapted by iOS",
+	"main": "Server.js",
+	"scripts": {
+		"start": "node 00_Endabgabe/Programm/JS/server.js"
+	},
+	"engines": {
+		"node": "8.11.3"
+	},
+	"dependencies": {
+		"@types/mongodb": "^3.1.27",
+		"@types/node": "^11.13.8",
+		"mongodb": "^3.2.5",
+		"node": "^12.1.0"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^3.1.0",
+		"@typescript-eslint/parser": "^3.1.0",
+		"eslint": "^7.1.0",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-plugin-import": "^2.20.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.1"
+	}
+}
