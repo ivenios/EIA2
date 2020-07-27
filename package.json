@@ -1,11 +1,11 @@
 {
 	"name": "miniserver",
 	"version": "1.0.0",
-	"description": "Minimal server just bouncing the URL",
+	"description": "Small little program where you donkeys can draw your feelings",
 	"author": "Lukas, adapted by iOS",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node 00_Endabgabe/Programm/JS/server.js"
+		"start": "node 01_Endabgabe_v2/Programm/JS/server.js"
 	},
 	"engines": {
 		"node": "8.11.3"

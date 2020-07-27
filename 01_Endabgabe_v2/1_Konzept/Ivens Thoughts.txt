@@ -19,12 +19,25 @@ Die Endabgabe muss können:
     [ ] Nachträgliches Öffnen bereits erstellter Bild 
 
 
+Wierde Anforderungen: 
+[ ] Fasse die Konzeption als ein wohlformatiertes Designdokument in PDF zusammen!
+[ ] Platziere wie üblich einen Link zu Github-Pages auf die fertige und lauffähige Anwendung im Steckbrief.
+[ ] Platziere ebenso einen Link zu der Stelle in deinem Github-Repository, an dem der Quellcode und das Designdokument zu finden ist.
+[ ] Stelle zudem auf diese Art auch ein gepacktes Archiv zur Verfügung, welches folgende Daten enthält
+[ ] Das Designdokument
+    [ ] Die Projektordner inklusive aller erforderlichen Dateien, also auch Bild- und Audiodaten
+    [ ] Eine kurze Anleitung zur Installation der Anwendung unter Berücksichtigung der erforderlichen Dienste (z.B. Heroku, MongoDB etc.)
+    [ ] Eine kurze Anleitung zur Interaktion mit der Anwendung
+
+
+
+
 Naive Aproach (as usual): 
 
 [ ] Aufbau eines ersten grobkonzeptes 
     [ ] Design Konzept 
     [ ] Anwendungsfall Diagramme
-    [ ] 
+    [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer
 [ ] erneut Verständnis zu heroku und MongoDB einholen
 [ ] How to Canvas 
 [ ] Schritt für schritt den Verlauf des Programmes programmieren 
@@ -43,3 +56,8 @@ Was lässt sich wieder verwenden aus meiner Alten abgabe:
     - Serverseitige Verarbeitung funktioniert noch 
 
 
+Goodies: 
+
+[ ] Anzeige von "Informationen" im Rand unten je nach Maus position 
+[ ] Anzeige der "Koordinaten" im Rand unten Je nach Mausposition auf der Canvas 
+[ ] Darstellung auf Mobil (Funktion probably schwer) ->Erkennung der Rotation da nur im Horizontalmodus probably passend 
