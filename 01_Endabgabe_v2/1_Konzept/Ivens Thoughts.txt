@@ -36,11 +36,11 @@ Naive Aproach (as usual):
 
 [ ] Aufbau eines ersten grobkonzeptes 
     [ ] Design Konzept ->UX
-    [ ] Anwendungsfall Diagramme ->UX
+    [X] Anwendungsfall Diagramme ->UX
     [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer ->UX oder draw.io
     [ ] Datenformate konzeptionieren ->Hier 
-    [x] Welche tätigkeiten muss der Server erledigen können -> Funktions Wording erstellen und beschreibung
-[x] erneut Verständnis zu heroku und MongoDB einholen
+    [X] Welche tätigkeiten muss der Server erledigen können -> Funktions Wording erstellen und beschreibung
+[X] erneut Verständnis zu heroku und MongoDB einholen
 [ ] How to Canvas 
 [ ] Schritt für schritt den Verlauf des Programmes programmieren 
 [ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
@@ -79,11 +79,38 @@ ___Design
     MS Paint nur mit fiesen Kommentaren ;) 
     CSS Design  mithilfe von svgs und Screenshots 
 
+    *Welche "Fenster / Ansichten benötige ich?
+
+    1- Willkommens Message mit Erklärung
+    2- Login in Panel 
+    3- User Register Panel 
+    4- Bilder Übersicht Panel 
+    5- Neues Bild erstellen 
+    6- Bild Canvas 
+    7- Dynamische Error message, in die die passenden Nachrichten eingebaut werden. 
+
 __Login
 
 
 __Canvas :/ 
 
+ --Welche Funktionen soll der Nutzer haben?
+        *Welche Objekte stehen im zur Auswahl
+            Kreis 
+            Quadrat 
+            Dreieck
+
+
+        *Farben auswahl 
+            Naive -> Vorausgewählte Farben 
+            Pro -> Slider der Farben auswahl regelt? (How?)
+
+        *Animationsmuster auswahl der Muster und dann Play drücken
+            Checkboxen mit Optionen, die gewählt werden können 
+            Animate: 
+                -Color
+                -Size
+                -Rotation
 
 
 
@@ -121,6 +148,9 @@ ___Welche Daten benötigen wir:
 
 ___Was beinhalten diese Daten: 
     XXXX
+
+
+
 
 
 

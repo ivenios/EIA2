@@ -6,13 +6,13 @@ import { parse } from "querystring";
 console.log("Server starting");
 
 let port: number = Number(process.env.PORT);
-if (!port)
+if (!port) 
     port = 8100;
 
 let server: Http.Server = Http.createServer();
 server.addListener("listening", handleListen);
 server.addListener("request", handleRequest);
-server.listen(port);
+server.listen(port); 
 
 
 
