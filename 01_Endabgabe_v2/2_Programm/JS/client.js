@@ -10,10 +10,10 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 */
 const HTMLData_1 = require("./HTMLData");
 //import {htmlData form "./HTMLData"}
-let serverAddress = " x ";
+let serverAddress = "https://ios-eia2.herokuapp.com";
 //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
-let globalUser = "X";
-let globalPicture = " x";
+let globalUser;
+let globalPicture;
 document.addEventListener("DOMContentLoaded", init);
 //hier gehts los
 function init() {
@@ -22,6 +22,22 @@ function init() {
     document.getElementById("htmlBox").innerHTML = " ";
     // document.getElementById("htmlBox").innerHTML = htmlData["welcomeMSG"];
     console.log(serverAddress, globalUser, globalPicture);
+    document.getElementById("startMSPaint").addEventListener("click", initMSPaint);
     HTMLData_1.helpMe();
+}
+function initMSPaint() {
+    console.log("Loading Login Panel");
+    document.getElementById("htmlBox").innerHTML = " ";
+    //document.getElementById("htmlBox").innerHTML = htmlData["loginPanel"];
+    document.getElementById("userIsNew").addEventListener("click", newUserInit); //Handler für das Laden des neuen Nutzer Panels 
+    document.getElementById("userLogin").addEventListener("click", loginUser); //Handler für Abschicken des Logins
+}
+function newUserInit() {
+    console.log("Loading New User Panel");
+    document.getElementById("htmlBox").innerHTML = " ";
+    //document.getElementById("htmlBox").innerHTML = htmlData["registerPanel"];
+}
+function loginUser() {
+    //Form abgreifen in url String an Server senden 
 }
 //# sourceMappingURL=client.js.map

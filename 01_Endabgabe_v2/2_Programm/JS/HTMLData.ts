@@ -52,7 +52,52 @@ export let htmlData: {[key: string]: string }
                                 </section>
                                 </main>
                             </section>`,
-            "loginPanel": "XX",
+            "loginPanel": `<section class="endabgabe">
+                                <main class="end-bg borderInset" style="width: 25%;">
+                                <header class="end-bg header">
+                                    <section class="headerTop">
+                                    <div class="headerTitle">
+                                        <span>Welcome to Rude MS Paint</span>
+                                    </div>
+                                    <div>
+                                        <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt="" ></button>
+                                        <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
+                                        <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                                    </div>
+                                    </section>
+                                
+                                </header>
+                                <section class="content">
+                                    <div class="contentMiddle">
+                                    </div>
+                                    <section class="end-bg footer">
+                                    <section class="footerInner">
+                                        <form>
+                                        <h1>Can i please see some fucking identification?</h1>
+                                        <form class="loginForm">
+                                            <label for="username">Username</label><br>
+                                            <input type="text" id="username" name="Username" value="John"><br>
+                                            <label for="password">Password</label><br>
+                                            <input type="text" id="password" name="Password" value="..."><br><br>
+                                        </form>
+                                        <button class="norm-button" id="userLogin">Login in</button>
+                            
+                                        <button class="norm-button" id="userIsNew">I'm new here</button>
+                            
+                                        </form>
+                                    </section>
+                                    <br>
+                                    <section class="footerBottom">
+                                        <div class="end-border-inset">
+                                        ...
+                                        </div>
+                                        <div class="end-border-inset"></div>
+                                        <div class="end-border-inset"></div>
+                                    </section>
+                                    </section>
+                                </section>
+                                </main>
+                            </section>`,
             "registerPanel": "XX",
             "userPictureOverview": "XX",
             "Chat Interface": "XX",

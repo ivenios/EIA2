@@ -13,5 +13,5 @@ interface ChatData {
     user: string;
     time: string;
     msg: string;
-
+ 
 }

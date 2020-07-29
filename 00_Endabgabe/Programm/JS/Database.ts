@@ -8,7 +8,7 @@ console.log("Database starting");
 let databaseURL: string = "mongodb://localhost:27017";
 let databaseName: string = "Test";
 let db: Mongo.Db;
-let users: Mongo.Collection;
+let users: Mongo.Collection; 
 
 // running on heroku?
 if (process.env.NODE_ENV == "production") {

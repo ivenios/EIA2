@@ -4,7 +4,7 @@ namespace hfuChat {
     let globalUser: string; 
     let globalChat: string;
     let htmlData: {[key: string]: string }
-    = {
+    = { 
         "Login": `
         <div class="login">
             <h1 class="head-title">Login</h1>

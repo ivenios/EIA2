@@ -9,7 +9,7 @@ namespace hfuChat {
             "Register Error": "Are",
             "Chat Interface": "you"
 
-        };
+        }; 
 
 
 
