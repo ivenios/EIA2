@@ -1,0 +1,210 @@
+  * {
+    outline: none;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: black;
+  }
+  
+
+
+
+
+  
+  main {
+    resize: both;
+    overflow: auto;
+  }
+  
+  canvas {
+    height: 455px;
+    margin: 4px;
+    background: white;
+    resize: both;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  label {
+      margin: 5px;
+  }
+
+  /*Allgemein*/
+  .end-bg {
+    background-color: rgb(192, 192, 192);
+  }
+  
+  .endBorder {
+    border-style: outset;
+    border-color: #f3f8fc #b3b1ac #b3b1ac #f3f8fc;
+    border-width: .8px;
+    padding: 3px;
+    box-shadow:
+      0.7px 0.7px 0px black,
+      inset -0.5px -0.5px 0px hsl(240, 0%, 48%),
+      inset 0.5px 0.5px 0px hsl(45, 11%, 93%);
+  }
+  
+  .end-border-inset {
+    border-bottom: 1px solid #D5D1C9;
+    border-right: 1px solid #D5D1C9;
+    box-shadow:
+      inset 0.8px 0.8px 0px black,
+      -0.5px -0.5px 0px hsl(240, 0%, 48%),
+      0.5px 0.5px 0px hsl(45, 11%, 93%);
+  }
+  
+  .endabgabe {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: 9%;
+
+  }
+
+  /*HEADER*/
+  .header .headerTop {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: -.5px;
+    height: 20px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to right, hsl(217, 100%, 20%), hsl(207, 54%, 78%));
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2px;
+    width: 100%;
+  }
+  
+  .header .headerTabs {
+    display: flex;
+    border-bottom: 1px outset #f7f7f7;
+  }
+  
+  .header .headerTab {
+    padding: 4px;
+  }
+  
+  .header .headerTab::first-letter {
+    text-decoration: underline;
+  }
+  
+  .headerTitle {
+    display: flex;
+    max-height: 20px;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  
+  .headerIcon {
+    font-size: 9px;
+    text-align: left;
+    font-weight: bold;
+    padding: 1px;
+    margin: 0;
+    margin-bottom: 4px;
+    color: black;
+    width: 14px;
+    height: 14px;
+  }
+
+  /* BUTTONS */
+  button {
+    background-color: transparent;
+    border: none;
+    letter-spacing: inherit;
+    font-size: inherit;
+  }
+
+  .norm-button{
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 2px;
+    margin: 2px;
+    color: black;
+    background-color: transparent;
+    border: 1px white;
+    border-style: outset;
+    text-align: center;
+
+  }
+  .norm-button:hover{
+      border-style: inset;
+  }
+ 
+
+  /*Content in der Mitte */
+  .content {
+    width: 100%;
+    height: 93%;
+  }
+  
+  .content .contentMiddle {
+    width: 100%;
+    display: flex;
+    background: rgb(192, 192, 192);
+  }
+  
+/*Unterer Footer Rahmen*/
+
+  .footer {
+    box-sizing: border-box;
+    border-top: 1px outset #f7f7f7;
+    width: 100%;
+    padding: 8px 2px 0px 2px;
+  }
+  .footerBottom {
+    display: flex;
+  }
+  
+  .footerBottom div {
+    width: 22%;
+    margin-right: 4px;
+  }
+  .footer .footerInner {
+    margin-bottom: 8px;
+  }
+
+  .footerBottom :first-child {
+    padding: 4px 2px;
+    width: 50%;
+  }
+
+  /*Tool Leiste*/
+  
+  .tools {
+    width: 57px;
+    height: 470px;
+  }
+  .tools .toolsTool {
+    width: 24px;
+    height: 24px;
+    background-size: 20px;
+    background-position: 1px 2px;
+  }
+    
+  
+  .tools .toolsBox {
+    padding: 3px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+
+  .toolsTool.toolsTool--pencil {
+    background-image: url('pencil.png');
+  }
+  
+
+  @media  (max-device-width: 860px){
+
+    .end-bg .endBorder{
+        width: 250px; 
+ }
+
+  }

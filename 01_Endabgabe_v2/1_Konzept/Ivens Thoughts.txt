@@ -45,6 +45,7 @@ Naive Aproach (as usual):
 [ ] Schritt für schritt den Verlauf des Programmes programmieren 
 [ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
 [ ] Vorbereitung der "Verteidigung"
+[ ] CSS Breakpoint einarbeiten 
 
 
 Was lässt sich wieder verwenden aus meiner Alten abgabe: 
@@ -71,6 +72,7 @@ Goodies aka feature creep:
 Maybe Problems: 
 [ ] Wie viele Änderungen kann der nutzer machen, bevore der URL String gekappt wird? -> Bearbeitungsgrenze?
 [ ] Wie  viele Bilder soll der Nutzer ertstellen können? 
+
 
 
 *********CLIENT*******
@@ -143,7 +145,7 @@ ___Welche Funktionen muss der Server ausführen:
 ****Datenstruktur für das Projekt: 
 
 ___Welche Daten benötigen wir: 
-    - Nuter Daten 
+    - Nutzer Daten 
     - Bild Daten 
 
 ___Was beinhalten diese Daten: 
