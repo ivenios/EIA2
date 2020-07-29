@@ -6,13 +6,8 @@
     font-family: Arial, sans-serif;
     font-size: 1rem;
     color: black;
-  }
-  
-
-
-
-
-  
+}
+    
   main {
     resize: both;
     overflow: auto;
@@ -38,7 +33,7 @@
     background-color: rgb(192, 192, 192);
   }
   
-  .endBorder {
+  .borderInset {
     border-style: outset;
     border-color: #f3f8fc #b3b1ac #b3b1ac #f3f8fc;
     border-width: .8px;

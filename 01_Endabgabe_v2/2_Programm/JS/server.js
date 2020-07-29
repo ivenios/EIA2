@@ -3,6 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const Database = require("./database");
+/*
+Aufgabe: Endabgabe
+Name: Iven Otis Sieglen
+Matrikel: 261012
+Datum: 04.08.2020
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
+Note: Dieser Code wurde aus den Lektionen des Sommersemester 2019 entwandt. Author Lukas Scheuerle.
+*/
 console.log("Server starting");
 let port = Number(process.env.PORT);
 if (!port)

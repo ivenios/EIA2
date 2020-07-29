@@ -2,6 +2,15 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./database";
 import { parse } from "querystring";
+/*
+Aufgabe: Endabgabe
+Name: Iven Otis Sieglen
+Matrikel: 261012
+Datum: 04.08.2020
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.  
+Note: Dieser Code wurde aus den Lektionen des Sommersemester 2019 entwandt. Author Lukas Scheuerle. 
+*/
 
 console.log("Server starting");
 
