@@ -14,7 +14,6 @@
   }
   
   canvas {
-    height: 455px;
     margin: 4px;
     background: white;
     resize: both;
@@ -145,6 +144,15 @@
     background: rgb(192, 192, 192);
   }
   
+  .picList {
+    margin: 3px;
+
+  }
+
+  .picList:hover {
+    border-style: groove;
+  }
+
 /*Unterer Footer Rahmen*/
 
   .footer {
@@ -176,7 +184,7 @@
     width: 57px;
     height: 470px;
   }
-  .tools .toolsTool {
+  .tools .toolsStyle {
     width: 24px;
     height: 24px;
     background-size: 20px;
@@ -190,11 +198,10 @@
     flex-wrap: wrap;
   }
   
-
-  .toolsTool.toolsTool--pencil {
-    background-image: url('pencil.png');
+  .toolsStyle:hover {
+    border-style: inset;
   }
-  
+
 
   @media  (max-device-width: 860px){
 

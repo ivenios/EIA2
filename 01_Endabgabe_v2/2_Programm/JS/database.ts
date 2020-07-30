@@ -100,6 +100,28 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
         }
 } 
 
+//Funktion zum Laden der Picture List:
+
+export function loadListFromDB(_username: string, _callback: Function): void {
+    users = db.collection("Userdatabase");
+    var cursor: Mongo.Cursor = users.find();
+    
+    cursor.toArray(prepareAnswer);
+
+    function prepareAnswer(_e: Mongo.MongoError, _chatArray: ChatData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(_chatArray));
+    }
+
+
+
+
+}
+
+
+
 export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
     users = db.collection(_chatroom);
     insertMSG(_chatData);

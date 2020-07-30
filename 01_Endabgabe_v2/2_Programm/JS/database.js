@@ -93,6 +93,19 @@ function loginUser(_name, _pass, _callback) {
     }
 }
 exports.loginUser = loginUser;
+//Funktion zum Laden der Picture List:
+function loadListFromDB(_username, _callback) {
+    users = db.collection("Userdatabase");
+    var cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, _chatArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(_chatArray));
+    }
+}
+exports.loadListFromDB = loadListFromDB;
 function insertNewMSG(_chatroom, _chatData, _callback) {
     users = db.collection(_chatroom);
     insertMSG(_chatData);

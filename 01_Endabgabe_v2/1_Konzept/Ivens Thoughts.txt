@@ -96,6 +96,10 @@ __Login
 
 __Canvas :/ 
 
+ -- Welche Voreinstellungen benötigt der Nutzer: 
+        Größe x und y
+        Einfarbiger Hintergrund oder Random Bild 
+
  --Welche Funktionen soll der Nutzer haben?
         *Welche Objekte stehen im zur Auswahl
             Kreis 

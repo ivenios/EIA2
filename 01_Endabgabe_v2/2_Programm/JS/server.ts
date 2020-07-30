@@ -34,19 +34,25 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     let query: AssocStringString = <AssocStringString> Url.parse(_request.url, true).query;
     var command: string = query["command"];
+    let username: string = query["username"]; 
 
     switch (command) {
         case "newUser":
             let user: UserData = {
                 user: query["username"],
-                password: query["pwd"]
+                password: query["pwd"],
+                pictureList: null
             };
             Database.searchUserNames(query["username"], findCallback, user);
             break;
-        case "XX":
-
+        case "loginUser":
+            let password: string = query["password"];
+            Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;
-        case "XX":
+        case "loadPictureList":
+
+            Database.loadListFromDB(username, findCallback);
+
 
 
             break;

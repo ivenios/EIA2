@@ -27,17 +27,22 @@ function handleRequest(_request, _response) {
     console.log("Request received");
     let query = Url.parse(_request.url, true).query;
     var command = query["command"];
+    let username = query["username"];
     switch (command) {
         case "newUser":
             let user = {
                 user: query["username"],
-                password: query["pwd"]
+                password: query["pwd"],
+                pictureList: null
             };
             Database.searchUserNames(query["username"], findCallback, user);
             break;
-        case "XX":
+        case "loginUser":
+            let password = query["password"];
+            Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
             break;
-        case "XX":
+        case "loadPictureList":
+            Database.loadListFromDB(username, findCallback);
             break;
         case "XX":
             break;

@@ -16,6 +16,7 @@ interface AssocStringString {
 interface UserData {
     user: string;
     password: string;
+    pictureList: [];
 }
 
 interface ChatData {
