@@ -38,6 +38,39 @@ function newUserInit() {
     //document.getElementById("htmlBox").innerHTML = htmlData["registerPanel"];
 }
 function loginUser() {
+    let query = "command=loginUser";
     //Form abgreifen in url String an Server senden 
+    //globalUser=formdata;
+    //
+    sendRequest(query, handleLoginResponse);
+}
+//ALLES SERVER RELATED: 
+function sendRequest(_query, _callback) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", serverAddress + "?" + _query, true);
+    xhr.addEventListener("readystatechange", _callback);
+    xhr.send();
+}
+//Verarbeitung der Nutzer Insters Antwort
+function handleInsertResponse(_event) {
+    let xhr = _event.target;
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        alert(xhr.response);
+        initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
+    }
+}
+//Verarbeitung der Login Antwort der Datenbank
+function handleLoginResponse(_event) {
+    let xhr = _event.target;
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        if (xhr.response == "Login information correct") {
+            console.log("Login completed");
+            //  XXX(); hier geht es dann weiter mit der Bild Überischt
+        }
+        else if (xhr.response == "Login information faulty") {
+            alert("XXX");
+            initMSPaint(); //jeder hasst es, wenn man sich vertippt hat muss man alles neu eingeben hihihi
+        }
+    }
 }
 //# sourceMappingURL=client.js.map

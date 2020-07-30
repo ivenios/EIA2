@@ -7,6 +7,7 @@ Datum: 04.08.2020
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.  
 */
+namespace endabgabe2 {
 
 export function helpMe(): void {
     alert("fuck this");
@@ -65,7 +66,7 @@ export let htmlData: {[key: string]: string }
                                         <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
                                     </div>
                                     </section>
-                                
+                                  
                                 </header>
                                 <section class="content">
                                     <div class="contentMiddle">
@@ -121,3 +122,5 @@ export let htmlData: {[key: string]: string }
 6- Bild Canvas 
 7- Dynamische Error message, in die die passenden Nachrichten eingebaut werden. 
 */
+
+}
