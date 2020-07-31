@@ -134,7 +134,7 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
     canvasDatabase = db.collection("canvasDatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
+    async function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): Promise<void> {
             if (_e)
                 _callback("Error" + _e);
             else
@@ -143,18 +143,25 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                 if (userArray[i].user == _canvasData.owner) {
                     // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
                     //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
+                    
                    let userPictures: string [] = userArray[i].pictureList;
-                   //for (let v: number = 0; v < userPictures.length; v++) {
-                     //if (userPictures[v] == _canvasData.name ) {
-                          // _callback("save negative");
-                          // break;
-                      // }
-                      // else {
-                          // return;
-                    //  }
+                   for (let v: number = 0; v < userPictures.length; v++) {
+                     if (userPictures[v] == _canvasData.name ) {
+                          _callback("save negative");
+                          break;
+                       }
+                       else {
+                           return;
+                      }
 
-                   // }
-                   userPictures.push(_canvasData.name);
+                    }
+                   await db.collection("Userdatabase").updateOne(
+                        { user: _canvasData.owner },
+                        {
+                          $push: { pictureList :  _canvasData.name  },
+                          $currentDate: { lastModified: true }
+                        }
+                      );
                    insertCanvas(_canvasData);
                    _callback("save postive");
 

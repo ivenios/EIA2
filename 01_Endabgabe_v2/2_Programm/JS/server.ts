@@ -41,7 +41,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                 name: query["name"],
                 user: query["username"],
                 password: query["password"],
-                pictureList: [""]
+                pictureList: []
             };
             Database.registerUserName(query["username"], findCallback, user);
             break;
