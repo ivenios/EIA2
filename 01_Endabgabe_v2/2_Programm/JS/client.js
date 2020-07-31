@@ -90,7 +90,6 @@ var endabgabe2;
     //ALLES SERVER RELATED: 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
-        //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         xhr.open("GET", serverAddress + "?" + _query, true);
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
