@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 var endabgabe2;
 (function (endabgabe2) {
     //import {htmlData form "./HTMLData"}
-    let serverAddress = "https://www.ios-eia2.herokuapp.com";
+    let serverAddress = "https://ios-eia2.herokuapp.com";
     //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
     let globalUser;
     let globalPicture;

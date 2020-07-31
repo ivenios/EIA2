@@ -10,7 +10,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 namespace endabgabe2 {
 
 //import {htmlData form "./HTMLData"}
-let serverAddress: string = "https://www.ios-eia2.herokuapp.com"; 
+let serverAddress: string = "https://ios-eia2.herokuapp.com"; 
     //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
 let globalUser: string;
 let globalPicture: string;
