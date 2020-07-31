@@ -120,7 +120,7 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
     users = db.collection("Userdatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
-    async function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): Promise<void> {
+    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
             if (_e)
                 _callback("Error" + _e);
             else
@@ -130,15 +130,15 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                     // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
                     //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
                     
-                   //let userPictures: string[] = userArray[i].pictureList;
-                   //for (let v: number = 0; v < userPictures.length; v++) {
-                     //if (userPictures[v] == _canvasData.name ) {
-                          //_callback("save negative");
-                          //break;
-                       //}
+                   let userPictures: string[] = userArray[i].pictureList;
+                   for (let v: number = 0; v < userPictures.length; v++) {
+                     if (userPictures[v] == _canvasData.name ) {
+                          _callback("save negative");
+                          break;
+                       }
 
-                    //}
-                   await db.collection("Userdatabase").updateOne(
+                    }
+                   db.collection("Userdatabase").updateOne(
                         { user: _canvasData.owner },
                         {
                           $push: { pictureList :  _canvasData.name  },
@@ -148,12 +148,9 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                    insertCanvas(_canvasData);
                    _callback("save postive");
 
-                   return; 
-                }
-                else if (userArray[i].user != _canvasData.owner) {
-                    return; 
                     
-            }
+                }
+                
         }
     }
 }

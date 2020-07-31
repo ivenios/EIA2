@@ -1,12 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Simple database insertion and query for MongoDB
@@ -115,34 +107,28 @@ function pushPictureCanvasToDB(_callback, _canvasData) {
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, userArray) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (_e)
-                _callback("Error" + _e);
-            else
-                for (let i = 0; i < userArray.length; i++) {
-                    if (userArray[i].user == _canvasData.owner) {
-                        // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
-                        //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
-                        //let userPictures: string[] = userArray[i].pictureList;
-                        //for (let v: number = 0; v < userPictures.length; v++) {
-                        //if (userPictures[v] == _canvasData.name ) {
-                        //_callback("save negative");
-                        //break;
-                        //}
-                        //}
-                        yield db.collection("Userdatabase").updateOne({ user: _canvasData.owner }, {
-                            $push: { pictureList: _canvasData.name },
-                            $currentDate: { lastModified: true }
-                        });
-                        insertCanvas(_canvasData);
-                        _callback("save postive");
-                        return;
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i = 0; i < userArray.length; i++) {
+                if (userArray[i].user == _canvasData.owner) {
+                    // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
+                    //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
+                    let userPictures = userArray[i].pictureList;
+                    for (let v = 0; v < userPictures.length; v++) {
+                        if (userPictures[v] == _canvasData.name) {
+                            _callback("save negative");
+                            break;
+                        }
                     }
-                    else if (userArray[i].user != _canvasData.owner) {
-                        return;
-                    }
+                    db.collection("Userdatabase").updateOne({ user: _canvasData.owner }, {
+                        $push: { pictureList: _canvasData.name },
+                        $currentDate: { lastModified: true }
+                    });
+                    insertCanvas(_canvasData);
+                    _callback("save postive");
                 }
-        });
+            }
     }
 }
 exports.pushPictureCanvasToDB = pushPictureCanvasToDB;
