@@ -16,6 +16,7 @@
   canvas {
     margin: 4px;
     background: white;
+    overflow: auto;
     resize: both;
   }
 

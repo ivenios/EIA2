@@ -224,8 +224,8 @@
                 <input type="text" id="name" name="name" value="John"><br>
                 <label for="username">Y-size in Pixels (100-1500)</label><br>
                 <input type="text" id="username" name="username" value="JohnxxXX"><br>
-                <label for="password">Color</label><br>
-                <input type="radio" id="password" name="password" value="Doe"><br><br>
+                <label for="colorhex">Choose your canvas color</label><br>
+                <input type="color" id="colorhex" name="colorhex" value="#ffffff"><br><br>
               </form>
               <button class="norm-button" id="renderNewCanvas">Create New Canvas</button>
 
@@ -275,22 +275,21 @@
         <div class="contentMiddle">
             <aside class="end-bg tools">
               <section class="toolsBox">
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle toolsStyle--pencil"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
-                <button class="end-bg borderInset toolsStyle"></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id="" ></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""></button>
+                <button class="end-bg borderInset toolsStyle" id="" ></button>
               </section>
             </aside>
             <canvas width="1000" height="340"></canvas>
@@ -335,9 +334,9 @@
         </div>
         <section class="end-bg footer">
           <section class="footerInner">
-            <h1>Welcome to rude MS Paint</h1>
-            <p>Feel free to paint your heart out. But please no rude symbols and dont spam!</p>
-            <button id="startMSPaint" class="norm-button">Lets fucking go!</button>
+            <h1>Warning / Error </h1>
+            <p id="errorHTMLMsg"></p>
+            <button id="errorClose" class="norm-button">Okay.</button>
           </section>
           <hr>
           <section class="footerBottom">
