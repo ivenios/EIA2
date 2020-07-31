@@ -62,8 +62,8 @@ var endabgabe2;
             printError("Please fill in the form to create a new user");
             return;
         }
-        query += "&username=" + inputs[0].value;
-        query += "&password=" + inputs[1].value;
+        query += "&username=" + inputs[1].value;
+        query += "&password=" + inputs[2].value;
         console.log(query);
         sendRequest(query, handleUserInsertResponse);
     }
@@ -90,7 +90,7 @@ var endabgabe2;
     //ALLES SERVER RELATED: 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
-        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+        //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         xhr.open("GET", serverAddress + "?" + _query, true);
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
