@@ -134,7 +134,7 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                    for (let v: number = 0; v < userPictures.length; v++) {
                      if (userPictures[v] == _canvasData.name ) {
                           _callback("save negative");
-                          break;
+                          return;
                        }
 
                     }

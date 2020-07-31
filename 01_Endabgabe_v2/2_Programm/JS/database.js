@@ -118,7 +118,7 @@ function pushPictureCanvasToDB(_callback, _canvasData) {
                     for (let v = 0; v < userPictures.length; v++) {
                         if (userPictures[v] == _canvasData.name) {
                             _callback("save negative");
-                            break;
+                            return;
                         }
                     }
                     db.collection("Userdatabase").updateOne({ user: _canvasData.owner }, {
