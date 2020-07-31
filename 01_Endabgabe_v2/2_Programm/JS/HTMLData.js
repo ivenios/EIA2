@@ -17,9 +17,9 @@ var endabgabe2;
                     <span>Welcome To Rude MS Paint</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
         
@@ -54,9 +54,9 @@ var endabgabe2;
                     <span>Log In</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
         
@@ -102,9 +102,9 @@ var endabgabe2;
                     <span>Create New User</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
         
@@ -151,9 +151,9 @@ var endabgabe2;
                     <span>Picture Overview</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
         
@@ -195,9 +195,9 @@ var endabgabe2;
                     <span>Create New Canvas</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
         
@@ -246,9 +246,9 @@ var endabgabe2;
                     <span>MS Paint</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=trueg" width="10px" alt=""></button>
                   </div>
                 </section>
                 <section class="headerTabs">
@@ -307,9 +307,9 @@ var endabgabe2;
                     <span>Error - Something Went Wrong</span>
                   </div>
                   <div>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                    <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+                    <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/7ec82923df5004a8fbcd8a45e18614fa88071c4f/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
                   </div>
                 </section>
                
