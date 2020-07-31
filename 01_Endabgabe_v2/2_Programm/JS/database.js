@@ -14,7 +14,7 @@ let users;
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
     databaseURL = "mongodb+srv://peta:12345@cluster0-gr6on.mongodb.net/test?retryWrites=true";
-    databaseName = "EndAbgabe";
+    databaseName = "EndAbgabe2";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);
@@ -27,11 +27,6 @@ function handleConnect(_e, _client) {
         db = _client.db(databaseName);
     }
 }
-function insert(_doc) {
-    // try insertion then activate callback "handleInsert"
-    users.insertOne(_doc, handleInsert);
-}
-exports.insert = insert;
 function insertMSG(_doc) {
     users.insertOne(_doc, handleInsert);
 }
@@ -53,8 +48,8 @@ function loadingChatDB(_chatroomnum, _username, _callback) {
     }
 }
 exports.loadingChatDB = loadingChatDB;
-// neue suchfunktion, einfach die oben genannte funktion übernommen und mit Users find angepasst
-function searchUserNames(_name, _callback, _user) {
+//Neuen Nutzer anlegen, wenn diesen nicht bereits vorhanden 
+function registerUserName(_name, _callback, _user) {
     users = db.collection("Userdatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
@@ -64,15 +59,22 @@ function searchUserNames(_name, _callback, _user) {
         else
             for (let i = 0; i < userArray.length; i++) {
                 if (userArray[i].user == _name) {
-                    _callback("Leider ist dein Username schon vergeben, suche dir bitte einen anderen.");
+                    _callback("User Taken");
                     return; //wenn der Name bereits vergeben ist soll die Funktion terminiert werden
                 }
             }
-        insert(_user); // nur wenn if nicht ausgeführt wurde, wird der Username eingespeichert.    && userArray[i].password == _pass
-        _callback("Dein Account wurde erfolgreich erstellt. Logge dich nun ein.");
+        insertUser(_user); // nur wenn if nicht ausgeführt wurde, wird der Username eingespeichert.    && userArray[i].password == _pass
+        _callback("User insert successfull");
     }
 }
-exports.searchUserNames = searchUserNames;
+exports.registerUserName = registerUserName;
+//NUtzer  in  Database inserten
+function insertUser(_doc) {
+    // try insertion then activate callback "handleInsert"
+    users.insertOne(_doc, handleInsert);
+}
+exports.insertUser = insertUser;
+//Einlogg funktion
 function loginUser(_name, _pass, _callback) {
     users = db.collection("Userdatabase");
     var cursor = users.find();

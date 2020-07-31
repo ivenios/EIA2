@@ -37,13 +37,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     let username: string = query["username"]; 
 
     switch (command) {
-        case "newUser":
+        case "registerUser":
             let user: UserData = {
                 user: query["username"],
                 password: query["pwd"],
                 pictureList: null
             };
-            Database.searchUserNames(query["username"], findCallback, user);
+            Database.registerUserName(query["username"], findCallback, user);
             break;
         case "loginUser":
             let password: string = query["password"];

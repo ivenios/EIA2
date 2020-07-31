@@ -24,7 +24,6 @@ function init(): void {
         console.log("Loading Welcome Message");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = htmlData["welcomeMSG"];
-        console.log(serverAddress, globalUser, globalPicture);
         document.getElementById("startMSPaint").addEventListener("click", initMSPaint);
      }
 
@@ -39,13 +38,6 @@ function initMSPaint(): void {
     
 }
 
-function newUserInit(): void {
-    console.log("Loading New User Panel");
-    document.getElementById("htmlBox").innerHTML = " ";
-    document.getElementById("htmlBox").innerHTML = htmlData["registerPanel"];
-    //eventlistener für Zurück und Nutzer abschicken
-
-}
 //User Login Funkton
 function loginUser(): void {
     let query: string = "command=loginUser";
@@ -59,9 +51,34 @@ function loginUser(): void {
     
     sendRequest(query, handleLoginResponse);
 }
+//Neuen Nutzeranlegen Panel wird geladen
+function newUserInit(): void {
+    console.log("Loading New User Panel");
+    document.getElementById("htmlBox").innerHTML = " ";
+    document.getElementById("htmlBox").innerHTML = htmlData["registerPanel"];
+    document.getElementById("createNewUser").addEventListener("click", saveNewUser);
+    document.getElementById("goBack").addEventListener("click", initMSPaint);
+}
+
+//Neue Nutzer Daten an Server senden 
+function saveNewUser(): void {
+    let query: string = "command=registerUser";
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    console.log(inputs);
+    if (inputs[0].value == "" || inputs[1].value == "") {printError("Please fill in the form to create a new user"); return; }
+    query += "&username=" + inputs[0].value;
+    query += "&password=" + inputs[1].value;
+    console.log(query);
+
+    sendRequest(query, handleUserInsertResponse);
+    
+
+}
+
+
+
 
 //Bei Correctem Login wird die Bild Übersicht geladen: 
-
 function loadUserPictureOverview(): void {
     console.log("Bild Überischt wird geladen");
     document.getElementById("htmlBox").innerHTML = " ";
@@ -71,6 +88,7 @@ function loadUserPictureOverview(): void {
 
 
 }
+
 //Server anfragen um die Liste der Nutzer Bilder zu bekommen: +
 function getUserPictures(): void {
     let query: string = "command=loadPictureList";
@@ -99,11 +117,17 @@ function sendRequest(_query: string, _callback: EventListener): void {
     xhr.send();
 }
     //Verarbeitung der Nutzer Insters Antwort
-function handleInsertResponse(_event: ProgressEvent): void {
+function handleUserInsertResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        alert(xhr.response);
-        initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
+        if (xhr.response == "User Taken") {
+            printError("This Username is  already taken. Plase choose another one");
+            newUserInit();
+        }
+        else if (xhr.respone == "User insert successfull") {
+                 printError("Greate your Username ist being processed. Please login with your new User");
+                 initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
+    }
     }
 }
     //Verarbeitung der Login Antwort der Datenbank

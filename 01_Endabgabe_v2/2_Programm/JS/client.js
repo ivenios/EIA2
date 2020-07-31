@@ -22,7 +22,6 @@ var endabgabe2;
         console.log("Loading Welcome Message");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["welcomeMSG"];
-        console.log(serverAddress, globalUser, globalPicture);
         document.getElementById("startMSPaint").addEventListener("click", initMSPaint);
     }
     //Laden des Login Panels
@@ -32,12 +31,6 @@ var endabgabe2;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["loginPanel"];
         document.getElementById("userIsNew").addEventListener("click", newUserInit); //Handler für das Laden des neuen Nutzer Panels 
         document.getElementById("userLogin").addEventListener("click", loginUser); //Handler für Abschicken des Logins
-    }
-    function newUserInit() {
-        console.log("Loading New User Panel");
-        document.getElementById("htmlBox").innerHTML = " ";
-        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["registerPanel"];
-        //eventlistener für Zurück und Nutzer abschicken
     }
     //User Login Funkton
     function loginUser() {
@@ -53,6 +46,28 @@ var endabgabe2;
         query += "&password=" + inputs[1].value;
         console.log(query);
         sendRequest(query, handleLoginResponse);
+    }
+    //Neuen Nutzeranlegen Panel wird geladen
+    function newUserInit() {
+        console.log("Loading New User Panel");
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["registerPanel"];
+        document.getElementById("createNewUser").addEventListener("click", saveNewUser);
+        document.getElementById("goBack").addEventListener("click", initMSPaint);
+    }
+    //Neue Nutzer Daten an Server senden 
+    function saveNewUser() {
+        let query = "command=registerUser";
+        let inputs = document.getElementsByTagName("input");
+        console.log(inputs);
+        if (inputs[0].value == "" || inputs[1].value == "") {
+            printError("Please fill in the form to create a new user");
+            return;
+        }
+        query += "&username=" + inputs[0].value;
+        query += "&password=" + inputs[1].value;
+        console.log(query);
+        sendRequest(query, handleUserInsertResponse);
     }
     //Bei Correctem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
@@ -82,11 +97,17 @@ var endabgabe2;
         xhr.send();
     }
     //Verarbeitung der Nutzer Insters Antwort
-    function handleInsertResponse(_event) {
+    function handleUserInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.response);
-            initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
+            if (xhr.response == "User Taken") {
+                printError("This Username is  already taken. Plase choose another one");
+                newUserInit();
+            }
+            else if (xhr.respone == "User insert successfull") {
+                printError("Greate your Username ist being processed. Please login with your new User");
+                initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
+            }
         }
     }
     //Verarbeitung der Login Antwort der Datenbank

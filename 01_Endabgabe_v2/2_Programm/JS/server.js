@@ -29,13 +29,13 @@ function handleRequest(_request, _response) {
     var command = query["command"];
     let username = query["username"];
     switch (command) {
-        case "newUser":
+        case "registerUser":
             let user = {
                 user: query["username"],
                 password: query["pwd"],
                 pictureList: null
             };
-            Database.searchUserNames(query["username"], findCallback, user);
+            Database.registerUserName(query["username"], findCallback, user);
             break;
         case "loginUser":
             let password = query["password"];
