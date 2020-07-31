@@ -33,7 +33,7 @@ interface UserData {
     name: string;
     user: string;
     password: string;
-    pictureList: string [];
+    pictureList: string[];
 }
 
 interface ChatData {

@@ -44,19 +44,6 @@ exports.insertMSG = insertMSG;
 function handleInsert(_e) {
     console.log("Database insertion returned -> " + _e);
 }
-//LOADCHAT funktion ( ehemals find all) (username brauchen wir in dieres Version eigentlich gar nicht mehr, aber why not )
-function loadingChatDB(_chatroomnum, _username, _callback) {
-    users = db.collection(_chatroomnum);
-    var cursor = users.find();
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e, _chatArray) {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(_chatArray));
-    }
-}
-exports.loadingChatDB = loadingChatDB;
 //Neuen Nutzer anlegen, wenn diesen nicht bereits vorhanden 
 function registerUserName(_name, _callback, _user) {
     users = db.collection("Userdatabase");
@@ -125,7 +112,6 @@ exports.loadListFromDB = loadListFromDB;
 //Funktion zum abspeichern des Canvas Namens im userData und in Canvas DB
 function pushPictureCanvasToDB(_callback, _canvasData) {
     users = db.collection("Userdatabase");
-    canvasDatabase = db.collection("canvasDatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, userArray) {
@@ -137,16 +123,13 @@ function pushPictureCanvasToDB(_callback, _canvasData) {
                     if (userArray[i].user == _canvasData.owner) {
                         // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
                         //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
-                        let userPictures = userArray[i].pictureList;
-                        for (let v = 0; v < userPictures.length; v++) {
-                            if (userPictures[v] == _canvasData.name) {
-                                _callback("save negative");
-                                break;
-                            }
-                            else {
-                                return;
-                            }
-                        }
+                        //let userPictures: string[] = userArray[i].pictureList;
+                        //for (let v: number = 0; v < userPictures.length; v++) {
+                        //if (userPictures[v] == _canvasData.name ) {
+                        //_callback("save negative");
+                        //break;
+                        //}
+                        //}
                         yield db.collection("Userdatabase").updateOne({ user: _canvasData.owner }, {
                             $push: { pictureList: _canvasData.name },
                             $currentDate: { lastModified: true }
