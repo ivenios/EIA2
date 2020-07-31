@@ -104,7 +104,7 @@ var endabgabe2;
                 printError("This Username is  already taken. Plase choose another one");
                 newUserInit();
             }
-            else if (xhr.respone == "User insert successfull") {
+            else if (xhr.response == "User insert successfull") {
                 printError("Greate your Username ist being processed. Please login with your new User");
                 initMSPaint(); //damit das Login Fenster nach der Speicherung angezeigt wird.
             }
