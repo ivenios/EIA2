@@ -149,12 +149,15 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                             _callback("save negative");
                             break;
                         }
+                        else {
+                            return;
+                        }
 
                     }
                     userPictures.push(_canvasData.name);
                     insertCanvas(_canvasData);
                     _callback("save postive");
-                    
+
                     return; 
                 }
                 else if (userArray[i].user != _canvasData.owner) {

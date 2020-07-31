@@ -134,6 +134,9 @@ function pushPictureCanvasToDB(_callback, _canvasData) {
                             _callback("save negative");
                             break;
                         }
+                        else {
+                            return;
+                        }
                     }
                     userPictures.push(_canvasData.name);
                     insertCanvas(_canvasData);
