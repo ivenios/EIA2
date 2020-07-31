@@ -17,7 +17,7 @@ interface UserData {
     name: string;
     user: string;
     password: string;
-    pictureList: [];
+    pictureList: string [];
 }
 
 interface ChatData {

@@ -34,7 +34,7 @@ function handleRequest(_request, _response) {
                 name: query["name"],
                 user: query["username"],
                 password: query["password"],
-                pictureList: null
+                pictureList: []
             };
             Database.registerUserName(query["username"], findCallback, user);
             break;

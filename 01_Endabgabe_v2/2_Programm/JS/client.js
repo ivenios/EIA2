@@ -68,19 +68,33 @@ var endabgabe2;
         console.log(query);
         sendRequest(query, handleUserInsertResponse);
     }
-    //Bei Correctem Login wird die Bild Übersicht geladen: 
+    //Bei Korreckem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
         console.log("Bild Überischt wird geladen");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["userPictureOverview"];
         console.log("loading Picture List");
         getUserPictures();
+        document.getElementById("createNewPicture").addEventListener("click", loadNewPicturePanel);
+        document.getElementById("logOut").addEventListener("click", init);
     }
     //Server anfragen um die Liste der Nutzer Bilder zu bekommen: +
     function getUserPictures() {
         let query = "command=loadPictureList";
         query += "&username=" + globalUser;
         sendRequest(query, handlePictureListeResponse);
+    }
+    //laden des Canvas erstellungs Panels
+    function loadNewPicturePanel() {
+        console.log("Loading New Canvas Panel");
+        document.getElementById("htmlBox").innerHTML = " ";
+        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["newPicturePanel"];
+        document.getElementById("renderNewCanvas").addEventListener("click", createNewCanvas);
+        document.getElementById("goBackToOverview").addEventListener("click", loadUserPictureOverview);
+    }
+    //Funktion zum abspeichern der Neuen Canvas
+    function createNewCanvas() {
+        console.log("save new Canvas in Database");
     }
     //Darstellung der Error Messages
     function printError(_message) {

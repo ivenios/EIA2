@@ -1,5 +1,5 @@
 
-    /*
+/*
 Aufgabe: Endabgabe
 Name: Iven Otis Sieglen
 Matrikel: 261012
@@ -10,9 +10,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 namespace endabgabe2 {
 
 
-export let htmlData: {[key: string]: string }
+    export let htmlData: { [key: string]: string }
         = {
-            "welcomeMSG": `<section class="endabgabe">
+        "welcomeMSG": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -49,7 +49,7 @@ export let htmlData: {[key: string]: string }
             </main>
           </section>
         `,
-            "loginPanel": `<section class="endabgabe">
+        "loginPanel": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -97,7 +97,7 @@ export let htmlData: {[key: string]: string }
             </main>
           </section>
         `,
-            "registerPanel": `<section class="endabgabe">
+        "registerPanel": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -146,7 +146,7 @@ export let htmlData: {[key: string]: string }
               </section>
             </main>
           </section>`,
-            "userPictureOverview": `<section class="endabgabe">
+        "userPictureOverview": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -190,7 +190,7 @@ export let htmlData: {[key: string]: string }
                 </section>
             </main>
           </section>`,
-            "newPicturePanel": `<section class="endabgabe">
+        "newPicturePanel": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -241,7 +241,7 @@ export let htmlData: {[key: string]: string }
           </section>
         
         `,
-            "mainCanvasPanel": `<section class="endabgabe">
+        "mainCanvasPanel": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: auto; height: auto;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -302,7 +302,7 @@ export let htmlData: {[key: string]: string }
             </main>
           </section>
         `,
-            "dynamicErrorMSGPanel": `<section class="endabgabe">
+        "dynamicErrorMSGPanel": `<section class="endabgabe">
             <main class="end-bg borderInset" style="width: 25%;">
               <header class="end-bg header">
                 <section class="headerTop">
@@ -340,23 +340,23 @@ export let htmlData: {[key: string]: string }
               </section>
             </main>
           </section>
-        ` 
+        `
 
-        }; 
+    };
 
 
 
-    
- 
 
-/* 
-1- Willkommens Message mit Erklärung
-2- Login in Panel 
-3- User Register Panel 
-4- Bilder Übersicht Panel 
-5- Neues Bild erstellen 
-6- Bild Canvas 
-7- Dynamische Error message, in die die passenden Nachrichten eingebaut werden. 
-*/
+
+
+    /* 
+    1- Willkommens Message mit Erklärung
+    2- Login in Panel 
+    3- User Register Panel 
+    4- Bilder Übersicht Panel 
+    5- Neues Bild erstellen 
+    6- Bild Canvas 
+    7- Dynamische Error message, in die die passenden Nachrichten eingebaut werden. 
+    */
 
 }
