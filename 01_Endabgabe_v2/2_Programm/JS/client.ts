@@ -10,7 +10,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 namespace endabgabe2 {
 
 //import {htmlData form "./HTMLData"}
-let serverAddress: string = "https://ios-eia2.herokuapp.com"; 
+let serverAddress: string = "https://www.ios-eia2.herokuapp.com"; 
     //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
 let globalUser: string;
 let globalPicture: string;
@@ -44,7 +44,7 @@ function loginUser(): void {
     globalUser = inputs[0].value;
     if (inputs[0].value == "" || inputs[1].value == "") {printError(""); return; }
     query += "&username=" + inputs[0].value;
-    query += "&password=" + inputs[1].value;
+    query += "&pwd=" + inputs[1].value;
     console.log(query);
     
     sendRequest(query, handleLoginResponse);
@@ -63,7 +63,7 @@ function saveNewUser(): void {
     let query: string = "command=registerUser";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
-    if (inputs[0].value == "" || inputs[1].value == "") {printError("Please fill in the form to create a new user"); return; }
+    if (inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "") {printError("Please fill in the form to create a new user"); return; }
     query += "&username=" + inputs[1].value;
     query += "&password=" + inputs[2].value;
     console.log(query);
