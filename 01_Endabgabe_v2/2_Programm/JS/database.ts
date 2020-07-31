@@ -143,22 +143,22 @@ export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasDa
                 if (userArray[i].user == _canvasData.owner) {
                     // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
                     //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
-                    let userPictures: string [] = userArray[i].pictureList;
-                    for (let v: number = 0; v < userPictures.length; v++) {
-                        if (userPictures[v] == _canvasData.name ) {
-                            _callback("save negative");
-                            break;
-                        }
-                        else {
-                            return;
-                        }
+                   let userPictures: string [] = userArray[i].pictureList;
+                   //for (let v: number = 0; v < userPictures.length; v++) {
+                     //if (userPictures[v] == _canvasData.name ) {
+                          // _callback("save negative");
+                          // break;
+                      // }
+                      // else {
+                          // return;
+                    //  }
 
-                    }
-                    userPictures.push(_canvasData.name);
-                    insertCanvas(_canvasData);
-                    _callback("save postive");
+                   // }
+                   userPictures.push(_canvasData.name);
+                   insertCanvas(_canvasData);
+                   _callback("save postive");
 
-                    return; 
+                   return; 
                 }
                 else if (userArray[i].user != _canvasData.owner) {
                     return; 
