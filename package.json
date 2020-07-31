@@ -5,7 +5,7 @@
 	"author": "Lukas, adapted by iOS",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node 01_Endabgabe_v2/Programm/JS/server.js"
+		"start": "node ./01_Endabgabe_v2/2_Programm/JS/server.js"
 	},
 	"engines": {
 		"node": "8.11.3"
