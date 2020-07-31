@@ -76,6 +76,7 @@ function insertUser(_doc) {
 }
 exports.insertUser = insertUser;
 function insertCanvas(_doc) {
+    canvasDatabase = db.collection("canvasDatabase");
     canvasDatabase.insertOne(_doc, handleInsert);
 }
 exports.insertCanvas = insertCanvas;
@@ -116,6 +117,7 @@ exports.loadListFromDB = loadListFromDB;
 //Funktion zum abspeichern des Canvas Namens im userData und in Canvas DB
 function pushPictureCanvasToDB(_callback, _canvasData) {
     users = db.collection("Userdatabase");
+    canvasDatabase = db.collection("canvasDatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, userArray) {

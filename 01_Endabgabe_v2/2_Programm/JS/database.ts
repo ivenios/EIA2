@@ -84,6 +84,7 @@ export function insertUser(_doc: UserData): void {
 }
 
 export function insertCanvas(_doc: CanvasData): void {
+    canvasDatabase = db.collection("canvasDatabase");
     canvasDatabase.insertOne(_doc, handleInsert);
 }
 
@@ -130,6 +131,7 @@ export function loadListFromDB(_username: string, _callback: Function): void {
 //Funktion zum abspeichern des Canvas Namens im userData und in Canvas DB
 export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasData): void {
     users = db.collection("Userdatabase");
+    canvasDatabase = db.collection("canvasDatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
