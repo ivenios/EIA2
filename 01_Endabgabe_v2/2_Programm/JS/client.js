@@ -41,7 +41,7 @@ var endabgabe2;
             return;
         }
         query += "&username=" + inputs[0].value;
-        query += "&pwd=" + inputs[1].value;
+        query += "&password=" + inputs[1].value;
         console.log(query);
         sendRequest(query, handleLoginResponse);
     }
@@ -62,6 +62,7 @@ var endabgabe2;
             printError("Please fill in the form to create a new user");
             return;
         }
+        query += "&name=" + inputs[0].value;
         query += "&username=" + inputs[1].value;
         query += "&password=" + inputs[2].value;
         console.log(query);

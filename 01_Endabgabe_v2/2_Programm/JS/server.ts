@@ -39,8 +39,9 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     switch (command) {
         case "registerUser":
             let user: UserData = {
+                name: query["name"],
                 user: query["username"],
-                password: query["pwd"],
+                password: query["password"],
                 pictureList: null
             };
             Database.registerUserName(query["username"], findCallback, user);

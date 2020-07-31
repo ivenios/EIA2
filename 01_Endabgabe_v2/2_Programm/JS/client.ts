@@ -44,7 +44,7 @@ function loginUser(): void {
     globalUser = inputs[0].value;
     if (inputs[0].value == "" || inputs[1].value == "") {printError(""); return; }
     query += "&username=" + inputs[0].value;
-    query += "&pwd=" + inputs[1].value;
+    query += "&password=" + inputs[1].value;
     console.log(query);
     
     sendRequest(query, handleLoginResponse);
@@ -64,6 +64,7 @@ function saveNewUser(): void {
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
     if (inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "") {printError("Please fill in the form to create a new user"); return; }
+    query += "&name=" + inputs[0].value;
     query += "&username=" + inputs[1].value;
     query += "&password=" + inputs[2].value;
     console.log(query);

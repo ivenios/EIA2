@@ -31,8 +31,9 @@ function handleRequest(_request, _response) {
     switch (command) {
         case "registerUser":
             let user = {
+                name: query["name"],
                 user: query["username"],
-                password: query["pwd"],
+                password: query["password"],
                 pictureList: null
             };
             Database.registerUserName(query["username"], findCallback, user);

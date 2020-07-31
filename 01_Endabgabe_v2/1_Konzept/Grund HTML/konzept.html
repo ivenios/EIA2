@@ -75,9 +75,9 @@
               <h1>Can i please see some fucking identification?</h1>
               <form class="loginForm">
                 <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" value="John"><br>
+                <input type="text" id="username" name="username"  required><br>
                 <label for="pass">Password</label><br>
-                <input type="password" id="pass" name="pass" value="Doe"><br><br>
+                <input type="password" id="pass" name="pass" required><br><br>
               </form>
               <button class="norm-button" id="userLogin">Login in</button>
 
@@ -170,11 +170,11 @@
               <h1>Fill in the Form to create a new User</h1>
               <form class="loginForm">
                 <label for="name">Name</label><br>
-                <input type="text" id="name" name="name" value="John"><br>
+                <input type="text" id="name" name="name" required ><br>
                 <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" value="JohnxxXX"><br>
+                <input type="text" id="username" name="username" required ><br>
                 <label for="pass">Password</label><br>
-                <input type="password" id="pass" name="pass" value=""><br><br>
+                <input type="password" id="pass" name="pass" value="" required ><br><br>
               </form>
               <button class="norm-button" id="createNewUser">Create New User</button>
 
@@ -221,13 +221,13 @@
               <h1>Create A New Artwork:</h1>
               <form class="loginForm">
                 <label for="canvasName">Name your Picture</label><br>
-                <input type="text" id="canvasName" name="canvasName" value="Bob Ross NR 30815"><br>
+                <input type="text" id="canvasName" name="canvasName" value="Bob Ross NR 30815" required><br>
                 <label for="name">X-size in Pixels (100-1500)</label><br>
-                <input type="text" id="name" name="name" value="John"><br>
+                <input type="text" id="name" name="name" value="John" required><br>
                 <label for="username">Y-size in Pixels (100-1500)</label><br>
-                <input type="text" id="username" name="username" value="JohnxxXX"><br>
+                <input type="text" id="username" name="username" value="JohnxxXX" required><br>
                 <label for="colorhex">Choose your canvas color</label><br>
-                <input type="color" id="colorhex" name="colorhex" value="#ffffff"><br><br>
+                <input type="color" id="colorhex" name="colorhex" value="#ffffff" required><br><br>
               </form>
               <button class="norm-button" id="renderNewCanvas">Create New Canvas</button>
 
