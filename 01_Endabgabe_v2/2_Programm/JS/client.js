@@ -68,14 +68,14 @@ var endabgabe2;
         console.log(query);
         sendRequest(query, handleUserInsertResponse);
     }
-    //Bei Korreckem Login wird die Bild Übersicht geladen: 
+    //Bei korrektem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
         console.log("Bild Überischt wird geladen");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["userPictureOverview"];
         console.log("loading Picture List");
         getUserPictures();
-        document.getElementById("createNewPicture").addEventListener("click", loadNewPicturePanel);
+        document.getElementById("createNewPicture").addEventListener("click", loadNewCanvasScreen);
         document.getElementById("logOut").addEventListener("click", init);
     }
     //Server anfragen um die Liste der Nutzer Bilder zu bekommen: +
@@ -85,7 +85,7 @@ var endabgabe2;
         sendRequest(query, handlePictureListeResponse);
     }
     //laden des Canvas erstellungs Panels
-    function loadNewPicturePanel() {
+    function loadNewCanvasScreen() {
         console.log("Loading New Canvas Panel");
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["newPicturePanel"];
@@ -95,6 +95,15 @@ var endabgabe2;
     //Funktion zum abspeichern der Neuen Canvas
     function createNewCanvas() {
         console.log("save new Canvas in Database");
+        let query = "command=initiatePicture";
+        let inputs = document.getElementsByTagName("input");
+        console.log(inputs);
+        query += "&username=" + globalUser;
+        query += "&pictureName=" + inputs[0].value;
+        query += "&canvasX=" + inputs[1].value;
+        query += "&canvasY=" + inputs[2].value;
+        query += "&canvasColor=" + inputs[3].value;
+        sendRequest(query, handleNewCanvasResponse);
     }
     //Darstellung der Error Messages
     function printError(_message) {
@@ -137,10 +146,23 @@ var endabgabe2;
             }
         }
     }
+    //Funktion die das Array mit den Bildern eines Nutzers
     function handlePictureListeResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let pictureListArray = JSON.parse(xhr.response);
+        }
+    }
+    //Funktion die die Server Antwort nach dem ersten speichern einer Canvas übernimmt. 
+    function handleNewCanvasResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.response == "save postive") {
+                console.log("Saving completed");
+            }
+            else if (xhr.response == "save negative") {
+                console.log("name already Taken. You already have a picture with this name! Please be more creative.");
+            }
         }
     }
 })(endabgabe2 || (endabgabe2 = {}));

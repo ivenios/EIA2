@@ -73,16 +73,14 @@ function saveNewUser(): void {
 }
 
 
-
-
-//Bei Korreckem Login wird die Bild Übersicht geladen: 
+//Bei korrektem Login wird die Bild Übersicht geladen: 
 function loadUserPictureOverview(): void {
     console.log("Bild Überischt wird geladen");
     document.getElementById("htmlBox").innerHTML = " ";
     document.getElementById("htmlBox").innerHTML = htmlData["userPictureOverview"];
     console.log("loading Picture List");
     getUserPictures();
-    document.getElementById("createNewPicture").addEventListener("click", loadNewPicturePanel);
+    document.getElementById("createNewPicture").addEventListener("click", loadNewCanvasScreen);
     document.getElementById("logOut").addEventListener("click", init);
 
 }
@@ -95,8 +93,9 @@ function getUserPictures(): void {
     sendRequest(query, handlePictureListeResponse);
 
 }
+
 //laden des Canvas erstellungs Panels
-function loadNewPicturePanel(): void {
+function loadNewCanvasScreen(): void {
     console.log("Loading New Canvas Panel");
     document.getElementById("htmlBox").innerHTML = " ";
     document.getElementById("htmlBox").innerHTML = htmlData["newPicturePanel"];
@@ -108,7 +107,16 @@ function loadNewPicturePanel(): void {
 //Funktion zum abspeichern der Neuen Canvas
 function createNewCanvas(): void {
     console.log("save new Canvas in Database");
+    let query: string = "command=initiatePicture";
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    console.log(inputs);
+    query += "&username=" + globalUser;
+    query += "&pictureName=" + inputs[0].value;
+    query += "&canvasX=" + inputs[1].value;
+    query += "&canvasY=" + inputs[2].value;
+    query += "&canvasColor=" + inputs[3].value;
 
+    sendRequest(query, handleNewCanvasResponse);
 }
 
 
@@ -156,6 +164,7 @@ function handleLoginResponse(_event: ProgressEvent): void {
         
     }
 }
+//Funktion die das Array mit den Bildern eines Nutzers
 function handlePictureListeResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -163,6 +172,20 @@ function handlePictureListeResponse(_event: ProgressEvent): void {
 
 
 
+    }
+}
+//Funktion die die Server Antwort nach dem ersten speichern einer Canvas übernimmt. 
+function handleNewCanvasResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        if (xhr.response == "save postive") {
+            console.log("Saving completed");
+            
+        } else if (xhr.response == "save negative") {
+            console.log("name already Taken. You already have a picture with this name! Please be more creative.");
+            
+        }
+        
     }
 }
 

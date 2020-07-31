@@ -9,6 +9,7 @@ let databaseURL: string = "mongodb://localhost:27017";
 let databaseName: string = "Test";
 let db: Mongo.Db;
 let users: Mongo.Collection; 
+let canvasDatabase: Mongo.Collection;
 
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
@@ -82,6 +83,10 @@ export function insertUser(_doc: UserData): void {
     users.insertOne(_doc, handleInsert);
 }
 
+export function insertCanvas(_doc: CanvasData): void {
+    canvasDatabase.insertOne(_doc, handleInsert);
+}
+
 //Einlogg funktion
 export function loginUser(_name: string, _pass: string, _callback: Function ): void {
     users = db.collection("Userdatabase");
@@ -120,9 +125,50 @@ export function loadListFromDB(_username: string, _callback: Function): void {
     }
 
 
-
-
 }
+
+//Funktion zum abspeichern des Canvas Namens im userData und in Canvas DB
+export function pushPictureCanvasToDB(_callback: Function, _canvasData: CanvasData): void {
+    users = db.collection("Userdatabase");
+    var cursor: Mongo.Cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
+            if (_e)
+                _callback("Error" + _e);
+            else
+
+            for (let i: number = 0; i < userArray.length; i++ ) {
+                if (userArray[i].user == _canvasData.owner) {
+                    // wenn der Nutzer übereinstimmt, soll der Name des Pictures in das PictureList Array geupsht werden
+                    //zuerst muss aber noch geschaut werden, dass es den Namen bei dem Nutzer nicht schon gibt
+                    let userPictures: string [] = userArray[i].pictureList;
+                    for (let v: number = 0; v < userPictures.length; v++) {
+                        if (userPictures[v] == _canvasData.name ) {
+                            _callback("save negative");
+                            break;
+                        }
+
+                    }
+                    userPictures.push(_canvasData.name);
+                    insertCanvas(_canvasData);
+                    _callback("save postive");
+                    
+                    return; 
+                }
+                else if (userArray[i].user != _canvasData.owner) {
+                    return; 
+                    
+            }
+        }
+    }
+}
+
+//funktion zum speichern der Canvas in der Datenbank 
+export function saveNewPicture(_callback: Function, _canvasData: CanvasData): void {
+    insertCanvas(_canvasData);
+    _callback("Saving gcomplete");
+}
+
 
 
 

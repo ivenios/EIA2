@@ -34,7 +34,6 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     let query: AssocStringString = <AssocStringString> Url.parse(_request.url, true).query;
     var command: string = query["command"];
-    let username: string = query["username"]; 
 
     switch (command) {
         case "registerUser":
@@ -48,16 +47,26 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "loginUser":
             let password: string = query["password"];
-            Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
+            Database.loginUser(query["username"], password, findCallback); // die datenbank wird durchsucht 
             break;
         case "loadPictureList":
 
-            Database.loadListFromDB(username, findCallback);
-
-
+            Database.loadListFromDB(query["username"], findCallback);
 
             break;
-        case "XX":
+        case "initiatePicture":
+            let username: string = query["username"];
+            let pictureName: string = query["pictureName"];
+                        //speichern des Bild Namens in UserData und in der Canvas DB
+            let newPicture: CanvasData = {
+                            owner: username,
+                            name: pictureName,
+                            canvasX: query["canvasX"],
+                            canvasY: query["canvasY"],
+                            canvasColor: query["canvasColor"]
+                        };
+
+            Database.pushPictureCanvasToDB( findCallback, newPicture);
 
 
             break;

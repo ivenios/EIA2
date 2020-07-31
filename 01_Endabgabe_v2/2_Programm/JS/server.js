@@ -27,7 +27,6 @@ function handleRequest(_request, _response) {
     console.log("Request received");
     let query = Url.parse(_request.url, true).query;
     var command = query["command"];
-    let username = query["username"];
     switch (command) {
         case "registerUser":
             let user = {
@@ -40,12 +39,23 @@ function handleRequest(_request, _response) {
             break;
         case "loginUser":
             let password = query["password"];
-            Database.loginUser(username, password, findCallback); // die datenbank wird durchsucht 
+            Database.loginUser(query["username"], password, findCallback); // die datenbank wird durchsucht 
             break;
         case "loadPictureList":
-            Database.loadListFromDB(username, findCallback);
+            Database.loadListFromDB(query["username"], findCallback);
             break;
-        case "XX":
+        case "initiatePicture":
+            let username = query["username"];
+            let pictureName = query["pictureName"];
+            //speichern des Bild Namens in UserData und in der Canvas DB
+            let newPicture = {
+                owner: username,
+                name: pictureName,
+                canvasX: query["canvasX"],
+                canvasY: query["canvasY"],
+                canvasColor: query["canvasColor"]
+            };
+            Database.pushPictureCanvasToDB(findCallback, newPicture);
             break;
         default:
             respond(_response, "unknown command: " + command);

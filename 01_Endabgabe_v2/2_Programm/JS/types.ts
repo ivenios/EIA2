@@ -9,6 +9,22 @@ Note: Dieser Code wurde aus den Lektionen des Sommersemester 2019 entwandt. Auth
 */
 
 
+class Vector {
+    x: number;
+    y: number;
+
+    scale(_factor: number): void {
+        this.x *= _factor;
+        this.y *= _factor;
+    }
+
+    add(_addend: Vector): void {
+        this.x += _addend.x;
+        this.y += _addend.y;
+    }
+}
+
+
 interface AssocStringString {
     [key: string]: string;
 }
@@ -26,3 +42,15 @@ interface ChatData {
     msg: string;
  
 }
+
+interface CanvasData {
+    owner: string;
+    name: string;
+    canvasX: string;
+    canvasY: string;
+    canvasColor: string; 
+
+}
+
+// Objekte 
+
