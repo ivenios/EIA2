@@ -228,7 +228,7 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
-            initRenderCanvas(globalUser);
+            initRenderCanvas();
             printError("Please wait while we prepare your canvas with liquid white.");
    
         } else if (xhr.response == "save negative") {

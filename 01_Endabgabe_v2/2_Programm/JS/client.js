@@ -194,7 +194,7 @@ var endabgabe2;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.response == "save postive") {
-                initRenderCanvas(endabgabe2.globalUser);
+                initRenderCanvas();
                 printError("Please wait while we prepare your canvas with liquid white.");
             }
             else if (xhr.response == "save negative") {
