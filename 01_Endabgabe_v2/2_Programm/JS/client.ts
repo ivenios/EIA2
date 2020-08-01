@@ -152,8 +152,10 @@ function createNewCanvas(): void {
 
 
 function initRenderCanvas(): void {
+    // hier muss abgefragt werden, auf welchen Button geklickt wurde
+    let clickedCanvas: string = this.options[this.selectedIndex].id;
+    console.log(clickedCanvas);
     document.getElementById("htmlBox").innerHTML = " ";
-
     console.log(globalPicture + " " + globalUser);
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
 

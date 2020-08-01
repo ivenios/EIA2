@@ -126,6 +126,9 @@ var endabgabe2;
     }
     //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
     function initRenderCanvas() {
+        // hier muss abgefragt werden, auf welchen Button geklickt wurde
+        let clickedCanvas = this.options[this.selectedIndex].id;
+        console.log(clickedCanvas);
         document.getElementById("htmlBox").innerHTML = " ";
         console.log(endabgabe2.globalPicture + " " + endabgabe2.globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
