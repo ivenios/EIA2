@@ -149,9 +149,11 @@ function createNewCanvas(): void {
 //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
 
 
-function initRenderCanvas(): void {
+function initRenderCanvas(_event: Event): void {
     // hier muss abgefragt werden, auf welchen Button geklickt wurde
-    console.log(this.event);
+    console.log(_event);
+    console.log(_event.srcElement);
+    
    // console.log(event.target);
    // console.log(event.target.id);
   // console.log(_picID);
