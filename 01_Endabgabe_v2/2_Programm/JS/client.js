@@ -129,13 +129,11 @@ var endabgabe2;
         // hier muss abgefragt werden, auf welchen Button geklickt wurde
         console.log(_event);
         console.log(_event.srcElement.id);
-        // console.log(event.target);
-        // console.log(event.target.id);
-        // console.log(_picID);
-        //  console.log(picID);
-        // document.getElementById("htmlBox").innerHTML = " ";
-        //  console.log(picID + " " + globalUser);
-        //  document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
+        let picID = _event.srcElement.id;
+        console.log(picID);
+        document.getElementById("htmlBox").innerHTML = " ";
+        console.log(picID + " " + endabgabe2.globalUser);
+        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
     }
     function initRenderNewCanvas() {
         document.getElementById("htmlBox").innerHTML = " ";

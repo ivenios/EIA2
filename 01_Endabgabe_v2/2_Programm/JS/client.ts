@@ -153,14 +153,11 @@ function initRenderCanvas(_event: Event): void {
     // hier muss abgefragt werden, auf welchen Button geklickt wurde
     console.log(_event);
     console.log(_event.srcElement.id);
-    
-   // console.log(event.target);
-   // console.log(event.target.id);
-  // console.log(_picID);
-  //  console.log(picID);
-   // document.getElementById("htmlBox").innerHTML = " ";
-  //  console.log(picID + " " + globalUser);
-  //  document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
+    let picID: string = _event.srcElement.id;
+    console.log(picID);
+    document.getElementById("htmlBox").innerHTML = " ";
+    console.log(picID + " " + globalUser);
+    document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
 
 
 }
