@@ -128,7 +128,7 @@ var endabgabe2;
     function initRenderCanvas(_event) {
         // hier muss abgefragt werden, auf welchen Button geklickt wurde
         console.log(_event);
-        console.log(_event.srcElement);
+        console.log(_event.srcElement.id);
         // console.log(event.target);
         // console.log(event.target.id);
         // console.log(_picID);

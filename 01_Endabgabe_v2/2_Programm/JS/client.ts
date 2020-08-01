@@ -152,7 +152,7 @@ function createNewCanvas(): void {
 function initRenderCanvas(_event: Event): void {
     // hier muss abgefragt werden, auf welchen Button geklickt wurde
     console.log(_event);
-    console.log(_event.srcElement);
+    console.log(_event.srcElement.id);
     
    // console.log(event.target);
    // console.log(event.target.id);
