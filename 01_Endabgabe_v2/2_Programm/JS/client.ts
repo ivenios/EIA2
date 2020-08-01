@@ -229,9 +229,13 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
             printError("Please wait while we prepare your canvas with liquid white.");
+            initRenderCanvas(globalUser);
+
             
         } else if (xhr.response == "save negative") {
             printError("You already have a picture with this name! Please be more creative.");
+            loadNewCanvasScreen();
+
             
         }
         
