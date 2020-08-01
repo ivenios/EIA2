@@ -97,7 +97,7 @@ var endabgabe2;
     //Funktion zum abspeichern der Neuen Canvas
     function createNewCanvas() {
         console.log("save new Canvas in Database");
-        let re = /#/gi;
+        let re = "#";
         let query = "command=initiatePicture";
         let inputs = document.getElementsByTagName("input");
         console.log(inputs);
