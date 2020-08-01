@@ -15,11 +15,7 @@ let serverAddress: string = "https://ios-eia2.herokuapp.com";
     //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
 let globalUser: string;
 let globalPicture: string;
-//Dinge für die Canvas
-export let crc: CanvasRenderingContext2D;
-export let canvas: HTMLCanvasElement;
-let fps: number = 30;
-let imgData: ImageData;
+
 
 
 document.addEventListener("DOMContentLoaded", init);
