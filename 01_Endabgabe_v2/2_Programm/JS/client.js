@@ -89,12 +89,12 @@ var endabgabe2;
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
         for (let i = 0; i < _pictureListArray.length; i++) {
-            htmlString += `<button class="end-border-inset picList"  id="${_pictureListArray[i]}"> ${_pictureListArray[i]} </button>`;
+            htmlString += `<button class="end-border-inset picList" onclick="initRenderCanvas(${_pictureListArray[i]})" id="${_pictureListArray[i]}"> ${_pictureListArray[i]} </button>`;
         }
         document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
-        for (let i = 0; i < _pictureListArray.length; i++) {
-            document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
-        }
+        //for (let i: number = 0; i < _pictureListArray.length; i++) {
+        //   document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
+        // }
     }
     //laden des Canvas erstellungs Panels
     function loadNewCanvasScreen() {
@@ -125,14 +125,16 @@ var endabgabe2;
         sendRequest(query, handleNewCanvasResponse);
     }
     //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
-    function initRenderCanvas(event) {
+    function initRenderCanvas(_picID) {
         // hier muss abgefragt werden, auf welchen Button geklickt wurde
-        console.log(event);
-        console.log(this.target.id);
+        // console.log(event);
+        // console.log(event.target);
+        // console.log(event.target.id);
+        console.log(_picID);
         //  console.log(picID);
-        document.getElementById("htmlBox").innerHTML = " ";
+        // document.getElementById("htmlBox").innerHTML = " ";
         //  console.log(picID + " " + globalUser);
-        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
+        //  document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
     }
     function initRenderNewCanvas() {
         document.getElementById("htmlBox").innerHTML = " ";
