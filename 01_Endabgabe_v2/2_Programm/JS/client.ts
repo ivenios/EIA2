@@ -103,7 +103,7 @@ function renderPictureList(_pictureListArray: string []): void {
     let htmlString: string = "";
     document.getElementById("pictureListhtml").innerHTML = " ";
     for (let i: number = 0; i < _pictureListArray.length; i++) {
-        htmlString += `<div class="end-border-inset picList"  id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+        htmlString += `<button class="end-border-inset picList"  id="${_pictureListArray[i]}"> ${_pictureListArray[i]} </button>`;
     }
     document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
     for (let i: number = 0; i < _pictureListArray.length; i++) {

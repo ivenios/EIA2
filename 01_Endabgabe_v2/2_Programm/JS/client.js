@@ -89,7 +89,7 @@ var endabgabe2;
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
         for (let i = 0; i < _pictureListArray.length; i++) {
-            htmlString += `<div class="end-border-inset picList"  id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+            htmlString += `<button class="end-border-inset picList"  id="${_pictureListArray[i]}"> ${_pictureListArray[i]} </button>`;
         }
         document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
         for (let i = 0; i < _pictureListArray.length; i++) {
