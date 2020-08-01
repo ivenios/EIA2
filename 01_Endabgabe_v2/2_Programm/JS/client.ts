@@ -112,17 +112,43 @@ function createNewCanvas(): void {
     let query: string = "command=initiatePicture";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
+    // Hashtag aus query string entfernen
+    let canvasColor: string = inputs[3].value;
+    alert(hexToRGB(canvasColor));
+    //query string wird gebaut:
     globalPicture += inputs[0].value;
     query += "&username=" + globalUser;
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
     query += "&canvasY=" + inputs[2].value;
-    query += "&canvasColor=" + inputs[3].value;
+    query += canvasColor;
     console.log(query);
 
     sendRequest(query, handleNewCanvasResponse);
 }
 
+//Funktion die den HexCode in RGB umwandelt:
+function hexToRGB(h: string): void {
+    let r: string = "0";
+    let g: string = "0"; 
+    let b: string = "0";
+  
+    // 3 digits
+    if (h.length == 4) {
+      r  = "0x" + h[1] + h[1];
+      g  = "0x" + h[2] + h[2];
+      b  = "0x" + h[3] + h[3];
+  
+    // 6 digits
+    } else if (h.length == 7) {
+        r = "0x" + h[1] + h[2];
+        g = "0x" + h[3] + h[4];
+        b = "0x" + h[5] + h[6];
+    }
+    
+    console.log("rgb(" + r + "," + g + "," + b + ")");
+  
+  }
 
 //Darstellung der Error Messages
 function printError(_message: string): void {

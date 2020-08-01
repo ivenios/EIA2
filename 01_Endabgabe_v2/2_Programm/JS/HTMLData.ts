@@ -190,7 +190,7 @@ namespace endabgabe2 {
             </section>
         </main>
       </section> `,
-        "newPicturePanel": `<section class="endabgabe">
+        "newPicturePanel": `  <section class="endabgabe">
         <main class="end-bg borderInset" style="width: 25%;">
           <header class="end-bg header">
             <section class="headerTop">
@@ -214,11 +214,11 @@ namespace endabgabe2 {
                   <h1>Create A New Artwork:</h1>
                   <form class="loginForm">
                     <label for="canvasName">Name your Picture</label><br>
-                    <input type="text" id="canvasName" name="canvasName"  required><br>
+                    <input type="text" id="canvasName" name="canvasName" maxlength="30" required><br>
                     <label for="xsize">X-size in Pixels (100-1500)</label><br>
-                    <input type="number" id="xsize" name="xsize"  required><br>
+                    <input type="number" id="xsize" name="xsize"  min="100" max="1500" required><br>
                     <label for="ysize">Y-size in Pixels (100-1500)</label><br>
-                    <input type="number" id="ysize" name="ysize"  required><br>
+                    <input type="number" id="ysize" name="ysize" min="100" max="1500" required><br>
                     <label for="colorhex">Choose your canvas color</label><br>
                     <input type="color" id="colorhex" name="colorhex"  required><br><br>
                   </form>
@@ -241,6 +241,7 @@ namespace endabgabe2 {
           </section>
         </main>
       </section>
+    
         `,
         "mainCanvasPanel": `<section class="endabgabe">
         <main class="end-bg borderInset" style="width: auto; height: auto;">
