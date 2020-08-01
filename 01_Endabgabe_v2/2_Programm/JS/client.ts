@@ -114,7 +114,7 @@ function createNewCanvas(): void {
     console.log(inputs);
     // Hashtag aus query string entfernen
     let canvasColor: string = inputs[3].value;
-    alert(hexToRGB(canvasColor));
+    hexToRGB(canvasColor);
     //query string wird gebaut:
     globalPicture += inputs[0].value;
     query += "&username=" + globalUser;
@@ -127,7 +127,7 @@ function createNewCanvas(): void {
     sendRequest(query, handleNewCanvasResponse);
 }
 
-//Funktion die den HexCode in RGB umwandelt:
+//Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
 function hexToRGB(h: string): void {
     let r: string = "0";
     let g: string = "0"; 
