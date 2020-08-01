@@ -128,10 +128,10 @@ var endabgabe2;
     function initRenderCanvas(event) {
         // hier muss abgefragt werden, auf welchen Button geklickt wurde
         console.log(event);
-        let picID = this.target.id;
-        console.log(picID);
+        console.log(this.target.id);
+        //  console.log(picID);
         document.getElementById("htmlBox").innerHTML = " ";
-        console.log(picID + " " + endabgabe2.globalUser);
+        //  console.log(picID + " " + globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
     }
     function initRenderNewCanvas() {
