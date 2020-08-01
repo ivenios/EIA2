@@ -7,7 +7,8 @@ Datum: 04.08.2020
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
 
-namespace endabgabe2 {
+
+namespace endabgabe2  {
 
 //import {htmlData form "./HTMLData"}
 let serverAddress: string = "https://ios-eia2.herokuapp.com"; 
@@ -96,13 +97,18 @@ function getUserPictures(): void {
     
 }
 
+//funktion die die Picture List schreibt 
 function renderPictureList(_pictureListArray: string []): void {
     let htmlString: string = "";
     document.getElementById("pictureListhtml").innerHTML = " ";
     for (let i: number = 0; i < _pictureListArray.length; i++) {
-        htmlString += `<div class="end-border-inset picList" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+        htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas()${_pictureListArray[i]}" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
     }
-    document.getElementById("pictureListhtml").innerHTML = htmlString;
+    document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
+    //for (let i: number = 0; i < _pictureListArray.length; i++) {
+    //    document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
+    //}
+
 
 }
 
@@ -137,6 +143,15 @@ function createNewCanvas(): void {
     console.log(query);
 
     sendRequest(query, handleNewCanvasResponse);
+}
+
+//Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
+
+
+function initRenderCanvas(_pictureName: string): void {
+    
+    globalPicture = _pictureName;
+    console.log(_pictureName + " " + globalUser);
 }
 
 
@@ -191,8 +206,9 @@ function handlePictureListeResponse(_event: ProgressEvent): void {
         let pictureListArray: string [] = [];
         if (xhr.response == "PictureList Empty") {
             console.log("Loading create new Picture MSG"); //Funktion die dem Nutzer sagt, dass er noch kein Bild hat 
-            document.getElementById("htmlBox").innerHTML = " ";
-            document.getElementById("htmlBox").innerHTML = `<p> You dont have any pictures with this account. Start today by creating your first masterpiece </p> <hr> <button class="norm-button" id="createNewPicture">New Picture</button>`;
+            document.getElementById("pictureListhtml").innerHTML = " ";
+            document.getElementById("pictureListhtml").innerHTML = `<p> You dont have any pictures with this account. Start today by creating your first masterpiece </p> <hr> <button class="norm-button" id="createNewPicture">New Picture</button>`;
+            document.getElementById("createNewPicture").addEventListener("click", loadNewCanvasScreen); //der Event Listerner muss neu installiert werden, damit der Button funktioniert 
         } else 
             // Funktion zum schreiben der ListeloadUserPictureOverview();
         console.log("Rendering Picture List");
@@ -215,7 +231,6 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
         
     }
 }
-
 
 
 }

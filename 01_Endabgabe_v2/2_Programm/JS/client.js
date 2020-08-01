@@ -87,13 +87,17 @@ var endabgabe2;
         console.log(query);
         sendRequest(query, handlePictureListeResponse);
     }
+    //funktion die die Picture List schreibt 
     function renderPictureList(_pictureListArray) {
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
         for (let i = 0; i < _pictureListArray.length; i++) {
-            htmlString += `<div class="end-border-inset picList" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+            htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas()${_pictureListArray[i]}" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
         }
-        document.getElementById("pictureListhtml").innerHTML = htmlString;
+        document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
+        //for (let i: number = 0; i < _pictureListArray.length; i++) {
+        //    document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
+        //}
     }
     //laden des Canvas erstellungs Panels
     function loadNewCanvasScreen() {
@@ -122,6 +126,11 @@ var endabgabe2;
         query += "&canvasColor=" + canvasColor;
         console.log(query);
         sendRequest(query, handleNewCanvasResponse);
+    }
+    //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
+    function initRenderCanvas(_pictureName) {
+        globalPicture = _pictureName;
+        console.log(_pictureName + " " + globalUser);
     }
     //Darstellung der Error Messages
     function printError(_message) {
@@ -171,8 +180,9 @@ var endabgabe2;
             let pictureListArray = [];
             if (xhr.response == "PictureList Empty") {
                 console.log("Loading create new Picture MSG"); //Funktion die dem Nutzer sagt, dass er noch kein Bild hat 
-                document.getElementById("htmlBox").innerHTML = " ";
-                document.getElementById("htmlBox").innerHTML = `<p> You dont have any pictures with this account. Start today by creating your first masterpiece </p> <hr> <button class="norm-button" id="createNewPicture">New Picture</button>`;
+                document.getElementById("pictureListhtml").innerHTML = " ";
+                document.getElementById("pictureListhtml").innerHTML = `<p> You dont have any pictures with this account. Start today by creating your first masterpiece </p> <hr> <button class="norm-button" id="createNewPicture">New Picture</button>`;
+                document.getElementById("createNewPicture").addEventListener("click", loadNewCanvasScreen); //der Event Listerner muss neu installiert werden, damit der Button funktioniert 
             }
             else
                 // Funktion zum schreiben der ListeloadUserPictureOverview();
