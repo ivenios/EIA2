@@ -7,7 +7,35 @@ Datum: 04.08.2020
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
+export class Special extends Picasso  {
 
+    constructor() {
+        super();
+    }
+
+    renderObject(): void {
+        //;
+    }
+
+
+
+
+    animateObject(): void {
+        //;
+
+    }
+
+    alterObject(): void {
+        //;
+    }
+
+    updateObject(): void {
+        //;
+    }
+
+
+
+}
 
 
 

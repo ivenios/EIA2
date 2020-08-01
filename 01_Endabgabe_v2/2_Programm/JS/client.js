@@ -128,18 +128,20 @@ var endabgabe2;
     function initRenderCanvas(_event) {
         // hier muss abgefragt werden, auf welchen Button geklickt wurde
         console.log(_event);
-        console.log(_event.srcElement.id);
+        console.log(_event.srcElement.id); //es hat mich 2h gebraucht um diese SCHEI? idee da augeben zu können
         let picID = _event.srcElement.id;
         console.log(picID);
         document.getElementById("htmlBox").innerHTML = " ";
         console.log(picID + " " + endabgabe2.globalUser);
+        endabgabe2.globalPicture = picID;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
+        // hier geht es dann weiter in die Canvas.ts
     }
     function initRenderNewCanvas() {
         document.getElementById("htmlBox").innerHTML = " ";
         console.log(event.target + " " + endabgabe2.globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
-        // hier dann die Server Anfrage stellen um die Canvas rendern zu lassen 
+        //hie rgeht es dann weiter in die Canvas.ts
     }
     //Darstellung der Error Messages
     function printError(_message) {

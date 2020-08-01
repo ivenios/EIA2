@@ -1,1 +1,1 @@
-{"version":3,"file":"obj_triangel.js","sourceRoot":"","sources":["obj_triangel.ts"],"names":[],"mappings":""}
+{"version":3,"file":"obj_triangel.js","sourceRoot":"","sources":["obj_triangel.ts"],"names":[],"mappings":"AAAA,IAAU,UAAU,CAyCnB;AAzCD,WAAU,UAAU;IACpB;;;;;;;MAOE;IACF,MAAa,QAAS,SAAQ,WAAA,OAAO;QAEjC;YACI,KAAK,EAAE,CAAC;QACZ,CAAC;QAED,YAAY;YACR,GAAG;QACP,CAAC;QAKD,aAAa;YACT,GAAG;QAEP,CAAC;QAED,WAAW;YACP,GAAG;QACP,CAAC;QAED,YAAY;YACR,GAAG;QACP,CAAC;KAIJ;IA5BY,mBAAQ,WA4BpB,CAAA;AAID,CAAC,EAzCS,UAAU,KAAV,UAAU,QAyCnB"}
