@@ -16,8 +16,6 @@ let serverAddress: string = "https://ios-eia2.herokuapp.com";
 export let globalUser: string;
 export let globalPicture: string;
 
-
-
 document.addEventListener("DOMContentLoaded", init);
 
     //hier gehts los
@@ -151,12 +149,11 @@ function createNewCanvas(): void {
 //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
 
 
-function initRenderCanvas(): void {
+function initRenderCanvas(event: Event): void {
     // hier muss abgefragt werden, auf welchen Button geklickt wurde
-    let clickedCanvas: string = this.options[this.selectedIndex].id;
-    console.log(clickedCanvas);
+    console.log(event);
     document.getElementById("htmlBox").innerHTML = " ";
-    console.log(globalPicture + " " + globalUser);
+    console.log(event.target + " " + globalUser);
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
 
 
