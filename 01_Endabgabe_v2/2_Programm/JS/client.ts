@@ -152,6 +152,8 @@ function initRenderCanvas(_pictureName: string): void {
     
     globalPicture = _pictureName;
     console.log(_pictureName + " " + globalUser);
+
+    
 }
 
 

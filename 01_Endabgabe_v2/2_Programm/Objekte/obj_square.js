@@ -1,0 +1,1 @@
+//# sourceMappingURL=obj_square.js.map
