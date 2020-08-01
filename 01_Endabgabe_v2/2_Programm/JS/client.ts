@@ -109,34 +109,13 @@ function loadNewCanvasScreen(): void {
 //Funktion zum abspeichern der Neuen Canvas
 function createNewCanvas(): void {
     console.log("save new Canvas in Database");
+    let re: string = "/#/gi";
     let query: string = "command=initiatePicture";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
     // Hashtag aus query string entfernen
     let canvasColor: string = inputs[3].value;
-    hexToRGB(canvasColor);
-    //Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
-    function hexToRGB(h: string): void {
-    let r: string = "0";
-    let g: string = "0"; 
-    let b: string = "0";
-  
-    // 3 digits
-    if (h.length == 4) {
-      r  = "0x" + h[1] + h[1];
-      g  = "0x" + h[2] + h[2];
-      b  = "0x" + h[3] + h[3];
-  
-    // 6 digits
-    } else if (h.length == 7) {
-        r = "0x" + h[1] + h[2];
-        g = "0x" + h[3] + h[4];
-        b = "0x" + h[5] + h[6];
-    }
-    
-    console.log("rgb(" + r + "," + g + "," + b + ")");
-    canvasColor = h;
-    }
+    canvasColor = canvasColor.replace(re, "%23");
 
     //query string wird gebaut:
     globalPicture += inputs[0].value;
