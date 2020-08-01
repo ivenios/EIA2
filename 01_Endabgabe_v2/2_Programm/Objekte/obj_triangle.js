@@ -1,0 +1,1 @@
+//# sourceMappingURL=obj_triangle.js.map
