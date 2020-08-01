@@ -109,7 +109,7 @@ function loadNewCanvasScreen(): void {
 //Funktion zum abspeichern der Neuen Canvas
 function createNewCanvas(): void {
     console.log("save new Canvas in Database");
-    let re: string = "/#/gi";
+    let re: any = /#/gi;
     let query: string = "command=initiatePicture";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
@@ -123,7 +123,7 @@ function createNewCanvas(): void {
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
     query += "&canvasY=" + inputs[2].value;
-    query += canvasColor;
+    query += "&canvasColor=" + canvasColor;
     console.log(query);
 
     sendRequest(query, handleNewCanvasResponse);
