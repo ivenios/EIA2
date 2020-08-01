@@ -106,6 +106,7 @@ var endabgabe2;
         query += "&canvasX=" + inputs[1].value;
         query += "&canvasY=" + inputs[2].value;
         query += "&canvasColor=" + inputs[3].value;
+        console.log(query);
         sendRequest(query, handleNewCanvasResponse);
     }
     //Darstellung der Error Messages

@@ -212,10 +212,10 @@ var endabgabe2;
                   <form class="loginForm">
                     <label for="canvasName">Name your Picture</label><br>
                     <input type="text" id="canvasName" name="canvasName"  required><br>
-                    <label for="name">X-size in Pixels (100-1500)</label><br>
-                    <input type="text" id="name" name="name"  required><br>
-                    <label for="username">Y-size in Pixels (100-1500)</label><br>
-                    <input type="text" id="username" name="username"  required><br>
+                    <label for="xsize">X-size in Pixels (100-1500)</label><br>
+                    <input type="number" id="xsize" name="xsize"  required><br>
+                    <label for="ysize">Y-size in Pixels (100-1500)</label><br>
+                    <input type="number" id="ysize" name="ysize"  required><br>
                     <label for="colorhex">Choose your canvas color</label><br>
                     <input type="color" id="colorhex" name="colorhex"  required><br><br>
                   </form>
