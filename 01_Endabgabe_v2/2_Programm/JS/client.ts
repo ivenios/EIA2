@@ -96,11 +96,11 @@ function getUserPictures(): void {
     
 }
 
-function renderPictureList(_pictureList: string []): void {
+function renderPictureList(_pictureListArray: string []): void {
     let htmlString: string = "";
     document.getElementById("pictureListhtml").innerHTML = " ";
-    for (let i: number = 0; i < _pictureList.length; i++) {
-        htmlString += `<div class="end-border-inset picList" id="${_pictureList[i]}"> <p> ${_pictureList[i]} </p> </div>`;
+    for (let i: number = 0; i < _pictureListArray.length; i++) {
+        htmlString += `<div class="end-border-inset picList" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
     }
     document.getElementById("pictureListhtml").innerHTML = htmlString;
 
@@ -197,11 +197,10 @@ function handlePictureListeResponse(_event: ProgressEvent): void {
             // Funktion zum schreiben der ListeloadUserPictureOverview();
         console.log("Rendering Picture List");
         pictureListArray = JSON.parse(xhr.response);
-
-
-
+        renderPictureList(pictureListArray);
     }
 }
+
 //Funktion die die Server Antwort nach dem ersten speichern einer Canvas übernimmt. 
 function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);

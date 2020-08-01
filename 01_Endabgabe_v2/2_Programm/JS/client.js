@@ -87,11 +87,11 @@ var endabgabe2;
         console.log(query);
         sendRequest(query, handlePictureListeResponse);
     }
-    function renderPictureList(_pictureList) {
+    function renderPictureList(_pictureListArray) {
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
-        for (let i = 0; i < _pictureList.length; i++) {
-            htmlString += `<div class="end-border-inset picList" id="${_pictureList[i]}"> <p> ${_pictureList[i]} </p> </div>`;
+        for (let i = 0; i < _pictureListArray.length; i++) {
+            htmlString += `<div class="end-border-inset picList" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
         }
         document.getElementById("pictureListhtml").innerHTML = htmlString;
     }
@@ -178,6 +178,7 @@ var endabgabe2;
                 // Funktion zum schreiben der ListeloadUserPictureOverview();
                 console.log("Rendering Picture List");
             pictureListArray = JSON.parse(xhr.response);
+            renderPictureList(pictureListArray);
         }
     }
     //Funktion die die Server Antwort nach dem ersten speichern einer Canvas übernimmt. 
