@@ -13,8 +13,8 @@ namespace endabgabe2  {
 //import {htmlData form "./HTMLData"}
 let serverAddress: string = "https://ios-eia2.herokuapp.com"; 
     //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
-let globalUser: string;
-let globalPicture: string;
+export let globalUser: string;
+export let globalPicture: string;
 
 
 
@@ -105,7 +105,7 @@ function renderPictureList(_pictureListArray: string []): void {
     let htmlString: string = "";
     document.getElementById("pictureListhtml").innerHTML = " ";
     for (let i: number = 0; i < _pictureListArray.length; i++) {
-        htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas()${_pictureListArray[i]}" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+        htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas(${_pictureListArray[i]})" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
     }
     document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
     //for (let i: number = 0; i < _pictureListArray.length; i++) {
@@ -152,9 +152,10 @@ function createNewCanvas(): void {
 
 
 function initRenderCanvas(_pictureName: string): void {
-    
+    document.getElementById("htmlBox").innerHTML = " ";
     globalPicture = _pictureName;
     console.log(_pictureName + " " + globalUser);
+    document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
 
 
 }

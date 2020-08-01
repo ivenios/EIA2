@@ -10,9 +10,6 @@ var endabgabe2;
 (function (endabgabe2) {
     //import {htmlData form "./HTMLData"}
     let serverAddress = "https://ios-eia2.herokuapp.com";
-    //zunächst zwei Globale Variablen für den eingeloggten Nutzer und das Bild welches der Nutzer in der akltuelle Sitzung geöffnet hat. 
-    let globalUser;
-    let globalPicture;
     document.addEventListener("DOMContentLoaded", init);
     //hier gehts los
     function init() {
@@ -25,7 +22,7 @@ var endabgabe2;
     //Laden des Login Panels
     function initMSPaint() {
         console.log("Loading Login Panel");
-        globalUser += " ";
+        endabgabe2.globalUser += " ";
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["loginPanel"];
         document.getElementById("userIsNew").addEventListener("click", newUserInit); //Handler für das Laden des neuen Nutzer Panels 
@@ -36,7 +33,7 @@ var endabgabe2;
         let query = "command=loginUser";
         let inputs = document.getElementsByTagName("input");
         console.log(inputs);
-        globalUser = inputs[0].value;
+        endabgabe2.globalUser = inputs[0].value;
         if (inputs[0].value == "" || inputs[1].value == "") {
             printError("");
             return;
@@ -72,7 +69,7 @@ var endabgabe2;
     //Bei korrektem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
         console.log("Bild Überischt wird geladen");
-        globalPicture += " ";
+        endabgabe2.globalPicture += " ";
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["userPictureOverview"];
         console.log("loading Picture List");
@@ -83,7 +80,7 @@ var endabgabe2;
     //Server anfragen um die Liste der Nutzer Bilder zu bekommen: +
     function getUserPictures() {
         let query = "command=loadPictureList";
-        query += "&username=" + globalUser;
+        query += "&username=" + endabgabe2.globalUser;
         console.log(query);
         sendRequest(query, handlePictureListeResponse);
     }
@@ -92,7 +89,7 @@ var endabgabe2;
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
         for (let i = 0; i < _pictureListArray.length; i++) {
-            htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas()${_pictureListArray[i]}" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+            htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas(${_pictureListArray[i]})" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
         }
         document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
         //for (let i: number = 0; i < _pictureListArray.length; i++) {
@@ -118,8 +115,8 @@ var endabgabe2;
         let canvasColor = inputs[3].value;
         canvasColor = canvasColor.replace(re, "%23");
         //query string wird gebaut:
-        globalPicture += inputs[0].value;
-        query += "&username=" + globalUser;
+        endabgabe2.globalPicture += inputs[0].value;
+        query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + inputs[0].value;
         query += "&canvasX=" + inputs[1].value;
         query += "&canvasY=" + inputs[2].value;
@@ -129,8 +126,10 @@ var endabgabe2;
     }
     //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
     function initRenderCanvas(_pictureName) {
-        globalPicture = _pictureName;
-        console.log(_pictureName + " " + globalUser);
+        document.getElementById("htmlBox").innerHTML = " ";
+        endabgabe2.globalPicture = _pictureName;
+        console.log(_pictureName + " " + endabgabe2.globalUser);
+        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
     }
     //Darstellung der Error Messages
     function printError(_message) {
