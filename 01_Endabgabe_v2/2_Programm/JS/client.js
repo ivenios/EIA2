@@ -103,6 +103,26 @@ var endabgabe2;
         // Hashtag aus query string entfernen
         let canvasColor = inputs[3].value;
         hexToRGB(canvasColor);
+        //Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
+        function hexToRGB(h) {
+            let r = "0";
+            let g = "0";
+            let b = "0";
+            // 3 digits
+            if (h.length == 4) {
+                r = "0x" + h[1] + h[1];
+                g = "0x" + h[2] + h[2];
+                b = "0x" + h[3] + h[3];
+                // 6 digits
+            }
+            else if (h.length == 7) {
+                r = "0x" + h[1] + h[2];
+                g = "0x" + h[3] + h[4];
+                b = "0x" + h[5] + h[6];
+            }
+            console.log("rgb(" + r + "," + g + "," + b + ")");
+            canvasColor = h;
+        }
         //query string wird gebaut:
         globalPicture += inputs[0].value;
         query += "&username=" + globalUser;
@@ -112,25 +132,6 @@ var endabgabe2;
         query += canvasColor;
         console.log(query);
         sendRequest(query, handleNewCanvasResponse);
-    }
-    //Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
-    function hexToRGB(h) {
-        let r = "0";
-        let g = "0";
-        let b = "0";
-        // 3 digits
-        if (h.length == 4) {
-            r = "0x" + h[1] + h[1];
-            g = "0x" + h[2] + h[2];
-            b = "0x" + h[3] + h[3];
-            // 6 digits
-        }
-        else if (h.length == 7) {
-            r = "0x" + h[1] + h[2];
-            g = "0x" + h[3] + h[4];
-            b = "0x" + h[5] + h[6];
-        }
-        console.log("rgb(" + r + "," + g + "," + b + ")");
     }
     //Darstellung der Error Messages
     function printError(_message) {

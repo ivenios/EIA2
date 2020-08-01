@@ -115,20 +115,8 @@ function createNewCanvas(): void {
     // Hashtag aus query string entfernen
     let canvasColor: string = inputs[3].value;
     hexToRGB(canvasColor);
-    //query string wird gebaut:
-    globalPicture += inputs[0].value;
-    query += "&username=" + globalUser;
-    query += "&pictureName=" + inputs[0].value;
-    query += "&canvasX=" + inputs[1].value;
-    query += "&canvasY=" + inputs[2].value;
-    query += canvasColor;
-    console.log(query);
-
-    sendRequest(query, handleNewCanvasResponse);
-}
-
-//Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
-function hexToRGB(h: string): void {
+    //Funktion die den HexCode in RGB umwandelt: Written by Jon Kantner https://css-tricks.com/converting-color-spaces-in-javascript/ adapted by Iven
+    function hexToRGB(h: string): void {
     let r: string = "0";
     let g: string = "0"; 
     let b: string = "0";
@@ -147,8 +135,21 @@ function hexToRGB(h: string): void {
     }
     
     console.log("rgb(" + r + "," + g + "," + b + ")");
-  
-  }
+    canvasColor = h;
+    }
+
+    //query string wird gebaut:
+    globalPicture += inputs[0].value;
+    query += "&username=" + globalUser;
+    query += "&pictureName=" + inputs[0].value;
+    query += "&canvasX=" + inputs[1].value;
+    query += "&canvasY=" + inputs[2].value;
+    query += canvasColor;
+    console.log(query);
+
+    sendRequest(query, handleNewCanvasResponse);
+}
+
 
 //Darstellung der Error Messages
 function printError(_message: string): void {
