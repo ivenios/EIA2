@@ -202,6 +202,9 @@
   .toolsStyle:hover {
     border-style: inset;
   }
+  img. {
+    padding-left: -3px;
+  }
 
 
   @media  (max-device-width: 860px){
