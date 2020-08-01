@@ -103,7 +103,7 @@ function loadListFromDB(_username, _callback) {
                         _callback("PictureList Empty");
                     }
                     else
-                        _callback(_userArray[i].pictureList);
+                        _callback(JSON.stringify(_userArray[i].pictureList));
                 }
             }
     }
