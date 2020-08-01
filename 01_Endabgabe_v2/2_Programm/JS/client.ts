@@ -109,6 +109,7 @@ function renderPictureList(_pictureListArray: string []): void {
     for (let i: number = 0; i < _pictureListArray.length; i++) {
         document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
     }
+    
 
 
 }
@@ -159,6 +160,8 @@ function initRenderCanvas(_event: Event): void {
     console.log(picID + " " + globalUser);
     globalPicture = picID;
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
+    document.getElementById("canvasTitle").innerHTML = " ";
+    document.getElementById("canvasTitle").innerHTML = picID;
     // hier geht es dann weiter in die Canvas.ts
 
 }
@@ -167,6 +170,8 @@ function initRenderNewCanvas(): void {
     document.getElementById("htmlBox").innerHTML = " ";
     console.log(event.target + " " + globalUser);
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
+    document.getElementById("canvasTitle").innerHTML = " ";
+    document.getElementById("canvasTitle").innerHTML = globalPicture;
     //hie rgeht es dann weiter in die Canvas.ts
 
 }

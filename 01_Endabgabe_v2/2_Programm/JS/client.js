@@ -135,12 +135,16 @@ var endabgabe2;
         console.log(picID + " " + endabgabe2.globalUser);
         endabgabe2.globalPicture = picID;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
+        document.getElementById("canvasTitle").innerHTML = " ";
+        document.getElementById("canvasTitle").innerHTML = picID;
         // hier geht es dann weiter in die Canvas.ts
     }
     function initRenderNewCanvas() {
         document.getElementById("htmlBox").innerHTML = " ";
         console.log(event.target + " " + endabgabe2.globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
+        document.getElementById("canvasTitle").innerHTML = " ";
+        document.getElementById("canvasTitle").innerHTML = endabgabe2.globalPicture;
         //hie rgeht es dann weiter in die Canvas.ts
     }
     //Darstellung der Error Messages
