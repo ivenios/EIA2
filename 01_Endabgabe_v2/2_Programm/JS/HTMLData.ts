@@ -20,9 +20,9 @@ namespace endabgabe2 {
                 <span>Welcome To Rude MS Paint</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
     
@@ -57,9 +57,9 @@ namespace endabgabe2 {
                 <span>Log In</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
     
@@ -105,9 +105,9 @@ namespace endabgabe2 {
                 <span>Create New User</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
     
@@ -146,7 +146,7 @@ namespace endabgabe2 {
           </section>
         </main>
       </section>`,
-        "userPictureOverview": ` <section class="endabgabe">
+        "userPictureOverview": `<section class="endabgabe">
         <main class="end-bg borderInset" style="width: 25%;">
           <header class="end-bg header">
             <section class="headerTop">
@@ -154,9 +154,9 @@ namespace endabgabe2 {
                 <span>Picture Overview</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
     
@@ -168,7 +168,7 @@ namespace endabgabe2 {
               <section class="footerInner">
                 <form>
                   <h1>Look at all those Pictures:</h1>
-                  <section>
+                  <section id="pictureListhtml">
                     <div class="end-border-inset picList"> Eintrag 1</div>
                     <div class="end-border-inset picList"> Eintrag 2</div>
                   </section>
@@ -189,7 +189,7 @@ namespace endabgabe2 {
               </section>
             </section>
         </main>
-      </section>`,
+      </section> `,
         "newPicturePanel": `<section class="endabgabe">
         <main class="end-bg borderInset" style="width: 25%;">
           <header class="end-bg header">
@@ -198,9 +198,9 @@ namespace endabgabe2 {
                 <span>Create New Canvas</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
     
@@ -214,13 +214,13 @@ namespace endabgabe2 {
                   <h1>Create A New Artwork:</h1>
                   <form class="loginForm">
                     <label for="canvasName">Name your Picture</label><br>
-                    <input type="text" id="canvasName" name="canvasName" value="Bob Ross NR 30815" required><br>
+                    <input type="text" id="canvasName" name="canvasName"  required><br>
                     <label for="name">X-size in Pixels (100-1500)</label><br>
-                    <input type="text" id="name" name="name" value="John" required><br>
+                    <input type="text" id="name" name="name"  required><br>
                     <label for="username">Y-size in Pixels (100-1500)</label><br>
-                    <input type="text" id="username" name="username" value="JohnxxXX" required><br>
+                    <input type="text" id="username" name="username"  required><br>
                     <label for="colorhex">Choose your canvas color</label><br>
-                    <input type="color" id="colorhex" name="colorhex" value="#ffffff" required><br><br>
+                    <input type="color" id="colorhex" name="colorhex"  required><br><br>
                   </form>
                   <button class="norm-button" id="renderNewCanvas">Create New Canvas</button>
     
@@ -250,9 +250,9 @@ namespace endabgabe2 {
                 <span>MS Paint</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
             <section class="headerTabs">
@@ -302,6 +302,7 @@ namespace endabgabe2 {
           </section>
         </main>
       </section>
+    
         `,
         "dynamicErrorMSGPanel": `<section class="endabgabe">
         <main class="end-bg borderInset" style="width: 25%;">
@@ -311,9 +312,9 @@ namespace endabgabe2 {
                 <span>Error - Something Went Wrong</span>
               </div>
               <div>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/1.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/2.png" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="../../3_IMG/3.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/1.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/2.png" width="10px" alt=""></button>
+                <button class="end-bg borderInset headerIcon"><img src="https://ivenios.github.io/3_IMG/3.png" width="10px" alt=""></button>
               </div>
             </section>
            
@@ -341,6 +342,7 @@ namespace endabgabe2 {
           </section>
         </main>
       </section>
+    
     
         `
 

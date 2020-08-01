@@ -25,6 +25,7 @@ var endabgabe2;
     //Laden des Login Panels
     function initMSPaint() {
         console.log("Loading Login Panel");
+        globalUser += " ";
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["loginPanel"];
         document.getElementById("userIsNew").addEventListener("click", newUserInit); //Handler für das Laden des neuen Nutzer Panels 
@@ -71,6 +72,7 @@ var endabgabe2;
     //Bei korrektem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
         console.log("Bild Überischt wird geladen");
+        globalPicture += " ";
         document.getElementById("htmlBox").innerHTML = " ";
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["userPictureOverview"];
         console.log("loading Picture List");
@@ -98,6 +100,7 @@ var endabgabe2;
         let query = "command=initiatePicture";
         let inputs = document.getElementsByTagName("input");
         console.log(inputs);
+        globalPicture += inputs[0].value;
         query += "&username=" + globalUser;
         query += "&pictureName=" + inputs[0].value;
         query += "&canvasX=" + inputs[1].value;
@@ -158,10 +161,10 @@ var endabgabe2;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.response == "save postive") {
-                console.log("Saving completed");
+                printError("Please wait while we prepare your canvas with liquid white.");
             }
             else if (xhr.response == "save negative") {
-                console.log("name already Taken. You already have a picture with this name! Please be more creative.");
+                printError("You already have a picture with this name! Please be more creative.");
             }
         }
     }

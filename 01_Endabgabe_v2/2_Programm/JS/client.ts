@@ -28,6 +28,7 @@ function init(): void {
      //Laden des Login Panels
 function initMSPaint(): void {
     console.log("Loading Login Panel");
+    globalUser += " ";
     document.getElementById("htmlBox").innerHTML = " ";
     document.getElementById("htmlBox").innerHTML = htmlData["loginPanel"];
     document.getElementById("userIsNew").addEventListener("click", newUserInit); //Handler für das Laden des neuen Nutzer Panels 
@@ -76,6 +77,7 @@ function saveNewUser(): void {
 //Bei korrektem Login wird die Bild Übersicht geladen: 
 function loadUserPictureOverview(): void {
     console.log("Bild Überischt wird geladen");
+    globalPicture += " ";
     document.getElementById("htmlBox").innerHTML = " ";
     document.getElementById("htmlBox").innerHTML = htmlData["userPictureOverview"];
     console.log("loading Picture List");
@@ -110,6 +112,7 @@ function createNewCanvas(): void {
     let query: string = "command=initiatePicture";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
+    globalPicture += inputs[0].value;
     query += "&username=" + globalUser;
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
@@ -179,10 +182,10 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
-            console.log("Saving completed");
+            printError("Please wait while we prepare your canvas with liquid white.");
             
         } else if (xhr.response == "save negative") {
-            console.log("name already Taken. You already have a picture with this name! Please be more creative.");
+            printError("You already have a picture with this name! Please be more creative.");
             
         }
         
