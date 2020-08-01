@@ -159,6 +159,14 @@ function initRenderCanvas(event: Event): void {
 
 }
 
+function initRenderNewCanvas(): void {
+    document.getElementById("htmlBox").innerHTML = " ";
+    console.log(event.target + " " + globalUser);
+    document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
+    // hier dann die Server Anfrage stellen um die Canvas rendern zu lassen 
+
+}
+
 
 //Darstellung der Error Messages
 function printError(_message: string): void {
@@ -227,7 +235,7 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
-            initRenderCanvas();
+            initRenderNewCanvas();
             printError("Please wait while we prepare your canvas with liquid white.");
    
         } else if (xhr.response == "save negative") {

@@ -132,6 +132,12 @@ var endabgabe2;
         console.log(event.target + " " + endabgabe2.globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
     }
+    function initRenderNewCanvas() {
+        document.getElementById("htmlBox").innerHTML = " ";
+        console.log(event.target + " " + endabgabe2.globalUser);
+        document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
+        // hier dann die Server Anfrage stellen um die Canvas rendern zu lassen 
+    }
     //Darstellung der Error Messages
     function printError(_message) {
         //zwischenlösung:
@@ -196,7 +202,7 @@ var endabgabe2;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.response == "save postive") {
-                initRenderCanvas();
+                initRenderNewCanvas();
                 printError("Please wait while we prepare your canvas with liquid white.");
             }
             else if (xhr.response == "save negative") {
