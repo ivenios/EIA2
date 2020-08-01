@@ -49,7 +49,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             let password: string = query["password"];
             Database.loginUser(query["username"], password, findCallback); // die datenbank wird durchsucht 
             break;
-        case "":
+        case "loadPictureList":
 
             Database.loadListFromDB(query["username"], findCallback);
 

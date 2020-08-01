@@ -41,7 +41,7 @@ function handleRequest(_request, _response) {
             let password = query["password"];
             Database.loginUser(query["username"], password, findCallback); // die datenbank wird durchsucht 
             break;
-        case "":
+        case "loadPictureList":
             Database.loadListFromDB(query["username"], findCallback);
             break;
         case "initiatePicture":

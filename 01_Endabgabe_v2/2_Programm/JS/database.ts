@@ -3,6 +3,7 @@
  * @author: Jirka Dell'Oro-Friedl 
  */
 import * as Mongo from "mongodb";
+import { callbackify } from "util";
 console.log("Database starting");
 
 let databaseURL: string = "mongodb://localhost:27017";
@@ -102,17 +103,22 @@ export function loginUser(_name: string, _pass: string, _callback: Function ): v
 export function loadListFromDB(_username: string, _callback: Function): void {
     users = db.collection("Userdatabase");
     var cursor: Mongo.Cursor = users.find();
-    
     cursor.toArray(prepareAnswer);
-
-    function prepareAnswer(_e: Mongo.MongoError, _chatArray: ChatData[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, _userArray: UserData[]): void {
         if (_e)
             _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(_chatArray));
+        else 
+
+        for (let i: number = 0; i < _userArray.length; i++) {
+            if (_userArray[i].user == _username ) {
+                if (_userArray[i].pictureList.length == 0 ) { //Wenn keine Bilder für diesen Nutzer angelegt sind, wird dieser Nutzer darüber benachrichtigt
+                    _callback("PictureList Empty");
+                }
+                else 
+                _callback(_userArray[i].pictureList);
+            }
+        }
     }
-
-
 }
 
 //Funktion zum abspeichern des Canvas Namens im userData und in Canvas DB
@@ -164,10 +170,10 @@ export function saveNewPicture(_callback: Function, _canvasData: CanvasData): vo
 
 
 
-export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
-    users = db.collection(_chatroom);
-    insertMSG(_chatData);
-    _callback("insertion sucessfull");
+//export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
+  //  users = db.collection(_chatroom);
+  //  insertMSG(_chatData);
+  //  _callback("insertion sucessfull");
 
     
-}
+//}

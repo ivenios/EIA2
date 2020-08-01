@@ -93,11 +93,19 @@ function loadListFromDB(_username, _callback) {
     users = db.collection("Userdatabase");
     var cursor = users.find();
     cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e, _chatArray) {
+    function prepareAnswer(_e, _userArray) {
         if (_e)
             _callback("Error" + _e);
         else
-            _callback(JSON.stringify(_chatArray));
+            for (let i = 0; i < _userArray.length; i++) {
+                if (_userArray[i].user == _username) {
+                    if (_userArray[i].pictureList.length == 0) { //Wenn keine Bilder für diesen Nutzer angelegt sind, wird dieser Nutzer darüber benachrichtigt
+                        _callback("PictureList Empty");
+                    }
+                    else
+                        _callback(_userArray[i].pictureList);
+                }
+            }
     }
 }
 exports.loadListFromDB = loadListFromDB;
@@ -138,10 +146,9 @@ function saveNewPicture(_callback, _canvasData) {
     _callback("Saving gcomplete");
 }
 exports.saveNewPicture = saveNewPicture;
-function insertNewMSG(_chatroom, _chatData, _callback) {
-    users = db.collection(_chatroom);
-    insertMSG(_chatData);
-    _callback("insertion sucessfull");
-}
-exports.insertNewMSG = insertNewMSG;
+//export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
+//  users = db.collection(_chatroom);
+//  insertMSG(_chatData);
+//  _callback("insertion sucessfull");
+//}
 //# sourceMappingURL=database.js.map

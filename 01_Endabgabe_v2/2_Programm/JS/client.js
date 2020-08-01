@@ -84,7 +84,16 @@ var endabgabe2;
     function getUserPictures() {
         let query = "command=loadPictureList";
         query += "&username=" + globalUser;
+        console.log(query);
         sendRequest(query, handlePictureListeResponse);
+    }
+    function renderPictureList(_pictureList) {
+        let htmlString = "";
+        document.getElementById("pictureListhtml").innerHTML = " ";
+        for (let i = 0; i < _pictureList.length; i++) {
+            htmlString += `<div class="end-border-inset picList" id="${_pictureList[i]}"> <p> ${_pictureList[i]} </p> </div>`;
+        }
+        document.getElementById("pictureListhtml").innerHTML = htmlString;
     }
     //laden des Canvas erstellungs Panels
     function loadNewCanvasScreen() {
@@ -159,7 +168,16 @@ var endabgabe2;
     function handlePictureListeResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let pictureListArray = JSON.parse(xhr.response);
+            let pictureListArray = [];
+            if (xhr.response == "PictureList Empty") {
+                console.log("Loading create new Picture MSG"); //Funktion die dem Nutzer sagt, dass er noch kein Bild hat 
+                document.getElementById("htmlBox").innerHTML = " ";
+                document.getElementById("htmlBox").innerHTML = `<p> You dont have any pictures with this account. Start today by creating your first masterpiece </p> <hr> <button class="norm-button" id="createNewPicture">New Picture</button>`;
+            }
+            else
+                // Funktion zum schreiben der ListeloadUserPictureOverview();
+                console.log("Rendering Picture List");
+            pictureListArray = JSON.parse(xhr.response);
         }
     }
     //Funktion die die Server Antwort nach dem ersten speichern einer Canvas übernimmt. 
