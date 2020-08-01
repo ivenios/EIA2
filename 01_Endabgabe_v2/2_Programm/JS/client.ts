@@ -105,12 +105,12 @@ function renderPictureList(_pictureListArray: string []): void {
     let htmlString: string = "";
     document.getElementById("pictureListhtml").innerHTML = " ";
     for (let i: number = 0; i < _pictureListArray.length; i++) {
-        htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas(${_pictureListArray[i]})" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+        htmlString += `<div class="end-border-inset picList"  id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
     }
     document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
-    //for (let i: number = 0; i < _pictureListArray.length; i++) {
-    //    document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
-    //}
+    for (let i: number = 0; i < _pictureListArray.length; i++) {
+        document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
+    }
 
 
 }
@@ -151,10 +151,10 @@ function createNewCanvas(): void {
 //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
 
 
-function initRenderCanvas(_pictureName: string): void {
+function initRenderCanvas(): void {
     document.getElementById("htmlBox").innerHTML = " ";
-    globalPicture = _pictureName;
-    console.log(_pictureName + " " + globalUser);
+
+    console.log(globalPicture + " " + globalUser);
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
 
 
@@ -228,10 +228,9 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
-            printError("Please wait while we prepare your canvas with liquid white.");
             initRenderCanvas(globalUser);
-
-            
+            printError("Please wait while we prepare your canvas with liquid white.");
+   
         } else if (xhr.response == "save negative") {
             printError("You already have a picture with this name! Please be more creative.");
             loadNewCanvasScreen();

@@ -89,12 +89,12 @@ var endabgabe2;
         let htmlString = "";
         document.getElementById("pictureListhtml").innerHTML = " ";
         for (let i = 0; i < _pictureListArray.length; i++) {
-            htmlString += `<div class="end-border-inset picList" onclick="initRenderCanvas(${_pictureListArray[i]})" id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
+            htmlString += `<div class="end-border-inset picList"  id="${_pictureListArray[i]}"> <p> ${_pictureListArray[i]} </p> </div>`;
         }
         document.getElementById("pictureListhtml").innerHTML = htmlString; //passende event listener werden auf die Buttons geschrieben 
-        //for (let i: number = 0; i < _pictureListArray.length; i++) {
-        //    document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
-        //}
+        for (let i = 0; i < _pictureListArray.length; i++) {
+            document.getElementById(_pictureListArray[i]).addEventListener("click", initRenderCanvas);
+        }
     }
     //laden des Canvas erstellungs Panels
     function loadNewCanvasScreen() {
@@ -125,10 +125,9 @@ var endabgabe2;
         sendRequest(query, handleNewCanvasResponse);
     }
     //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
-    function initRenderCanvas(_pictureName) {
+    function initRenderCanvas() {
         document.getElementById("htmlBox").innerHTML = " ";
-        endabgabe2.globalPicture = _pictureName;
-        console.log(_pictureName + " " + endabgabe2.globalUser);
+        console.log(endabgabe2.globalPicture + " " + endabgabe2.globalUser);
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
     }
     //Darstellung der Error Messages
@@ -195,8 +194,8 @@ var endabgabe2;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.response == "save postive") {
-                printError("Please wait while we prepare your canvas with liquid white.");
                 initRenderCanvas(endabgabe2.globalUser);
+                printError("Please wait while we prepare your canvas with liquid white.");
             }
             else if (xhr.response == "save negative") {
                 printError("You already have a picture with this name! Please be more creative.");
