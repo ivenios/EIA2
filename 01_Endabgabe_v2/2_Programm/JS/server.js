@@ -57,6 +57,9 @@ function handleRequest(_request, _response) {
             };
             Database.pushPictureCanvasToDB(findCallback, newPicture);
             break;
+        case "deleteUserPicture":
+            // leitet die Anfrage zum löschen direkt weiter an die Datenbank 
+            Database.deletePictureCanvasFromDB(findCallback, query["username"], query["pictureName"]);
         default:
             respond(_response, "unknown command: " + command);
             break;

@@ -186,6 +186,17 @@ function printError(_message: string): void {
     return;
 }
 
+//Funktion zum löschen einers Bildes aus der DB: 
+
+export function deleteCanvasFromDB(): void {
+    let query: string = "command=deleteUserPicture";
+    query += "&username" + globalUser;
+    query += "&pictureName" + globalPicture;
+
+    sendRequest(query, handleDeletionRequest);
+
+}
+
 
 //ALLES SERVER RELATED: 
 
@@ -258,6 +269,19 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
         
     }
 }
+
+//funktion die nach erfolgreichem löschen gestertet wird: 
+function handleDeletionRequest(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        printError("You deleted your artwork");
+        globalPicture = " ";
+        loadUserPictureOverview();
+        
+        
+    }
+}
+
 
 
 }

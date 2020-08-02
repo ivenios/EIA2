@@ -156,6 +156,14 @@ var endabgabe2;
         alert(_message);
         return;
     }
+    //Funktion zum löschen einers Bildes aus der DB: 
+    function deleteCanvasFromDB() {
+        let query = "command=deleteUserPicture";
+        query += "&username" + endabgabe2.globalUser;
+        query += "&pictureName" + endabgabe2.globalPicture;
+        sendRequest(query, handleDeletionRequest);
+    }
+    endabgabe2.deleteCanvasFromDB = deleteCanvasFromDB;
     //ALLES SERVER RELATED: 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -221,6 +229,15 @@ var endabgabe2;
                 printError("You already have a picture with this name! Please be more creative.");
                 loadNewCanvasScreen();
             }
+        }
+    }
+    //funktion die nach erfolgreichem löschen gestertet wird: 
+    function handleDeletionRequest(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            printError("You deleted your artwork");
+            endabgabe2.globalPicture = " ";
+            loadUserPictureOverview();
         }
     }
 })(endabgabe2 || (endabgabe2 = {}));

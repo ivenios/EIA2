@@ -167,6 +167,33 @@ export function saveNewPicture(_callback: Function, _canvasData: CanvasData): vo
     _callback("Saving gcomplete");
 }
 
+export function deletePictureCanvasFromDB(_callback: Function, _username: string, _pictureName: string): void {
+    users = db.collection("Userdatabase");
+    var cursor: Mongo.Cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else 
+
+        for (let i: number = 0; i < userArray.length; i++ ) { //zunächst durch das UserArray nach user suchen
+            if (userArray[i].user == _username) {
+                for (let u: number = 0; u < userArray[i].pictureList.length; u++) { //durch das PictureList Array und dort nach Bild namen suchen 
+                    if (userArray[i].pictureList[u] == _pictureName) {
+                        userArray[i].pictureList.splice(u);  //bildnamen raus splicen 
+                        db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName}); //das Dokument aus der CanvasDatabase löschen 
+                        //jetzt sollte alles Gelöscht sein 
+                        _callback("Deletion successful");
+
+                    }
+                }
+            }
+        }
+        _callback("Error whilest deletion");
+    }
+
+}
+
 
 
 

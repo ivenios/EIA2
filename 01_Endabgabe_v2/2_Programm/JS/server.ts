@@ -70,6 +70,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
 
             break;
+        case "deleteUserPicture":
+            // leitet die Anfrage zum löschen direkt weiter an die Datenbank 
+            Database.deletePictureCanvasFromDB( findCallback,  query["username"], query["pictureName"]);
+
         default:
             respond(_response, "unknown command: " + command);
             break;

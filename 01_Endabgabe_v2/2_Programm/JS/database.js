@@ -146,6 +146,30 @@ function saveNewPicture(_callback, _canvasData) {
     _callback("Saving gcomplete");
 }
 exports.saveNewPicture = saveNewPicture;
+function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
+    users = db.collection("Userdatabase");
+    var cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, userArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i = 0; i < userArray.length; i++) { //zunächst durch das UserArray nach user suchen
+                if (userArray[i].user == _username) {
+                    for (let u = 0; u < userArray[i].pictureList.length; u++) { //durch das PictureList Array und dort nach Bild namen suchen 
+                        if (userArray[i].pictureList[u] == _pictureName) {
+                            userArray[i].pictureList.splice(u); //bildnamen raus splicen 
+                            db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName }); //das Dokument aus der CanvasDatabase löschen 
+                            //jetzt sollte alles Gelöscht sein 
+                            _callback("Deletion successful");
+                        }
+                    }
+                }
+            }
+        _callback("Error whilest deletion");
+    }
+}
+exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
 //  users = db.collection(_chatroom);
 //  insertMSG(_chatData);
