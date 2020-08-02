@@ -176,24 +176,12 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
 exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
 function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
     return __awaiter(this, void 0, void 0, function* () {
-        users = db.collection("canvasDatabase");
-        var cursor = users.find();
-        cursor.toArray(prepareAnswer);
-        function prepareAnswer(_e, canvasArray) {
-            let objectJSON = JSON.parse(_objects);
-            if (_e)
-                _callback("Error" + _e);
-            else
-                for (let i = 0; i < canvasArray.length; i++) {
-                    if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
-                        db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
-                            $push: { placeableObjects: objectJSON },
-                            $currentDate: { lastModified: true }
-                        });
-                        _callback("safe postive");
-                    }
-                }
-        }
+        let objectJSON = JSON.parse(_objects);
+        db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
+            $push: { placeableObjects: objectJSON },
+            $currentDate: { lastModified: true }
+        });
+        _callback("safe postive");
     });
 }
 exports.safePictureCanvasToDB = safePictureCanvasToDB;

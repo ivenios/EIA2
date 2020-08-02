@@ -200,28 +200,22 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
 
 
 export async function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): Promise<void> {
-    users = db.collection("canvasDatabase");
-    var cursor: Mongo.Cursor = users.find();
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e: Mongo.MongoError, canvasArray: CanvasData[]): void {
-        let objectJSON: string [] = JSON.parse(_objects);
-        if (_e)
-            _callback("Error" + _e);
-        else 
+    
+    let objectJSON: string = JSON.parse(_objects);
+                
+    db.collection("canvasDatabase").updateOne(
+        { user: _username, name: _pictureName},
+        {
+            $push: { placeableObjects: objectJSON },
+            $currentDate: { lastModified: true }
+        }
+        );
             
-        for (let i: number = 0; i < canvasArray.length; i++) {
-                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
-                    db.collection("canvasDatabase").updateOne(
-                        { user: _username, name: _pictureName},
-                        {
-                          $push: { placeableObjects: objectJSON },
-                          $currentDate: { lastModified: true }
-                        }
-                      );
+                
+                
             
-                    _callback("safe postive");
-                }
-            }
+
+    _callback("safe postive");
 
         
 
@@ -230,7 +224,7 @@ export async function safePictureCanvasToDB(_callback: Function, _username: stri
     }
 
 
-}
+
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
   //  users = db.collection(_chatroom);
   //  insertMSG(_chatData);
