@@ -8,8 +8,7 @@ Datum: 04.08.2020
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
 export class Triangle extends PlaceableObjects {
-    x: number;
-    y: number;
+
 
     constructor() {
         super(); //;
@@ -18,9 +17,10 @@ export class Triangle extends PlaceableObjects {
     renderObject(): void {
         crc.beginPath();
         crc.moveTo(this.x, this.y);
-        crc.lineTo(this.x + 125, this.y + 45);
-        crc.lineTo(this.x + 45, this.y + 125);
+        crc.lineTo(this.x + 25 * this.scale, this.y + 10 * this.scale);
+        crc.lineTo(this.x + 10 * this.scale, this.y + 25 * this.scale);
         crc.closePath();
+        crc.fillStyle = this.color;
         crc.fill();
   }
     

@@ -8,8 +8,7 @@ Datum: 04.08.2020
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
 export class Square extends PlaceableObjects {
-    x: number;
-    y: number;
+
 
     constructor() {
         super(); //;
@@ -18,8 +17,8 @@ export class Square extends PlaceableObjects {
 
     renderObject(): void {
         let square: Path2D = new Path2D();
-        crc.fillRect(this.x, this.y, 100, 100);
-        crc.fillStyle = "black";
+        crc.fillRect(this.x, this.y, this.scale * 15 , this.scale * 15);
+        crc.fillStyle = this.color;
         crc.fill(square);
     }
 

@@ -14,8 +14,8 @@ var endabgabe2;
         }
         renderObject() {
             let square = new Path2D();
-            endabgabe2.crc.fillRect(this.x, this.y, 100, 100);
-            endabgabe2.crc.fillStyle = "black";
+            endabgabe2.crc.fillRect(this.x, this.y, this.scale * 15, this.scale * 15);
+            endabgabe2.crc.fillStyle = this.color;
             endabgabe2.crc.fill(square);
         }
         animateObject() {

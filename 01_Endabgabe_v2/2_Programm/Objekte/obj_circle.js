@@ -16,7 +16,7 @@ var endabgabe2;
         renderObject() {
             let circle = new Path2D();
             circle.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            endabgabe2.crc.fillStyle = "brown";
+            endabgabe2.crc.fillStyle = this.color;
             endabgabe2.crc.fill(circle);
         }
         animateObject() {

@@ -8,7 +8,7 @@ namespace endabgabe2 {
         x: number;
         y: number;
         color: string;
-        scale: string;
+        scale: number;
 
         constructor() {
             //;

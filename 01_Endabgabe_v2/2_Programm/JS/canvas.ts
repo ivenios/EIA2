@@ -18,6 +18,7 @@ let imgData: ImageData;
 let placeableObjectsArray: PlaceableObjects[] = [];
 let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
 
+
 //Trail init funkttion
 document.addEventListener("DOMContentLoaded", initCanvas);
 
@@ -78,15 +79,19 @@ function initPlaceSquare(): void {
 }
 
 function placeSquare(_event: MouseEvent): void {
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    console.log(inputs);
     console.log(_event);
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
+    let color: string = inputs[0].value; 
+    let scale: number = parseInt(inputs[1].value); 
     let squares: Square = new Square ();
     squares.x = x;
     squares.y = y;
-    //hier die farbe 
-    //hier die thiccness 
-    //hier die scale
+    squares.color = color;
+    squares.scale = scale;
+
     placeableObjectsArray.push(squares);
     squares.renderObject();
     console.log(placeableObjectsArray);
@@ -100,13 +105,17 @@ function initPlaceCircle(): void {
 }
 
 function placeCircle(_event: MouseEvent): void {
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let color: string = inputs[0].value; 
+    let scale: number = parseInt(inputs[1].value); 
     console.log(_event);
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
     let circels: Circle = new Circle ();
     circels.x = x;
     circels.y = y;
-    circels.r = 50;
+    circels.color = color;
+    circels.r = 17 * scale;
     //hier die farbe 
     //hier der Radius 
     placeableObjectsArray.push(circels);
@@ -121,12 +130,17 @@ function initPlaceTriangel(): void {
 }
 
 function placeTriangel(_event: MouseEvent): void {
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let color: string = inputs[0].value; 
+    let scale: number = parseInt(inputs[1].value); 
     console.log(_event);
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
     let triangels: Triangle = new Triangle ();
     triangels.x = x;
     triangels.y = y;
+    triangels.color = color;
+    triangels.scale = scale;
     //hier die farbe 
     //hier der Radius 
     placeableObjectsArray.push(triangels);

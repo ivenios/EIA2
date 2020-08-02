@@ -9,9 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 */
 
 export class Circle extends PlaceableObjects {
-    x: number;
-    y: number;
-    r: number;
+    r: number; //radius
 
 
     constructor() {
@@ -21,7 +19,7 @@ export class Circle extends PlaceableObjects {
     renderObject(): void {
         let circle: Path2D = new Path2D();
         circle.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        crc.fillStyle = "brown";
+        crc.fillStyle = this.color;
         crc.fill(circle);
     }
 

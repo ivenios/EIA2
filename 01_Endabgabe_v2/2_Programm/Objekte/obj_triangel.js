@@ -15,9 +15,10 @@ var endabgabe2;
         renderObject() {
             endabgabe2.crc.beginPath();
             endabgabe2.crc.moveTo(this.x, this.y);
-            endabgabe2.crc.lineTo(this.x + 125, this.y + 45);
-            endabgabe2.crc.lineTo(this.x + 45, this.y + 125);
+            endabgabe2.crc.lineTo(this.x + 25 * this.scale, this.y + 10 * this.scale);
+            endabgabe2.crc.lineTo(this.x + 10 * this.scale, this.y + 25 * this.scale);
             endabgabe2.crc.closePath();
+            endabgabe2.crc.fillStyle = this.color;
             endabgabe2.crc.fill();
         }
         animateObject() {

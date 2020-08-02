@@ -59,15 +59,18 @@ var endabgabe2;
         endabgabe2.canvas.addEventListener("click", placeSquare);
     }
     function placeSquare(_event) {
+        let inputs = document.getElementsByTagName("input");
+        console.log(inputs);
         console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
+        let color = inputs[0].value;
+        let scale = parseInt(inputs[1].value);
         let squares = new endabgabe2.Square();
         squares.x = x;
         squares.y = y;
-        //hier die farbe 
-        //hier die thiccness 
-        //hier die scale
+        squares.color = color;
+        squares.scale = scale;
         placeableObjectsArray.push(squares);
         squares.renderObject();
         console.log(placeableObjectsArray);
@@ -78,13 +81,17 @@ var endabgabe2;
         endabgabe2.canvas.addEventListener("click", placeCircle);
     }
     function placeCircle(_event) {
+        let inputs = document.getElementsByTagName("input");
+        let color = inputs[0].value;
+        let scale = parseInt(inputs[1].value);
         console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
         let circels = new endabgabe2.Circle();
         circels.x = x;
         circels.y = y;
-        circels.r = 50;
+        circels.color = color;
+        circels.r = 17 * scale;
         //hier die farbe 
         //hier der Radius 
         placeableObjectsArray.push(circels);
@@ -97,12 +104,17 @@ var endabgabe2;
         endabgabe2.canvas.addEventListener("click", placeTriangel);
     }
     function placeTriangel(_event) {
+        let inputs = document.getElementsByTagName("input");
+        let color = inputs[0].value;
+        let scale = parseInt(inputs[1].value);
         console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
         let triangels = new endabgabe2.Triangle();
         triangels.x = x;
         triangels.y = y;
+        triangels.color = color;
+        triangels.scale = scale;
         //hier die farbe 
         //hier der Radius 
         placeableObjectsArray.push(triangels);
