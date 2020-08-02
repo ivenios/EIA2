@@ -75,6 +75,7 @@ function deleteCanvas(): void {
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
             placeableObjectsArray.splice(i);
         } 
+        deleteCanvasFromDB();
         // Löschen Funktion in der Client.ts
 
     }

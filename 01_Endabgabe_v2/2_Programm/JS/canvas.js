@@ -57,6 +57,7 @@ var endabgabe2;
             for (let i = 0; i < placeableObjectsArray.length; i++) {
                 placeableObjectsArray.splice(i);
             }
+            endabgabe2.deleteCanvasFromDB();
             // Löschen Funktion in der Client.ts
         }
     }

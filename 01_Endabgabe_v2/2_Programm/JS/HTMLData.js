@@ -289,7 +289,6 @@ var endabgabe2;
             <button class="norm-button" id="startAnim">Start Animation</button>
             <button class="norm-button" id="stopAnim">Stop Animation</button>
             <button class="norm-button" id="goBackToOverview">Quit</button>
-            <button class="norm-button" id="test">test</button>
             <form oninput="x.value=parseInt(objectScale.value)" oninput="y.value=parseInt(animSpeed.value)" > 
               <label for="objectColor">Object Color</label>
               <input type="color" id="objectColor" name="canvobjectColoras" value="#000000" required><br>
