@@ -67,10 +67,10 @@ var endabgabe2;
     //Aubau der canvas Größe und der Farbe
     function renderCanvas() {
         if (endabgabe2.placeableObjectsArray.length == 0) {
-            endabgabe2.canvas.width = 1330;
-            endabgabe2.canvas.height = 750;
+            endabgabe2.canvas.width = endabgabe2.canvasSizeX;
+            endabgabe2.canvas.height = endabgabe2.canvasSizeY;
             endabgabe2.crc.globalCompositeOperation = "destination-over";
-            endabgabe2.crc.fillStyle = "blue";
+            endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
             endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         }
         else if (endabgabe2.placeableObjectsArray.length > 1) {

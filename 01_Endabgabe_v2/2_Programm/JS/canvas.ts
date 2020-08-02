@@ -101,10 +101,10 @@ function deletAllEventListeners(): void {
 //Aubau der canvas Größe und der Farbe
 function renderCanvas(): void {
     if (placeableObjectsArray.length == 0) {
-        canvas.width = 1330;
-        canvas.height = 750;
+        canvas.width = canvasSizeX;
+        canvas.height = canvasSizeY;
         crc.globalCompositeOperation = "destination-over";
-        crc.fillStyle = "blue";
+        crc.fillStyle = canvasColor;
         crc.fillRect(0, 0, canvas.width, canvas.height);
 }   else if (placeableObjectsArray.length > 1 ) {
         canvas.width = canvasSizeX;
