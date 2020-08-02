@@ -193,8 +193,8 @@ function printError(_message: string): void {
 export function deleteCanvasFromDB(): void {
     let query: string = "command=deleteUserPicture";
     
-    query += "&username" + globalUser;
-    query += "&pictureName" + globalPicture;
+    query += "&username=" + globalUser;
+    query += "&pictureName=" + globalPicture;
     console.log("sending request to server" + query);
 
     sendRequest(query, handleDeletionRequest);
@@ -206,9 +206,9 @@ export async function safePlaceableObjects(_placeableObjectsArray: PlaceableObje
     let query: string = "command=safePicture";
     let hash: string = "#";
     let quotes: string = `"`;
-    query += "&username" + globalUser;
-    query += "&pictureName" + globalPicture;
-    query += "&objects" + jSONString;
+    query += "&username=" + globalUser;
+    query += "&pictureName=" + globalPicture;
+    query += "&objects=" + jSONString;
     // Hashtag aus query string entfernen
     query = query.replace(hash, "%23");
     query = query.replace(quotes, "%22");

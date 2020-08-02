@@ -167,8 +167,8 @@ var endabgabe2;
     //Funktion zum löschen einers Bildes aus der DB: 
     function deleteCanvasFromDB() {
         let query = "command=deleteUserPicture";
-        query += "&username" + endabgabe2.globalUser;
-        query += "&pictureName" + endabgabe2.globalPicture;
+        query += "&username=" + endabgabe2.globalUser;
+        query += "&pictureName=" + endabgabe2.globalPicture;
         console.log("sending request to server" + query);
         sendRequest(query, handleDeletionRequest);
     }
@@ -180,9 +180,9 @@ var endabgabe2;
             let query = "command=safePicture";
             let hash = "#";
             let quotes = `"`;
-            query += "&username" + endabgabe2.globalUser;
-            query += "&pictureName" + endabgabe2.globalPicture;
-            query += "&objects" + jSONString;
+            query += "&username=" + endabgabe2.globalUser;
+            query += "&pictureName=" + endabgabe2.globalPicture;
+            query += "&objects=" + jSONString;
             // Hashtag aus query string entfernen
             query = query.replace(hash, "%23");
             query = query.replace(quotes, "%22");

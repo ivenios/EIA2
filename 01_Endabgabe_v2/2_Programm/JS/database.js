@@ -155,7 +155,10 @@ function saveNewPicture(_callback, _canvasData) {
 }
 exports.saveNewPicture = saveNewPicture;
 function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
-    db.collection("Userdatabase").updateOne({ user: _username }, { $pull: { pictureList: _pictureName } });
+    db.collection("Userdatabase").updateOne({ user: _username }, {
+        $pull: { pictureList: _pictureName },
+        $currentDate: { lastModified: true }
+    });
     db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName });
     _callback("Deletion successful");
     //   for (let i: number = 0; i < userArray.length; i++ ) { //zunächst durch das UserArray nach user suchen
@@ -183,7 +186,7 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
                 for (let i = 0; i < canvasArray.length; i++) {
                     if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
                         db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
-                            $push: { placeableObjects: "testtest" },
+                            $push: { placeableObjects: _objects },
                             $currentDate: { lastModified: true }
                         });
                         _callback("safe postive");
