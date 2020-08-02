@@ -213,8 +213,8 @@ function updateObject(): void {
 }
 
 function globalAnimationStyle(_event: Event): void {
-    console.log(_event.srcElement.value);
-    globalAnimatonType = _event.srcElement.value;
+    //console.log(_event.srcElement.value);
+    //-globalAnimatonType = _event.srcElement.value;
 
 }
 

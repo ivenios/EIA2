@@ -169,13 +169,7 @@ export function saveNewPicture(_callback: Function, _canvasData: CanvasData): vo
 }
 
 export function deletePictureCanvasFromDB(_callback: Function, _username: string, _pictureName: string): void {
-    users = db.collection("Userdatabase");
-    var cursor: Mongo.Cursor = users.find();
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e: Mongo.MongoError, userArray: UserData[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else 
+
 
         db.collection("Userdatabase").updateOne(
             { user: _username},
@@ -199,7 +193,6 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
        //             }
        //         }
        //     }
-        }
     
 }
 

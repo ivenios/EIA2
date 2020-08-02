@@ -171,8 +171,8 @@ var endabgabe2;
         }
     }
     function globalAnimationStyle(_event) {
-        console.log(_event.srcElement.value);
-        endabgabe2.globalAnimatonType = _event.srcElement.value;
+        //console.log(_event.srcElement.value);
+        //-globalAnimatonType = _event.srcElement.value;
     }
 })(endabgabe2 || (endabgabe2 = {}));
 //# sourceMappingURL=canvas.js.map
