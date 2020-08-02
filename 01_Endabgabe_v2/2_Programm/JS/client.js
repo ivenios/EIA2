@@ -170,14 +170,17 @@ var endabgabe2;
         let jSONString = JSON.stringify(_placeableObjectsArray);
         let query = "command=safePicture";
         let hash = "#";
-        //let quotes: string = `"`;
+        let quotes = `"`;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + endabgabe2.globalPicture;
-        query += "&placeableObjects=" + jSONString;
         // Hashtag aus query string entfernen
-        query = query.replace(hash, "%23");
-        //query = query.replace(quotes, "%22");
-        encodeURIComponent(query);
+        for (let i = 100; i < jSONString.length; i++) {
+            // Hashtag aus query string entfernen
+            jSONString = jSONString.replace(hash, "%23");
+            jSONString = jSONString.replace(quotes, "%22");
+        }
+        query += "&placeableObjects=" + jSONString;
+        //encodeURIComponent(query);
         console.log(query);
         sendRequest(query, handleSafePictureResponse);
     }

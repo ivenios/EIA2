@@ -205,15 +205,19 @@ export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] 
     let jSONString: string = JSON.stringify(_placeableObjectsArray);
     let query: string = "command=safePicture";
     let hash: string = "#";
-    //let quotes: string = `"`;
+    let quotes: string = `"`;
     query += "&username=" + globalUser;
     query += "&pictureName=" + globalPicture;
     
-    query += "&placeableObjects=" + jSONString;
+    
     // Hashtag aus query string entfernen
-    query = query.replace(hash, "%23");
-    //query = query.replace(quotes, "%22");
-    encodeURIComponent(query);
+    for (let i: number = 100; i < jSONString.length; i++) {
+        // Hashtag aus query string entfernen
+        jSONString = jSONString.replace(hash, "%23");
+        jSONString = jSONString.replace(quotes, "%22"); }
+
+    query += "&placeableObjects=" + jSONString;
+    //encodeURIComponent(query);
     console.log(query);
 
     sendRequest(query, handleSafePictureResponse);
