@@ -36,7 +36,6 @@ export function initCanvas(): void {
     document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
     document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
     document.getElementById("savePicture").addEventListener("click", safePicture);
-    document.getElementById("test").addEventListener("click", test);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -51,13 +50,7 @@ export function initCanvas(): void {
 
 }
 
-function test(): void {
-    let testquery: string = "Command=test";
-    
-    testquery += JSON.stringify(placeableObjectsArray);
-    console.log(testquery);
 
-}
 // CANVAS VERLASSEN
 function goBackToOverview(): void {
     let confirmation: boolean = confirm("You are about to leave your artwork! Do you want to discard all chanches?");
