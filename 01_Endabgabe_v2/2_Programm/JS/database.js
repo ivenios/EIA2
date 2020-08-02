@@ -162,7 +162,7 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
         if (_e)
             _callback("Error" + _e);
         else
-            db.collection("Userdatabase").update({ user: _username }, { $pull: { pictureList: _pictureName } });
+            db.collection("Userdatabase").updateOne({ user: _username }, { $pull: { pictureList: _pictureName } });
         db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName });
         _callback("Deletion successful");
         //   for (let i: number = 0; i < userArray.length; i++ ) { //zunächst durch das UserArray nach user suchen

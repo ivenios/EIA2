@@ -177,10 +177,10 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
             _callback("Error" + _e);
         else 
 
-        db.collection("Userdatabase").update(
+        db.collection("Userdatabase").updateOne(
             { user: _username},
             { $pull: { pictureList: _pictureName } }
-            
+
             );
 
         db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName});
