@@ -79,11 +79,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
 
         case "safePicture":
-                Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["placeableObjects"]);
+            let _user: string = query["username"];
+            let _pic: string = query["pictureName"];
+            Database.safePictureCanvasToDB(findCallback, _user, _pic , query["placeableObjects"]);
                     
 
 
-                break;
+            break;
 
         default:
             respond(_response, "unknown command: " + command);
