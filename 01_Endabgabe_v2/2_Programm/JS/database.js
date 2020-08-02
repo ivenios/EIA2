@@ -1,12 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Simple database insertion and query for MongoDB
@@ -175,14 +167,12 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
 }
 exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
 function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let objectJSON = JSON.parse(_objects);
-        db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
-            $push: { placeableObjects: objectJSON },
-            $currentDate: { lastModified: true }
-        });
-        _callback("safe postive");
+    let objectJSON = JSON.parse(_objects);
+    db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
+        $push: { placeableObjects: objectJSON },
+        $currentDate: { lastModified: true }
     });
+    _callback("safe postive");
 }
 exports.safePictureCanvasToDB = safePictureCanvasToDB;
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {

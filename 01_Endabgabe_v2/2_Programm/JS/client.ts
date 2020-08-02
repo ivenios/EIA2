@@ -201,7 +201,7 @@ export function deleteCanvasFromDB(): void {
 
 }
 // Funktion zum Speichen eines bilds in der DB 
-export async function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): Promise<void> {
+export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): void {
     let jSONString: string = JSON.stringify(_placeableObjectsArray);
     let query: string = "command=safePicture";
     //let hash: string = "#";

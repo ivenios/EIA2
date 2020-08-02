@@ -199,7 +199,7 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
 }
 
 
-export async function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): Promise<void> {
+export function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): void {
     
     let objectJSON: string = JSON.parse(_objects);
                 
@@ -210,10 +210,7 @@ export async function safePictureCanvasToDB(_callback: Function, _username: stri
             $currentDate: { lastModified: true }
         }
         );
-            
-                
-                
-            
+  
 
     _callback("safe postive");
 
