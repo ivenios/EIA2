@@ -204,15 +204,17 @@ export async function safePictureCanvasToDB(_callback: Function, _username: stri
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, canvasArray: CanvasData[]): void {
+        let objectJSON: string [] = JSON.parse(_objects);
         if (_e)
             _callback("Error" + _e);
         else 
-            for (let i: number = 0; i < canvasArray.length; i++) {
+            
+        for (let i: number = 0; i < canvasArray.length; i++) {
                 if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
                     db.collection("canvasDatabase").updateOne(
                         { user: _username, name: _pictureName},
                         {
-                          $push: { placeableObjects: _objects },
+                          $push: { placeableObjects: objectJSON },
                           $currentDate: { lastModified: true }
                         }
                       );

@@ -180,13 +180,14 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
         var cursor = users.find();
         cursor.toArray(prepareAnswer);
         function prepareAnswer(_e, canvasArray) {
+            let objectJSON = JSON.parse(_objects);
             if (_e)
                 _callback("Error" + _e);
             else
                 for (let i = 0; i < canvasArray.length; i++) {
                     if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
                         db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
-                            $push: { placeableObjects: _objects },
+                            $push: { placeableObjects: objectJSON },
                             $currentDate: { lastModified: true }
                         });
                         _callback("safe postive");
