@@ -6,6 +6,14 @@ Datum: 04.08.2020
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var endabgabe2;
 (function (endabgabe2) {
     //import {htmlData form "./HTMLData"}
@@ -161,23 +169,26 @@ var endabgabe2;
         let query = "command=deleteUserPicture";
         query += "&username" + endabgabe2.globalUser;
         query += "&pictureName" + endabgabe2.globalPicture;
+        console.log("sending request to server" + query);
         sendRequest(query, handleDeletionRequest);
     }
     endabgabe2.deleteCanvasFromDB = deleteCanvasFromDB;
     // Funktion zum Speichen eines bilds in der DB 
     function safePlaceableObjects(_placeableObjectsArray) {
-        let jSONString = JSON.stringify(_placeableObjectsArray);
-        let query = "command=safePicture";
-        let hash = "#";
-        let quotes = `"`;
-        query += "&username" + endabgabe2.globalUser;
-        query += "&pictureName" + endabgabe2.globalPicture;
-        query += "&objects" + jSONString;
-        // Hashtag aus query string entfernen
-        query = query.replace(hash, "%23");
-        query = query.replace(quotes, "%22");
-        console.log(query);
-        sendRequest(query, handleSafePictureResponse);
+        return __awaiter(this, void 0, void 0, function* () {
+            let jSONString = JSON.stringify(_placeableObjectsArray);
+            let query = "command=safePicture";
+            let hash = "#";
+            let quotes = `"`;
+            query += "&username" + endabgabe2.globalUser;
+            query += "&pictureName" + endabgabe2.globalPicture;
+            query += "&objects" + jSONString;
+            // Hashtag aus query string entfernen
+            query = query.replace(hash, "%23");
+            query = query.replace(quotes, "%22");
+            console.log(query);
+            sendRequest(query, handleSafePictureResponse);
+        });
     }
     endabgabe2.safePlaceableObjects = safePlaceableObjects;
     //ALLES SERVER RELATED: 

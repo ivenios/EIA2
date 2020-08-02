@@ -192,15 +192,16 @@ function printError(_message: string): void {
 
 export function deleteCanvasFromDB(): void {
     let query: string = "command=deleteUserPicture";
+    
     query += "&username" + globalUser;
     query += "&pictureName" + globalPicture;
-
+    console.log("sending request to server" + query);
 
     sendRequest(query, handleDeletionRequest);
 
 }
 // Funktion zum Speichen eines bilds in der DB 
-export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): void {
+export async function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): Promise<void> {
     let jSONString: string = JSON.stringify(_placeableObjectsArray);
     let query: string = "command=safePicture";
     let hash: string = "#";
@@ -294,7 +295,7 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
 function handleDeletionRequest(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        
+
         printError("You deleted your artwork");
         globalPicture = " ";
         loadUserPictureOverview();
