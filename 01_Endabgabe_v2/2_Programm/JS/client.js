@@ -116,18 +116,18 @@ var endabgabe2;
         let inputs = document.getElementsByTagName("input");
         console.log(inputs);
         // Hashtag aus query string entfernen
-        let canvasColor = inputs[3].value;
-        canvasColor = canvasColor.replace(re, "%23");
+        let queryColor = inputs[3].value;
+        queryColor = queryColor.replace(re, "%23");
         //query string wird gebaut:
         endabgabe2.globalPicture = inputs[0].value;
         endabgabe2.canvasSizeX = parseInt(inputs[1].value);
         endabgabe2.canvasSizeY = parseInt(inputs[2].value);
-        canvasColor = inputs[3].value;
+        endabgabe2.canvasColor = inputs[3].value;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + inputs[0].value;
         query += "&canvasX=" + inputs[1].value;
         query += "&canvasY=" + inputs[2].value;
-        query += "&canvasColor=" + canvasColor;
+        query += "&canvasColor=" + queryColor;
         console.log(query);
         sendRequest(query, handleNewCanvasResponse);
     }

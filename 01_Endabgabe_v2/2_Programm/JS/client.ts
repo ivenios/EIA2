@@ -137,8 +137,8 @@ function createNewCanvas(): void {
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
     // Hashtag aus query string entfernen
-    let canvasColor: string = inputs[3].value;
-    canvasColor = canvasColor.replace(re, "%23");
+    let queryColor: string = inputs[3].value;
+    queryColor = queryColor.replace(re, "%23");
 
     //query string wird gebaut:
     globalPicture = inputs[0].value;
@@ -149,7 +149,7 @@ function createNewCanvas(): void {
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
     query += "&canvasY=" + inputs[2].value;
-    query += "&canvasColor=" + canvasColor;
+    query += "&canvasColor=" + queryColor;
     console.log(query);
 
     sendRequest(query, handleNewCanvasResponse);
