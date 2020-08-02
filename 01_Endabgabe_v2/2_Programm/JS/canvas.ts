@@ -19,6 +19,9 @@ export let placeableObjectsArray: PlaceableObjects[] = [];
 let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
 let animationCount: number = 1;
 export let globalAnimatonType: string;
+export let canvasColor: string;
+export let canvasSizeX: number;
+export let canvasSizeY: number;
 
 
 //Trail init funkttion
@@ -41,11 +44,14 @@ export function initCanvas(): void {
     canvas = document.getElementsByTagName("canvas")[0];
     crc = canvas.getContext("2d");
     imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
-    // Hier muss dann die Zahl eingetragen werden, die vom Server gezogen wird:
-    canvas.width = 1330;
-    canvas.height = 750;
 
-    drawBackground();
+    renderCanvas();
+    
+
+    
+// Now draw!
+
+    
 
 
 }
@@ -92,12 +98,14 @@ function deletAllEventListeners(): void {
 }
 
 
-function drawBackground(): void {
-    let backrgound: Path2D = new Path2D();
-    backrgound.rect(0, 0, canvas.width, canvas.height);
-    crc.fillStyle = "#92D1FF";
-    crc.strokeStyle = "#92D1FF";
-    crc.fill(backrgound);
+function renderCanvas(): void {
+    canvas.width = 1330;
+    canvas.height = 750;
+    crc.globalCompositeOperation = "destination-over";
+    crc.fillStyle = "blue";
+    crc.fillRect(0, 0, canvas.width, canvas.height);
+
+
 }
 
 
@@ -197,14 +205,15 @@ function startStopAnimation(): void {
 
 function updateObject(): void {
     if (animationCount == 2) {
-    window.setTimeout(updateObject, 1000 / fps, true);
-    crc.clearRect(0, 0, canvas.width, canvas.height);
-    crc.putImageData(imgData, 0, 0);
-    console.log("im Running");
-    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-       // console.log(placeableObjectsArray[i]);
-        placeableObjectsArray[i].updateObject();
-        }
+        renderCanvas();
+        window.setTimeout(updateObject, 1000 / fps, true);
+        crc.clearRect(0, 0, canvas.width, canvas.height);
+        crc.putImageData(imgData, 0, 0);
+        console.log("im Running");
+        for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        // console.log(placeableObjectsArray[i]);
+            placeableObjectsArray[i].updateObject();
+            }
     }
     else if (animationCount == 1) {
         window.setTimeout(updateObject, 1000 / fps, false);

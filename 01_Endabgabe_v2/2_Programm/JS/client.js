@@ -53,18 +53,21 @@ var endabgabe2;
     }
     //Neue Nutzer Daten an Server senden 
     function saveNewUser() {
-        let query = "command=registerUser";
-        let inputs = document.getElementsByTagName("input");
-        console.log(inputs);
-        if (inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "") {
-            printError("Please fill in the form to create a new user");
-            return;
+        let confirmation = confirm("Please make sure you dont use a real password, it is not safe!");
+        if (confirmation == true) {
+            let query = "command=registerUser";
+            let inputs = document.getElementsByTagName("input");
+            console.log(inputs);
+            if (inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "") {
+                printError("Please fill in the form to create a new user");
+                return;
+            }
+            query += "&name=" + inputs[0].value;
+            query += "&username=" + inputs[1].value;
+            query += "&password=" + inputs[2].value;
+            console.log(query);
+            sendRequest(query, handleUserInsertResponse);
         }
-        query += "&name=" + inputs[0].value;
-        query += "&username=" + inputs[1].value;
-        query += "&password=" + inputs[2].value;
-        console.log(query);
-        sendRequest(query, handleUserInsertResponse);
     }
     //Bei korrektem Login wird die Bild Übersicht geladen: 
     function loadUserPictureOverview() {
@@ -117,6 +120,9 @@ var endabgabe2;
         canvasColor = canvasColor.replace(re, "%23");
         //query string wird gebaut:
         endabgabe2.globalPicture = inputs[0].value;
+        endabgabe2.canvasSizeX = parseInt(inputs[1].value);
+        endabgabe2.canvasSizeY = parseInt(inputs[2].value);
+        canvasColor = inputs[3].value;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + inputs[0].value;
         query += "&canvasX=" + inputs[1].value;
@@ -147,6 +153,10 @@ var endabgabe2;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
         document.getElementById("canvasTitle").innerHTML = " ";
         document.getElementById("canvasTitle").innerHTML = endabgabe2.globalPicture;
+        //zur Sicherheit die wird das globale platzierte Objecte Array gelöscht, falls zuvor schon eine Canvas geöffnet war. 
+        for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+            endabgabe2.placeableObjectsArray.splice(i);
+        }
         endabgabe2.initCanvas();
         //hie rgeht es dann weiter in die Canvas.ts
     }

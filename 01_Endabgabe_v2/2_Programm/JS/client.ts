@@ -65,6 +65,8 @@ function newUserInit(): void {
 
 //Neue Nutzer Daten an Server senden 
 function saveNewUser(): void {
+    let confirmation: boolean = confirm("Please make sure you dont use a real password, it is not safe!");
+    if (confirmation == true) {
     let query: string = "command=registerUser";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     console.log(inputs);
@@ -75,6 +77,7 @@ function saveNewUser(): void {
     console.log(query);
 
     sendRequest(query, handleUserInsertResponse);
+    }
 }
 
 
@@ -139,6 +142,9 @@ function createNewCanvas(): void {
 
     //query string wird gebaut:
     globalPicture = inputs[0].value;
+    canvasSizeX = parseInt(inputs[1].value);
+    canvasSizeY = parseInt(inputs[2].value);
+    canvasColor = inputs[3].value;
     query += "&username=" + globalUser;
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
@@ -173,6 +179,10 @@ function initRenderNewCanvas(): void {
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
     document.getElementById("canvasTitle").innerHTML = " ";
     document.getElementById("canvasTitle").innerHTML = globalPicture;
+    //zur Sicherheit die wird das globale platzierte Objecte Array gelöscht, falls zuvor schon eine Canvas geöffnet war. 
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        placeableObjectsArray.splice(i);
+    } 
     initCanvas();
     //hie rgeht es dann weiter in die Canvas.ts
 

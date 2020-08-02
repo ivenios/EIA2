@@ -46,8 +46,8 @@ interface ChatData {
 interface CanvasData {
     owner: string;
     name: string;
-    canvasX: string;
-    canvasY: string;
+    canvasX: number;
+    canvasY: number;
     canvasColor: string; 
     placeableObjects: string;
    // imageData: ImageData;

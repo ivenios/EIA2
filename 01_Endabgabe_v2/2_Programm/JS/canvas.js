@@ -30,10 +30,8 @@ var endabgabe2;
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-        // Hier muss dann die Zahl eingetragen werden, die vom Server gezogen wird:
-        endabgabe2.canvas.width = 1330;
-        endabgabe2.canvas.height = 750;
-        drawBackground();
+        renderCanvas();
+        // Now draw!
     }
     endabgabe2.initCanvas = initCanvas;
     // CANVAS VERLASSEN
@@ -66,12 +64,12 @@ var endabgabe2;
         endabgabe2.canvas.removeEventListener("click", placeCircle);
         endabgabe2.canvas.removeEventListener("click", placeTriangel);
     }
-    function drawBackground() {
-        let backrgound = new Path2D();
-        backrgound.rect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-        endabgabe2.crc.fillStyle = "#92D1FF";
-        endabgabe2.crc.strokeStyle = "#92D1FF";
-        endabgabe2.crc.fill(backrgound);
+    function renderCanvas() {
+        endabgabe2.canvas.width = 1330;
+        endabgabe2.canvas.height = 750;
+        endabgabe2.crc.globalCompositeOperation = "destination-over";
+        endabgabe2.crc.fillStyle = "blue";
+        endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
     }
     //SUQARE
     function initPlaceSquare() {
@@ -156,6 +154,7 @@ var endabgabe2;
     }
     function updateObject() {
         if (animationCount == 2) {
+            renderCanvas();
             window.setTimeout(updateObject, 1000 / fps, true);
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             endabgabe2.crc.putImageData(imgData, 0, 0);

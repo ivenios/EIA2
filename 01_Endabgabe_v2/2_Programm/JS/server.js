@@ -51,8 +51,8 @@ function handleRequest(_request, _response) {
             let newPicture = {
                 owner: username,
                 name: pictureName,
-                canvasX: query["canvasX"],
-                canvasY: query["canvasY"],
+                canvasX: parseInt(query["canvasX"]),
+                canvasY: parseInt(query["canvasY"]),
                 canvasColor: query["canvasColor"],
                 placeableObjects: ""
                 //imageData: ImageData new 

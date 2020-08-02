@@ -61,8 +61,8 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             let newPicture: CanvasData = {
                             owner: username,
                             name: pictureName,
-                            canvasX: query["canvasX"],
-                            canvasY: query["canvasY"],
+                            canvasX: parseInt(query["canvasX"]),
+                            canvasY: parseInt(query["canvasY"]),
                             canvasColor: query["canvasColor"],
                             placeableObjects: ""
                             //imageData: ImageData new 
