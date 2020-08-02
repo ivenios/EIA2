@@ -1,3 +1,4 @@
+
 namespace endabgabe2 {
 /*
 Aufgabe: Endabgabe
@@ -14,18 +15,22 @@ export let crc: CanvasRenderingContext2D;
 export let canvas: HTMLCanvasElement;
 let fps: number = 30;
 let imgData: ImageData;
-let placeableObjectsArray: PlaceableObjects[] = [];
+let placeableObjectsArray: Square[] = [];
 
 //Trail init funkttion
 document.addEventListener("DOMContentLoaded", initCanvas);
 
 export function initCanvas(): void {
     // alle EventListener für die Buttons
-    document.getElementById("squareButt").addEventListener("click", initCanvas);
-    document.getElementById("squareButt").addEventListener("click", initCanvas);
-    document.getElementById("squareButt").addEventListener("click", initCanvas);
-    document.getElementById("squareButt").addEventListener("click", initCanvas);
-    document.getElementById("squareButt").addEventListener("click", initCanvas);
+    let square: HTMLButtonElement = <HTMLButtonElement>document.getElementById("squareButt");
+    square.addEventListener("click", initPlaceSquare);
+        
+   // document.getElementById("squareButt").addEventListener("click", placeSquare);
+    document.getElementById("circleButt").addEventListener("click", initCanvas);
+    document.getElementById("triangleButt").addEventListener("click", initCanvas);
+    document.getElementById("specialButt").addEventListener("click", initCanvas);
+    document.getElementById("deleteButt").addEventListener("click", initCanvas);
+    //document.getElementById("squareButt").addEventListener("click", initCanvas);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -56,17 +61,37 @@ function drawBackground(): void {
     crc.stroke(sol);
 }
 
-function updateObject(): void {
-    window.setTimeout(updateObject, 1000 / fps);
-    crc.clearRect(0, 0, canvas.width, canvas.height);
-    crc.putImageData(imgData, 0, 0);
+//function updateObject(): void {
+ //   window.setTimeout(time, 1000 / fps);
+//    crc.clearRect(0, 0, canvas.width, canvas.height);
+ //   crc.putImageData(imgData, 0, 0);
+//
+ //   for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+ //       console.log(placeableObjectsArray[i]);
+   //     placeableObjectsArray[i].updateObject();
+ //   }
 
-    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-        console.log(placeableObjectsArray[i]);
-        placeableObjectsArray[i].updateObject();
-    }
+//}
 
+function initPlaceSquare(): void {
+    canvas.addEventListener("click", placeSquare);
 }
+
+function placeSquare(_event: MouseEvent): void {
+    console.log(_event);
+    let x: number = _event.offsetX;
+    let y: number = _event.offsetY;
+    let squares: Square = new Square ();
+    squares.x = x;
+    squares.y = y;
+    //hier die farbe 
+    //hier die thiccness 
+    //hier die scale
+    placeableObjectsArray.push(squares);
+    squares.renderObject();
+    console.log(placeableObjectsArray);
+}
+
 
 
 }

@@ -7,14 +7,20 @@ Datum: 04.08.2020
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
-export class Square  extends Picasso {
+export class Square {
+    x: number;
+    y: number;
 
     constructor() {
-        super();
+     //;
+
     }
 
     renderObject(): void {
-        //;
+        let square: Path2D = new Path2D();
+        square.arc(this.x, this.y, 50, 50, Math.PI);
+        crc.fillStyle = "black";
+        crc.fill(square);
     }
 
     animateObject(): void {
