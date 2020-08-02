@@ -4,6 +4,7 @@
  */
 import * as Mongo from "mongodb";
 import { callbackify } from "util";
+import { promises } from "fs";
 console.log("Database starting");
 
 let databaseURL: string = "mongodb://localhost:27017";
@@ -189,12 +190,11 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
                 }
             }
         }
-        _callback("Error whilest deletion");
     }
 
 }
 
-export function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): void {
+export async function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): Promise<void> {
     users = db.collection("canvasDatabase");
     var cursor: Mongo.Cursor = users.find();
     cursor.toArray(prepareAnswer);

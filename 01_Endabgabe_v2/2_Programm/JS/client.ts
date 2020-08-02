@@ -294,6 +294,7 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
 function handleDeletionRequest(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
+        
         printError("You deleted your artwork");
         globalPicture = " ";
         loadUserPictureOverview();
