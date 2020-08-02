@@ -204,14 +204,14 @@ export function deleteCanvasFromDB(): void {
 export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): void {
     let jSONString: string = JSON.stringify(_placeableObjectsArray);
     let query: string = "command=safePicture";
-    //let hash: string = "#";
+    let hash: string = "#";
     //let quotes: string = `"`;
     query += "&username=" + globalUser;
     query += "&pictureName=" + globalPicture;
     
     query += "&placeableObjects=" + jSONString;
     // Hashtag aus query string entfernen
-    //query = query.replace(hash, "%23");
+    query = query.replace(hash, "%23");
     //query = query.replace(quotes, "%22");
     encodeURIComponent(query);
     console.log(query);
