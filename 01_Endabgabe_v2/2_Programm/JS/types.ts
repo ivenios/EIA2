@@ -49,7 +49,7 @@ interface CanvasData {
     canvasX: string;
     canvasY: string;
     canvasColor: string; 
-    placeableObjects: string[];
+    placeableObjects: string;
    // imageData: ImageData;
 
 }

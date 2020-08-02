@@ -54,7 +54,7 @@ function handleRequest(_request, _response) {
                 canvasX: query["canvasX"],
                 canvasY: query["canvasY"],
                 canvasColor: query["canvasColor"],
-                placeableObjects: []
+                placeableObjects: ""
                 //imageData: ImageData new 
             };
             Database.pushPictureCanvasToDB(findCallback, newPicture);

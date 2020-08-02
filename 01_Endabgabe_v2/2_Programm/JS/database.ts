@@ -201,12 +201,12 @@ export function deletePictureCanvasFromDB(_callback: Function, _username: string
 
 export function safePictureCanvasToDB(_callback: Function, _username: string, _pictureName: string, _objects: string ): void {
     
-    let objectJSON: string = JSON.parse(_objects);
+    //let objectJSON: string = JSON.parse(_objects);
                 
     db.collection("canvasDatabase").updateOne(
         { user: _username, name: _pictureName},
         {
-            $push: { placeableObjects: objectJSON },
+            $push: { placeableObjects: _objects },
             $currentDate: { lastModified: true }
         }
         );

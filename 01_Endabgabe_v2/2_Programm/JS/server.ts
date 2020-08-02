@@ -64,7 +64,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                             canvasX: query["canvasX"],
                             canvasY: query["canvasY"],
                             canvasColor: query["canvasColor"],
-                            placeableObjects: []
+                            placeableObjects: ""
                             //imageData: ImageData new 
 
                         };
