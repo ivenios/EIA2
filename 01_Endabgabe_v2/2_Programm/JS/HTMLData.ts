@@ -243,67 +243,82 @@ namespace endabgabe2 {
       </section>
     
         `,
-        "mainCanvasPanel": `<section class="endabgabe">
-        <main class="end-bg borderInset" style="width: auto; height: auto;">
-          <header class="end-bg header">
-            <section class="headerTop">
-              <div class="headerTitle">
-                <span>MS Paint</span>
-              </div>
-              <div>
-                <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
-                <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
-              </div>
-            </section>
-            <section class="headerTabs">
-              <button class="headerTab">File</button>
-              <button class="headerTab">Edit</button>
-              <button class="headerTab">View</button>
-              <button class="headerTab">Image</button>
-              <button class="headerTab">Colors</button>
-              <button class="headerTab">Help</button>
-            </section>
-          </header>
-          <section class="content">
-            <div class="contentMiddle">
-                <aside class="end-bg tools">
-                  <section class="toolsBox">
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id="" ></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id=""></button>
-                    <button class="end-bg borderInset toolsStyle" id="" ></button>
-                  </section>
-                </aside>
-                <canvas width="1000" height="340"></canvas>
-            </div>
-            <section class="end-bg footer">
-              <section class="footerInner">
+        "mainCanvasPanel": `
+        <section class="endabgabe">
+    <main class="end-bg borderInset" style="width: auto; height: auto;">
+      <header class="end-bg header">
+        <section class="headerTop">
+          <div class="headerTitle">
+            <span>MS Paint - <span id="canvasTitle"></span></span>
+          </div>
+          <div>
+            <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/1.png?raw=true" width="10px" alt=""></button>
+            <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/2.png?raw=true" width="10px" alt=""></button>
+            <button class="end-bg borderInset headerIcon"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/3.png?raw=true" width="10px" alt=""></button>
+          </div>
+        </section>
+        <section class="headerTabs">
+          <button class="headerTab">File</button>
+          <button class="headerTab">Edit</button>
+          <button class="headerTab">View</button>
+          <button class="headerTab">Image</button>
+          <button class="headerTab">Colors</button>
+          <button class="headerTab">Help</button>
+        </section>
+      </header>
+      <section class="content">
+        <div class="contentMiddle">
+            <aside class="end-bg tools">
+              <section class="toolsBox">
+                <button class="end-bg borderInset toolsStyle" id="squareButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/square.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id="circleButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/circle.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id="triangleButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/triangle.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id="moverButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/Mover.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id="deleteObjectButt" ><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/rubber.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/text.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/pencil.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/misc1.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/line2.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/line1.png?raw=true" width="20px" alt=""></button>
+                
               </section>
-              <hr>
-              <section class="footerBottom">
-                <div class="end-border-inset">
-                  If you need help, just use the real MS Paint you idiot.
-                </div>
-                <div class="end-border-inset"></div>
-                <div class="end-border-inset"></div>
-              </section>
-            </section>
+            </aside>
+            <canvas> </canvas>
+        </div>
+        <section class="end-bg footer">
+          <section class="footerInner">
+            <button class="norm-button" id="savePicture">Save Picture</button>
+            <button class="norm-button" id="deletePicture">Delete Picture</button>
+            <button class="norm-button" id="startAnim">Start Animation</button>
+            <button class="norm-button" id="stopAnim">Stop Animation</button>
+            <button class="norm-button" id="goBackToOverview">Quit</button>
+            <button class="norm-button" id="test">test</button>
+            <form oninput="x.value=parseInt(objectScale.value)" oninput="y.value=parseInt(animSpeed.value)" > 
+              <label for="objectColor">Object Color</label>
+              <input type="color" id="objectColor" name="canvobjectColoras" value="#000000" required><br>
+              <label for="objectScale">Object Scale</label>
+              <input type="range" min="1" max="7"  id="objectScale" name="objectScale" value="2" required><output name="x" for="objectScale">2</output> <br>
+              <label for="cars">Choose a Animation Style:</label>
+              <select id="animStyle" name="animStyle">
+                <option value="slow">Captain Slow</option>
+                <option value="stig">The Stig</option>
+                <option value="bendy">Random Bendy bit</option>
+                <option value="mayham">Mayham</option>
+              </select>
+            </form>
           </section>
-        </main>
+          <hr>
+          <section class="footerBottom">
+            <div class="end-border-inset">
+              If you need help, just use the real MS Paint you idiot.
+            </div>
+            <div class="end-border-inset"></div>
+            <div class="end-border-inset"></div>
+          </section>
+        </section>
       </section>
-    
+    </main>
+  </section>
         `,
         "dynamicErrorMSGPanel": `<section class="endabgabe">
         <main class="end-bg borderInset" style="width: 25%;">
