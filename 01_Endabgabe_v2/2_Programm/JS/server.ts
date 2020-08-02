@@ -63,7 +63,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                             name: pictureName,
                             canvasX: query["canvasX"],
                             canvasY: query["canvasY"],
-                            canvasColor: query["canvasColor"]
+                            canvasColor: query["canvasColor"],
+                            placeableObjects: []
+                            //imageData: ImageData new 
+
                         };
 
             Database.pushPictureCanvasToDB( findCallback, newPicture);
@@ -73,6 +76,14 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "deleteUserPicture":
             // leitet die Anfrage zum löschen direkt weiter an die Datenbank 
             Database.deletePictureCanvasFromDB( findCallback,  query["username"], query["pictureName"]);
+            break;
+
+        case "safePicture":
+                Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["objects"]);
+                    
+
+
+                break;
 
         default:
             respond(_response, "unknown command: " + command);

@@ -8,6 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 */
 
 
+
+
 namespace endabgabe2  {
 
 //import {htmlData form "./HTMLData"}
@@ -148,8 +150,6 @@ function createNewCanvas(): void {
 }
 
 //Funktionsstart, der das Laden einer bestehenden Canvas aus der Datenbank ermöglicht: 
-
-
 function initRenderCanvas(_event: Event): void {
     // hier muss abgefragt werden, auf welchen Button geklickt wurde
     console.log(_event);
@@ -179,6 +179,8 @@ function initRenderNewCanvas(): void {
 }
 
 
+
+
 //Darstellung der Error Messages
 function printError(_message: string): void {
     //zwischenlösung:
@@ -194,6 +196,18 @@ export function deleteCanvasFromDB(): void {
     query += "&pictureName" + globalPicture;
 
     sendRequest(query, handleDeletionRequest);
+
+}
+// Funktion zum Speichen eines bilds in der DB 
+export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): void {
+    let jSONString: string = JSON.stringify(_placeableObjectsArray);
+    let query: string = "command=safePicture";
+    query += "&username" + globalUser;
+    query += "&pictureName" + globalPicture;
+    query += "&objects" + jSONString;
+    console.log(query);
+
+    sendRequest(query, handleSafePictureResponse);
 
 }
 
@@ -280,6 +294,17 @@ function handleDeletionRequest(_event: ProgressEvent): void {
         
         
     }
+}
+
+function handleSafePictureResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        printError("Your Picture was safed!");
+
+        
+        
+    }
+
 }
 
 

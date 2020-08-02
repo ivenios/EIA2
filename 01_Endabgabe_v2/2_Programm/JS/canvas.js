@@ -26,6 +26,8 @@ var endabgabe2;
         document.getElementById("startAnim").addEventListener("click", startStopAnimation);
         document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
         document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
+        document.getElementById("savePicture").addEventListener("click", safePicture);
+        document.getElementById("test").addEventListener("click", test);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
@@ -35,14 +37,19 @@ var endabgabe2;
         drawBackground();
     }
     endabgabe2.initCanvas = initCanvas;
-    //canvas schließen
+    function test() {
+        let testquery = "Command=test";
+        testquery += JSON.stringify(placeableObjectsArray);
+        console.log(testquery);
+    }
+    // CANVAS VERLASSEN
     function goBackToOverview() {
         let confirmation = confirm("You are about to leave your artwork! Do you want to discard all chanches?");
         if (confirmation == true) {
             endabgabe2.loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
         }
     }
-    //Bild löschen 
+    //BILD LÖSCHEN
     function deleteCanvas() {
         let confirmation = confirm("You are about to delete your artwork! There is no going back!");
         if (confirmation == true) {
@@ -52,6 +59,11 @@ var endabgabe2;
             }
             // Löschen Funktion in der Client.ts
         }
+    }
+    //BILD SPEICHERN
+    function safePicture() {
+        console.log("Starting to safe Canvas");
+        endabgabe2.safePlaceableObjects(placeableObjectsArray);
     }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
     function deletAllEventListeners() {

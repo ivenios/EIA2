@@ -35,6 +35,8 @@ export function initCanvas(): void {
     document.getElementById("startAnim").addEventListener("click", startStopAnimation);
     document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
     document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
+    document.getElementById("savePicture").addEventListener("click", safePicture);
+    document.getElementById("test").addEventListener("click", test);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -48,7 +50,15 @@ export function initCanvas(): void {
 
 
 }
-//canvas schließen
+
+function test(): void {
+    let testquery: string = "Command=test";
+    
+    testquery += JSON.stringify(placeableObjectsArray);
+    console.log(testquery);
+
+}
+// CANVAS VERLASSEN
 function goBackToOverview(): void {
     let confirmation: boolean = confirm("You are about to leave your artwork! Do you want to discard all chanches?");
     if (confirmation == true) {
@@ -57,7 +67,7 @@ function goBackToOverview(): void {
     } 
 
 
-//Bild löschen 
+//BILD LÖSCHEN
 function deleteCanvas(): void {
     let confirmation: boolean = confirm("You are about to delete your artwork! There is no going back!");
     if (confirmation == true) {
@@ -70,8 +80,16 @@ function deleteCanvas(): void {
     }
 }
 
-//man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
+//BILD SPEICHERN
+function safePicture(): void {
+    console.log("Starting to safe Canvas");
+    safePlaceableObjects(placeableObjectsArray);
+    
 
+}
+
+
+//man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
 function deletAllEventListeners(): void {
     canvas.removeEventListener("click", placeSquare);
     canvas.removeEventListener("click", placeCircle);

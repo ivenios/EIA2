@@ -9,7 +9,7 @@ Note: Dieser Code wurde aus den Lektionen des Sommersemester 2019 entwandt. Auth
 */
 
 
-class Vector {
+class Vector { 
     x: number;
     y: number;
 
@@ -49,8 +49,12 @@ interface CanvasData {
     canvasX: string;
     canvasY: string;
     canvasColor: string; 
+    placeableObjects: string[];
+   // imageData: ImageData;
 
 }
+
+
 
 // Objekte 
 

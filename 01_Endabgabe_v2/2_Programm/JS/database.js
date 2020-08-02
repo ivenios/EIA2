@@ -170,6 +170,26 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
     }
 }
 exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
+function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
+    users = db.collection("canvasDatabase");
+    var cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, canvasArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i = 0; i < canvasArray.length; i++) {
+                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
+                    db.collection("Userdatabase").updateOne({ user: _username, name: _pictureName }, {
+                        $push: { placeableObjects: _objects },
+                        $currentDate: { lastModified: true }
+                    });
+                    _callback("safe postive");
+                }
+            }
+    }
+}
+exports.safePictureCanvasToDB = safePictureCanvasToDB;
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
 //  users = db.collection(_chatroom);
 //  insertMSG(_chatData);

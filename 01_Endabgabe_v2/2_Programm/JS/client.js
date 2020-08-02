@@ -164,6 +164,17 @@ var endabgabe2;
         sendRequest(query, handleDeletionRequest);
     }
     endabgabe2.deleteCanvasFromDB = deleteCanvasFromDB;
+    // Funktion zum Speichen eines bilds in der DB 
+    function safePlaceableObjects(_placeableObjectsArray) {
+        let jSONString = JSON.stringify(_placeableObjectsArray);
+        let query = "command=safePicture";
+        query += "&username" + endabgabe2.globalUser;
+        query += "&pictureName" + endabgabe2.globalPicture;
+        query += "&objects" + jSONString;
+        console.log(query);
+        sendRequest(query, handleSafePictureResponse);
+    }
+    endabgabe2.safePlaceableObjects = safePlaceableObjects;
     //ALLES SERVER RELATED: 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -238,6 +249,12 @@ var endabgabe2;
             printError("You deleted your artwork");
             endabgabe2.globalPicture = " ";
             loadUserPictureOverview();
+        }
+    }
+    function handleSafePictureResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            printError("Your Picture was safed!");
         }
     }
 })(endabgabe2 || (endabgabe2 = {}));
