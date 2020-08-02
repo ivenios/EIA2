@@ -212,6 +212,8 @@ export async function safePlaceableObjects(_placeableObjectsArray: PlaceableObje
     // Hashtag aus query string entfernen
     query = query.replace(hash, "%23");
     query = query.replace(quotes, "%22");
+    query = query.replace(hash, "%23");
+    query = query.replace(quotes, "%22");
     console.log(query);
 
     sendRequest(query, handleSafePictureResponse);
