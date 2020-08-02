@@ -162,18 +162,20 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
         if (_e)
             _callback("Error" + _e);
         else
-            for (let i = 0; i < userArray.length; i++) { //zunächst durch das UserArray nach user suchen
-                if (userArray[i].user == _username) {
-                    for (let u = 0; u < userArray[i].pictureList.length; u++) { //durch das PictureList Array und dort nach Bild namen suchen 
-                        if (userArray[i].pictureList[u] == _pictureName) {
-                            userArray[i].pictureList.splice(u); //bildnamen raus splicen 
-                            db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName }); //das Dokument aus der CanvasDatabase löschen 
-                            //jetzt sollte alles Gelöscht sein 
-                            _callback("Deletion successful");
-                        }
-                    }
-                }
-            }
+            db.collection("Userdatabase").update({ user: _username }, { $pull: { pictureList: _pictureName } });
+        db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName });
+        _callback("Deletion successful");
+        //   for (let i: number = 0; i < userArray.length; i++ ) { //zunächst durch das UserArray nach user suchen
+        //      if (userArray[i].user == _username) {
+        //         for (let u: number = 0; u < userArray[i].pictureList.length; u++) { //durch das PictureList Array und dort nach Bild namen suchen 
+        //             if (userArray[i].pictureList[u] == _pictureName) {
+        //                 userArray[i].pictureList.splice(u);  //bildnamen raus splicen 
+        //                 db.collection("canvasDatabase").deleteOne({ owner: _username, name: _pictureName}); //das Dokument aus der CanvasDatabase löschen 
+        //                 //jetzt sollte alles Gelöscht sein 
+        //                _callback("Deletion successful");
+        //             }
+        //         }
+        //     }
     }
 }
 exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
@@ -188,8 +190,8 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
             else
                 for (let i = 0; i < canvasArray.length; i++) {
                     if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
-                        db.collection("Userdatabase").updateOne({ user: _username, name: _pictureName }, {
-                            $push: { placeableObjects: _objects },
+                        db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
+                            $push: { placeableObjects: "testtest" },
                             $currentDate: { lastModified: true }
                         });
                         _callback("safe postive");
