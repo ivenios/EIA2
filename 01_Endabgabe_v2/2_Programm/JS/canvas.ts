@@ -43,9 +43,10 @@ export function initCanvas(): void {
 
     canvas = document.getElementsByTagName("canvas")[0];
     crc = canvas.getContext("2d");
+    renderCanvas();
     imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
-    renderCanvas();
+    
     
 
     
@@ -97,14 +98,23 @@ function deletAllEventListeners(): void {
 
 }
 
-
+//Aubau der canvas Größe und der Farbe
 function renderCanvas(): void {
-    canvas.width = 1330;
-    canvas.height = 750;
-    crc.globalCompositeOperation = "destination-over";
-    crc.fillStyle = "blue";
-    crc.fillRect(0, 0, canvas.width, canvas.height);
+    if (placeableObjectsArray.length == 0) {
+        canvas.width = 1330;
+        canvas.height = 750;
+        crc.globalCompositeOperation = "destination-over";
+        crc.fillStyle = "blue";
+        crc.fillRect(0, 0, canvas.width, canvas.height);
+}   else if (placeableObjectsArray.length > 1 ) {
+        canvas.width = canvasSizeX;
+        canvas.height = canvasSizeY;
+        crc.globalCompositeOperation = "destination-over";
+        crc.fillStyle = canvasColor;
+        crc.fillRect(0, 0, canvas.width, canvas.height);
+        console.log("Rendering original Objects from array");
 
+}
 
 }
 
@@ -205,10 +215,13 @@ function startStopAnimation(): void {
 
 function updateObject(): void {
     if (animationCount == 2) {
-        renderCanvas();
         window.setTimeout(updateObject, 1000 / fps, true);
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imgData, 0, 0);
+        //erneutes rendern der Hintergrund Farbe
+        crc.globalCompositeOperation = "destination-over";
+        crc.fillStyle = canvasColor;
+        crc.fillRect(0, 0, canvas.width, canvas.height);
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         // console.log(placeableObjectsArray[i]);

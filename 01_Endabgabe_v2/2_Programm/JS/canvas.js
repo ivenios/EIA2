@@ -29,8 +29,8 @@ var endabgabe2;
         document.getElementById("savePicture").addEventListener("click", safePicture);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
-        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         renderCanvas();
+        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         // Now draw!
     }
     endabgabe2.initCanvas = initCanvas;
@@ -64,12 +64,23 @@ var endabgabe2;
         endabgabe2.canvas.removeEventListener("click", placeCircle);
         endabgabe2.canvas.removeEventListener("click", placeTriangel);
     }
+    //Aubau der canvas Größe und der Farbe
     function renderCanvas() {
-        endabgabe2.canvas.width = 1330;
-        endabgabe2.canvas.height = 750;
-        endabgabe2.crc.globalCompositeOperation = "destination-over";
-        endabgabe2.crc.fillStyle = "blue";
-        endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        if (endabgabe2.placeableObjectsArray.length == 0) {
+            endabgabe2.canvas.width = 1330;
+            endabgabe2.canvas.height = 750;
+            endabgabe2.crc.globalCompositeOperation = "destination-over";
+            endabgabe2.crc.fillStyle = "blue";
+            endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        }
+        else if (endabgabe2.placeableObjectsArray.length > 1) {
+            endabgabe2.canvas.width = endabgabe2.canvasSizeX;
+            endabgabe2.canvas.height = endabgabe2.canvasSizeY;
+            endabgabe2.crc.globalCompositeOperation = "destination-over";
+            endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
+            endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            console.log("Rendering original Objects from array");
+        }
     }
     //SUQARE
     function initPlaceSquare() {
@@ -154,10 +165,13 @@ var endabgabe2;
     }
     function updateObject() {
         if (animationCount == 2) {
-            renderCanvas();
             window.setTimeout(updateObject, 1000 / fps, true);
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             endabgabe2.crc.putImageData(imgData, 0, 0);
+            //erneutes rendern der Hintergrund Farbe
+            endabgabe2.crc.globalCompositeOperation = "destination-over";
+            endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
+            endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);
