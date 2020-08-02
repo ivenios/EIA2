@@ -20,7 +20,45 @@ var endabgabe2;
             endabgabe2.crc.fill(circle);
         }
         animateObject() {
-            //;
+            if (endabgabe2.globalAnimatonType == "slow") {
+                this.x -= Math.random() * (-7 - 3) + 3;
+                this.y += Math.random() * (6 - 2) + 2;
+                if (this.x == -30) {
+                    this.x = endabgabe2.canvas.width + 50;
+                }
+                else if (this.y == -30) {
+                    this.y = endabgabe2.canvas.height + 50;
+                }
+                else if (this.x == endabgabe2.canvas.width + 50) {
+                    this.x = -30;
+                }
+                else if (this.y == endabgabe2.canvas.height + 50) {
+                    this.x = -30;
+                }
+            }
+            else if (endabgabe2.globalAnimatonType == "stig") {
+                this.x -= Math.random() * (-7 - 3) + 3;
+                this.y += Math.random() * (6 - 2) + 2;
+                if (this.x == -30) {
+                    this.x = endabgabe2.canvas.width + 50;
+                }
+                else if (this.y == -30) {
+                    this.y = endabgabe2.canvas.height + 50;
+                }
+                else if (this.x == endabgabe2.canvas.width + 50) {
+                    this.x = -30;
+                }
+                else if (this.y == endabgabe2.canvas.height + 50) {
+                    this.x = -30;
+                }
+            }
+            else if (endabgabe2.globalAnimatonType == "bendy") {
+                //;
+            }
+            else if (endabgabe2.globalAnimatonType == "mayham") {
+                //;
+                this.alterObject();
+            }
         }
         alterObject() {
             //;

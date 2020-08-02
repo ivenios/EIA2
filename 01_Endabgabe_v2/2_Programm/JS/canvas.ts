@@ -18,6 +18,7 @@ let imgData: ImageData;
 let placeableObjectsArray: PlaceableObjects[] = [];
 let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
 let animationCount: number = 1;
+export let globalAnimatonType: string;
 
 
 //Trail init funkttion
@@ -28,11 +29,12 @@ export function initCanvas(): void {
     document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
     document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
     document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
-    document.getElementById("deleteButt").addEventListener("click", initCanvas);
+    document.getElementById("deleteObjectButt").addEventListener("click", initCanvas);  //das muss noch gemacht werden 
     document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
     document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
     document.getElementById("startAnim").addEventListener("click", startStopAnimation);
     document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
+    document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -187,15 +189,21 @@ function updateObject(): void {
     crc.clearRect(0, 0, canvas.width, canvas.height);
     crc.putImageData(imgData, 0, 0);
     console.log("im Running");
-   // for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-   //     console.log(placeableObjectsArray[i]);
-   //     placeableObjectsArray[i].updateObject();
-    //    }
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+       // console.log(placeableObjectsArray[i]);
+        placeableObjectsArray[i].updateObject();
+        }
     }
     else if (animationCount == 1) {
         window.setTimeout(updateObject, 1000 / fps, false);
         crc.getImageData(0, 0, canvas.width, canvas.height);
     }
+}
+
+function globalAnimationStyle(_event: Event): void {
+    console.log(_event.srcElement.value);
+    globalAnimatonType = _event.srcElement.value;
+
 }
 
 

@@ -20,11 +20,12 @@ var endabgabe2;
         document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
         document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
         document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
-        document.getElementById("deleteButt").addEventListener("click", initCanvas);
+        document.getElementById("deleteObjectButt").addEventListener("click", initCanvas); //das muss noch gemacht werden 
         document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
         document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
         document.getElementById("startAnim").addEventListener("click", startStopAnimation);
         document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
+        document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
@@ -152,15 +153,19 @@ var endabgabe2;
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             endabgabe2.crc.putImageData(imgData, 0, 0);
             console.log("im Running");
-            // for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-            //     console.log(placeableObjectsArray[i]);
-            //     placeableObjectsArray[i].updateObject();
-            //    }
+            for (let i = 0; i < placeableObjectsArray.length; i++) {
+                // console.log(placeableObjectsArray[i]);
+                placeableObjectsArray[i].updateObject();
+            }
         }
         else if (animationCount == 1) {
             window.setTimeout(updateObject, 1000 / fps, false);
             endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         }
+    }
+    function globalAnimationStyle(_event) {
+        console.log(_event.srcElement.value);
+        endabgabe2.globalAnimatonType = _event.srcElement.value;
     }
 })(endabgabe2 || (endabgabe2 = {}));
 //# sourceMappingURL=canvas.js.map
