@@ -79,7 +79,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
 
         case "safePicture":
-                Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["objects"]);
+                Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["placeableObjects"]);
                     
 
 

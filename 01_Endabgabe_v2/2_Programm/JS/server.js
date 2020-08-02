@@ -64,7 +64,7 @@ function handleRequest(_request, _response) {
             Database.deletePictureCanvasFromDB(findCallback, query["username"], query["pictureName"]);
             break;
         case "safePicture":
-            Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["objects"]);
+            Database.safePictureCanvasToDB(findCallback, query["username"], query["pictureName"], query["placeableObjects"]);
             break;
         default:
             respond(_response, "unknown command: " + command);

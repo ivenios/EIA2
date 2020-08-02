@@ -173,11 +173,11 @@ var endabgabe2;
         //let quotes: string = `"`;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + endabgabe2.globalPicture;
-        encodeURI(jSONString);
-        query += "&objects=" + jSONString;
+        query += "&placeableObjects=" + jSONString;
         // Hashtag aus query string entfernen
         //query = query.replace(hash, "%23");
         //query = query.replace(quotes, "%22");
+        encodeURI(query);
         console.log(query);
         sendRequest(query, handleSafePictureResponse);
     }
