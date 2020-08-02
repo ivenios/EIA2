@@ -29,6 +29,7 @@ export function initCanvas(): void {
     document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
     document.getElementById("deleteButt").addEventListener("click", initCanvas);
     document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
+    document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -42,16 +43,25 @@ export function initCanvas(): void {
 
 
 }
-
+//canvas schließen
 function goBackToOverview(): void {
-    let confirmation: boolean = confirm("You are about to leave your artwork? Do you want to discard all chanches?");
+    let confirmation: boolean = confirm("You are about to leave your artwork! Do you want to discard all chanches?");
+    if (confirmation == true) {
+        loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+        }
+    } 
+
+
+//Bild löschen 
+function deleteCanvas(): void {
+    let confirmation: boolean = confirm("You are about to delete your artwork! There is no going back!");
     if (confirmation == true) {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
             placeableObjectsArray.splice(i);
-        }
-    } else {
-        loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+        } 
+        // Löschen Funktion in der Client.ts ausführen
+
     }
 }
 

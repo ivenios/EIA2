@@ -21,6 +21,7 @@ var endabgabe2;
         document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
         document.getElementById("deleteButt").addEventListener("click", initCanvas);
         document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
+        document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
@@ -30,16 +31,22 @@ var endabgabe2;
         drawBackground();
     }
     endabgabe2.initCanvas = initCanvas;
+    //canvas schließen
     function goBackToOverview() {
-        let confirmation = confirm("You are about to leave your artwork? Do you want to discard all chanches?");
+        let confirmation = confirm("You are about to leave your artwork! Do you want to discard all chanches?");
+        if (confirmation == true) {
+            endabgabe2.loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+        }
+    }
+    //Bild löschen 
+    function deleteCanvas() {
+        let confirmation = confirm("You are about to delete your artwork! There is no going back!");
         if (confirmation == true) {
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             for (let i = 0; i < placeableObjectsArray.length; i++) {
                 placeableObjectsArray.splice(i);
             }
-        }
-        else {
-            endabgabe2.loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+            // Löschen Funktion in der Client.ts ausführen
         }
     }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
