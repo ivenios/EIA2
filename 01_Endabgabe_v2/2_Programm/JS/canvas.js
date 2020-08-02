@@ -14,7 +14,7 @@ var endabgabe2;
     let canvasInfo = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
     let animationCount = 1;
     //Trail init funkttion
-    document.addEventListener("DOMContentLoaded", initCanvas);
+    //document.addEventListener("DOMContentLoaded", initCanvas);
     function initCanvas() {
         // alle EventListener für die Buttons
         document.getElementById("circleButt").addEventListener("click", initPlaceCircle);

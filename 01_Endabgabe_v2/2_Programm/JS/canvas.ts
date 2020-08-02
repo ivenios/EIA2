@@ -22,7 +22,7 @@ export let globalAnimatonType: string;
 
 
 //Trail init funkttion
-document.addEventListener("DOMContentLoaded", initCanvas);
+//document.addEventListener("DOMContentLoaded", initCanvas);
 
 export function initCanvas(): void {
     // alle EventListener für die Buttons
