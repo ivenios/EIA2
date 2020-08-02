@@ -77,7 +77,7 @@ function saveNewUser(): void {
 
 
 //Bei korrektem Login wird die Bild Übersicht geladen: 
-function loadUserPictureOverview(): void {
+export function loadUserPictureOverview(): void {
     console.log("Bild Überischt wird geladen");
     globalPicture += " ";
     document.getElementById("htmlBox").innerHTML = " ";

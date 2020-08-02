@@ -77,6 +77,7 @@ var endabgabe2;
         document.getElementById("createNewPicture").addEventListener("click", loadNewCanvasScreen);
         document.getElementById("logOut").addEventListener("click", init);
     }
+    endabgabe2.loadUserPictureOverview = loadUserPictureOverview;
     //Server anfragen um die Liste der Nutzer Bilder zu bekommen: +
     function getUserPictures() {
         let query = "command=loadPictureList";

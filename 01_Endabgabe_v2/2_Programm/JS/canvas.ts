@@ -28,7 +28,7 @@ export function initCanvas(): void {
     document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
     document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
     document.getElementById("deleteButt").addEventListener("click", initCanvas);
-    //document.getElementById("squareButt").addEventListener("click", initCanvas);
+    document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -41,6 +41,18 @@ export function initCanvas(): void {
     drawBackground();
 
 
+}
+
+function goBackToOverview(): void {
+    let confirmation: boolean = confirm("You are about to leave your artwork? Do you want to discard all chanches?");
+    if (confirmation == true) {
+        crc.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+            placeableObjectsArray.splice(i);
+        }
+    } else {
+        loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+    }
 }
 
 //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt

@@ -20,7 +20,7 @@ var endabgabe2;
         document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
         document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
         document.getElementById("deleteButt").addEventListener("click", initCanvas);
-        //document.getElementById("squareButt").addEventListener("click", initCanvas);
+        document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
@@ -30,6 +30,18 @@ var endabgabe2;
         drawBackground();
     }
     endabgabe2.initCanvas = initCanvas;
+    function goBackToOverview() {
+        let confirmation = confirm("You are about to leave your artwork? Do you want to discard all chanches?");
+        if (confirmation == true) {
+            endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            for (let i = 0; i < placeableObjectsArray.length; i++) {
+                placeableObjectsArray.splice(i);
+            }
+        }
+        else {
+            endabgabe2.loadUserPictureOverview(); // hier geht es zurück zur User Bilder Übersicht 
+        }
+    }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
     function deletAllEventListeners() {
         endabgabe2.canvas.removeEventListener("click", placeSquare);
