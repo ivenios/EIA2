@@ -177,7 +177,7 @@ var endabgabe2;
         // Hashtag aus query string entfernen
         //query = query.replace(hash, "%23");
         //query = query.replace(quotes, "%22");
-        encodeURI(query);
+        encodeURIComponent(query);
         console.log(query);
         sendRequest(query, handleSafePictureResponse);
     }
