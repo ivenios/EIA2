@@ -174,7 +174,7 @@ var endabgabe2;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + endabgabe2.globalPicture;
         // Hashtag aus query string entfernen
-        for (let i = 100; i < jSONString.length; i++) {
+        for (let i = 0; i < jSONString.length; i++) {
             // Hashtag aus query string entfernen
             jSONString = jSONString.replace(hash, "%23");
             jSONString = jSONString.replace(quotes, "%22");

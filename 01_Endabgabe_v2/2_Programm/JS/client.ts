@@ -211,7 +211,7 @@ export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] 
     
     
     // Hashtag aus query string entfernen
-    for (let i: number = 100; i < jSONString.length; i++) {
+    for (let i: number = 0; i < jSONString.length; i++) {
         // Hashtag aus query string entfernen
         jSONString = jSONString.replace(hash, "%23");
         jSONString = jSONString.replace(quotes, "%22"); }
