@@ -10,7 +10,7 @@ var endabgabe2;
     */
     let fps = 30;
     let imgData;
-    let placeableObjectsArray = [];
+    endabgabe2.placeableObjectsArray = [];
     let canvasInfo = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
     let animationCount = 1;
     //Trail init funkttion
@@ -48,8 +48,8 @@ var endabgabe2;
         let confirmation = confirm("You are about to delete your artwork! There is no going back!");
         if (confirmation == true) {
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-            for (let i = 0; i < placeableObjectsArray.length; i++) {
-                placeableObjectsArray.splice(i);
+            for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+                endabgabe2.placeableObjectsArray.splice(i);
             }
             endabgabe2.deleteCanvasFromDB();
             // Löschen Funktion in der Client.ts
@@ -58,7 +58,7 @@ var endabgabe2;
     //BILD SPEICHERN
     function safePicture() {
         console.log("Starting to safe Canvas");
-        endabgabe2.safePlaceableObjects(placeableObjectsArray);
+        endabgabe2.safePlaceableObjects(endabgabe2.placeableObjectsArray);
     }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
     function deletAllEventListeners() {
@@ -91,9 +91,9 @@ var endabgabe2;
         squares.y = y;
         squares.color = color;
         squares.scale = scale;
-        placeableObjectsArray.push(squares);
+        endabgabe2.placeableObjectsArray.push(squares);
         squares.renderObject();
-        console.log(placeableObjectsArray);
+        console.log(endabgabe2.placeableObjectsArray);
     }
     //CIRCLE
     function initPlaceCircle() {
@@ -114,9 +114,9 @@ var endabgabe2;
         circels.r = 17 * scale;
         //hier die farbe 
         //hier der Radius 
-        placeableObjectsArray.push(circels);
+        endabgabe2.placeableObjectsArray.push(circels);
         circels.renderObject();
-        console.log(placeableObjectsArray);
+        console.log(endabgabe2.placeableObjectsArray);
     }
     //DREIECK
     function initPlaceTriangel() {
@@ -137,9 +137,9 @@ var endabgabe2;
         triangels.scale = scale;
         //hier die farbe 
         //hier der Radius 
-        placeableObjectsArray.push(triangels);
+        endabgabe2.placeableObjectsArray.push(triangels);
         triangels.renderObject();
-        console.log(placeableObjectsArray);
+        console.log(endabgabe2.placeableObjectsArray);
     }
     //ANIMATION START UND STOP 
     function startStopAnimation() {
@@ -160,9 +160,9 @@ var endabgabe2;
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             endabgabe2.crc.putImageData(imgData, 0, 0);
             console.log("im Running");
-            for (let i = 0; i < placeableObjectsArray.length; i++) {
+            for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);
-                placeableObjectsArray[i].updateObject();
+                endabgabe2.placeableObjectsArray[i].updateObject();
             }
         }
         else if (animationCount == 1) {

@@ -15,7 +15,7 @@ export let crc: CanvasRenderingContext2D;
 export let canvas: HTMLCanvasElement;
 let fps: number = 30;
 let imgData: ImageData;
-let placeableObjectsArray: PlaceableObjects[] = [];
+export let placeableObjectsArray: PlaceableObjects[] = [];
 let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
 let animationCount: number = 1;
 export let globalAnimatonType: string;
