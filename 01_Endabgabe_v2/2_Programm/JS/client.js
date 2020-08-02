@@ -116,7 +116,7 @@ var endabgabe2;
         let canvasColor = inputs[3].value;
         canvasColor = canvasColor.replace(re, "%23");
         //query string wird gebaut:
-        endabgabe2.globalPicture += inputs[0].value;
+        endabgabe2.globalPicture = inputs[0].value;
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + inputs[0].value;
         query += "&canvasX=" + inputs[1].value;

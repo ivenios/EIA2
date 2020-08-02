@@ -138,7 +138,7 @@ function createNewCanvas(): void {
     canvasColor = canvasColor.replace(re, "%23");
 
     //query string wird gebaut:
-    globalPicture += inputs[0].value;
+    globalPicture = inputs[0].value;
     query += "&username=" + globalUser;
     query += "&pictureName=" + inputs[0].value;
     query += "&canvasX=" + inputs[1].value;
