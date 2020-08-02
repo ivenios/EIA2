@@ -204,16 +204,16 @@ export function deleteCanvasFromDB(): void {
 export async function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] ): Promise<void> {
     let jSONString: string = JSON.stringify(_placeableObjectsArray);
     let query: string = "command=safePicture";
-    let hash: string = "#";
-    let quotes: string = `"`;
+    //let hash: string = "#";
+    //let quotes: string = `"`;
     query += "&username=" + globalUser;
     query += "&pictureName=" + globalPicture;
+    encodeURI(jSONString);
     query += "&objects=" + jSONString;
     // Hashtag aus query string entfernen
-    query = query.replace(hash, "%23");
-    query = query.replace(quotes, "%22");
-    query = query.replace(hash, "%23");
-    query = query.replace(quotes, "%22");
+    //query = query.replace(hash, "%23");
+    //query = query.replace(quotes, "%22");
+
     console.log(query);
 
     sendRequest(query, handleSafePictureResponse);
