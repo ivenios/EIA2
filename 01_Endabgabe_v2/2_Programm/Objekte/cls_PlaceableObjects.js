@@ -7,8 +7,12 @@ var endabgabe2;
         renderObject() {
             //;
         }
+        animateObject() {
+            //;
+        }
         updateObject() {
             this.renderObject();
+            this.animateObject();
         }
     }
     endabgabe2.PlaceableObjects = PlaceableObjects;

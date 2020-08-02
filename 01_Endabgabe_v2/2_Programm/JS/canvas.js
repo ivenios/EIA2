@@ -12,6 +12,7 @@ var endabgabe2;
     let imgData;
     let placeableObjectsArray = [];
     let canvasInfo = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
+    let animationCount = 1;
     //Trail init funkttion
     document.addEventListener("DOMContentLoaded", initCanvas);
     function initCanvas() {
@@ -22,6 +23,8 @@ var endabgabe2;
         document.getElementById("deleteButt").addEventListener("click", initCanvas);
         document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
         document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
+        document.getElementById("startAnim").addEventListener("click", startStopAnimation);
+        document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
@@ -46,7 +49,7 @@ var endabgabe2;
             for (let i = 0; i < placeableObjectsArray.length; i++) {
                 placeableObjectsArray.splice(i);
             }
-            // Löschen Funktion in der Client.ts ausführen
+            // Löschen Funktion in der Client.ts
         }
     }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
@@ -62,16 +65,6 @@ var endabgabe2;
         endabgabe2.crc.strokeStyle = "#92D1FF";
         endabgabe2.crc.fill(backrgound);
     }
-    //function updateObject(): void {
-    //   window.setTimeout(time, 1000 / fps);
-    //    crc.clearRect(0, 0, canvas.width, canvas.height);
-    //   crc.putImageData(imgData, 0, 0);
-    //
-    //   for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-    //       console.log(placeableObjectsArray[i]);
-    //     placeableObjectsArray[i].updateObject();
-    //   }
-    //}
     //SUQARE
     function initPlaceSquare() {
         deletAllEventListeners();
@@ -140,6 +133,34 @@ var endabgabe2;
         triangels.renderObject();
         console.log(placeableObjectsArray);
     }
-    // Spezial
+    //ANIMATION START UND STOP 
+    function startStopAnimation() {
+        if (animationCount == 1) {
+            console.log("Starting animation");
+            animationCount++;
+            updateObject();
+        }
+        else if (animationCount > 1) {
+            console.log("Stopping Animation");
+            animationCount--;
+            updateObject();
+        }
+    }
+    function updateObject() {
+        if (animationCount == 2) {
+            window.setTimeout(updateObject, 1000 / fps, true);
+            endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            endabgabe2.crc.putImageData(imgData, 0, 0);
+            console.log("im Running");
+            // for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+            //     console.log(placeableObjectsArray[i]);
+            //     placeableObjectsArray[i].updateObject();
+            //    }
+        }
+        else if (animationCount == 1) {
+            window.setTimeout(updateObject, 1000 / fps, false);
+            endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        }
+    }
 })(endabgabe2 || (endabgabe2 = {}));
 //# sourceMappingURL=canvas.js.map

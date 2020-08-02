@@ -138,6 +138,7 @@ var endabgabe2;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
         document.getElementById("canvasTitle").innerHTML = " ";
         document.getElementById("canvasTitle").innerHTML = picID;
+        endabgabe2.initCanvas();
         // hier geht es dann weiter in die Canvas.ts
     }
     function initRenderNewCanvas() {
@@ -146,6 +147,7 @@ var endabgabe2;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
         document.getElementById("canvasTitle").innerHTML = " ";
         document.getElementById("canvasTitle").innerHTML = endabgabe2.globalPicture;
+        endabgabe2.initCanvas();
         //hie rgeht es dann weiter in die Canvas.ts
     }
     //Darstellung der Error Messages

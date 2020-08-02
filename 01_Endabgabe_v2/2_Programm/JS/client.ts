@@ -162,6 +162,7 @@ function initRenderCanvas(_event: Event): void {
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
     document.getElementById("canvasTitle").innerHTML = " ";
     document.getElementById("canvasTitle").innerHTML = picID;
+    initCanvas();
     // hier geht es dann weiter in die Canvas.ts
 
 }
@@ -172,6 +173,7 @@ function initRenderNewCanvas(): void {
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
     document.getElementById("canvasTitle").innerHTML = " ";
     document.getElementById("canvasTitle").innerHTML = globalPicture;
+    initCanvas();
     //hie rgeht es dann weiter in die Canvas.ts
 
 }

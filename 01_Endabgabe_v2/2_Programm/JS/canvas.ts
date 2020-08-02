@@ -17,6 +17,7 @@ let fps: number = 30;
 let imgData: ImageData;
 let placeableObjectsArray: PlaceableObjects[] = [];
 let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
+let animationCount: number = 1;
 
 
 //Trail init funkttion
@@ -30,6 +31,8 @@ export function initCanvas(): void {
     document.getElementById("deleteButt").addEventListener("click", initCanvas);
     document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
     document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
+    document.getElementById("startAnim").addEventListener("click", startStopAnimation);
+    document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
 
 
     canvas = document.getElementsByTagName("canvas")[0];
@@ -60,7 +63,7 @@ function deleteCanvas(): void {
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
             placeableObjectsArray.splice(i);
         } 
-        // Löschen Funktion in der Client.ts ausführen
+        // Löschen Funktion in der Client.ts
 
     }
 }
@@ -83,17 +86,7 @@ function drawBackground(): void {
     crc.fill(backrgound);
 }
 
-//function updateObject(): void {
- //   window.setTimeout(time, 1000 / fps);
-//    crc.clearRect(0, 0, canvas.width, canvas.height);
- //   crc.putImageData(imgData, 0, 0);
-//
- //   for (let i: number = 0; i < placeableObjectsArray.length; i++) {
- //       console.log(placeableObjectsArray[i]);
-   //     placeableObjectsArray[i].updateObject();
- //   }
 
-//}
  //SUQARE
 function initPlaceSquare(): void {
     deletAllEventListeners();
@@ -170,10 +163,40 @@ function placeTriangel(_event: MouseEvent): void {
     console.log(placeableObjectsArray);
 }
 
-// Spezial
+//ANIMATION START UND STOP 
+
+function startStopAnimation(): void {
+    if (animationCount == 1) {
+        console.log("Starting animation");
+        animationCount ++;
+        updateObject();
+        
+    }
+    else if (animationCount > 1) {
+        console.log("Stopping Animation");
+        animationCount --;
+        updateObject();
+    }
 
 
+}
 
+function updateObject(): void {
+    if (animationCount == 2) {
+    window.setTimeout(updateObject, 1000 / fps, true);
+    crc.clearRect(0, 0, canvas.width, canvas.height);
+    crc.putImageData(imgData, 0, 0);
+    console.log("im Running");
+   // for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+   //     console.log(placeableObjectsArray[i]);
+   //     placeableObjectsArray[i].updateObject();
+    //    }
+    }
+    else if (animationCount == 1) {
+        window.setTimeout(updateObject, 1000 / fps, false);
+        crc.getImageData(0, 0, canvas.width, canvas.height);
+    }
+}
 
 
 

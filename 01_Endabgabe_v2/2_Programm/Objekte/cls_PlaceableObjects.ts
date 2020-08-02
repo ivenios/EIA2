@@ -17,9 +17,13 @@ namespace endabgabe2 {
         renderObject(): void {
             //;
         }
+        animateObject(): void {
+            //;
+        }
     
         updateObject(): void {
             this.renderObject();
+            this.animateObject();
         }
     
     
