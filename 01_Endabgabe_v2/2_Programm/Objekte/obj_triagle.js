@@ -1,1 +1,0 @@
-//# sourceMappingURL=obj_triagle.js.map

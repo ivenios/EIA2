@@ -11,16 +11,14 @@ var endabgabe2;
     let fps = 30;
     let imgData;
     let placeableObjectsArray = [];
+    let canvasInfo = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
     //Trail init funkttion
     document.addEventListener("DOMContentLoaded", initCanvas);
     function initCanvas() {
         // alle EventListener für die Buttons
-        let square = document.getElementById("squareButt");
-        square.addEventListener("click", initPlaceSquare);
-        // document.getElementById("squareButt").addEventListener("click", placeSquare);
-        document.getElementById("circleButt").addEventListener("click", initCanvas);
-        document.getElementById("triangleButt").addEventListener("click", initCanvas);
-        document.getElementById("specialButt").addEventListener("click", initCanvas);
+        document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
+        document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
+        document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
         document.getElementById("deleteButt").addEventListener("click", initCanvas);
         //document.getElementById("squareButt").addEventListener("click", initCanvas);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
@@ -32,19 +30,18 @@ var endabgabe2;
         drawBackground();
     }
     endabgabe2.initCanvas = initCanvas;
+    //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
+    function deletAllEventListeners() {
+        endabgabe2.canvas.removeEventListener("click", placeSquare);
+        endabgabe2.canvas.removeEventListener("click", placeCircle);
+        endabgabe2.canvas.removeEventListener("click", placeTriangel);
+    }
     function drawBackground() {
-        let eau = new Path2D();
-        eau.rect(0, 0, 1330, 750);
+        let backrgound = new Path2D();
+        backrgound.rect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         endabgabe2.crc.fillStyle = "#92D1FF";
         endabgabe2.crc.strokeStyle = "#92D1FF";
-        endabgabe2.crc.fill(eau);
-        endabgabe2.crc.stroke(eau);
-        let sol = new Path2D();
-        sol.rect(0, 600, 1330, 150);
-        endabgabe2.crc.fillStyle = "#B3B237";
-        endabgabe2.crc.strokeStyle = "#B3B237";
-        endabgabe2.crc.fill(sol);
-        endabgabe2.crc.stroke(sol);
+        endabgabe2.crc.fill(backrgound);
     }
     //function updateObject(): void {
     //   window.setTimeout(time, 1000 / fps);
@@ -56,7 +53,9 @@ var endabgabe2;
     //     placeableObjectsArray[i].updateObject();
     //   }
     //}
+    //SUQARE
     function initPlaceSquare() {
+        deletAllEventListeners();
         endabgabe2.canvas.addEventListener("click", placeSquare);
     }
     function placeSquare(_event) {
@@ -73,5 +72,43 @@ var endabgabe2;
         squares.renderObject();
         console.log(placeableObjectsArray);
     }
+    //CIRCLE
+    function initPlaceCircle() {
+        deletAllEventListeners();
+        endabgabe2.canvas.addEventListener("click", placeCircle);
+    }
+    function placeCircle(_event) {
+        console.log(_event);
+        let x = _event.offsetX;
+        let y = _event.offsetY;
+        let circels = new endabgabe2.Circle();
+        circels.x = x;
+        circels.y = y;
+        circels.r = 50;
+        //hier die farbe 
+        //hier der Radius 
+        placeableObjectsArray.push(circels);
+        circels.renderObject();
+        console.log(placeableObjectsArray);
+    }
+    //DREIECK
+    function initPlaceTriangel() {
+        deletAllEventListeners();
+        endabgabe2.canvas.addEventListener("click", placeTriangel);
+    }
+    function placeTriangel(_event) {
+        console.log(_event);
+        let x = _event.offsetX;
+        let y = _event.offsetY;
+        let triangels = new endabgabe2.Triangle();
+        triangels.x = x;
+        triangels.y = y;
+        //hier die farbe 
+        //hier der Radius 
+        placeableObjectsArray.push(triangels);
+        triangels.renderObject();
+        console.log(placeableObjectsArray);
+    }
+    // Spezial
 })(endabgabe2 || (endabgabe2 = {}));
 //# sourceMappingURL=canvas.js.map

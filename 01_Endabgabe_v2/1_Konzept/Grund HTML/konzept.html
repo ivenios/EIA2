@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="./konzeptCss.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
-  <script src="../../2_Programm/Objekte/obj_square.js"></script>
   <script src="../../2_Programm/JS/canvas.js"></script>
+  <script src="../../2_Programm/Objekte/cls_PlaceableObjects.js"></script>
+  <script src="../../2_Programm/Objekte/obj_circle.js"></script>
+  <script src="../../2_Programm/Objekte/obj_square.js"></script>
+  <script src="../../2_Programm/Objekte/obj_triangel.js"></script>
   
   <title>Konzept der Hauptdatei </title>
 </head>
@@ -284,7 +287,7 @@
                 <button class="end-bg borderInset toolsStyle" id="squareButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/square.png?raw=true" width="20px" alt=""></button>
                 <button class="end-bg borderInset toolsStyle" id="circleButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/circle.png?raw=true" width="20px" alt=""></button>
                 <button class="end-bg borderInset toolsStyle" id="triangleButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/triangle.png?raw=true" width="20px" alt=""></button>
-                <button class="end-bg borderInset toolsStyle" id="specialButt"><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/special.png?raw=true" width="20px" alt=""></button>
+                <button class="end-bg borderInset toolsStyle" id=" "><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/special.png?raw=true" width="20px" alt=""></button>
                 <button class="end-bg borderInset toolsStyle" id="deleteButt" ><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/rubber.png?raw=true" width="20px" alt=""></button>
                 <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/text.png?raw=true" width="20px" alt=""></button>
                 <button class="end-bg borderInset toolsStyle" id=""><img src="https://github.com/ivenios/EIA2/blob/master/01_Endabgabe_v2/3_IMG/pencil.png?raw=true" width="20px" alt=""></button>
@@ -302,7 +305,19 @@
             <button class="norm-button" id="startAnim">Start Animation</button>
             <button class="norm-button" id="stopAnim">Stop Animation</button>
             <button class="norm-button" id="goBackToOverview">Quit</button>
-
+            <form oninput="x.value=parseInt(objectScale.value)" oninput="y.value=parseInt(animSpeed.value)" > 
+              <label for="objectColor">Object Color</label>
+              <input type="color" id="objectColor" name="canvobjectColoras" value="#ffffff" required><br>
+              <label for="objectScale">Object Scale</label>
+              <input type="range" min="1" max="7"  id="objectScale" name="objectScale" value="2" required><output name="x" for="objectScale">2</output> <br>
+              <label for="cars">Choose a Animation Style:</label>
+              <select id="animStyle" name="animStyle">
+                <option value="slow">Captain Slow</option>
+                <option value="stig">The Stig</option>
+                <option value="bendy">Random Bendy bit</option>
+                <option value="mayham">Mayham</option>
+              </select>
+            </form>
           </section>
           <hr>
           <section class="footerBottom">

@@ -15,20 +15,17 @@ export let crc: CanvasRenderingContext2D;
 export let canvas: HTMLCanvasElement;
 let fps: number = 30;
 let imgData: ImageData;
-let placeableObjectsArray: Square[] = [];
+let placeableObjectsArray: PlaceableObjects[] = [];
+let canvasInfo: CanvasData [] = []; //Array in welchem die aktuellen daten aus dem server gespeichert werden 
 
 //Trail init funkttion
 document.addEventListener("DOMContentLoaded", initCanvas);
 
 export function initCanvas(): void {
     // alle EventListener für die Buttons
-    let square: HTMLButtonElement = <HTMLButtonElement>document.getElementById("squareButt");
-    square.addEventListener("click", initPlaceSquare);
-        
-   // document.getElementById("squareButt").addEventListener("click", placeSquare);
-    document.getElementById("circleButt").addEventListener("click", initCanvas);
-    document.getElementById("triangleButt").addEventListener("click", initCanvas);
-    document.getElementById("specialButt").addEventListener("click", initCanvas);
+    document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
+    document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
+    document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
     document.getElementById("deleteButt").addEventListener("click", initCanvas);
     //document.getElementById("squareButt").addEventListener("click", initCanvas);
 
@@ -45,20 +42,22 @@ export function initCanvas(): void {
 
 }
 
+//man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
+
+function deletAllEventListeners(): void {
+    canvas.removeEventListener("click", placeSquare);
+    canvas.removeEventListener("click", placeCircle);
+    canvas.removeEventListener("click", placeTriangel);
+
+}
+
+
 function drawBackground(): void {
-    let eau: Path2D = new Path2D();
-    eau.rect(0, 0, 1330, 750);
+    let backrgound: Path2D = new Path2D();
+    backrgound.rect(0, 0, canvas.width, canvas.height);
     crc.fillStyle = "#92D1FF";
     crc.strokeStyle = "#92D1FF";
-    crc.fill(eau);
-    crc.stroke(eau);
-
-    let sol: Path2D = new Path2D();
-    sol.rect(0, 600, 1330, 150);
-    crc.fillStyle = "#B3B237";
-    crc.strokeStyle = "#B3B237";
-    crc.fill(sol);
-    crc.stroke(sol);
+    crc.fill(backrgound);
 }
 
 //function updateObject(): void {
@@ -72,8 +71,9 @@ function drawBackground(): void {
  //   }
 
 //}
-
+ //SUQARE
 function initPlaceSquare(): void {
+    deletAllEventListeners();
     canvas.addEventListener("click", placeSquare);
 }
 
@@ -91,6 +91,57 @@ function placeSquare(_event: MouseEvent): void {
     squares.renderObject();
     console.log(placeableObjectsArray);
 }
+
+
+//CIRCLE
+function initPlaceCircle(): void {
+    deletAllEventListeners();
+    canvas.addEventListener("click", placeCircle);
+}
+
+function placeCircle(_event: MouseEvent): void {
+    console.log(_event);
+    let x: number = _event.offsetX;
+    let y: number = _event.offsetY;
+    let circels: Circle = new Circle ();
+    circels.x = x;
+    circels.y = y;
+    circels.r = 50;
+    //hier die farbe 
+    //hier der Radius 
+    placeableObjectsArray.push(circels);
+    circels.renderObject();
+    console.log(placeableObjectsArray);
+}
+
+//DREIECK
+function initPlaceTriangel(): void {
+    deletAllEventListeners();
+    canvas.addEventListener("click", placeTriangel);
+}
+
+function placeTriangel(_event: MouseEvent): void {
+    console.log(_event);
+    let x: number = _event.offsetX;
+    let y: number = _event.offsetY;
+    let triangels: Triangle = new Triangle ();
+    triangels.x = x;
+    triangels.y = y;
+    //hier die farbe 
+    //hier der Radius 
+    placeableObjectsArray.push(triangels);
+    triangels.renderObject();
+    console.log(placeableObjectsArray);
+}
+
+// Spezial
+
+
+
+
+
+
+
 
 
 

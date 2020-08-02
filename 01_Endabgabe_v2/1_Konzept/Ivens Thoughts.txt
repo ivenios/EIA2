@@ -13,9 +13,9 @@ Die Endabgabe muss können:
 			[ ] Verschiebbar
 			[ ] Änderung der Farbe, Form 
 [ ] Serveranbindung 
-	[ ] Nutzererstellung 
-	[ ] Login 
-	[ ] Übersicht über erstellte Bilder 
+	[X] Nutzererstellung 
+	[X] Login 
+	[X] Übersicht über erstellte Bilder 
     [ ] Nachträgliches Öffnen bereits erstellter Bild 
 
 

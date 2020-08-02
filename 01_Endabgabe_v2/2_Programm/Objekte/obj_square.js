@@ -8,13 +8,13 @@ var endabgabe2;
         
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
     */
-    class Square {
+    class Square extends endabgabe2.PlaceableObjects {
         constructor() {
-            //;
+            super(); //;
         }
         renderObject() {
             let square = new Path2D();
-            square.arc(this.x, this.y, 50, 50, Math.PI);
+            endabgabe2.crc.fillRect(this.x, this.y, 100, 100);
             endabgabe2.crc.fillStyle = "black";
             endabgabe2.crc.fill(square);
         }

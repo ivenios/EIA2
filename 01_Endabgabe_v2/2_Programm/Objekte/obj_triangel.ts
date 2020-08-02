@@ -7,15 +7,23 @@ Datum: 04.08.2020
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
-export class Triangle extends Picasso {
+export class Triangle extends PlaceableObjects {
+    x: number;
+    y: number;
 
     constructor() {
-        super();
+        super(); //;
     }
 
     renderObject(): void {
-        //;
-    }
+        crc.beginPath();
+        crc.moveTo(this.x, this.y);
+        crc.lineTo(this.x + 125, this.y + 45);
+        crc.lineTo(this.x + 45, this.y + 125);
+        crc.closePath();
+        crc.fill();
+  }
+    
 
 
 
@@ -30,7 +38,9 @@ export class Triangle extends Picasso {
     }
 
     updateObject(): void {
-        //;
+        this.renderObject();
+        this.animateObject();
+        this.alterObject();
     }
 
 

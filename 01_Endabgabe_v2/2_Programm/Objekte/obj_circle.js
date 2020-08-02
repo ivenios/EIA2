@@ -8,12 +8,16 @@ var endabgabe2;
         
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
     */
-    class Circle extends endabgabe2.Picasso {
+    class Circle extends endabgabe2.PlaceableObjects {
         constructor() {
-            super();
+            super(); //;
         }
+        //crc.arc(x, y, radius, startAngle, endAngle, anticlockwise)
         renderObject() {
-            //;
+            let circle = new Path2D();
+            circle.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            endabgabe2.crc.fillStyle = "brown";
+            endabgabe2.crc.fill(circle);
         }
         animateObject() {
             //;
@@ -22,7 +26,9 @@ var endabgabe2;
             //;
         }
         updateObject() {
-            //;
+            this.renderObject();
+            this.animateObject();
+            this.alterObject();
         }
     }
     endabgabe2.Circle = Circle;

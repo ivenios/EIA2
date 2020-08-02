@@ -7,18 +7,18 @@ Datum: 04.08.2020
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
-export class Square {
+export class Square extends PlaceableObjects {
     x: number;
     y: number;
 
     constructor() {
-     //;
+        super(); //;
 
     }
 
     renderObject(): void {
         let square: Path2D = new Path2D();
-        square.arc(this.x, this.y, 50, 50, Math.PI);
+        crc.fillRect(this.x, this.y, 100, 100);
         crc.fillStyle = "black";
         crc.fill(square);
     }

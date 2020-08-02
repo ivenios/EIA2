@@ -8,12 +8,17 @@ var endabgabe2;
         
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
     */
-    class Triangle extends endabgabe2.Picasso {
+    class Triangle extends endabgabe2.PlaceableObjects {
         constructor() {
-            super();
+            super(); //;
         }
         renderObject() {
-            //;
+            endabgabe2.crc.beginPath();
+            endabgabe2.crc.moveTo(this.x, this.y);
+            endabgabe2.crc.lineTo(this.x + 125, this.y + 45);
+            endabgabe2.crc.lineTo(this.x + 45, this.y + 125);
+            endabgabe2.crc.closePath();
+            endabgabe2.crc.fill();
         }
         animateObject() {
             //;
@@ -22,7 +27,9 @@ var endabgabe2;
             //;
         }
         updateObject() {
-            //;
+            this.renderObject();
+            this.animateObject();
+            this.alterObject();
         }
     }
     endabgabe2.Triangle = Triangle;
