@@ -168,7 +168,7 @@ function deletePictureCanvasFromDB(_callback, _username, _pictureName) {
 exports.deletePictureCanvasFromDB = deletePictureCanvasFromDB;
 function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
     //let objectJSON: string = JSON.parse(_objects);
-    db.collection("canvasDatabase").updateOne({ user: _username, name: _pictureName }, {
+    db.collection("canvasDatabase").updateOne({ user: "Admin", name: "test save 2" }, {
         $set: { placeableObjects: _objects },
         $currentDate: { lastModified: true }
     });

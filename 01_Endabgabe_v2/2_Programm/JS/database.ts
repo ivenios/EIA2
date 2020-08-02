@@ -204,7 +204,7 @@ export function safePictureCanvasToDB(_callback: Function, _username: string, _p
     //let objectJSON: string = JSON.parse(_objects);
                 
     db.collection("canvasDatabase").updateOne(
-        { user: _username, name: _pictureName},
+        { user: "Admin", name: "test save 2"},
         {
             $set: { placeableObjects : _objects },
             $currentDate: { lastModified: true }
