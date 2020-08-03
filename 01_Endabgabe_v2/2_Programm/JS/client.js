@@ -285,7 +285,7 @@ var endabgabe2;
             // dem string fehlen nun etliche Zeichen um ihn wieder zu einem JSON zu machen, das sollte hier passieren: 
             //mit JSON.parse()
             endabgabe2.placeableObjectsArray = [];
-            //initCanvas();
+            endabgabe2.initCanvas();
             // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
             // canvasColor = loadedCanvasArray.canvasColor;
             // canvasSizeX = loadedCanvasArray.canvasX;
