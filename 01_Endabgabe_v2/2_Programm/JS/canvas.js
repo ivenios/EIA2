@@ -20,7 +20,7 @@ var endabgabe2;
         document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
         document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
         document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
-        document.getElementById("deleteObjectButt").addEventListener("click", initCanvas); //das muss noch gemacht werden 
+        document.getElementById("deleteObjectButt").addEventListener("click", initDeleteObject); //das muss noch gemacht werden 
         document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
         document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
         document.getElementById("startAnim").addEventListener("click", startStopAnimation);
@@ -72,6 +72,7 @@ var endabgabe2;
         endabgabe2.canvas.removeEventListener("click", placeSquare);
         endabgabe2.canvas.removeEventListener("click", placeCircle);
         endabgabe2.canvas.removeEventListener("click", placeTriangel);
+        endabgabe2.canvas.removeEventListener("click", deleteObject);
     }
     //Aubau der bereitsplatzierten elemente auf der Canvas
     function renderCanvas() {
@@ -115,112 +116,140 @@ var endabgabe2;
         }
     }
     endabgabe2.renderCanvas = renderCanvas;
-    //SUQARE
-    function initPlaceSquare() {
+    // Objekte Löschen: 
+    function initDeleteObject() {
         deletAllEventListeners();
-        endabgabe2.canvas.addEventListener("click", placeSquare);
+        endabgabe2.canvas.addEventListener("click", deleteObject);
     }
-    function placeSquare(_event) {
-        let inputs = document.getElementsByTagName("input");
-        console.log(inputs);
-        console.log(_event);
-        let x = _event.offsetX;
-        let y = _event.offsetY;
-        let color = inputs[0].value;
-        let scale = parseInt(inputs[1].value);
-        let squares = new endabgabe2.Square();
-        squares.type = "squares";
-        squares.x = x;
-        squares.y = y;
-        squares.color = color;
-        squares.scale = scale;
-        endabgabe2.placeableObjectsArray.push(squares);
-        squares.renderObject();
-        console.log(endabgabe2.placeableObjectsArray);
-    }
-    //CIRCLE
-    function initPlaceCircle() {
-        deletAllEventListeners();
-        endabgabe2.canvas.addEventListener("click", placeCircle);
-    }
-    function placeCircle(_event) {
-        let inputs = document.getElementsByTagName("input");
-        let color = inputs[0].value;
-        let scale = parseInt(inputs[1].value);
-        console.log(_event);
-        let x = _event.offsetX;
-        let y = _event.offsetY;
-        let circles = new endabgabe2.Circle();
-        circles.type = "circles";
-        circles.x = x;
-        circles.y = y;
-        circles.color = color;
-        circles.scale = scale; // das hier vergessen 
-        // auf den Radius wird zwar im Array nicht drauf zugegriffen, aber speichert dennoch ab 
-        circles.r = 17 * scale;
-        //hier die farbe 
-        //hier der Radius 
-        endabgabe2.placeableObjectsArray.push(circles);
-        circles.renderObject();
-        console.log(endabgabe2.placeableObjectsArray);
-    }
-    //DREIECK
-    function initPlaceTriangel() {
-        deletAllEventListeners();
-        endabgabe2.canvas.addEventListener("click", placeTriangel);
-    }
-    function placeTriangel(_event) {
-        let inputs = document.getElementsByTagName("input");
-        let color = inputs[0].value;
-        let scale = parseInt(inputs[1].value);
-        console.log(_event);
-        let x = _event.offsetX;
-        let y = _event.offsetY;
-        let triangels = new endabgabe2.Triangle();
-        triangels.type = "triangels";
-        triangels.x = x;
-        triangels.y = y;
-        triangels.color = color;
-        triangels.scale = scale;
-        //hier die farbe 
-        //hier der Radius 
-        endabgabe2.placeableObjectsArray.push(triangels);
-        triangels.renderObject();
-        console.log(endabgabe2.placeableObjectsArray);
-    }
-    //ANIMATION START UND STOP 
-    function startStopAnimation() {
-        if (animationCount == 1) {
-            console.log("Starting animation");
-            animationCount++;
-            updateObject();
+    function deleteObject(_event) {
+        for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+            let cType = endabgabe2.placeableObjectsArray[i].type;
+            switch (cType) {
+                case "squares":
+                    break;
+                case "triangels":
+                    break;
+                case "circles":
+                    let circles = new endabgabe2.Circle();
+                    circles.type = "circles";
+                    circles.x = endabgabe2.placeableObjectsArray[i].x;
+                    circles.y = endabgabe2.placeableObjectsArray[i].y;
+                    circles.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                    circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
+                    circles.renderObject();
+                    break;
+                default:
+                    break;
+            }
+            //;
         }
-        else if (animationCount > 1) {
-            console.log("Stopping Animation");
-            animationCount--;
-            updateObject();
+        //SUQARE
+        function initPlaceSquare() {
+            deletAllEventListeners();
+            endabgabe2.canvas.addEventListener("click", placeSquare);
         }
-    }
-    function updateObject() {
-        if (animationCount == 2) {
-            window.setTimeout(updateObject, 1000 / fps, true);
-            endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-            endabgabe2.crc.putImageData(imgData, 0, 0);
-            //erneutes rendern der Hintergrund Farbe
-            console.log("im Running");
-            for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
-                // console.log(placeableObjectsArray[i]);
-                endabgabe2.placeableObjectsArray[i].updateObject();
+        function placeSquare(_event) {
+            let inputs = document.getElementsByTagName("input");
+            console.log(inputs);
+            console.log(_event);
+            let x = _event.offsetX;
+            let y = _event.offsetY;
+            let color = inputs[0].value;
+            let scale = parseInt(inputs[1].value);
+            let squares = new endabgabe2.Square();
+            squares.type = "squares";
+            squares.x = x;
+            squares.y = y;
+            squares.color = color;
+            squares.scale = scale;
+            endabgabe2.placeableObjectsArray.push(squares);
+            squares.renderObject();
+            console.log(endabgabe2.placeableObjectsArray);
+        }
+        //CIRCLE
+        function initPlaceCircle() {
+            deletAllEventListeners();
+            endabgabe2.canvas.addEventListener("click", placeCircle);
+        }
+        function placeCircle(_event) {
+            let inputs = document.getElementsByTagName("input");
+            let color = inputs[0].value;
+            let scale = parseInt(inputs[1].value);
+            console.log(_event);
+            let x = _event.offsetX;
+            let y = _event.offsetY;
+            let circles = new endabgabe2.Circle();
+            circles.type = "circles";
+            circles.x = x;
+            circles.y = y;
+            circles.color = color;
+            circles.scale = scale; // das hier vergessen 
+            // auf den Radius wird zwar im Array nicht drauf zugegriffen, aber speichert dennoch ab 
+            circles.r = 17 * scale;
+            //hier die farbe 
+            //hier der Radius 
+            endabgabe2.placeableObjectsArray.push(circles);
+            circles.renderObject();
+            console.log(endabgabe2.placeableObjectsArray);
+        }
+        //DREIECK
+        function initPlaceTriangel() {
+            deletAllEventListeners();
+            endabgabe2.canvas.addEventListener("click", placeTriangel);
+        }
+        function placeTriangel(_event) {
+            let inputs = document.getElementsByTagName("input");
+            let color = inputs[0].value;
+            let scale = parseInt(inputs[1].value);
+            console.log(_event);
+            let x = _event.offsetX;
+            let y = _event.offsetY;
+            let triangels = new endabgabe2.Triangle();
+            triangels.type = "triangels";
+            triangels.x = x;
+            triangels.y = y;
+            triangels.color = color;
+            triangels.scale = scale;
+            //hier die farbe 
+            //hier der Radius 
+            endabgabe2.placeableObjectsArray.push(triangels);
+            triangels.renderObject();
+            console.log(endabgabe2.placeableObjectsArray);
+        }
+        //ANIMATION START UND STOP 
+        function startStopAnimation() {
+            if (animationCount == 1) {
+                console.log("Starting animation");
+                animationCount++;
+                updateObject();
+            }
+            else if (animationCount > 1) {
+                console.log("Stopping Animation");
+                animationCount--;
+                updateObject();
             }
         }
-        else if (animationCount == 1) {
-            window.setTimeout(updateObject, 1000 / fps, false);
-            endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        function updateObject() {
+            if (animationCount == 2) {
+                window.setTimeout(updateObject, 1000 / fps, true);
+                endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+                endabgabe2.crc.putImageData(imgData, 0, 0);
+                //erneutes rendern der Hintergrund Farbe
+                console.log("im Running");
+                for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+                    // console.log(placeableObjectsArray[i]);
+                    endabgabe2.placeableObjectsArray[i].updateObject();
+                }
+            }
+            else if (animationCount == 1) {
+                window.setTimeout(updateObject, 1000 / fps, false);
+                endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            }
         }
-    }
-    function globalAnimationStyle(_event) {
-        //console.log(_event.srcElement.value);
-        //-globalAnimatonType = _event.srcElement.value;
+        function globalAnimationStyle(_event) {
+            //console.log(_event.srcElement.value);
+            //-globalAnimatonType = _event.srcElement.value;
+        }
     }
 })(endabgabe2 || (endabgabe2 = {}));
 //# sourceMappingURL=canvas.js.map

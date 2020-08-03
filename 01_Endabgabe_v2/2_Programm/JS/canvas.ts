@@ -32,7 +32,7 @@ export function initCanvas(): void {
     document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
     document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
     document.getElementById("triangleButt").addEventListener("click", initPlaceTriangel);
-    document.getElementById("deleteObjectButt").addEventListener("click", initCanvas);  //das muss noch gemacht werden 
+    document.getElementById("deleteObjectButt").addEventListener("click", initDeleteObject);  //das muss noch gemacht werden 
     document.getElementById("goBackToOverview").addEventListener("click", goBackToOverview);
     document.getElementById("deletePicture").addEventListener("click", deleteCanvas);
     document.getElementById("startAnim").addEventListener("click", startStopAnimation);
@@ -107,6 +107,7 @@ function deletAllEventListeners(): void {
     canvas.removeEventListener("click", placeSquare);
     canvas.removeEventListener("click", placeCircle);
     canvas.removeEventListener("click", placeTriangel);
+    canvas.removeEventListener("click", deleteObject);
 
 }
 
@@ -157,6 +158,41 @@ export function renderCanvas(): void {
         
     }  
 
+}
+
+// Objekte Löschen: 
+function initDeleteObject(): void {
+    deletAllEventListeners();
+    canvas.addEventListener("click", deleteObject);
+}
+
+function deleteObject(_event: ProgressEvent): void {
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        let cType: string = placeableObjectsArray[i].type;
+        switch (cType) {
+            case "squares":
+                
+                break;
+
+            case "triangels":
+                
+                break;  
+
+            case "circles":   
+                let circles: Circle = new Circle ();
+                circles.type = "circles";
+                circles.x = placeableObjectsArray[i].x;
+                circles.y = placeableObjectsArray[i].y;
+                circles.color = "#" + placeableObjectsArray[i].color;
+                circles.r = 17 * placeableObjectsArray[i].scale ;
+
+                circles.renderObject();
+                break;
+
+            default:
+                break;
+        }
+    //;
 }
 
 
