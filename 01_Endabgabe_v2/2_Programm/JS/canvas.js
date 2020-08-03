@@ -34,6 +34,7 @@ var endabgabe2;
         document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
         document.getElementById("savePicture").addEventListener("click", safePicture);
         document.getElementById("moverButt").addEventListener("click", initMover);
+        document.getElementById("sprayerButt").addEventListener("click", initSprayer);
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
@@ -67,10 +68,13 @@ var endabgabe2;
     }
     //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
     function deletAllEventListeners() {
+        endabgabe2.canvas.removeEventListener("mousemove", moveObject);
         endabgabe2.canvas.removeEventListener("click", placeSquare);
         endabgabe2.canvas.removeEventListener("click", placeCircle);
         endabgabe2.canvas.removeEventListener("click", placeTriangel);
         endabgabe2.canvas.removeEventListener("click", deleteObject);
+        endabgabe2.canvas.removeEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+        endabgabe2.canvas.removeEventListener("mouseup", stopMover);
     }
     //Aubau der bereitsplatzierten elemente auf der Canvas
     function renderCanvas() {
@@ -190,12 +194,10 @@ var endabgabe2;
         endabgabe2.canvas.addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
     }
     function startMover() {
-        //;
         endabgabe2.canvas.addEventListener("mousemove", moveObject);
     }
     function stopMover() {
         endabgabe2.canvas.removeEventListener("mousemove", moveObject);
-        //;
     }
     function moveObject(_event) {
         let userPosX = _event.offsetX;
@@ -214,6 +216,38 @@ var endabgabe2;
                 endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
                 endabgabe2.placeableObjectsArray[i].x = _event.offsetX;
                 endabgabe2.placeableObjectsArray[i].y = _event.offsetY;
+                renderCanvas();
+            }
+        }
+    }
+    //Objekte einfärben: 
+    function initSprayer() {
+        deletAllEventListeners();
+        endabgabe2.canvas.addEventListener("mousedown", startSprayer); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+        endabgabe2.canvas.addEventListener("mouseup", stopSprayer); //verändert variable so, dass moveObject abbricht 
+    }
+    function startSprayer() {
+        endabgabe2.canvas.addEventListener("mousemove", sprayObject);
+    }
+    function stopSprayer() {
+        endabgabe2.canvas.removeEventListener("mousemove", sprayObject);
+    }
+    function sprayObject(_event) {
+        let inputs = document.getElementsByTagName("input");
+        let userPosX = _event.offsetX;
+        let userPoxY = _event.offsetY;
+        console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+        for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+            let cScale = endabgabe2.placeableObjectsArray[i].scale;
+            let ifSizeX = 0.5 * (cScale * 20);
+            let ifSizeXm = 0.5 * (cScale * 20);
+            let ifSizeY = 0.5 * (cScale * 20);
+            let ifSizeYm = 0.5 * (cScale * 20);
+            if (endabgabe2.placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+                endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+                endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+                endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
+                endabgabe2.placeableObjectsArray[i].color = inputs[0].value;
                 renderCanvas();
             }
         }

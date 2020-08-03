@@ -47,6 +47,7 @@ export function initCanvas(): void {
     document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
     document.getElementById("savePicture").addEventListener("click", safePicture);
     document.getElementById("moverButt").addEventListener("click", initMover);
+    document.getElementById("sprayerButt").addEventListener("click", initSprayer);
 
 
 
@@ -96,10 +97,13 @@ function safePicture(): void {
 
 //man benötigt noch eine Funktion, die die Canvas eventlistener immer zurücksetzt
 function deletAllEventListeners(): void {
+    canvas.removeEventListener("mousemove", moveObject);
     canvas.removeEventListener("click", placeSquare);
     canvas.removeEventListener("click", placeCircle);
     canvas.removeEventListener("click", placeTriangel);
     canvas.removeEventListener("click", deleteObject);
+    canvas.removeEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+    canvas.removeEventListener("mouseup", stopMover);
 
 }
 
@@ -240,14 +244,12 @@ function initMover(): void {
 }
 
 function startMover(): void {
-    //;
     canvas.addEventListener("mousemove", moveObject);
 
 }
 
 function stopMover(): void {
     canvas.removeEventListener("mousemove", moveObject);
-    //;
 }
 
 function moveObject(_event: MouseEvent): void {
@@ -274,6 +276,45 @@ function moveObject(_event: MouseEvent): void {
             }
         }
 }
+
+//Objekte einfärben: 
+function initSprayer(): void {
+    deletAllEventListeners();
+    canvas.addEventListener("mousedown", startSprayer); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+    canvas.addEventListener("mouseup", stopSprayer); //verändert variable so, dass moveObject abbricht 
+}
+
+function startSprayer(): void {
+    canvas.addEventListener("mousemove", sprayObject);
+
+}
+
+function stopSprayer(): void {
+    canvas.removeEventListener("mousemove", sprayObject);
+}
+function sprayObject(_event: MouseEvent): void {
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let userPosX: number = _event.offsetX;
+    let userPoxY: number = _event.offsetY;
+    console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        let cScale: number = placeableObjectsArray[i].scale;
+        let ifSizeX: number =  0.5 * (cScale * 20);
+        let ifSizeXm: number =  0.5 * (cScale * 20);
+        let ifSizeY: number = 0.5 * (cScale * 20);
+        let ifSizeYm: number = 0.5 *  (cScale * 20);  
+
+        if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+            placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+            placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+            placeableObjectsArray[i].y + ifSizeYm >= userPoxY
+            ) {
+                placeableObjectsArray[i].color = inputs[0].value;
+                renderCanvas();
+            }
+        }
+}
+
 
 
  //SUQARE
