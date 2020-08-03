@@ -98,8 +98,9 @@ function loadListFromDB(_username, _callback) {
                     if (_userArray[i].pictureList.length == 0) { //Wenn keine Bilder für diesen Nutzer angelegt sind, wird dieser Nutzer darüber benachrichtigt
                         _callback("PictureList Empty");
                     }
-                    else
+                    else if (_userArray[i].pictureList.length > 0) {
                         _callback(JSON.stringify(_userArray[i].pictureList));
+                    }
                 }
             }
     }

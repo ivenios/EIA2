@@ -227,7 +227,7 @@ export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] 
     for (let i: number = 0; i < jSONString.length; i++) {
         // Hashtag aus query string entfernen
         jSONString = jSONString.replace(hash, "");
-        
+
         jSONString = jSONString.replace(quotes, "%22");
         jSONString = jSONString.replace(space, "%20"); 
     }
@@ -335,7 +335,7 @@ function handleLoadPictureResponse(_event: ProgressEvent): void {
         console.log(loadedCanvasArray);
         // dem string fehlen nun etliche Zeichen um ihn wieder zu einem JSON zu machen, das sollte hier passieren: 
         //mit JSON.parse()
-        placeableObjectsArray = [];
+        placeableObjectsArray = JSON.parse(loadedCanvasArray[0].placeableObjects);
         initCanvas();
        // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
        // canvasColor = loadedCanvasArray.canvasColor;
