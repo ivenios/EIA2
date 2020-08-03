@@ -45,6 +45,7 @@ export function initCanvas(): void {
     document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
     document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
     document.getElementById("savePicture").addEventListener("click", safePicture);
+    document.getElementById("moverButt").addEventListener("click", initMover);
 
 
 
@@ -226,6 +227,28 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
     }
 
 }
+
+//Funktion zum bewegen der Objekte
+
+function initMover(): void {
+    deletAllEventListeners();
+    document.getElementById("canvas")!.addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation
+    document.getElementById("canvas")!.addEventListener("mousemove", moveObject);
+    document.getElementById("canvas")!.addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
+}
+
+function startMover(): void {
+    //;
+}
+
+function stopMover(): void {
+    //;
+}
+
+function moveObject(): void {
+    //;
+}
+
 
  //SUQARE
 function initPlaceSquare(): void {

@@ -32,6 +32,7 @@ var endabgabe2;
         document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
         document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
         document.getElementById("savePicture").addEventListener("click", safePicture);
+        document.getElementById("moverButt").addEventListener("click", initMover);
         endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
         endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
@@ -180,6 +181,22 @@ var endabgabe2;
             }
         //; */
         }
+    }
+    //Funktion zum bewegen der Objekte
+    function initMover() {
+        deletAllEventListeners();
+        document.getElementById("canvas").addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation
+        document.getElementById("canvas").addEventListener("mousemove", moveObject);
+        document.getElementById("canvas").addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
+    }
+    function startMover() {
+        //;
+    }
+    function stopMover() {
+        //;
+    }
+    function moveObject() {
+        //;
     }
     //SUQARE
     function initPlaceSquare() {
