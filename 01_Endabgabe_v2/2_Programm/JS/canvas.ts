@@ -1,4 +1,5 @@
 
+
 namespace endabgabe2 {
 /*
 Aufgabe: Endabgabe
@@ -166,36 +167,48 @@ function initDeleteObject(): void {
     canvas.addEventListener("click", deleteObject);
 }
 
-function deleteObject(_event: ProgressEvent): void {
+function deleteObject(_event: MouseEvent): void {
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
         switch (cType) {
-            case "squares":
+            case "squares": // 
+                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetX && 
+                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetX && 
+                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetY && 
+                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetY) {
+                    placeableObjectsArray.splice(i);
+                }
                 
                 break;
 
             case "triangels":
+                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetX && 
+                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetX && 
+                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetY && 
+                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetY) {
+                    placeableObjectsArray.splice(i);
+                }
+                
                 
                 break;  
 
             case "circles":   
-                let circles: Circle = new Circle ();
-                circles.type = "circles";
-                circles.x = placeableObjectsArray[i].x;
-                circles.y = placeableObjectsArray[i].y;
-                circles.color = "#" + placeableObjectsArray[i].color;
-                circles.r = 17 * placeableObjectsArray[i].scale ;
+                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetX && 
+                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetX && 
+                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetY && 
+                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetY) {
+                    placeableObjectsArray.splice(i);
+                }
 
-                circles.renderObject();
                 break;
 
             default:
                 break;
         }
     //;
+    }
+
 }
-
-
 
  //SUQARE
 function initPlaceSquare(): void {
