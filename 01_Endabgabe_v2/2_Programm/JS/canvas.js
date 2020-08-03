@@ -73,6 +73,7 @@ var endabgabe2;
     //Aubau der bereitsplatzierten elemente auf der Canvas
     function renderCanvas() {
         if (endabgabe2.placeableObjectsArray.length > 1) {
+            endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("Rendering original Objects from array");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
@@ -135,6 +136,8 @@ var endabgabe2;
                 endabgabe2.placeableObjectsArray[i].y - ifSizeY < userPosX &&
                 endabgabe2.placeableObjectsArray[i].y + ifSizeYm > userPosX) {
                 console.log("i caught a object");
+                endabgabe2.placeableObjectsArray.splice(i, 1);
+                renderCanvas();
             }
             /* das geht iwie net
             

@@ -102,6 +102,7 @@ function deletAllEventListeners(): void {
 //Aubau der bereitsplatzierten elemente auf der Canvas
 export function renderCanvas(): void {
     if (placeableObjectsArray.length > 1 ) {
+        crc.clearRect(0,  0, canvas.width, canvas.height);
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
@@ -161,9 +162,6 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
     
     let userPosX: number = _event.offsetX;
     let userPoxY: number = _event.offsetY;
- 
-
-
 
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
@@ -179,6 +177,9 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
             placeableObjectsArray[i].y + ifSizeYm > userPosX
             ) {
                 console.log("i caught a object");
+                placeableObjectsArray.splice(i, 1);
+                renderCanvas();
+
             }
 
 
