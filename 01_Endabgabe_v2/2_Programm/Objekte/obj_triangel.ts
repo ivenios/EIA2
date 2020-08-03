@@ -15,7 +15,7 @@ export class Triangle extends PlaceableObjects {
     }
 
     renderObject(): void {
-        crc.globalCompositeOperation = "destination-over";
+        //crc.globalCompositeOperation = "destination-over";
         crc.beginPath();
         crc.moveTo(this.x, this.y);
         crc.lineTo(this.x + 25 * this.scale, this.y + 10 * this.scale);

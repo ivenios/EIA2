@@ -44,7 +44,12 @@ export function initCanvas(): void {
     canvas = document.getElementsByTagName("canvas")[0];
     crc = canvas.getContext("2d");
     console.log(canvasColor, canvasSizeX, canvasSizeY);
-    
+    canvas.width = canvasSizeX;
+    canvas.height = canvasSizeY; 
+    crc.fillStyle = canvasColor;
+    crc.fillRect(0, 0, canvas.width, canvas.height);
+    imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
+
     renderCanvas();
     
 
@@ -102,25 +107,18 @@ function deletAllEventListeners(): void {
 
 //Aubau der canvas Größe und der Farbe
 export function renderCanvas(): void {
-    if (placeableObjectsArray.length == 0) {
+    if (placeableObjectsArray.length > 1 ) {
         canvas.width = canvasSizeX;
         canvas.height = canvasSizeY;
-        
-        crc.fillStyle = canvasColor;
-        crc.fillRect(0, 0, canvas.width, canvas.height);
-        imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
-}   else if (placeableObjectsArray.length > 1 ) {
-        canvas.width = canvasSizeX;
-        canvas.height = canvasSizeY;
-        crc.globalCompositeOperation = "destination-over";
         crc.fillStyle = canvasColor;
         crc.fillRect(0, 0, canvas.width, canvas.height);
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
+        
+    }  
 
 }
 
-}
 
 
  //SUQARE

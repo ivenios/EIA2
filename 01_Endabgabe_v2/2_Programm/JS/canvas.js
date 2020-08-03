@@ -30,6 +30,11 @@ var endabgabe2;
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
+        endabgabe2.canvas.width = endabgabe2.canvasSizeX;
+        endabgabe2.canvas.height = endabgabe2.canvasSizeY;
+        endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
+        endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         renderCanvas();
         // Now draw!
     }
@@ -66,17 +71,9 @@ var endabgabe2;
     }
     //Aubau der canvas Größe und der Farbe
     function renderCanvas() {
-        if (endabgabe2.placeableObjectsArray.length == 0) {
+        if (endabgabe2.placeableObjectsArray.length > 1) {
             endabgabe2.canvas.width = endabgabe2.canvasSizeX;
             endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-            endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
-            endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-            imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-        }
-        else if (endabgabe2.placeableObjectsArray.length > 1) {
-            endabgabe2.canvas.width = endabgabe2.canvasSizeX;
-            endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-            endabgabe2.crc.globalCompositeOperation = "destination-over";
             endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
             endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
