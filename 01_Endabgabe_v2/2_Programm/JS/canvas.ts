@@ -46,9 +46,16 @@ export function initCanvas(): void {
     console.log(canvasColor, canvasSizeX, canvasSizeY);
     canvas.width = canvasSizeX;
     canvas.height = canvasSizeY; 
-    crc.fillStyle = canvasColor;
-    crc.fillRect(0, 0, canvas.width, canvas.height);
-    imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
+    // andere Möglichkeit die farbe der Canvas zu manipulieren
+    let canvasBGColor: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas");
+
+    if (canvasBGColor.length != 0) {
+        canvasBGColor[0].style.transform = "background: " + canvasColor + ";";
+        }
+
+    //crc.fillStyle = canvasColor;
+    //crc.fillRect(0, 0, canvas.width, canvas.height);
+    //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
     renderCanvas();
     
@@ -108,10 +115,6 @@ function deletAllEventListeners(): void {
 //Aubau der canvas Größe und der Farbe
 export function renderCanvas(): void {
     if (placeableObjectsArray.length > 1 ) {
-        canvas.width = canvasSizeX;
-        canvas.height = canvasSizeY;
-        crc.fillStyle = canvasColor;
-        crc.fillRect(0, 0, canvas.width, canvas.height);
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
         
