@@ -325,14 +325,16 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
 function handleLoadPictureResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        let loadedCanvasArray: string [] = [];
+        let loadedCanvasArray: CanvasData [] = [];
         loadedCanvasArray = JSON.parse(xhr.response);
+        globalPicture =  loadedCanvasArray[0].name;
+        canvasColor = loadedCanvasArray[0].canvasColor;
+        canvasSizeX = loadedCanvasArray[0].canvasX;
+        canvasSizeY = loadedCanvasArray[0].canvasY;
         console.log(loadedCanvasArray);
+        // dem string fehlen nun etliche Zeichen um ihn wieder zu einem JSON zu machen, das sollte hier passieren: 
+        
         placeableObjectsArray = [];
-        canvasColor = "";
-        canvasSizeX = 0;
-        canvasSizeY = 0;
-        console.log(loadedCanvasArray);
         //initCanvas();
        // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
        // canvasColor = loadedCanvasArray.canvasColor;

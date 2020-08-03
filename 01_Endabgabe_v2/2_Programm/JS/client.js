@@ -277,12 +277,13 @@ var endabgabe2;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let loadedCanvasArray = [];
             loadedCanvasArray = JSON.parse(xhr.response);
+            endabgabe2.globalPicture = loadedCanvasArray[0].name;
+            endabgabe2.canvasColor = loadedCanvasArray[0].canvasColor;
+            endabgabe2.canvasSizeX = loadedCanvasArray[0].canvasX;
+            endabgabe2.canvasSizeY = loadedCanvasArray[0].canvasY;
             console.log(loadedCanvasArray);
+            // dem string fehlen nun etliche Zeichen um ihn wieder zu einem JSON zu machen, das sollte hier passieren: 
             endabgabe2.placeableObjectsArray = [];
-            endabgabe2.canvasColor = "";
-            endabgabe2.canvasSizeX = 0;
-            endabgabe2.canvasSizeY = 0;
-            console.log(loadedCanvasArray);
             //initCanvas();
             // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
             // canvasColor = loadedCanvasArray.canvasColor;
