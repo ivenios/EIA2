@@ -43,6 +43,8 @@ export function initCanvas(): void {
 
     canvas = document.getElementsByTagName("canvas")[0];
     crc = canvas.getContext("2d");
+    console.log(canvasColor, canvasSizeX, canvasSizeY);
+    
     renderCanvas();
     
 

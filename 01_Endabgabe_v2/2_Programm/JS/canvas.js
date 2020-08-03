@@ -29,6 +29,7 @@ var endabgabe2;
         document.getElementById("savePicture").addEventListener("click", safePicture);
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
+        console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
         renderCanvas();
         // Now draw!
     }
