@@ -8,15 +8,15 @@ Die Endabgabe muss können:
 		[ ] Gezielte Platzierung
 		[ ] Animiert in Farbe, Position und Größe, Rotation 
 			[ ] Verschiedene Animationsmuster
-			[ ] Nachträgliche Änderung Objektanimationen 
-			[ ] Löschbar
-			[ ] Verschiebbar
-			[ ] Änderung der Farbe, Form 
-[ ] Serveranbindung 
+			[ ] Nachträgliche Änderung Form 
+			[X] Löschbar
+			[X] Verschiebbar
+			[ ] Änderung der Farbe
+[X] Serveranbindung 
 	[X] Nutzererstellung 
 	[X] Login 
 	[X] Übersicht über erstellte Bilder 
-    [ ] Nachträgliches Öffnen bereits erstellter Bild 
+    [X] Nachträgliches Öffnen bereits erstellter Bild 
 
 
 Wierde Anforderungen: 
@@ -38,11 +38,11 @@ Naive Aproach (as usual):
     [ ] Design Konzept ->UX
     [X] Anwendungsfall Diagramme ->UX
     [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer ->UX oder draw.io
-    [ ] Datenformate konzeptionieren ->Hier 
+    [X] Datenformate konzeptionieren ->Hier 
     [X] Welche tätigkeiten muss der Server erledigen können -> Funktions Wording erstellen und beschreibung
 [X] erneut Verständnis zu heroku und MongoDB einholen
-[ ] How to Canvas 
-[ ] Schritt für schritt den Verlauf des Programmes programmieren 
+[X] How to Canvas 
+[X] Schritt für schritt den Verlauf des Programmes programmieren 
 [ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
 [ ] Vorbereitung der "Verteidigung"
 [ ] CSS Breakpoint einarbeiten 
