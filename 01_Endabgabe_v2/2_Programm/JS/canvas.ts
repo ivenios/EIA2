@@ -144,7 +144,7 @@ export function renderCanvas(): void {
                     circles.x = placeableObjectsArray[i].x;
                     circles.y = placeableObjectsArray[i].y;
                     circles.color = "#" + placeableObjectsArray[i].color;
-                    circles.r = 17 * placeableObjectsArray[i].scale;
+                    circles.r = 17 * placeableObjectsArray[i].scale ;
                     circles.renderObject();
                     break;
 
