@@ -213,7 +213,7 @@ export function safePictureCanvasToDB(_callback: Function, _username: string, _p
     }
 export function loadPictureFromDB(_callback: Function, _username: string, _pictureName: string): void {
     canvasDatabase = db.collection("canvasDatabase");
-    var cursor: Mongo.Cursor = users.find();
+    var cursor: Mongo.Cursor = canvasDatabase.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, canvasArray: CanvasData[]): void {
             if (_e)

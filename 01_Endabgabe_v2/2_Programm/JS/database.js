@@ -173,7 +173,7 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
 exports.safePictureCanvasToDB = safePictureCanvasToDB;
 function loadPictureFromDB(_callback, _username, _pictureName) {
     canvasDatabase = db.collection("canvasDatabase");
-    var cursor = users.find();
+    var cursor = canvasDatabase.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, canvasArray) {
         if (_e)
