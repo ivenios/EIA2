@@ -207,9 +207,6 @@ var endabgabe2;
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             endabgabe2.crc.putImageData(imgData, 0, 0);
             //erneutes rendern der Hintergrund Farbe
-            endabgabe2.crc.globalCompositeOperation = "destination-over";
-            endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
-            endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);

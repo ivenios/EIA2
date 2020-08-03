@@ -73,7 +73,6 @@ export class Circle extends PlaceableObjects {
     }
 
     updateObject(): void {
-        this.renderObject();
         this.animateObject();
         this.alterObject();
     }

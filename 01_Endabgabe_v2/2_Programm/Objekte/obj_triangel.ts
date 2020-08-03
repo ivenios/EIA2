@@ -77,7 +77,6 @@ export class Triangle extends PlaceableObjects {
     }
 
     updateObject(): void {
-        this.renderObject();
         this.animateObject();
         this.alterObject();
     }

@@ -67,7 +67,6 @@ var endabgabe2;
             //;
         }
         updateObject() {
-            this.renderObject();
             this.animateObject();
             this.alterObject();
         }

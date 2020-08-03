@@ -266,9 +266,6 @@ function updateObject(): void {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imgData, 0, 0);
         //erneutes rendern der Hintergrund Farbe
-        crc.globalCompositeOperation = "destination-over";
-        crc.fillStyle = canvasColor;
-        crc.fillRect(0, 0, canvas.width, canvas.height);
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         // console.log(placeableObjectsArray[i]);
