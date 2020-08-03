@@ -404,7 +404,7 @@ var endabgabe2;
     function globalAnimationStyle(_event) {
         //console.log(_event.srcElement.value);
         // globalAnimatonType = _event.options[_event.selected];
-        endabgabe2.globalAnimatonType = document.getElementById("animStyle").nodeValue;
+        endabgabe2.globalAnimatonType = document.getElementById("animStyle").value;
         console.log(endabgabe2.globalAnimatonType);
     }
 })(endabgabe2 || (endabgabe2 = {}));

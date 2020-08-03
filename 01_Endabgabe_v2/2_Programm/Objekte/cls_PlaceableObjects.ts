@@ -22,8 +22,9 @@ namespace endabgabe2 {
         }
     
         updateObject(): void {
-            this.renderObject();
             this.animateObject();
+            this.renderObject();
+
         }
     
     

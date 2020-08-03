@@ -11,8 +11,8 @@ var endabgabe2;
             //;
         }
         updateObject() {
-            this.renderObject();
             this.animateObject();
+            this.renderObject();
         }
     }
     endabgabe2.PlaceableObjects = PlaceableObjects;

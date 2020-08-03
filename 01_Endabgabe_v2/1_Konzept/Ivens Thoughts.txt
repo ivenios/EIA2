@@ -118,14 +118,7 @@ __Canvas :/
             Mayham - komplettes Chaos. schnelle bewegung und schnelle rotation. Falls alles ohne probleme funktioniert auch die Scale. 
 
 
-            if (this.x < this.size.x)
-                this.x += canvas.width;
-            if (this.y < this.size.y)
-                this.y += canvas.height;
-            if (this.x > canvas.width)
-                this.x -= canvas.width;
-            if (this.y > canvas.height)
-                this.y -= canvas.height;
+
 
 
 

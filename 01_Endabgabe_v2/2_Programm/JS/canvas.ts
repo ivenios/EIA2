@@ -491,7 +491,7 @@ function updateObject(): void {
 function globalAnimationStyle(_event: Event): void {
     //console.log(_event.srcElement.value);
    // globalAnimatonType = _event.options[_event.selected];
-   globalAnimatonType =  (<HTMLSelectElement>document.getElementById("animStyle")).nodeValue;
+   globalAnimatonType =  (<HTMLSelectElement>document.getElementById("animStyle")).value;
    console.log(globalAnimatonType);
 
 }
