@@ -387,45 +387,12 @@ var endabgabe2;
     function updateObject() {
         if (animationCount == 2) {
             window.setTimeout(updateObject, 1000 / fps, true);
-            endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-            endabgabe2.crc.putImageData(imgData, 0, 0);
-            //erneutes rendern der Hintergrund Farbe
+            // crc.clearRect(0, 0, canvas.width, canvas.height);
+            //crc.putImageData(imgData, 0, 0);
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);
-                let cType = endabgabe2.placeableObjectsArray[i].type;
-                switch (cType) {
-                    case "squares":
-                        let squares = new endabgabe2.Square();
-                        squares.type = "squares";
-                        squares.x = endabgabe2.placeableObjectsArray[i].x;
-                        squares.y = endabgabe2.placeableObjectsArray[i].y;
-                        squares.color = "#" + endabgabe2.placeableObjectsArray[i].color;
-                        squares.scale = endabgabe2.placeableObjectsArray[i].scale;
-                        squares.updateObject();
-                        break;
-                    case "triangels":
-                        let triangels = new endabgabe2.Triangle();
-                        triangels.type = "triangels";
-                        triangels.x = endabgabe2.placeableObjectsArray[i].x;
-                        triangels.y = endabgabe2.placeableObjectsArray[i].y;
-                        triangels.color = "#" + endabgabe2.placeableObjectsArray[i].color;
-                        triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
-                        triangels.updateObject();
-                        break;
-                    case "circles":
-                        let circles;
-                        circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
-                        circles.type = "circles";
-                        circles.x = endabgabe2.placeableObjectsArray[i].x;
-                        circles.y = endabgabe2.placeableObjectsArray[i].y;
-                        circles.color = "#" + endabgabe2.placeableObjectsArray[i].color;
-                        circles.updateObject();
-                        break;
-                    default:
-                        break;
-                }
-                renderCanvas();
+                endabgabe2.placeableObjectsArray[i].updateObject();
             }
         }
         else if (animationCount == 1) {

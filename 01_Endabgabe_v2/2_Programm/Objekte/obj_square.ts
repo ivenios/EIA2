@@ -31,6 +31,8 @@ export class Square extends PlaceableObjects {
             if (this.x > canvas.width) {this.x -= canvas.width; }
                 
             if (this.y > canvas.height) {this.y -= canvas.height; }
+
+            
                 
 
         }
