@@ -18,6 +18,7 @@ export class Circle extends PlaceableObjects {
     //crc.arc(x, y, radius, startAngle, endAngle, anticlockwise)
     renderObject(): void {
         let circle: Path2D = new Path2D();
+        crc.globalCompositeOperation = "destination-over";
         circle.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         crc.fillStyle = this.color;
         crc.fill(circle);

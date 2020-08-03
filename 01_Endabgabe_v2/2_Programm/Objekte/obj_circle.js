@@ -15,6 +15,7 @@ var endabgabe2;
         //crc.arc(x, y, radius, startAngle, endAngle, anticlockwise)
         renderObject() {
             let circle = new Path2D();
+            endabgabe2.crc.globalCompositeOperation = "destination-over";
             circle.arc(this.x, this.y, this.r, 0, Math.PI * 2);
             endabgabe2.crc.fillStyle = this.color;
             endabgabe2.crc.fill(circle);

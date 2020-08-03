@@ -13,6 +13,7 @@ var endabgabe2;
             super(); //;
         }
         renderObject() {
+            endabgabe2.crc.globalCompositeOperation = "destination-over";
             endabgabe2.crc.beginPath();
             endabgabe2.crc.moveTo(this.x, this.y);
             endabgabe2.crc.lineTo(this.x + 25 * this.scale, this.y + 10 * this.scale);

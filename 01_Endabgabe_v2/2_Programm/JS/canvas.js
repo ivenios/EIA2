@@ -69,7 +69,6 @@ var endabgabe2;
         if (endabgabe2.placeableObjectsArray.length == 0) {
             endabgabe2.canvas.width = endabgabe2.canvasSizeX;
             endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-            endabgabe2.crc.globalCompositeOperation = "destination-over";
             endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
             endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);

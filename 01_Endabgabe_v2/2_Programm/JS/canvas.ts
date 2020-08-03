@@ -105,7 +105,7 @@ export function renderCanvas(): void {
     if (placeableObjectsArray.length == 0) {
         canvas.width = canvasSizeX;
         canvas.height = canvasSizeY;
-        crc.globalCompositeOperation = "destination-over";
+        
         crc.fillStyle = canvasColor;
         crc.fillRect(0, 0, canvas.width, canvas.height);
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);

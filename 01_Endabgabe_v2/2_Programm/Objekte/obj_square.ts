@@ -18,6 +18,7 @@ export class Square extends PlaceableObjects {
 
     renderObject(): void {
         let square: Path2D = new Path2D();
+        crc.globalCompositeOperation = "destination-over";
         crc.fillRect(this.x, this.y, this.scale * 15 , this.scale * 15);
         crc.fillStyle = this.color;
         crc.fill(square);
