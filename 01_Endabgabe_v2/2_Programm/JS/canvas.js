@@ -404,7 +404,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+                                endabgabe2.placeableObjectsArray[i].x -= Math.random() * (7 - 3) + 3;
                             if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
@@ -450,6 +450,7 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                             //;
                         }
                         else if (endabgabe2.globalAnimatonType == "mayham") {
@@ -469,8 +470,8 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                            //triangels.color = color;
-                            // triangels.scale = scale;
+                            endabgabe2.placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
                         }
                         break;
                     case "squares":
@@ -500,7 +501,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+                                endabgabe2.placeableObjectsArray[i].x += Math.random() * (17 - 12) + 12;
                             if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
@@ -528,7 +529,7 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
-                            //;
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                         }
                         else if (endabgabe2.globalAnimatonType == "mayham") {
                             if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
@@ -547,8 +548,8 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                            //triangels.color = color;
-                            // triangels.scale = scale;
+                            endabgabe2.placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
                         }
                         break;
                     case "circles":
@@ -578,7 +579,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+                                endabgabe2.placeableObjectsArray[i].x += Math.random() * (17 - 12) + 12;
                             if (endabgabe2.placeableObjectsArray[i].y == endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
@@ -606,7 +607,7 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
-                            //;
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                         }
                         else if (endabgabe2.globalAnimatonType == "mayham") {
                             if (endabgabe2.placeableObjectsArray[i].x == endabgabe2.canvas.width) {
@@ -625,8 +626,8 @@ var endabgabe2;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                            //triangels.color = color;
-                            // triangels.scale = scale;
+                            endabgabe2.placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                            endabgabe2.placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
                         }
                         break;
                     default:

@@ -490,7 +490,7 @@ function updateObject(): void {
                     else if (placeableObjectsArray[i].x <= 0) {
                         placeableObjectsArray[i].x += canvas.width + 30;
                     } else
-                    placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+                    placeableObjectsArray[i].x -= Math.random() * (7 - 3) + 3;
 
                     if (placeableObjectsArray[i].y >= canvas.height) {
                         placeableObjectsArray[i].y -= canvas.height + 30 ;
@@ -540,6 +540,7 @@ function updateObject(): void {
                         placeableObjectsArray[i].x += canvas.height + 30;
                     } else
                     placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                    placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                     //;
                 } else if (globalAnimatonType == "mayham") {
                     if (placeableObjectsArray[i].x >= canvas.width) {
@@ -559,8 +560,8 @@ function updateObject(): void {
                         placeableObjectsArray[i].x += canvas.height + 30;
                     } else
                     placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                    //triangels.color = color;
-                   // triangels.scale = scale;
+                    placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                    placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
                 }
 
 
@@ -595,7 +596,7 @@ function updateObject(): void {
                         else if (placeableObjectsArray[i].x <= 0) {
                             placeableObjectsArray[i].x += canvas.width + 30;
                         } else
-                        placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+                        placeableObjectsArray[i].x += Math.random() * (17 - 12) + 12;
     
                         if (placeableObjectsArray[i].y >= canvas.height) {
                             placeableObjectsArray[i].y -= canvas.height + 30 ;
@@ -624,7 +625,7 @@ function updateObject(): void {
                             placeableObjectsArray[i].x += canvas.height + 30;
                         } else
                         placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
-                        //;
+                        placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                     } else if (globalAnimatonType == "mayham") {
                         if (placeableObjectsArray[i].x >= canvas.width) {
                             placeableObjectsArray[i].x -= canvas.width + 30 ;
@@ -643,8 +644,8 @@ function updateObject(): void {
                             placeableObjectsArray[i].x += canvas.height + 30;
                         } else
                         placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                        //triangels.color = color;
-                       // triangels.scale = scale;
+                        placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                        placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
                     }
                     break;
  
@@ -679,7 +680,7 @@ function updateObject(): void {
                 else if (placeableObjectsArray[i].x == 0) {
                     placeableObjectsArray[i].x += canvas.width + 30;
                 } else
-                placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+                placeableObjectsArray[i].x += Math.random() * (17 - 12) + 12;
 
                 if (placeableObjectsArray[i].y == canvas.height) {
                     placeableObjectsArray[i].y -= canvas.height + 30 ;
@@ -708,7 +709,7 @@ function updateObject(): void {
                     placeableObjectsArray[i].x += canvas.height + 30;
                 } else
                 placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
-                //;
+                placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
             } else if (globalAnimatonType == "mayham") {
                 if (placeableObjectsArray[i].x == canvas.width) {
                     placeableObjectsArray[i].x -= canvas.width + 30 ;
@@ -727,11 +728,11 @@ function updateObject(): void {
                     placeableObjectsArray[i].x += canvas.height + 30;
                 } else
                 placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
-                //triangels.color = color;
-               // triangels.scale = scale;
+                placeableObjectsArray[i].color = Math.floor(Math.random() * 16777215).toString(16);
+                placeableObjectsArray[i].scale = Math.random() * (7 - 1) + 1;
             }  
                 
-                break;
+            break;
 
             default:
                 break;
