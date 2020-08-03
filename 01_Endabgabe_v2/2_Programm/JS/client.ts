@@ -168,7 +168,8 @@ function initRenderCanvas(_event: Event): void {
     document.getElementById("htmlBox").innerHTML = htmlData["mainCanvasPanel"];
     document.getElementById("canvasTitle").innerHTML = " ";
     document.getElementById("canvasTitle").innerHTML = picID;
-    initCanvas();
+    getCanvasData();
+    
     // hier geht es dann weiter in die Canvas.ts
 
 }
@@ -183,7 +184,7 @@ function initRenderNewCanvas(): void {
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         placeableObjectsArray.splice(i);
     } 
-    getCanvasData();
+    initCanvas();
   
     //hie rgeht es dann weiter in die Canvas.ts
 
@@ -336,7 +337,7 @@ function handleLoadPictureResponse(_event: ProgressEvent): void {
        // canvasColor = loadedCanvasArray.canvasColor;
        // canvasSizeX = loadedCanvasArray.canvasX;
        // canvasSizeY = loadedCanvasArray.canvasY;
-       // initCanvas();
+        initCanvas();
     }
 
 }

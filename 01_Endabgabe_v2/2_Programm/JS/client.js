@@ -144,7 +144,7 @@ var endabgabe2;
         document.getElementById("htmlBox").innerHTML = endabgabe2.htmlData["mainCanvasPanel"];
         document.getElementById("canvasTitle").innerHTML = " ";
         document.getElementById("canvasTitle").innerHTML = picID;
-        endabgabe2.initCanvas();
+        getCanvasData();
         // hier geht es dann weiter in die Canvas.ts
     }
     function initRenderNewCanvas() {
@@ -157,7 +157,7 @@ var endabgabe2;
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             endabgabe2.placeableObjectsArray.splice(i);
         }
-        getCanvasData();
+        endabgabe2.initCanvas();
         //hie rgeht es dann weiter in die Canvas.ts
     }
     //Darstellung der Error Messages
@@ -286,7 +286,7 @@ var endabgabe2;
             // canvasColor = loadedCanvasArray.canvasColor;
             // canvasSizeX = loadedCanvasArray.canvasX;
             // canvasSizeY = loadedCanvasArray.canvasY;
-            // initCanvas();
+            endabgabe2.initCanvas();
         }
     }
     //funktion die nach erfolgreichem löschen gestertet wird: 
