@@ -277,16 +277,17 @@ var endabgabe2;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let loadedCanvasArray = [];
             loadedCanvasArray = JSON.parse(xhr.response);
+            console.log(loadedCanvasArray);
             endabgabe2.placeableObjectsArray = [];
             endabgabe2.canvasColor = "";
             endabgabe2.canvasSizeX = 0;
             endabgabe2.canvasSizeY = 0;
             console.log(loadedCanvasArray);
+            //initCanvas();
             // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
             // canvasColor = loadedCanvasArray.canvasColor;
             // canvasSizeX = loadedCanvasArray.canvasX;
             // canvasSizeY = loadedCanvasArray.canvasY;
-            endabgabe2.initCanvas();
         }
     }
     //funktion die nach erfolgreichem löschen gestertet wird: 

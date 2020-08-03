@@ -325,19 +325,20 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
 function handleLoadPictureResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        let loadedCanvasArray: CanvasData[] = [];
+        let loadedCanvasArray: string [] = [];
         loadedCanvasArray = JSON.parse(xhr.response);
+        console.log(loadedCanvasArray);
         placeableObjectsArray = [];
         canvasColor = "";
         canvasSizeX = 0;
         canvasSizeY = 0;
         console.log(loadedCanvasArray);
-        
+        //initCanvas();
        // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
        // canvasColor = loadedCanvasArray.canvasColor;
        // canvasSizeX = loadedCanvasArray.canvasX;
        // canvasSizeY = loadedCanvasArray.canvasY;
-        initCanvas();
+        
     }
 
 }
