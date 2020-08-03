@@ -68,6 +68,9 @@ function handleRequest(_request, _response) {
             let _pic = query["pictureName"];
             Database.safePictureCanvasToDB(findCallback, _user, _pic, query["placeableObjects"]);
             break;
+        case "loadSelectedPicture":
+            Database.loadPictureFromDB(findCallback, query["username"], query["pictureName"]);
+            break;
         default:
             respond(_response, "unknown command: " + command);
             break;

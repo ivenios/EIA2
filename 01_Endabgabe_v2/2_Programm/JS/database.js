@@ -28,10 +28,6 @@ function handleConnect(_e, _client) {
         db = _client.db(databaseName);
     }
 }
-function insertMSG(_doc) {
-    users.insertOne(_doc, handleInsert);
-}
-exports.insertMSG = insertMSG;
 // insertion-handler receives an error object as standard parameter
 function handleInsert(_e) {
     console.log("Database insertion returned -> " + _e);
@@ -175,6 +171,22 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
     _callback("safe postive");
 }
 exports.safePictureCanvasToDB = safePictureCanvasToDB;
+function loadPictureFromDB(_callback, _username, _pictureName) {
+    canvasDatabase = db.collection("canvasDatabase");
+    var cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, canvasArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i; i < canvasArray.length; i++) {
+                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
+                    _callback(JSON.stringify(canvasArray[i]));
+                }
+            }
+    }
+}
+exports.loadPictureFromDB = loadPictureFromDB;
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
 //  users = db.collection(_chatroom);
 //  insertMSG(_chatData);

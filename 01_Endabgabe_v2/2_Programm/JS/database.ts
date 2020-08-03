@@ -35,10 +35,6 @@ function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
 }
 
 
-export function insertMSG(_doc: ChatData): void {
-
-    users.insertOne(_doc, handleInsert);
-}
 
 // insertion-handler receives an error object as standard parameter
 function handleInsert(_e: Mongo.MongoError): void {
@@ -214,13 +210,27 @@ export function safePictureCanvasToDB(_callback: Function, _username: string, _p
 
     _callback("safe postive");
 
-        
-
-
-
     }
+export function loadPictureFromDB(_callback: Function, _username: string, _pictureName: string): void {
+    canvasDatabase = db.collection("canvasDatabase");
+    var cursor: Mongo.Cursor = users.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e: Mongo.MongoError, canvasArray: CanvasData[]): void {
+            if (_e)
+                _callback("Error" + _e);
+            else
+
+            for (let i: number; i < canvasArray.length; i++) {
+                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
+                    _callback(JSON.stringify(canvasArray[i]));
+                }
+
+            }
 
 
+    }   
+
+}
 
 //export function insertNewMSG(_chatroom: string, _chatData: ChatData, _callback: Function): void {
   //  users = db.collection(_chatroom);

@@ -157,7 +157,7 @@ var endabgabe2;
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             endabgabe2.placeableObjectsArray.splice(i);
         }
-        endabgabe2.initCanvas();
+        getCanvasData();
         //hie rgeht es dann weiter in die Canvas.ts
     }
     //Darstellung der Error Messages
@@ -195,6 +195,14 @@ var endabgabe2;
         sendRequest(query, handleSafePictureResponse);
     }
     endabgabe2.safePlaceableObjects = safePlaceableObjects;
+    //funktion die von Canvas gestratet wird, die die Daten der Canvas herhohlt 
+    function getCanvasData() {
+        let query = "command=loadSelectedPicture";
+        query += "&username=" + endabgabe2.globalUser;
+        query += "&pictureName=" + endabgabe2.globalPicture;
+        console.log("sending request to server" + query);
+        sendRequest(query, handleLoadPictureResponse);
+    }
     //ALLES SERVER RELATED: 
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -260,6 +268,23 @@ var endabgabe2;
                 printError("You already have a picture with this name! Please be more creative.");
                 loadNewCanvasScreen();
             }
+        }
+    }
+    function handleLoadPictureResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let loadedCanvasArray = [];
+            loadedCanvasArray = JSON.parse(xhr.response);
+            endabgabe2.placeableObjectsArray = [];
+            endabgabe2.canvasColor = "";
+            endabgabe2.canvasSizeX = 0;
+            endabgabe2.canvasSizeY = 0;
+            console.log(loadedCanvasArray);
+            // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
+            // canvasColor = loadedCanvasArray.canvasColor;
+            // canvasSizeX = loadedCanvasArray.canvasX;
+            // canvasSizeY = loadedCanvasArray.canvasY;
+            // initCanvas();
         }
     }
     //funktion die nach erfolgreichem löschen gestertet wird: 

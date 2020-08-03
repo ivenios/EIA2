@@ -36,12 +36,7 @@ interface UserData {
     pictureList: string[];
 }
 
-interface ChatData {
-    user: string;
-    time: string;
-    msg: string;
- 
-}
+
 
 interface CanvasData {
     owner: string;

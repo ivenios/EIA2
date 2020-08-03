@@ -82,6 +82,7 @@ var endabgabe2;
             console.log("Rendering original Objects from array");
         }
     }
+    endabgabe2.renderCanvas = renderCanvas;
     //SUQARE
     function initPlaceSquare() {
         deletAllEventListeners();

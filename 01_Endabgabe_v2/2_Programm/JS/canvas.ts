@@ -99,7 +99,7 @@ function deletAllEventListeners(): void {
 }
 
 //Aubau der canvas Größe und der Farbe
-function renderCanvas(): void {
+export function renderCanvas(): void {
     if (placeableObjectsArray.length == 0) {
         canvas.width = canvasSizeX;
         canvas.height = canvasSizeY;

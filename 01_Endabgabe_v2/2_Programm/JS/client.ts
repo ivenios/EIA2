@@ -183,7 +183,8 @@ function initRenderNewCanvas(): void {
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         placeableObjectsArray.splice(i);
     } 
-    initCanvas();
+    getCanvasData();
+  
     //hie rgeht es dann weiter in die Canvas.ts
 
 }
@@ -231,6 +232,16 @@ export function safePlaceableObjects(_placeableObjectsArray: PlaceableObjects[] 
     console.log(query);
 
     sendRequest(query, handleSafePictureResponse);
+
+}
+//funktion die von Canvas gestratet wird, die die Daten der Canvas herhohlt 
+function getCanvasData(): void {
+    let query: string = "command=loadSelectedPicture";
+    query += "&username=" + globalUser;
+    query += "&pictureName=" + globalPicture;
+    console.log("sending request to server" + query);
+
+    sendRequest(query, handleLoadPictureResponse);
 
 }
 
@@ -305,6 +316,26 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
         }
         
     }
+}
+
+function handleLoadPictureResponse(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        let loadedCanvasArray: CanvasData[] = [];
+        loadedCanvasArray = JSON.parse(xhr.response);
+        placeableObjectsArray = [];
+        canvasColor = "";
+        canvasSizeX = 0;
+        canvasSizeY = 0;
+        console.log(loadedCanvasArray);
+        
+       // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
+       // canvasColor = loadedCanvasArray.canvasColor;
+       // canvasSizeX = loadedCanvasArray.canvasX;
+       // canvasSizeY = loadedCanvasArray.canvasY;
+       // initCanvas();
+    }
+
 }
 
 //funktion die nach erfolgreichem löschen gestertet wird: 

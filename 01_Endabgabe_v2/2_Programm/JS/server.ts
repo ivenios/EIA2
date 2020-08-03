@@ -82,8 +82,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             let _user: string = query["username"];
             let _pic: string = query["pictureName"];
             Database.safePictureCanvasToDB(findCallback, _user, _pic , query["placeableObjects"]);
-                    
-
+            break;
+        case "loadSelectedPicture":
+              
+            Database.loadPictureFromDB(findCallback, query["username"], query["pictureName"] );
 
             break;
 
