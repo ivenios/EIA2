@@ -136,7 +136,7 @@ export function renderCanvas(): void {
                     triangels.color = "#" + placeableObjectsArray[i].color;
                     triangels.scale = placeableObjectsArray[i].scale;
                     triangels.renderObject();
-                    break;
+                    break;  
 
                 case "circles":   
                     let circles: Circle = new Circle ();
