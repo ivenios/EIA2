@@ -171,7 +171,7 @@ function deleteObject(_event: MouseEvent): void {
         console.log(i, ifSizeYm);
         switch (cType) {
             case "squares": // 
-                if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
+                if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm) {
                     console.log("deleting Square");
                     placeableObjectsArray.splice(i);
                     renderCanvas();
