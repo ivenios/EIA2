@@ -128,7 +128,7 @@ export function renderCanvas(): void {
                     squares.renderObject();
                     break;
 
-                case "circels":
+                case "triangels":
                     let triangels: Square = new Square ();
                     triangels.type = "triangels";
                     triangels.x = placeableObjectsArray[i].x;
@@ -138,7 +138,7 @@ export function renderCanvas(): void {
                     triangels.renderObject();
                     break;
 
-                case "triangels":   
+                case "circels":   
                     let circels: Circle = new Circle ();
                     circels.type = "circels";
                     circels.x = placeableObjectsArray[i].x;

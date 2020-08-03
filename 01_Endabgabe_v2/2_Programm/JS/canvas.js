@@ -90,7 +90,7 @@ var endabgabe2;
                         squares.scale = endabgabe2.placeableObjectsArray[i].scale;
                         squares.renderObject();
                         break;
-                    case "circels":
+                    case "triangels":
                         let triangels = new endabgabe2.Square();
                         triangels.type = "triangels";
                         triangels.x = endabgabe2.placeableObjectsArray[i].x;
@@ -99,7 +99,7 @@ var endabgabe2;
                         triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
                         triangels.renderObject();
                         break;
-                    case "triangels":
+                    case "circels":
                         let circels = new endabgabe2.Circle();
                         circels.type = "circels";
                         circels.x = endabgabe2.placeableObjectsArray[i].x;
