@@ -21,6 +21,7 @@ var endabgabe2;
         console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
         endabgabe2.canvas.width = endabgabe2.canvasSizeX;
         endabgabe2.canvas.height = endabgabe2.canvasSizeY;
+        endabgabe2.canvas.style.backgroundColor = endabgabe2.canvasColor;
         // alle EventListener für die Buttons
         document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
         document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
@@ -33,10 +34,6 @@ var endabgabe2;
         document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
         document.getElementById("savePicture").addEventListener("click", safePicture);
         document.getElementById("moverButt").addEventListener("click", initMover);
-        let canvasBG = document.getElementsByTagName("canvas");
-        if (canvasBG.length != 0) {
-            canvasBG[0].style.background = endabgabe2.canvasColor;
-        }
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
@@ -132,10 +129,10 @@ var endabgabe2;
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
-            let ifSizeX = 0.5 * (cScale * 15);
-            let ifSizeXm = 0.5 * (cScale * 15);
-            let ifSizeY = 0.5 * (cScale * 15);
-            let ifSizeYm = 0.5 * (cScale * 15);
+            let ifSizeX = 0.5 * (cScale * 20);
+            let ifSizeXm = 0.5 * (cScale * 20);
+            let ifSizeY = 0.5 * (cScale * 20);
+            let ifSizeYm = 0.5 * (cScale * 20);
             if (endabgabe2.placeableObjectsArray[i].x - ifSizeX <= userPosX &&
                 endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
                 endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&

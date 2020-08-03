@@ -34,6 +34,7 @@ export function initCanvas(): void {
     console.log(canvasColor, canvasSizeX, canvasSizeY);
     canvas.width = canvasSizeX;
     canvas.height = canvasSizeY; 
+    canvas.style.backgroundColor = canvasColor; 
     // alle EventListener für die Buttons
     document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
     document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
@@ -47,11 +48,9 @@ export function initCanvas(): void {
     document.getElementById("savePicture").addEventListener("click", safePicture);
     document.getElementById("moverButt").addEventListener("click", initMover);
 
-    let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas"); 
 
-    if (canvasBG.length != 0) {
-        canvasBG[0].style.background = canvasColor;
-}
+
+
 
     //crc.fillStyle = canvasColor;
     //crc.fillRect(0, 0, canvas.width, canvas.height);
@@ -171,10 +170,10 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
         let cScale: number = placeableObjectsArray[i].scale;
-        let ifSizeX: number =  0.5 * (cScale * 15);
-        let ifSizeXm: number =  0.5 * (cScale * 15);
-        let ifSizeY: number = 0.5 * (cScale * 15);
-        let ifSizeYm: number = 0.5 *  (cScale * 15);  
+        let ifSizeX: number =  0.5 * (cScale * 20);
+        let ifSizeXm: number =  0.5 * (cScale * 20);
+        let ifSizeY: number = 0.5 * (cScale * 20);
+        let ifSizeYm: number = 0.5 *  (cScale * 20);  
 
         if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
             placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
