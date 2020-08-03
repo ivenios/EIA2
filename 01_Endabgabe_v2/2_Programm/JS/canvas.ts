@@ -478,10 +478,10 @@ function updateObject(): void {
        
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-        // console.log(placeableObjectsArray[i]);
+        console.log(placeableObjectsArray[i]);
         let cType: string = placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
         switch (cType) {
-            case "squares" && "triangels":
+            case "triangels":
                 if (globalAnimatonType == "slow") {
                     if (placeableObjectsArray[i].x >= canvas.width) {
                         placeableObjectsArray[i].x -= canvas.width + 30 ;
@@ -565,15 +565,178 @@ function updateObject(): void {
 
 
                 break;
+                case "squares":
+                    if (globalAnimatonType == "slow") {
+                        if (placeableObjectsArray[i].x >= canvas.width) {
+                            placeableObjectsArray[i].x -= canvas.width + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.width + 30;
+                        } else
+                        placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+    
+                        if (placeableObjectsArray[i].y >= canvas.height) {
+                            placeableObjectsArray[i].y -= canvas.height + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.height + 30;
+                        } else
+                        placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
+                        
+                        
+                    }
+                    else if (globalAnimatonType == "stig") {
+                        if (placeableObjectsArray[i].x >= canvas.width) {
+                            placeableObjectsArray[i].x -= canvas.width + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.width + 30;
+                        } else
+                        placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+    
+                        if (placeableObjectsArray[i].y >= canvas.height) {
+                            placeableObjectsArray[i].y -= canvas.height + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.height + 30;
+                        } else
+                        placeableObjectsArray[i].x += Math.random() * (17 - 10) + 10;
+                        //;
+                    } else if (globalAnimatonType == "bendy") {
+                        if (placeableObjectsArray[i].x >= canvas.width) {
+                            placeableObjectsArray[i].x -= canvas.width + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.width + 30;
+                        } else
+                        placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+    
+                        if (placeableObjectsArray[i].y >= canvas.height) {
+                            placeableObjectsArray[i].y -= canvas.height + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.height + 30;
+                        } else
+                        placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                        //;
+                    } else if (globalAnimatonType == "mayham") {
+                        if (placeableObjectsArray[i].x >= canvas.width) {
+                            placeableObjectsArray[i].x -= canvas.width + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.width + 30;
+                        } else
+                        placeableObjectsArray[i].x -= Math.random() * (-37 - 20) + 20;
+    
+                        if (placeableObjectsArray[i].y >= canvas.height) {
+                            placeableObjectsArray[i].y -= canvas.height + 30 ;
+    
+                        }
+                        else if (placeableObjectsArray[i].x <= 0) {
+                            placeableObjectsArray[i].x += canvas.height + 30;
+                        } else
+                        placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
+                        //triangels.color = color;
+                       // triangels.scale = scale;
+                    }
+                    break;
  
 
-            case "circles":   
+            case "circles": 
+            if (globalAnimatonType == "slow") {
+                if (placeableObjectsArray[i].x >= canvas.width) {
+                    placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.width + 30;
+                } else
+                placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+
+                if (placeableObjectsArray[i].y >= canvas.height) {
+                    placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.height + 30;
+                } else
+                placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
+                
+                
+            }
+            else if (globalAnimatonType == "stig") {
+                if (placeableObjectsArray[i].x >= canvas.width) {
+                    placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.width + 30;
+                } else
+                placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
+
+                if (placeableObjectsArray[i].y >= canvas.height) {
+                    placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.height + 30;
+                } else
+                placeableObjectsArray[i].x += Math.random() * (17 - 10) + 10;
+                //;
+            } else if (globalAnimatonType == "bendy") {
+                if (placeableObjectsArray[i].x >= canvas.width) {
+                    placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.width + 30;
+                } else
+                placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+
+                if (placeableObjectsArray[i].y >= canvas.height) {
+                    placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.height + 30;
+                } else
+                placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                //;
+            } else if (globalAnimatonType == "mayham") {
+                if (placeableObjectsArray[i].x >= canvas.width) {
+                    placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.width + 30;
+                } else
+                placeableObjectsArray[i].x -= Math.random() * (-37 - 20) + 20;
+
+                if (placeableObjectsArray[i].y >= canvas.height) {
+                    placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                }
+                else if (placeableObjectsArray[i].x <= 0) {
+                    placeableObjectsArray[i].x += canvas.height + 30;
+                } else
+                placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
+                //triangels.color = color;
+               // triangels.scale = scale;
+            }  
                 
                 break;
 
             default:
                 break;
         }
+        console.log(placeableObjectsArray[i]);
         renderCanvas();
 
 
