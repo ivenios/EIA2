@@ -11,7 +11,7 @@ let databaseURL: string = "mongodb://localhost:27017";
 let databaseName: string = "Test";
 let db: Mongo.Db;
 let users: Mongo.Collection; 
-let canvasDatabase: Mongo.Collection;
+let canvasDB: Mongo.Collection;
 
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
@@ -69,8 +69,8 @@ export function insertUser(_doc: UserData): void {
 }
 
 export function insertCanvas(_doc: CanvasData): void {
-    canvasDatabase = db.collection("canvasDatabase");
-    canvasDatabase.insertOne(_doc, handleInsert);
+    canvasDB = db.collection("canvasDatabase");
+    canvasDB.insertOne(_doc, handleInsert);
 }
 
 //Einlogg funktion
@@ -212,20 +212,19 @@ export function safePictureCanvasToDB(_callback: Function, _username: string, _p
 
     }
 export function loadPictureFromDB(_callback: Function, _username: string, _pictureName: string): void {
-    canvasDatabase = db.collection("canvasDatabase");
-    var cursor: Mongo.Cursor = canvasDatabase.find();
+    canvasDB = db.collection("canvasDatabase");
+    var cursor: Mongo.Cursor = canvasDB.find({
+        owner: _username, name: _pictureName
+      });
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, canvasArray: CanvasData[]): void {
             if (_e)
                 _callback("Error" + _e);
             else
+                _callback(JSON.stringify(canvasArray));
+                
 
-            for (let i: number; i < canvasArray.length; i++) {
-                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
-                    _callback(JSON.stringify(canvasArray[i]));
-                }
-
-            }
+            
 
 
     }   

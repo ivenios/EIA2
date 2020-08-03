@@ -10,7 +10,7 @@ let databaseURL = "mongodb://localhost:27017";
 let databaseName = "Test";
 let db;
 let users;
-let canvasDatabase;
+let canvasDB;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
@@ -59,8 +59,8 @@ function insertUser(_doc) {
 }
 exports.insertUser = insertUser;
 function insertCanvas(_doc) {
-    canvasDatabase = db.collection("canvasDatabase");
-    canvasDatabase.insertOne(_doc, handleInsert);
+    canvasDB = db.collection("canvasDatabase");
+    canvasDB.insertOne(_doc, handleInsert);
 }
 exports.insertCanvas = insertCanvas;
 //Einlogg funktion
@@ -172,18 +172,16 @@ function safePictureCanvasToDB(_callback, _username, _pictureName, _objects) {
 }
 exports.safePictureCanvasToDB = safePictureCanvasToDB;
 function loadPictureFromDB(_callback, _username, _pictureName) {
-    canvasDatabase = db.collection("canvasDatabase");
-    var cursor = canvasDatabase.find();
+    canvasDB = db.collection("canvasDatabase");
+    var cursor = canvasDB.find({
+        owner: _username, name: _pictureName
+    });
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, canvasArray) {
         if (_e)
             _callback("Error" + _e);
         else
-            for (let i; i < canvasArray.length; i++) {
-                if (canvasArray[i].owner == _username && canvasArray[i].name == _pictureName) {
-                    _callback(JSON.stringify(canvasArray[i]));
-                }
-            }
+            _callback(JSON.stringify(canvasArray));
     }
 }
 exports.loadPictureFromDB = loadPictureFromDB;
