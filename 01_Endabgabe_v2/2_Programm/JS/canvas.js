@@ -138,8 +138,8 @@ var endabgabe2;
             let ifSizeYm = 0.5 * (cScale * 15);
             if (endabgabe2.placeableObjectsArray[i].x - ifSizeX <= userPosX &&
                 endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
-                endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPosX &&
-                endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPosX) {
+                endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+                endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
                 console.log("i caught a object");
                 endabgabe2.placeableObjectsArray.splice(i, 1);
                 renderCanvas();

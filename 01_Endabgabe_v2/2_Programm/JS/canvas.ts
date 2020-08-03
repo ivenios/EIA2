@@ -178,8 +178,8 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
 
         if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
             placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
-            placeableObjectsArray[i].y - ifSizeY <= userPosX &&
-            placeableObjectsArray[i].y + ifSizeYm >= userPosX
+            placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+            placeableObjectsArray[i].y + ifSizeYm >= userPoxY
             ) {
                 console.log("i caught a object");
                 placeableObjectsArray.splice(i, 1);
