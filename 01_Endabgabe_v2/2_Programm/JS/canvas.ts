@@ -483,21 +483,82 @@ function updateObject(): void {
         switch (cType) {
             case "squares" && "triangels":
                 if (globalAnimatonType == "slow") {
-                    if (placeableObjectsArray[i].x >= canvas.width || placeableObjectsArray[i].x <= 0) {
-                        placeableObjectsArray[i].x = -placeableObjectsArray[i].x;
+                    if (placeableObjectsArray[i].x >= canvas.width) {
+                        placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.width + 30;
                     } else
                     placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
-                    if (placeableObjectsArray[i].y >= canvas.width || placeableObjectsArray[i].y <= 0) {
-                        //;
+
+                    if (placeableObjectsArray[i].y >= canvas.height) {
+                        placeableObjectsArray[i].y -= canvas.height + 30 ;
+
                     }
-                    placeableObjectsArray[i].y += Math.random() * (6 - 2) + 2 ;
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.height + 30;
+                    } else
+                    placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                    
                     
                 }
                 else if (globalAnimatonType == "stig") {
+                    if (placeableObjectsArray[i].x >= canvas.width) {
+                        placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.width + 30;
+                    } else
+                    placeableObjectsArray[i].x -= Math.random() * (-17 - 12) + 12;
+
+                    if (placeableObjectsArray[i].y >= canvas.height) {
+                        placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.height + 30;
+                    } else
+                    placeableObjectsArray[i].x += Math.random() * (-17 - 10) + 10;
                     //;
                 } else if (globalAnimatonType == "bendy") {
+                    if (placeableObjectsArray[i].x >= canvas.width) {
+                        placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.width + 30;
+                    } else
+                    placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+
+                    if (placeableObjectsArray[i].y >= canvas.height) {
+                        placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.height + 30;
+                    } else
+                    placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
                     //;
                 } else if (globalAnimatonType == "mayham") {
+                    if (placeableObjectsArray[i].x >= canvas.width) {
+                        placeableObjectsArray[i].x -= canvas.width + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.width + 30;
+                    } else
+                    placeableObjectsArray[i].x -= Math.random() * (-37 - 20) + 20;
+
+                    if (placeableObjectsArray[i].y >= canvas.height) {
+                        placeableObjectsArray[i].y -= canvas.height + 30 ;
+
+                    }
+                    else if (placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x += canvas.height + 30;
+                    } else
+                    placeableObjectsArray[i].x += Math.random() * (-37 - 20) + 20;
                     //triangels.color = color;
                    // triangels.scale = scale;
                 }
