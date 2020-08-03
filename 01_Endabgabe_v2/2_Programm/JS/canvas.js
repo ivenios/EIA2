@@ -35,6 +35,7 @@ var endabgabe2;
         document.getElementById("savePicture").addEventListener("click", safePicture);
         document.getElementById("moverButt").addEventListener("click", initMover);
         document.getElementById("sprayerButt").addEventListener("click", initSprayer);
+        document.getElementById("resizerButt").addEventListener("click", initResizer);
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
@@ -75,6 +76,7 @@ var endabgabe2;
         endabgabe2.canvas.removeEventListener("click", deleteObject);
         endabgabe2.canvas.removeEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
         endabgabe2.canvas.removeEventListener("mouseup", stopMover);
+        endabgabe2.canvas.removeEventListener("mousemove", resizeObjects);
     }
     //Aubau der bereitsplatzierten elemente auf der Canvas
     function renderCanvas() {
@@ -254,6 +256,43 @@ var endabgabe2;
                 console.log(endabgabe2.placeableObjectsArray[i].color);
                 console.log(inputs[0].value);
                 endabgabe2.placeableObjectsArray[i].color = newColor;
+                renderCanvas();
+            }
+        }
+    }
+    //Größe von Objekten verändern: 
+    function initResizer() {
+        deletAllEventListeners();
+        endabgabe2.canvas.addEventListener("mousedown", startResizer); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+        endabgabe2.canvas.addEventListener("mouseup", stopResizer); //verändert variable so, dass moveObject abbricht 
+    }
+    function startResizer() {
+        endabgabe2.canvas.addEventListener("mousemove", resizeObjects);
+    }
+    function stopResizer() {
+        endabgabe2.canvas.removeEventListener("mousemove", resizeObjects);
+    }
+    function resizeObjects(_event) {
+        let inputs = document.getElementsByTagName("input");
+        let userPosX = _event.offsetX;
+        let userPoxY = _event.offsetY;
+        console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+        for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+            let cScale = endabgabe2.placeableObjectsArray[i].scale;
+            let hash = "#";
+            let ifSizeX = 0.5 * (cScale * 20);
+            let ifSizeXm = 0.5 * (cScale * 20);
+            let ifSizeY = 0.5 * (cScale * 20);
+            let ifSizeYm = 0.5 * (cScale * 20);
+            if (endabgabe2.placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+                endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+                endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+                endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
+                //das problem: die render Canvas Funktion benötigt die Farbwerte ohne hash am anfang, deswegen wird dieses hier nocheinmal schnell rausgenommen
+                let newScale = parseInt(inputs[1].value);
+                console.log(endabgabe2.placeableObjectsArray[i].color);
+                console.log(inputs[0].value);
+                endabgabe2.placeableObjectsArray[i].scale = newScale;
                 renderCanvas();
             }
         }

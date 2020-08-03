@@ -48,6 +48,7 @@ export function initCanvas(): void {
     document.getElementById("savePicture").addEventListener("click", safePicture);
     document.getElementById("moverButt").addEventListener("click", initMover);
     document.getElementById("sprayerButt").addEventListener("click", initSprayer);
+    document.getElementById("resizerButt").addEventListener("click", initResizer);
 
 
 
@@ -104,6 +105,7 @@ function deletAllEventListeners(): void {
     canvas.removeEventListener("click", deleteObject);
     canvas.removeEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
     canvas.removeEventListener("mouseup", stopMover);
+    canvas.removeEventListener("mousemove", resizeObjects);
 
 }
 
@@ -323,6 +325,50 @@ function sprayObject(_event: MouseEvent): void {
         }
 }
 
+//Größe von Objekten verändern: 
+function initResizer(): void {
+    deletAllEventListeners();
+    canvas.addEventListener("mousedown", startResizer); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+    canvas.addEventListener("mouseup", stopResizer); //verändert variable so, dass moveObject abbricht 
+}
+
+function startResizer(): void {
+    canvas.addEventListener("mousemove", resizeObjects);
+
+}
+
+function stopResizer(): void {
+    canvas.removeEventListener("mousemove", resizeObjects);
+}
+function resizeObjects(_event: MouseEvent): void {
+    let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let userPosX: number = _event.offsetX;
+    let userPoxY: number = _event.offsetY;
+    
+
+    console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        let cScale: number = placeableObjectsArray[i].scale;
+        let hash: string = "#";
+        let ifSizeX: number =  0.5 * (cScale * 20);
+        let ifSizeXm: number =  0.5 * (cScale * 20);
+        let ifSizeY: number = 0.5 * (cScale * 20);
+        let ifSizeYm: number = 0.5 *  (cScale * 20);  
+
+        if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+            placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+            placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+            placeableObjectsArray[i].y + ifSizeYm >= userPoxY
+            ) {
+                //das problem: die render Canvas Funktion benötigt die Farbwerte ohne hash am anfang, deswegen wird dieses hier nocheinmal schnell rausgenommen
+                let newScale: number = parseInt(inputs[1].value);
+                console.log(placeableObjectsArray[i].color);
+                console.log(inputs[0].value);
+                placeableObjectsArray[i].scale = newScale;
+                renderCanvas();
+            }
+        }
+}
 
 
  //SUQARE
