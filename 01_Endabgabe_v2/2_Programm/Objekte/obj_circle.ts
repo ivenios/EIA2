@@ -54,11 +54,6 @@ export class Circle extends PlaceableObjects {
         //;
     }
 
-    updateObject(): void {
-        this.animateObject();
-        this.alterObject();
-    }
-
 
 
 }

@@ -58,12 +58,6 @@ export class Triangle extends PlaceableObjects {
         //;
     }
 
-    updateObject(): void {
-
-        this.animateObject();
-        this.alterObject();
-    }
-
 
 
 }

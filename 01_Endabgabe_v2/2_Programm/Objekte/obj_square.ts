@@ -54,12 +54,6 @@ export class Square extends PlaceableObjects {
         //;
     }
 
-    updateObject(): void {
-        this.animateObject();
-        this.alterObject();
-    }
-
-
 
 }
 

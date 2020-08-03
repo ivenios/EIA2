@@ -425,6 +425,7 @@ var endabgabe2;
                     default:
                         break;
                 }
+                renderCanvas();
             }
         }
         else if (animationCount == 1) {

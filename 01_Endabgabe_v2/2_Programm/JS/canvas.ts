@@ -515,7 +515,7 @@ function updateObject(): void {
                 default:
                     break;
             }
-
+        renderCanvas();
         }
     }
     else if (animationCount == 1) {

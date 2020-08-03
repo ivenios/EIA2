@@ -45,10 +45,6 @@ var endabgabe2;
         alterObject() {
             //;
         }
-        updateObject() {
-            this.animateObject();
-            this.alterObject();
-        }
     }
     endabgabe2.Circle = Circle;
 })(endabgabe2 || (endabgabe2 = {}));

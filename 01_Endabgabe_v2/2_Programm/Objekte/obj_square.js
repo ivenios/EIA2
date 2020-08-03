@@ -44,10 +44,6 @@ var endabgabe2;
         alterObject() {
             //;
         }
-        updateObject() {
-            this.animateObject();
-            this.alterObject();
-        }
     }
     endabgabe2.Square = Square;
 })(endabgabe2 || (endabgabe2 = {}));
