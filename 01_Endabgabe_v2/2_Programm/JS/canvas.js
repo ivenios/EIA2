@@ -571,18 +571,18 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
                         }
                         else if (endabgabe2.globalAnimatonType == "stig") {
-                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
+                            if (endabgabe2.placeableObjectsArray[i].x == endabgabe2.canvas.width) {
                                 endabgabe2.placeableObjectsArray[i].x -= endabgabe2.canvas.width + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x -= Math.random() * (17 - 12) + 12;
-                            if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.height) {
+                            if (endabgabe2.placeableObjectsArray[i].y == endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
@@ -590,18 +590,18 @@ var endabgabe2;
                             //;
                         }
                         else if (endabgabe2.globalAnimatonType == "bendy") {
-                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
+                            if (endabgabe2.placeableObjectsArray[i].x == endabgabe2.canvas.width) {
                                 endabgabe2.placeableObjectsArray[i].x -= endabgabe2.canvas.width + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
-                            if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.height) {
+                            if (endabgabe2.placeableObjectsArray[i].y == endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
@@ -609,18 +609,18 @@ var endabgabe2;
                             //;
                         }
                         else if (endabgabe2.globalAnimatonType == "mayham") {
-                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
+                            if (endabgabe2.placeableObjectsArray[i].x == endabgabe2.canvas.width) {
                                 endabgabe2.placeableObjectsArray[i].x -= endabgabe2.canvas.width + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.width + 30;
                             }
                             else
                                 endabgabe2.placeableObjectsArray[i].x -= Math.random() * (-37 - 20) + 20;
-                            if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.height) {
+                            if (endabgabe2.placeableObjectsArray[i].y == endabgabe2.canvas.height) {
                                 endabgabe2.placeableObjectsArray[i].y -= endabgabe2.canvas.height + 30;
                             }
-                            else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
+                            else if (endabgabe2.placeableObjectsArray[i].x == 0) {
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
