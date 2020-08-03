@@ -159,20 +159,20 @@ function deleteObject(_event: MouseEvent): void {
         let cType: string = placeableObjectsArray[i].type;
         switch (cType) {
             case "squares": // 
-                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetX && 
-                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetX && 
-                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetY && 
-                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetY) {
+                if ( (placeableObjectsArray[i].scale * 15) / 2 - placeableObjectsArray[i].x >= _event.offsetX && 
+                 (placeableObjectsArray[i].scale * 15) / 2 + placeableObjectsArray[i].x <= _event.offsetX && 
+                (placeableObjectsArray[i].scale * 15) / 2 - placeableObjectsArray[i].y >= _event.offsetY && 
+                (placeableObjectsArray[i].scale * 15) / 2 + placeableObjectsArray[i].y  <= _event.offsetY) {
                     placeableObjectsArray.splice(i);
                 }
                 
                 break;
 
             case "triangels":
-                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetX && 
-                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetX && 
-                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetY && 
-                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetY) {
+                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetX && 
+                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetX && 
+                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetY && 
+                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetY) {
                     placeableObjectsArray.splice(i);
                 }
                 

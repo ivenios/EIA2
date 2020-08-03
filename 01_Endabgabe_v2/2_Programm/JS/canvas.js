@@ -122,18 +122,18 @@ var endabgabe2;
             let cType = endabgabe2.placeableObjectsArray[i].type;
             switch (cType) {
                 case "squares": // 
-                    if (endabgabe2.placeableObjectsArray[i].x - (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetX &&
-                        endabgabe2.placeableObjectsArray[i].x + (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetX &&
-                        endabgabe2.placeableObjectsArray[i].y - (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 >= _event.offsetY &&
-                        endabgabe2.placeableObjectsArray[i].y + (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 <= _event.offsetY) {
+                    if ((endabgabe2.placeableObjectsArray[i].scale * 15) / 2 - endabgabe2.placeableObjectsArray[i].x >= _event.offsetX &&
+                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 + endabgabe2.placeableObjectsArray[i].x <= _event.offsetX &&
+                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 - endabgabe2.placeableObjectsArray[i].y >= _event.offsetY &&
+                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 + endabgabe2.placeableObjectsArray[i].y <= _event.offsetY) {
                         endabgabe2.placeableObjectsArray.splice(i);
                     }
                     break;
                 case "triangels":
-                    if (endabgabe2.placeableObjectsArray[i].x - (endabgabe2.placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetX &&
-                        endabgabe2.placeableObjectsArray[i].x + (endabgabe2.placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetX &&
-                        endabgabe2.placeableObjectsArray[i].y - (endabgabe2.placeableObjectsArray[i].scale * 13) / 2 >= _event.offsetY &&
-                        endabgabe2.placeableObjectsArray[i].y + (endabgabe2.placeableObjectsArray[i].scale * 13) / 2 <= _event.offsetY) {
+                    if (endabgabe2.placeableObjectsArray[i].x - (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetX &&
+                        endabgabe2.placeableObjectsArray[i].x + (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetX &&
+                        endabgabe2.placeableObjectsArray[i].y - (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetY &&
+                        endabgabe2.placeableObjectsArray[i].y + (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetY) {
                         endabgabe2.placeableObjectsArray.splice(i);
                     }
                     break;
