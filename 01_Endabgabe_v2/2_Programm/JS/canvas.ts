@@ -296,9 +296,12 @@ function sprayObject(_event: MouseEvent): void {
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     let userPosX: number = _event.offsetX;
     let userPoxY: number = _event.offsetY;
+    
+
     console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cScale: number = placeableObjectsArray[i].scale;
+        let hash: string = "#";
         let ifSizeX: number =  0.5 * (cScale * 20);
         let ifSizeXm: number =  0.5 * (cScale * 20);
         let ifSizeY: number = 0.5 * (cScale * 20);
@@ -309,9 +312,12 @@ function sprayObject(_event: MouseEvent): void {
             placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
             placeableObjectsArray[i].y + ifSizeYm >= userPoxY
             ) {
+                //das problem: die render Canvas Funktion benötigt die Farbwerte ohne hash am anfang, deswegen wird dieses hier nocheinmal schnell rausgenommen
+                let newColor: string = inputs[0].value;
+                newColor = newColor.replace(hash, "");
                 console.log(placeableObjectsArray[i].color);
                 console.log(inputs[0].value);
-                placeableObjectsArray[i].color = inputs[0].value;
+                placeableObjectsArray[i].color = newColor;
                 renderCanvas();
             }
         }

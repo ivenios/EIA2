@@ -239,6 +239,7 @@ var endabgabe2;
         console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
+            let hash = "#";
             let ifSizeX = 0.5 * (cScale * 20);
             let ifSizeXm = 0.5 * (cScale * 20);
             let ifSizeY = 0.5 * (cScale * 20);
@@ -247,9 +248,12 @@ var endabgabe2;
                 endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
                 endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
                 endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
+                //das problem: die render Canvas Funktion benötigt die Farbwerte ohne hash am anfang, deswegen wird dieses hier nocheinmal schnell rausgenommen
+                let newColor = inputs[0].value;
+                newColor = newColor.replace(hash, "");
                 console.log(endabgabe2.placeableObjectsArray[i].color);
                 console.log(inputs[0].value);
-                endabgabe2.placeableObjectsArray[i].color = inputs[0].value;
+                endabgabe2.placeableObjectsArray[i].color = newColor;
                 renderCanvas();
             }
         }
