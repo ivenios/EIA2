@@ -110,11 +110,43 @@ function deletAllEventListeners(): void {
 
 }
 
-//Aubau der canvas Größe und der Farbe
+//Aubau der bereitsplatzierten elemente auf der Canvas
 export function renderCanvas(): void {
     if (placeableObjectsArray.length > 1 ) {
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
+        for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+            if (placeableObjectsArray[i].type == "squares") {
+                let squares: Square = new Square ();
+                squares.type = "squares";
+                squares.x = placeableObjectsArray[i].x;
+                squares.y = placeableObjectsArray[i].y;
+                squares.color = placeableObjectsArray[i].color;
+                squares.scale = placeableObjectsArray[i].scale;
+                squares.renderObject();
+            }
+            if (placeableObjectsArray[i].type == "squares") {
+                let triangels: Square = new Square ();
+                triangels.type = "triangels";
+                triangels.x = placeableObjectsArray[i].x;
+                triangels.y = placeableObjectsArray[i].y;
+                triangels.color = placeableObjectsArray[i].color;
+                triangels.scale = placeableObjectsArray[i].scale;
+                triangels.renderObject();
+            }
+            if (placeableObjectsArray[i].type == "squares") {
+                let triangels: Square = new Square ();
+                let circels: Circle = new Circle ();
+                circels.type = "circels";
+                circels.x = placeableObjectsArray[i].x;
+                circels.y = placeableObjectsArray[i].y;
+                circels.color = placeableObjectsArray[i].color;
+                circels.r = 17 * placeableObjectsArray[i].scale;
+                circels.renderObject();
+            }
+
+
+        }
         
     }  
 
@@ -137,6 +169,7 @@ function placeSquare(_event: MouseEvent): void {
     let color: string = inputs[0].value; 
     let scale: number = parseInt(inputs[1].value); 
     let squares: Square = new Square ();
+    squares.type = "squares";
     squares.x = x;
     squares.y = y;
     squares.color = color;
@@ -162,6 +195,7 @@ function placeCircle(_event: MouseEvent): void {
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
     let circels: Circle = new Circle ();
+    circels.type = "circels";
     circels.x = x;
     circels.y = y;
     circels.color = color;
@@ -187,6 +221,7 @@ function placeTriangel(_event: MouseEvent): void {
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
     let triangels: Triangle = new Triangle ();
+    triangels.type = "triangels";
     triangels.x = x;
     triangels.y = y;
     triangels.color = color;

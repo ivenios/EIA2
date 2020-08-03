@@ -4,7 +4,7 @@ namespace endabgabe2 {
 
 
     export class PlaceableObjects {
-
+        type: string;
         x: number;
         y: number;
         color: string;
