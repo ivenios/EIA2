@@ -277,7 +277,16 @@ var endabgabe2;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let loadedCanvasArray = [];
             loadedCanvasArray = JSON.parse(xhr.response);
-            endabgabe2.globalPicture = loadedCanvasArray[0].name;
+            if (loadedCanvasArray[0].placeableObjects.length == 0) {
+                endabgabe2.globalPicture = loadedCanvasArray[0].name;
+                endabgabe2.canvasColor = loadedCanvasArray[0].canvasColor;
+                endabgabe2.canvasSizeX = loadedCanvasArray[0].canvasX;
+                endabgabe2.canvasSizeY = loadedCanvasArray[0].canvasY;
+                console.log(loadedCanvasArray);
+                endabgabe2.initCanvas();
+            }
+            else
+                endabgabe2.globalPicture = loadedCanvasArray[0].name;
             endabgabe2.canvasColor = loadedCanvasArray[0].canvasColor;
             endabgabe2.canvasSizeX = loadedCanvasArray[0].canvasX;
             endabgabe2.canvasSizeY = loadedCanvasArray[0].canvasY;
