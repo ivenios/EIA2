@@ -328,7 +328,7 @@ function handleLoadPictureResponse(_event: ProgressEvent): void {
     if (xhr.readyState == XMLHttpRequest.DONE) {
         let loadedCanvasArray: CanvasData [] = [];
         loadedCanvasArray = JSON.parse(xhr.response);
-        globalPicture =  loadedCanvasArray[0].name;
+        globalPicture =  loadedCanvasArray[0].name;   
         canvasColor = loadedCanvasArray[0].canvasColor;
         canvasSizeX = loadedCanvasArray[0].canvasX;
         canvasSizeY = loadedCanvasArray[0].canvasY;
