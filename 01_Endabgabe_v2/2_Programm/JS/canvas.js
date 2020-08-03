@@ -198,8 +198,25 @@ var endabgabe2;
         //;
     }
     function moveObject(_event) {
-        console.log("Look Iam moving", _event.offsetX, _event.offsetY);
-        //;
+        let userPosX = _event.offsetX;
+        let userPoxY = _event.offsetY;
+        console.log("Look mommey! Iam moving", _event.offsetX, _event.offsetY);
+        for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
+            let cType = endabgabe2.placeableObjectsArray[i].type;
+            let cScale = endabgabe2.placeableObjectsArray[i].scale;
+            let ifSizeX = 0.5 * (cScale * 20);
+            let ifSizeXm = 0.5 * (cScale * 20);
+            let ifSizeY = 0.5 * (cScale * 20);
+            let ifSizeYm = 0.5 * (cScale * 20);
+            if (endabgabe2.placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+                endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+                endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+                endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
+                endabgabe2.placeableObjectsArray[i].x = _event.offsetX;
+                endabgabe2.placeableObjectsArray[i].y = _event.offsetY;
+                renderCanvas();
+            }
+        }
     }
     //SUQARE
     function initPlaceSquare() {

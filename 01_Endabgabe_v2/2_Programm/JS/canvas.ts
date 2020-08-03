@@ -251,8 +251,28 @@ function stopMover(): void {
 }
 
 function moveObject(_event: MouseEvent): void {
-    console.log("Look Iam moving", _event.offsetX, _event.offsetY);
-    //;
+    let userPosX: number = _event.offsetX;
+    let userPoxY: number = _event.offsetY;
+    console.log("Look mommey! Iam moving", _event.offsetX, _event.offsetY);
+    for (let i: number = 0; i < placeableObjectsArray.length; i++) {
+        let cType: string = placeableObjectsArray[i].type;
+        let cScale: number = placeableObjectsArray[i].scale;
+        let ifSizeX: number =  0.5 * (cScale * 20);
+        let ifSizeXm: number =  0.5 * (cScale * 20);
+        let ifSizeY: number = 0.5 * (cScale * 20);
+        let ifSizeYm: number = 0.5 *  (cScale * 20);  
+
+        if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+            placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+            placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
+            placeableObjectsArray[i].y + ifSizeYm >= userPoxY
+            ) {
+                placeableObjectsArray[i].x = _event.offsetX;
+                placeableObjectsArray[i].y = _event.offsetY;
+                renderCanvas();
+
+            }
+        }
 }
 
 
