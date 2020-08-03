@@ -393,7 +393,38 @@ var endabgabe2;
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);
-                endabgabe2.placeableObjectsArray[i].updateObject();
+                let cType = endabgabe2.placeableObjectsArray[i].type;
+                switch (cType) {
+                    case "squares":
+                        let squares = new endabgabe2.Square();
+                        squares.type = "squares";
+                        squares.x = endabgabe2.placeableObjectsArray[i].x;
+                        squares.y = endabgabe2.placeableObjectsArray[i].y;
+                        squares.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        squares.scale = endabgabe2.placeableObjectsArray[i].scale;
+                        squares.updateObject();
+                        break;
+                    case "triangels":
+                        let triangels = new endabgabe2.Triangle();
+                        triangels.type = "triangels";
+                        triangels.x = endabgabe2.placeableObjectsArray[i].x;
+                        triangels.y = endabgabe2.placeableObjectsArray[i].y;
+                        triangels.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
+                        triangels.updateObject();
+                        break;
+                    case "circles":
+                        let circles = new endabgabe2.Circle();
+                        circles.type = "circles";
+                        circles.x = endabgabe2.placeableObjectsArray[i].x;
+                        circles.y = endabgabe2.placeableObjectsArray[i].y;
+                        circles.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
+                        circles.updateObject();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         else if (animationCount == 1) {

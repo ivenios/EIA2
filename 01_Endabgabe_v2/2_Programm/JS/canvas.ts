@@ -479,8 +479,44 @@ function updateObject(): void {
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         // console.log(placeableObjectsArray[i]);
-            placeableObjectsArray[i].updateObject();
+        let cType: string = placeableObjectsArray[i].type;
+        switch (cType) {
+                case "squares":
+                    let squares: Square = new Square ();
+                    squares.type = "squares";
+                    squares.x = placeableObjectsArray[i].x;
+                    squares.y = placeableObjectsArray[i].y;
+                    squares.color = "#" + placeableObjectsArray[i].color;
+                    squares.scale = placeableObjectsArray[i].scale;
+                    squares.updateObject();
+                    break;
+
+                case "triangels":
+                    let triangels: Triangle = new Triangle ();
+                    triangels.type = "triangels";
+                    triangels.x = placeableObjectsArray[i].x;
+                    triangels.y = placeableObjectsArray[i].y;
+                    triangels.color = "#" + placeableObjectsArray[i].color;
+                    triangels.scale = placeableObjectsArray[i].scale;
+                    triangels.updateObject();
+                    break;  
+
+                case "circles":   
+                    let circles: Circle = new Circle ();
+                    circles.type = "circles";
+                    circles.x = placeableObjectsArray[i].x;
+                    circles.y = placeableObjectsArray[i].y;
+                    circles.color = "#" + placeableObjectsArray[i].color;
+                    circles.r = 17 * placeableObjectsArray[i].scale ;
+
+                    circles.updateObject();
+                    break;
+
+                default:
+                    break;
             }
+
+        }
     }
     else if (animationCount == 1) {
         window.setTimeout(updateObject, 1000 / fps, false);
