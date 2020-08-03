@@ -156,7 +156,7 @@ function initDeleteObject(): void {
 }
 
 function deleteObject(_event: MouseEvent): void {
-    console.log("ready for deletion)");
+    console.log("ready for deletion");
     console.log(_event.offsetX, _event.offsetY);
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
@@ -171,7 +171,7 @@ function deleteObject(_event: MouseEvent): void {
         console.log(i, ifSizeYm);
         switch (cType) {
             case "squares": // 
-                if ( _event.offsetX >= placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= placeableObjectsArray[i].y + 2 / (cScale * 15) ) {
+                if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                     console.log("deleting Square");
                     placeableObjectsArray.splice(i);
                     renderCanvas();
@@ -180,11 +180,8 @@ function deleteObject(_event: MouseEvent): void {
                 break;
 
             case "triangels":
-                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetX && 
-                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetX && 
-                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetY && 
-                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetY) {
-                    console.log("deleting Square");
+                if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
+                    console.log("deleting triangel");
                     placeableObjectsArray.splice(i);
                     renderCanvas();
                 }
@@ -193,11 +190,8 @@ function deleteObject(_event: MouseEvent): void {
                 break;  
 
             case "circles":   
-                if (placeableObjectsArray[i].x - (placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetX && 
-                placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetX && 
-                placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetY && 
-                placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetY) {
-                    console.log("deleting Square");
+                if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
+                    console.log("deleting circle");
                     placeableObjectsArray.splice(i);
                     renderCanvas();
                 }

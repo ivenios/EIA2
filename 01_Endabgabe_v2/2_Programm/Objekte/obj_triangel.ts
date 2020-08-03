@@ -18,8 +18,8 @@ export class Triangle extends PlaceableObjects {
         //crc.globalCompositeOperation = "destination-over";
         crc.beginPath();
         crc.moveTo(this.x, this.y);
-        crc.lineTo(this.x + 13 * this.scale, this.y + 13 * this.scale);
-        crc.lineTo(this.x + 13 * this.scale, this.y + 13 * this.scale);
+        crc.lineTo(this.x + 25 * this.scale, this.y + 10 * this.scale);
+        crc.lineTo(this.x + 10 * this.scale, this.y + 25 * this.scale);
         crc.closePath();
         crc.fillStyle = this.color;
         crc.fill();
@@ -77,6 +77,7 @@ export class Triangle extends PlaceableObjects {
     }
 
     updateObject(): void {
+
         this.animateObject();
         this.alterObject();
     }
