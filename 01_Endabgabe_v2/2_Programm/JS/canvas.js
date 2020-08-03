@@ -32,13 +32,13 @@ var endabgabe2;
         console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
         endabgabe2.canvas.width = endabgabe2.canvasSizeX;
         endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-        let canvasBG = document.getElementsByTagName("canvas");
-        canvasBG[0].style.transform = "background: " + endabgabe2.canvasColor + ";";
-        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+        //let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas");
+        //canvasBG[0].style.transform = "background: " + canvasColor + ";";
         // andere Möglichkeit die farbe der Canvas zu manipulieren
-        //crc.fillStyle = canvasColor;
-        //crc.fillRect(0, 0, canvas.width, canvas.height);
+        endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
+        endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
+        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         renderCanvas();
         // Now draw!
     }
