@@ -120,13 +120,18 @@ var endabgabe2;
     }
     function deleteObject(_event) {
         console.log("ready for deletion)");
+        console.log(_event.offsetX, _event.offsetY);
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
-            console.log(endabgabe2.placeableObjectsArray[i].x - 0.5 * (cScale * 15));
-            console.log(endabgabe2.placeableObjectsArray[i].x + 0.5 * (cScale * 15));
-            console.log(endabgabe2.placeableObjectsArray[i].y - 0.5 * (cScale * 15));
-            console.log(endabgabe2.placeableObjectsArray[i].y + 0.5 * (cScale * 15));
+            let ifSizeX = endabgabe2.placeableObjectsArray[i].x - 0.5 * (cScale * 15);
+            let ifSizeXm = endabgabe2.placeableObjectsArray[i].x + 0.5 * (cScale * 15);
+            let ifSizeY = endabgabe2.placeableObjectsArray[i].y - 0.5 * (cScale * 15);
+            let ifSizeYm = endabgabe2.placeableObjectsArray[i].y + 0.5 * (cScale * 15);
+            console.log(i, ifSizeX);
+            console.log(i, ifSizeXm);
+            console.log(i, ifSizeY);
+            console.log(i, ifSizeYm);
             switch (cType) {
                 case "squares": // 
                     if (_event.offsetX >= endabgabe2.placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= endabgabe2.placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= endabgabe2.placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= endabgabe2.placeableObjectsArray[i].y + 2 / (cScale * 15)) {

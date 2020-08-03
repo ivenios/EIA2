@@ -157,13 +157,18 @@ function initDeleteObject(): void {
 
 function deleteObject(_event: MouseEvent): void {
     console.log("ready for deletion)");
+    console.log(_event.offsetX, _event.offsetY);
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
         let cScale: number = placeableObjectsArray[i].scale;
-        console.log(placeableObjectsArray[i].x - 0.5 * (cScale * 15));
-        console.log(placeableObjectsArray[i].x + 0.5 * (cScale * 15));
-        console.log(placeableObjectsArray[i].y - 0.5 * (cScale * 15));
-        console.log(placeableObjectsArray[i].y + 0.5 *  (cScale * 15));
+        let ifSizeX: number = placeableObjectsArray[i].x - 0.5 * (cScale * 15);
+        let ifSizeXm: number = placeableObjectsArray[i].x + 0.5 * (cScale * 15);
+        let ifSizeY: number = placeableObjectsArray[i].y - 0.5 * (cScale * 15);
+        let ifSizeYm: number = placeableObjectsArray[i].y + 0.5 *  (cScale * 15);      
+        console.log(i, ifSizeX);
+        console.log(i, ifSizeXm);
+        console.log(i, ifSizeY);
+        console.log(i, ifSizeYm);
         switch (cType) {
             case "squares": // 
                 if ( _event.offsetX >= placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= placeableObjectsArray[i].y + 2 / (cScale * 15) ) {
