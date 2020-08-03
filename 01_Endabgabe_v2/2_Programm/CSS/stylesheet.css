@@ -135,8 +135,8 @@
 
   /*Content in der Mitte */
   .content {
-    width: 100%;
-    height: 93%;
+    width: auto;
+    height: auto;
   }
   
   .content .contentMiddle {
