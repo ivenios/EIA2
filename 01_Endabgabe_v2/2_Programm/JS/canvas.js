@@ -16,6 +16,11 @@ var endabgabe2;
     //Trail init funkttion
     //document.addEventListener("DOMContentLoaded", initCanvas);
     function initCanvas() {
+        endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
+        endabgabe2.crc = endabgabe2.canvas.getContext("2d");
+        console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
+        endabgabe2.canvas.width = endabgabe2.canvasSizeX;
+        endabgabe2.canvas.height = endabgabe2.canvasSizeY;
         // alle EventListener für die Buttons
         document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
         document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
@@ -27,20 +32,11 @@ var endabgabe2;
         document.getElementById("stopAnim").addEventListener("click", startStopAnimation);
         document.getElementById("animStyle").addEventListener("change", globalAnimationStyle);
         document.getElementById("savePicture").addEventListener("click", safePicture);
-        endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
-        endabgabe2.crc = endabgabe2.canvas.getContext("2d");
-        console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
-        endabgabe2.canvas.width = endabgabe2.canvasSizeX;
-        endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-        //let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas");
-        //canvasBG[0].style.transform = "background: " + canvasColor + ";";
-        // andere Möglichkeit die farbe der Canvas zu manipulieren
         endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
         endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         renderCanvas();
-        // Now draw!
     }
     endabgabe2.initCanvas = initCanvas;
     // CANVAS VERLASSEN

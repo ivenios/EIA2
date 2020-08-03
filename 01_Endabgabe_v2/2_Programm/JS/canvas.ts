@@ -29,6 +29,11 @@ export let canvasSizeY: number;
 //document.addEventListener("DOMContentLoaded", initCanvas);
 
 export function initCanvas(): void {
+    canvas = document.getElementsByTagName("canvas")[0];
+    crc = canvas.getContext("2d");
+    console.log(canvasColor, canvasSizeX, canvasSizeY);
+    canvas.width = canvasSizeX;
+    canvas.height = canvasSizeY; 
     // alle EventListener für die Buttons
     document.getElementById("circleButt").addEventListener("click", initPlaceCircle);
     document.getElementById("squareButt").addEventListener("click", initPlaceSquare);
@@ -42,30 +47,12 @@ export function initCanvas(): void {
     document.getElementById("savePicture").addEventListener("click", safePicture);
 
 
-    canvas = document.getElementsByTagName("canvas")[0];
-    crc = canvas.getContext("2d");
-    console.log(canvasColor, canvasSizeX, canvasSizeY);
-    canvas.width = canvasSizeX;
-    canvas.height = canvasSizeY; 
-    //let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas");
-    //canvasBG[0].style.transform = "background: " + canvasColor + ";";
-   
-    // andere Möglichkeit die farbe der Canvas zu manipulieren
 
     crc.fillStyle = canvasColor;
     crc.fillRect(0, 0, canvas.width, canvas.height);
     //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     renderCanvas();
-    
-
-    
-    
-
-    
-// Now draw!
-
-    
 
 
 }
