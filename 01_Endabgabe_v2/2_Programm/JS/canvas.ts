@@ -225,7 +225,7 @@ function placeSquare(_event: MouseEvent): void {
 
 
 //CIRCLE
-function initPlaceCircle(): void {
+export function initPlaceCircle(): void {
     deletAllEventListeners();
     canvas.addEventListener("click", placeCircle);
 }

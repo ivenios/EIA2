@@ -179,6 +179,7 @@ var endabgabe2;
         deletAllEventListeners();
         endabgabe2.canvas.addEventListener("click", placeCircle);
     }
+    endabgabe2.initPlaceCircle = initPlaceCircle;
     function placeCircle(_event) {
         let inputs = document.getElementsByTagName("input");
         let color = inputs[0].value;
