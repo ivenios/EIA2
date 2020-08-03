@@ -1,7 +1,7 @@
 
 ********RUDE MS PAINT********
 -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-Die Abgabe ist erstellt worde
+Die Abgabe ist erstellt wurde
 von Iven Otis Sieglen. 
 
 Diese Abgabe beinhaltet: 
@@ -14,6 +14,5 @@ Hier befinden sie sich in der
 ~~~~~~~Dokumentation~~~~~~~~~
 Für die anderen Dokumente besuchen 
 Sie bitte diesen Link: 
-https://github.com/ivenios/EIA2/
-tree/master/01_Endabgabe_v2
+https://github.com/ivenios/EIA2/tree/master/01_Endabgabe_v2
 

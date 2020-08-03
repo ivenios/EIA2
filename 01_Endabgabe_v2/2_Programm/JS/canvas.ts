@@ -47,10 +47,14 @@ export function initCanvas(): void {
     document.getElementById("savePicture").addEventListener("click", safePicture);
     document.getElementById("moverButt").addEventListener("click", initMover);
 
+    let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas"); 
 
+    if (canvasBG.length != 0) {
+        canvasBG[0].style.transform = "background=" + canvasColor + ";" ;
+}
 
-    crc.fillStyle = canvasColor;
-    crc.fillRect(0, 0, canvas.width, canvas.height);
+    //crc.fillStyle = canvasColor;
+    //crc.fillRect(0, 0, canvas.width, canvas.height);
     //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     renderCanvas();
@@ -172,10 +176,10 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
         let ifSizeY: number = 0.5 * (cScale * 15);
         let ifSizeYm: number = 0.5 *  (cScale * 15);  
 
-        if ( placeableObjectsArray[i].x - ifSizeX < userPosX &&
-            placeableObjectsArray[i].x + ifSizeXm > userPosX &&
-            placeableObjectsArray[i].y - ifSizeY < userPosX &&
-            placeableObjectsArray[i].y + ifSizeYm > userPosX
+        if (placeableObjectsArray[i].x - ifSizeX <= userPosX &&
+            placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
+            placeableObjectsArray[i].y - ifSizeY <= userPosX &&
+            placeableObjectsArray[i].y + ifSizeYm >= userPosX
             ) {
                 console.log("i caught a object");
                 placeableObjectsArray.splice(i, 1);
@@ -232,18 +236,18 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
 
 function initMover(): void {
     deletAllEventListeners();
-    document.getElementById("canvas")!.addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
-    document.getElementById("canvas")!.addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
+    canvas.addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
+    canvas.addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
 }
 
 function startMover(): void {
     //;
-    document.getElementById("canvas")!.addEventListener("mousemove", moveObject);
+    canvas.addEventListener("mousemove", moveObject);
 
 }
 
 function stopMover(): void {
-    document.getElementById("canvas")!.removeEventListener("mousemove", moveObject);
+    canvas.removeEventListener("mousemove", moveObject);
     //;
 }
 
