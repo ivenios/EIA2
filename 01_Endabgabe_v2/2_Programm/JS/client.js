@@ -181,13 +181,15 @@ var endabgabe2;
         let query = "command=safePicture";
         let hash = "#";
         let quotes = `"`;
+        let space = " ";
         query += "&username=" + endabgabe2.globalUser;
         query += "&pictureName=" + endabgabe2.globalPicture;
         // Hashtag aus query string entfernen
         for (let i = 0; i < jSONString.length; i++) {
             // Hashtag aus query string entfernen
-            jSONString = jSONString.replace(hash, "%23");
-            jSONString = jSONString.replace(quotes, "%22");
+            jSONString = jSONString.replace(hash, "");
+            jSONString = jSONString.replace(quotes, "");
+            jSONString = jSONString.replace(space, "%20");
         }
         query += "&placeableObjects=" + jSONString;
         //encodeURIComponent(query);

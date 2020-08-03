@@ -30,7 +30,6 @@ var endabgabe2;
         endabgabe2.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe2.crc = endabgabe2.canvas.getContext("2d");
         renderCanvas();
-        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         // Now draw!
     }
     endabgabe2.initCanvas = initCanvas;
@@ -72,6 +71,7 @@ var endabgabe2;
             endabgabe2.crc.globalCompositeOperation = "destination-over";
             endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
             endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         }
         else if (endabgabe2.placeableObjectsArray.length > 1) {
             endabgabe2.canvas.width = endabgabe2.canvasSizeX;
@@ -79,6 +79,7 @@ var endabgabe2;
             endabgabe2.crc.globalCompositeOperation = "destination-over";
             endabgabe2.crc.fillStyle = endabgabe2.canvasColor;
             endabgabe2.crc.fillRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
+            imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("Rendering original Objects from array");
         }
     }

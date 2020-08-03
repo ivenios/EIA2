@@ -44,7 +44,7 @@ export function initCanvas(): void {
     canvas = document.getElementsByTagName("canvas")[0];
     crc = canvas.getContext("2d");
     renderCanvas();
-    imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
+    
 
     
     
@@ -106,12 +106,14 @@ export function renderCanvas(): void {
         crc.globalCompositeOperation = "destination-over";
         crc.fillStyle = canvasColor;
         crc.fillRect(0, 0, canvas.width, canvas.height);
+        imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
 }   else if (placeableObjectsArray.length > 1 ) {
         canvas.width = canvasSizeX;
         canvas.height = canvasSizeY;
         crc.globalCompositeOperation = "destination-over";
         crc.fillStyle = canvasColor;
         crc.fillRect(0, 0, canvas.width, canvas.height);
+        imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
 
 }
