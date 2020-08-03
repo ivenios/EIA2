@@ -333,7 +333,7 @@ function handleLoadPictureResponse(_event: ProgressEvent): void {
         canvasSizeY = loadedCanvasArray[0].canvasY;
         console.log(loadedCanvasArray);
         // dem string fehlen nun etliche Zeichen um ihn wieder zu einem JSON zu machen, das sollte hier passieren: 
-        
+        //mit JSON.parse()
         placeableObjectsArray = [];
         //initCanvas();
        // placeableObjectsArray = []; //die daten müssen aus eineem anderen Array geladen werden probably andere Funktion 
