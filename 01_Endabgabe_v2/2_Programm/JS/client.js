@@ -53,7 +53,7 @@ var endabgabe2;
     }
     //Neue Nutzer Daten an Server senden 
     function saveNewUser() {
-        let confirmation = confirm("Please make sure you dont use a real password, it is not safe!");
+        let confirmation = confirm("Dont use a real password! If you did please change it! Press - Abbrechen");
         if (confirmation == true) {
             let query = "command=registerUser";
             let inputs = document.getElementsByTagName("input");

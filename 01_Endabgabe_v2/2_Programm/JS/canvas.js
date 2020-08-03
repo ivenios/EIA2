@@ -79,33 +79,37 @@ var endabgabe2;
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("Rendering original Objects from array");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
-                if (endabgabe2.placeableObjectsArray[i].type == "squares") {
-                    let squares = new endabgabe2.Square();
-                    squares.type = "squares";
-                    squares.x = endabgabe2.placeableObjectsArray[i].x;
-                    squares.y = endabgabe2.placeableObjectsArray[i].y;
-                    squares.color = endabgabe2.placeableObjectsArray[i].color;
-                    squares.scale = endabgabe2.placeableObjectsArray[i].scale;
-                    squares.renderObject();
-                }
-                if (endabgabe2.placeableObjectsArray[i].type == "squares") {
-                    let triangels = new endabgabe2.Square();
-                    triangels.type = "triangels";
-                    triangels.x = endabgabe2.placeableObjectsArray[i].x;
-                    triangels.y = endabgabe2.placeableObjectsArray[i].y;
-                    triangels.color = endabgabe2.placeableObjectsArray[i].color;
-                    triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
-                    triangels.renderObject();
-                }
-                if (endabgabe2.placeableObjectsArray[i].type == "squares") {
-                    let triangels = new endabgabe2.Square();
-                    let circels = new endabgabe2.Circle();
-                    circels.type = "circels";
-                    circels.x = endabgabe2.placeableObjectsArray[i].x;
-                    circels.y = endabgabe2.placeableObjectsArray[i].y;
-                    circels.color = endabgabe2.placeableObjectsArray[i].color;
-                    circels.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
-                    circels.renderObject();
+                let cType = endabgabe2.placeableObjectsArray[i].type;
+                switch (cType) {
+                    case "squares":
+                        let squares = new endabgabe2.Square();
+                        squares.type = "squares";
+                        squares.x = endabgabe2.placeableObjectsArray[i].x;
+                        squares.y = endabgabe2.placeableObjectsArray[i].y;
+                        squares.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        squares.scale = endabgabe2.placeableObjectsArray[i].scale;
+                        squares.renderObject();
+                        break;
+                    case "circels":
+                        let triangels = new endabgabe2.Square();
+                        triangels.type = "triangels";
+                        triangels.x = endabgabe2.placeableObjectsArray[i].x;
+                        triangels.y = endabgabe2.placeableObjectsArray[i].y;
+                        triangels.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
+                        triangels.renderObject();
+                        break;
+                    case "triangels":
+                        let circels = new endabgabe2.Circle();
+                        circels.type = "circels";
+                        circels.x = endabgabe2.placeableObjectsArray[i].x;
+                        circels.y = endabgabe2.placeableObjectsArray[i].y;
+                        circels.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        circels.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
+                        circels.renderObject();
+                        break;
+                    default:
+                        break;
                 }
             }
         }

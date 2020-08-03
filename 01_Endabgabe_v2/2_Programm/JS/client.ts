@@ -65,7 +65,7 @@ function newUserInit(): void {
 
 //Neue Nutzer Daten an Server senden 
 function saveNewUser(): void {
-    let confirmation: boolean = confirm("Please make sure you dont use a real password, it is not safe!");
+    let confirmation: boolean = confirm("Dont use a real password! If you did please change it! Press - Abbrechen");
     if (confirmation == true) {
     let query: string = "command=registerUser";
     let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
