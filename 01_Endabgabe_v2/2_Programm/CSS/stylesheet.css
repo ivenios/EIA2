@@ -15,9 +15,9 @@
   
   canvas {
     margin: 4px;
-    /*background: white;
+    background: white;
     overflow: auto;
-    resize: both;*/
+    resize: both;
   }
 
   h1 {
