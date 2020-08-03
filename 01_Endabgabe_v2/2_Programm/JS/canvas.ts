@@ -479,7 +479,43 @@ function updateObject(): void {
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         // console.log(placeableObjectsArray[i]);
-            placeableObjectsArray[i].updateObject();
+        let cType: string = placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
+        switch (cType) {
+            case "squares" && "triangels":
+                if (globalAnimatonType == "slow") {
+                    if (placeableObjectsArray[i].x >= canvas.width || placeableObjectsArray[i].x <= 0) {
+                        placeableObjectsArray[i].x = -placeableObjectsArray[i].x;
+                    } else
+                    placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+                    if (placeableObjectsArray[i].y >= canvas.width || placeableObjectsArray[i].y <= 0) {
+                        //;
+                    }
+                    placeableObjectsArray[i].y += Math.random() * (6 - 2) + 2 ;
+                    
+                }
+                else if (globalAnimatonType == "stig") {
+                    //;
+                } else if (globalAnimatonType == "bendy") {
+                    //;
+                } else if (globalAnimatonType == "mayham") {
+                    //triangels.color = color;
+                   // triangels.scale = scale;
+                }
+
+
+                break;
+ 
+
+            case "circles":   
+                
+                break;
+
+            default:
+                break;
+        }
+        renderCanvas();
+
+
         }
     }
     else if (animationCount == 1) {

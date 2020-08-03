@@ -392,7 +392,37 @@ var endabgabe2;
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 // console.log(placeableObjectsArray[i]);
-                endabgabe2.placeableObjectsArray[i].updateObject();
+                let cType = endabgabe2.placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
+                switch (cType) {
+                    case "squares" && "triangels":
+                        if (endabgabe2.globalAnimatonType == "slow") {
+                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width || endabgabe2.placeableObjectsArray[i].x <= 0) {
+                                endabgabe2.placeableObjectsArray[i].x = -endabgabe2.placeableObjectsArray[i].x;
+                            }
+                            else
+                                endabgabe2.placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
+                            if (endabgabe2.placeableObjectsArray[i].y >= endabgabe2.canvas.width || endabgabe2.placeableObjectsArray[i].y <= 0) {
+                                //;
+                            }
+                            endabgabe2.placeableObjectsArray[i].y += Math.random() * (6 - 2) + 2;
+                        }
+                        else if (endabgabe2.globalAnimatonType == "stig") {
+                            //;
+                        }
+                        else if (endabgabe2.globalAnimatonType == "bendy") {
+                            //;
+                        }
+                        else if (endabgabe2.globalAnimatonType == "mayham") {
+                            //triangels.color = color;
+                            // triangels.scale = scale;
+                        }
+                        break;
+                    case "circles":
+                        break;
+                    default:
+                        break;
+                }
+                renderCanvas();
             }
         }
         else if (animationCount == 1) {
