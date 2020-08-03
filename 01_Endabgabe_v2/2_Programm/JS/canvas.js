@@ -32,11 +32,8 @@ var endabgabe2;
         console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
         endabgabe2.canvas.width = endabgabe2.canvasSizeX;
         endabgabe2.canvas.height = endabgabe2.canvasSizeY;
+        endabgabe2.canvas.style.transform = "background: " + endabgabe2.canvasColor + ";";
         // andere Möglichkeit die farbe der Canvas zu manipulieren
-        let canvasBGColor = document.getElementsByTagName("canvas");
-        if (canvasBGColor.length != 0) {
-            canvasBGColor[0].style.transform = "background: " + endabgabe2.canvasColor + ";";
-        }
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);
         //imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
