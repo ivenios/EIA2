@@ -188,7 +188,7 @@ var endabgabe2;
         for (let i = 0; i < jSONString.length; i++) {
             // Hashtag aus query string entfernen
             jSONString = jSONString.replace(hash, "");
-            jSONString = jSONString.replace(quotes, "");
+            jSONString = jSONString.replace(quotes, "%22");
             jSONString = jSONString.replace(space, "%20");
         }
         query += "&placeableObjects=" + jSONString;
