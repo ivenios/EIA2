@@ -502,12 +502,13 @@ function updateObject(): void {
                     break;  
 
                 case "circles":   
-                    let circles: Circle = new Circle ();
+                    let circles: Circle; 
+                    circles.r = 17 * placeableObjectsArray[i].scale ;
                     circles.type = "circles";
                     circles.x = placeableObjectsArray[i].x;
                     circles.y = placeableObjectsArray[i].y;
                     circles.color = "#" + placeableObjectsArray[i].color;
-                    circles.r = 17 * placeableObjectsArray[i].scale ;
+                    
 
                     circles.updateObject();
                     break;

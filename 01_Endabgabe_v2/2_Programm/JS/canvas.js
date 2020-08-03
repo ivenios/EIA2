@@ -414,12 +414,12 @@ var endabgabe2;
                         triangels.updateObject();
                         break;
                     case "circles":
-                        let circles = new endabgabe2.Circle();
+                        let circles;
+                        circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
                         circles.type = "circles";
                         circles.x = endabgabe2.placeableObjectsArray[i].x;
                         circles.y = endabgabe2.placeableObjectsArray[i].y;
                         circles.color = "#" + endabgabe2.placeableObjectsArray[i].color;
-                        circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
                         circles.updateObject();
                         break;
                     default:
