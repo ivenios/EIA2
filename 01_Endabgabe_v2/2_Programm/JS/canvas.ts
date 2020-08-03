@@ -499,7 +499,7 @@ function updateObject(): void {
                     else if (placeableObjectsArray[i].x <= 0) {
                         placeableObjectsArray[i].x += canvas.height + 30;
                     } else
-                    placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
+                    placeableObjectsArray[i].y += Math.random() * (7 - 3) + 3;
                     
                     
                 }
@@ -520,7 +520,7 @@ function updateObject(): void {
                     else if (placeableObjectsArray[i].x <= 0) {
                         placeableObjectsArray[i].x += canvas.height + 30;
                     } else
-                    placeableObjectsArray[i].x += Math.random() * (17 - 10) + 10;
+                    placeableObjectsArray[i].y += Math.random() * (17 - 10) + 10;
                     //;
                 } else if (globalAnimatonType == "bendy") {
                     if (placeableObjectsArray[i].x >= canvas.width) {
@@ -539,7 +539,7 @@ function updateObject(): void {
                     else if (placeableObjectsArray[i].x <= 0) {
                         placeableObjectsArray[i].x += canvas.height + 30;
                     } else
-                    placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                    placeableObjectsArray[i].y += Math.random() * (-7 - 3) + 3;
                     placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                     //;
                 } else if (globalAnimatonType == "mayham") {

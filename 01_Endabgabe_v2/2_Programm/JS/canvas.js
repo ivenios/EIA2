@@ -412,7 +412,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
+                                endabgabe2.placeableObjectsArray[i].y += Math.random() * (7 - 3) + 3;
                         }
                         else if (endabgabe2.globalAnimatonType == "stig") {
                             if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
@@ -430,7 +430,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x += Math.random() * (17 - 10) + 10;
+                                endabgabe2.placeableObjectsArray[i].y += Math.random() * (17 - 10) + 10;
                             //;
                         }
                         else if (endabgabe2.globalAnimatonType == "bendy") {
@@ -449,7 +449,7 @@ var endabgabe2;
                                 endabgabe2.placeableObjectsArray[i].x += endabgabe2.canvas.height + 30;
                             }
                             else
-                                endabgabe2.placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
+                                endabgabe2.placeableObjectsArray[i].y += Math.random() * (-7 - 3) + 3;
                             endabgabe2.placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                             //;
                         }
