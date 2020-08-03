@@ -133,24 +133,24 @@ var endabgabe2;
             console.log(i, ifSizeY);
             console.log(i, ifSizeYm);
             switch (cType) {
-                case "squares": // 
+                case "squares":
                     if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm) {
                         console.log("deleting Square");
-                        endabgabe2.placeableObjectsArray.splice(i);
+                        endabgabe2.placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
                     break;
                 case "triangels":
                     if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                         console.log("deleting triangel");
-                        endabgabe2.placeableObjectsArray.splice(i);
+                        endabgabe2.placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
                     break;
                 case "circles":
                     if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                         console.log("deleting circle");
-                        endabgabe2.placeableObjectsArray.splice(i);
+                        endabgabe2.placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
                     break;
