@@ -70,8 +70,8 @@ Goodies aka feature creep:
 
 
 Maybe Problems: 
-[ ] Wie viele Änderungen kann der nutzer machen, bevore der URL String gekappt wird? -> Bearbeitungsgrenze?
-[ ] Wie  viele Bilder soll der Nutzer ertstellen können? 
+[X] Wie viele Änderungen kann der nutzer machen, bevore der URL String gekappt wird? -> Bearbeitungsgrenze?
+[X] Wie  viele Bilder soll der Nutzer ertstellen können? ->Unendlich
 
 
 
@@ -98,7 +98,7 @@ __Canvas :/
 
  -- Welche Voreinstellungen benötigt der Nutzer: 
         Größe x und y
-        Einfarbiger Hintergrund oder Random Bild 
+        Einfarbiger Hintergrund 
 
  --Welche Funktionen soll der Nutzer haben?
         *Welche Objekte stehen im zur Auswahl
@@ -112,11 +112,13 @@ __Canvas :/
             Pro -> Slider der Farben auswahl regelt? (How?)
 
         *Animationsmuster auswahl der Muster und dann Play drücken
-            Checkboxen mit Optionen, die gewählt werden können 
-            Animate: 
-                -Color
-                -Size
-                -Rotation
+            Captian Slow - Alle soll sich gemächlich bewegen
+            The Stig - Alles bewegt sich mit mittlerem Tempo 
+            Random Bendy Bit - Alles bewegt sich mit random zahlen hin und her, die objekte die ecken haben sollen sich dabei schon langsam drehen 
+            Mayham - komplettes Chaos. schnelle bewegung und schnelle rotation. Falls alles ohne probleme funktioniert auch die Scale. 
+
+
+            
 
 
 

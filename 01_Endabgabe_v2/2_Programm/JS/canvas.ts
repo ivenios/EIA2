@@ -346,7 +346,7 @@ function resizeObjects(_event: MouseEvent): void {
     let userPoxY: number = _event.offsetY;
     
 
-    console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+    console.log("Look mommey! Iam resizing", _event.offsetX, _event.offsetY);
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cScale: number = placeableObjectsArray[i].scale;
         let hash: string = "#";

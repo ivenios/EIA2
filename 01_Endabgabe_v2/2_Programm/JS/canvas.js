@@ -276,7 +276,7 @@ var endabgabe2;
         let inputs = document.getElementsByTagName("input");
         let userPosX = _event.offsetX;
         let userPoxY = _event.offsetY;
-        console.log("Look mommey! Iam drawing", _event.offsetX, _event.offsetY);
+        console.log("Look mommey! Iam resizing", _event.offsetX, _event.offsetY);
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
             let hash = "#";
