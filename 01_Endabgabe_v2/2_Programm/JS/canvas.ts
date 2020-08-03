@@ -309,6 +309,8 @@ function sprayObject(_event: MouseEvent): void {
             placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
             placeableObjectsArray[i].y + ifSizeYm >= userPoxY
             ) {
+                console.log(placeableObjectsArray[i].color);
+                console.log(inputs[0].value);
                 placeableObjectsArray[i].color = inputs[0].value;
                 renderCanvas();
             }

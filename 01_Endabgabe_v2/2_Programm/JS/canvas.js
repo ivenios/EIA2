@@ -247,6 +247,8 @@ var endabgabe2;
                 endabgabe2.placeableObjectsArray[i].x + ifSizeXm >= userPosX &&
                 endabgabe2.placeableObjectsArray[i].y - ifSizeY <= userPoxY &&
                 endabgabe2.placeableObjectsArray[i].y + ifSizeYm >= userPoxY) {
+                console.log(endabgabe2.placeableObjectsArray[i].color);
+                console.log(inputs[0].value);
                 endabgabe2.placeableObjectsArray[i].color = inputs[0].value;
                 renderCanvas();
             }
