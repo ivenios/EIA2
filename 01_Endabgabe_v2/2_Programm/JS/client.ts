@@ -309,8 +309,8 @@ function handleNewCanvasResponse(_event: ProgressEvent): void {
     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
     if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.response == "save postive") {
-            initRenderNewCanvas();
             printError("Please wait while we prepare your canvas with liquid white.");
+            initRenderNewCanvas();
    
         } else if (xhr.response == "save negative") {
             printError("You already have a picture with this name! Please be more creative.");

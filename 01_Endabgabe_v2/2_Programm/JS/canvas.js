@@ -33,6 +33,7 @@ var endabgabe2;
         endabgabe2.canvas.width = endabgabe2.canvasSizeX;
         endabgabe2.canvas.height = endabgabe2.canvasSizeY;
         endabgabe2.canvas.style.transform = "background: " + endabgabe2.canvasColor + ";";
+        imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         // andere Möglichkeit die farbe der Canvas zu manipulieren
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);

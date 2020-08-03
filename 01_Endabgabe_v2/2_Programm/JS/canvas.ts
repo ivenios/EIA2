@@ -47,6 +47,7 @@ export function initCanvas(): void {
     canvas.width = canvasSizeX;
     canvas.height = canvasSizeY; 
     canvas.style.transform = "background: " + canvasColor + ";";
+    imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     // andere Möglichkeit die farbe der Canvas zu manipulieren
 
     //crc.fillStyle = canvasColor;
