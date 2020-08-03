@@ -152,9 +152,11 @@ export function renderCanvas(): void {
 function initDeleteObject(): void {
     deletAllEventListeners();
     canvas.addEventListener("click", deleteObject);
+    console.log("starting deleting mode");
 }
 
 function deleteObject(_event: MouseEvent): void {
+    console.log("ready for deletion)");
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
         let cScale: number = placeableObjectsArray[i].scale;

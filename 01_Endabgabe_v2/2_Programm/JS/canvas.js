@@ -116,8 +116,10 @@ var endabgabe2;
     function initDeleteObject() {
         deletAllEventListeners();
         endabgabe2.canvas.addEventListener("click", deleteObject);
+        console.log("starting deleting mode");
     }
     function deleteObject(_event) {
+        console.log("ready for deletion)");
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
