@@ -121,6 +121,10 @@ var endabgabe2;
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
+            console.log(endabgabe2.placeableObjectsArray[i].x - 2 / (cScale * 15));
+            console.log(endabgabe2.placeableObjectsArray[i].x + 2 / (cScale * 15));
+            console.log(endabgabe2.placeableObjectsArray[i].y - 2 / (cScale * 15));
+            console.log(endabgabe2.placeableObjectsArray[i].y + 2 / (cScale * 15));
             switch (cType) {
                 case "squares": // 
                     if (_event.offsetX >= endabgabe2.placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= endabgabe2.placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= endabgabe2.placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= endabgabe2.placeableObjectsArray[i].y + 2 / (cScale * 15)) {
