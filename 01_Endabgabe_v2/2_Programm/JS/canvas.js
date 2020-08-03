@@ -35,7 +35,7 @@ var endabgabe2;
         document.getElementById("moverButt").addEventListener("click", initMover);
         let canvasBG = document.getElementsByTagName("canvas");
         if (canvasBG.length != 0) {
-            canvasBG[0].style.transform = "background=" + endabgabe2.canvasColor + ";";
+            canvasBG[0].style.background = endabgabe2.canvasColor;
         }
         //crc.fillStyle = canvasColor;
         //crc.fillRect(0, 0, canvas.width, canvas.height);
@@ -77,7 +77,7 @@ var endabgabe2;
     }
     //Aubau der bereitsplatzierten elemente auf der Canvas
     function renderCanvas() {
-        if (endabgabe2.placeableObjectsArray.length > 1) {
+        if (endabgabe2.placeableObjectsArray.length > 0) {
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             console.log("Rendering original Objects from array");

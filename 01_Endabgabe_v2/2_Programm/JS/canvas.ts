@@ -50,7 +50,7 @@ export function initCanvas(): void {
     let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas"); 
 
     if (canvasBG.length != 0) {
-        canvasBG[0].style.transform = "background=" + canvasColor + ";" ;
+        canvasBG[0].style.background = canvasColor;
 }
 
     //crc.fillStyle = canvasColor;
@@ -106,7 +106,7 @@ function deletAllEventListeners(): void {
 
 //Aubau der bereitsplatzierten elemente auf der Canvas
 export function renderCanvas(): void {
-    if (placeableObjectsArray.length > 1 ) {
+    if (placeableObjectsArray.length > 0 ) {
         crc.clearRect(0,  0, canvas.width, canvas.height);
         imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
         console.log("Rendering original Objects from array");
