@@ -32,7 +32,8 @@ var endabgabe2;
         console.log(endabgabe2.canvasColor, endabgabe2.canvasSizeX, endabgabe2.canvasSizeY);
         endabgabe2.canvas.width = endabgabe2.canvasSizeX;
         endabgabe2.canvas.height = endabgabe2.canvasSizeY;
-        endabgabe2.canvas.style.transform = "background: " + endabgabe2.canvasColor + ";";
+        let canvasBG = document.getElementsByTagName("canvas");
+        canvasBG[0].style.transform = "background: " + endabgabe2.canvasColor + ";";
         imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
         // andere Möglichkeit die farbe der Canvas zu manipulieren
         //crc.fillStyle = canvasColor;

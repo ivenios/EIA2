@@ -46,7 +46,8 @@ export function initCanvas(): void {
     console.log(canvasColor, canvasSizeX, canvasSizeY);
     canvas.width = canvasSizeX;
     canvas.height = canvasSizeY; 
-    canvas.style.transform = "background: " + canvasColor + ";";
+    let canvasBG: HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("canvas");
+    canvasBG[0].style.transform = "background: " + canvasColor + ";";
     imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
     // andere Möglichkeit die farbe der Canvas zu manipulieren
 
