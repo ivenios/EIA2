@@ -232,20 +232,23 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
 
 function initMover(): void {
     deletAllEventListeners();
-    document.getElementById("canvas")!.addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation
-    document.getElementById("canvas")!.addEventListener("mousemove", moveObject);
+    document.getElementById("canvas")!.addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
     document.getElementById("canvas")!.addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
 }
 
 function startMover(): void {
     //;
+    document.getElementById("canvas")!.addEventListener("mousemove", moveObject);
+
 }
 
 function stopMover(): void {
+    document.getElementById("canvas")!.removeEventListener("mousemove", moveObject);
     //;
 }
 
-function moveObject(): void {
+function moveObject(_event: MouseEvent): void {
+    console.log("Look Iam moving", _event.offsetX, _event.offsetY);
     //;
 }
 

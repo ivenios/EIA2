@@ -185,17 +185,19 @@ var endabgabe2;
     //Funktion zum bewegen der Objekte
     function initMover() {
         deletAllEventListeners();
-        document.getElementById("canvas").addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation
-        document.getElementById("canvas").addEventListener("mousemove", moveObject);
+        document.getElementById("canvas").addEventListener("mousedown", startMover); //funktion ändert variable so, dass der moveObject variable bekannt ist, dass sie sachen bewegen darf ähnlich wie bei der Start stop animation 
         document.getElementById("canvas").addEventListener("mouseup", stopMover); //verändert variable so, dass moveObject abbricht 
     }
     function startMover() {
         //;
+        document.getElementById("canvas").addEventListener("mousemove", moveObject);
     }
     function stopMover() {
+        document.getElementById("canvas").removeEventListener("mousemove", moveObject);
         //;
     }
-    function moveObject() {
+    function moveObject(_event) {
+        console.log("Look Iam moving", _event.offsetX, _event.offsetY);
         //;
     }
     //SUQARE
