@@ -49,7 +49,7 @@ export class Triangle extends PlaceableObjects {
 
     else if (globalAnimatonType == "mayham") {
         //;
-       // this.alterObject();
+       // this.alterObject();  
     }
 }
 

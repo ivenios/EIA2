@@ -41,7 +41,7 @@ var endabgabe2;
             }
             else if (endabgabe2.globalAnimatonType == "mayham") {
                 //;
-                // this.alterObject();
+                // this.alterObject();  
             }
         }
         alterObject() {
