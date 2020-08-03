@@ -121,43 +121,61 @@ var endabgabe2;
     function deleteObject(_event) {
         console.log("ready for deletion");
         console.log(_event.offsetX, _event.offsetY);
+        let userPosX = _event.offsetX;
+        let userPoxY = _event.offsetY;
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
             let cScale = endabgabe2.placeableObjectsArray[i].scale;
-            let ifSizeX = endabgabe2.placeableObjectsArray[i].x - 0.5 * (cScale * 15);
-            let ifSizeXm = endabgabe2.placeableObjectsArray[i].x + 0.5 * (cScale * 15);
-            let ifSizeY = endabgabe2.placeableObjectsArray[i].y - 0.5 * (cScale * 15);
-            let ifSizeYm = endabgabe2.placeableObjectsArray[i].y + 0.5 * (cScale * 15);
+            let ifSizeX = 0.5 * (cScale * 15);
+            let ifSizeXm = 0.5 * (cScale * 15);
+            let ifSizeY = 0.5 * (cScale * 15);
+            let ifSizeYm = 0.5 * (cScale * 15);
+            if (endabgabe2.placeableObjectsArray[0].x - ifSizeX < userPosX &&
+                endabgabe2.placeableObjectsArray[0].x + ifSizeXm > userPosX &&
+                endabgabe2.placeableObjectsArray[0].y - ifSizeY < userPosX &&
+                endabgabe2.placeableObjectsArray[0].y + ifSizeYm > userPosX) {
+                console.log("i caught a object");
+            }
+            /* das geht iwie net
+            
+               
             console.log(i, ifSizeX);
             console.log(i, ifSizeXm);
             console.log(i, ifSizeY);
             console.log(i, ifSizeYm);
             switch (cType) {
                 case "squares":
-                    if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm) {
+                    if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                         console.log("deleting Square");
-                        endabgabe2.placeableObjectsArray.splice(i, 1);
+                        placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
+                    
                     break;
+    
                 case "triangels":
                     if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                         console.log("deleting triangel");
-                        endabgabe2.placeableObjectsArray.splice(i, 1);
+                        placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
+                    
+                    
                     break;
+    
                 case "circles":
                     if (_event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                         console.log("deleting circle");
-                        endabgabe2.placeableObjectsArray.splice(i, 1);
+                        placeableObjectsArray.splice(i, 1);
                         renderCanvas();
                     }
+    
                     break;
+    
                 default:
                     break;
             }
-            //;
+        //; */
         }
     }
     //SUQARE

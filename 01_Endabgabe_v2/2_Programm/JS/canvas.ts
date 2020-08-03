@@ -155,23 +155,43 @@ function initDeleteObject(): void {
     console.log("starting deleting mode");
 }
 
-function deleteObject(_event: MouseEvent): void {
+function deleteObject(_event: MouseEvent): void { //the struggle is real 
     console.log("ready for deletion");
     console.log(_event.offsetX, _event.offsetY);
+    
+    let userPosX: number = _event.offsetX;
+    let userPoxY: number = _event.offsetY;
+ 
+
+
+
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
         let cScale: number = placeableObjectsArray[i].scale;
-        let ifSizeX: number = placeableObjectsArray[i].x - 0.5 * (cScale * 15);
-        let ifSizeXm: number = placeableObjectsArray[i].x + 0.5 * (cScale * 15);
-        let ifSizeY: number = placeableObjectsArray[i].y - 0.5 * (cScale * 15);
-        let ifSizeYm: number = placeableObjectsArray[i].y + 0.5 *  (cScale * 15);      
+        let ifSizeX: number =  0.5 * (cScale * 15);
+        let ifSizeXm: number =  0.5 * (cScale * 15);
+        let ifSizeY: number = 0.5 * (cScale * 15);
+        let ifSizeYm: number = 0.5 *  (cScale * 15);  
+
+        if ( placeableObjectsArray[0].x - ifSizeX < userPosX &&
+            placeableObjectsArray[0].x + ifSizeXm > userPosX &&
+            placeableObjectsArray[0].y - ifSizeY < userPosX &&
+            placeableObjectsArray[0].y + ifSizeYm > userPosX
+            ) {
+                console.log("i caught a object");
+            }
+
+
+        /* das geht iwie net 
+        
+           
         console.log(i, ifSizeX);
         console.log(i, ifSizeXm);
         console.log(i, ifSizeY);
         console.log(i, ifSizeYm);
         switch (cType) {
             case "squares": 
-                if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm) {
+                if ( _event.offsetX >= ifSizeX && _event.offsetX <= ifSizeXm && _event.offsetY >= ifSizeY && _event.offsetY <= ifSizeYm) {
                     console.log("deleting Square");
                     placeableObjectsArray.splice(i, 1);
                     renderCanvas();
@@ -201,7 +221,7 @@ function deleteObject(_event: MouseEvent): void {
             default:
                 break;
         }
-    //;
+    //; */
     }
 
 }
