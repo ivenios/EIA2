@@ -8,7 +8,7 @@ Datum: 04.08.2020
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 */
 
-export class Circle extends MovingCompany {
+export class Circle extends PlaceableObjects {
     r: number; //radius
 
 

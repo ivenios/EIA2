@@ -8,7 +8,7 @@ var endabgabe2;
         
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
     */
-    class Circle extends endabgabe2.MovingCompany {
+    class Circle extends endabgabe2.PlaceableObjects {
         constructor() {
             super(); //;
         }
