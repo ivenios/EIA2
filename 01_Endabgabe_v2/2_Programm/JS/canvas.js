@@ -130,10 +130,10 @@ var endabgabe2;
             let ifSizeXm = 0.5 * (cScale * 15);
             let ifSizeY = 0.5 * (cScale * 15);
             let ifSizeYm = 0.5 * (cScale * 15);
-            if (endabgabe2.placeableObjectsArray[0].x - ifSizeX < userPosX &&
-                endabgabe2.placeableObjectsArray[0].x + ifSizeXm > userPosX &&
-                endabgabe2.placeableObjectsArray[0].y - ifSizeY < userPosX &&
-                endabgabe2.placeableObjectsArray[0].y + ifSizeYm > userPosX) {
+            if (endabgabe2.placeableObjectsArray[i].x - ifSizeX < userPosX &&
+                endabgabe2.placeableObjectsArray[i].x + ifSizeXm > userPosX &&
+                endabgabe2.placeableObjectsArray[i].y - ifSizeY < userPosX &&
+                endabgabe2.placeableObjectsArray[i].y + ifSizeYm > userPosX) {
                 console.log("i caught a object");
             }
             /* das geht iwie net

@@ -173,10 +173,10 @@ function deleteObject(_event: MouseEvent): void { //the struggle is real
         let ifSizeY: number = 0.5 * (cScale * 15);
         let ifSizeYm: number = 0.5 *  (cScale * 15);  
 
-        if ( placeableObjectsArray[0].x - ifSizeX < userPosX &&
-            placeableObjectsArray[0].x + ifSizeXm > userPosX &&
-            placeableObjectsArray[0].y - ifSizeY < userPosX &&
-            placeableObjectsArray[0].y + ifSizeYm > userPosX
+        if ( placeableObjectsArray[i].x - ifSizeX < userPosX &&
+            placeableObjectsArray[i].x + ifSizeXm > userPosX &&
+            placeableObjectsArray[i].y - ifSizeY < userPosX &&
+            placeableObjectsArray[i].y + ifSizeYm > userPosX
             ) {
                 console.log("i caught a object");
             }
