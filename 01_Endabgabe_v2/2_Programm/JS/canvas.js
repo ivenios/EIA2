@@ -91,7 +91,7 @@ var endabgabe2;
                         squares.renderObject();
                         break;
                     case "triangels":
-                        let triangels = new endabgabe2.Square();
+                        let triangels = new endabgabe2.Triangle();
                         triangels.type = "triangels";
                         triangels.x = endabgabe2.placeableObjectsArray[i].x;
                         triangels.y = endabgabe2.placeableObjectsArray[i].y;
@@ -99,14 +99,14 @@ var endabgabe2;
                         triangels.scale = endabgabe2.placeableObjectsArray[i].scale;
                         triangels.renderObject();
                         break;
-                    case "circels":
-                        let circels = new endabgabe2.Circle();
-                        circels.type = "circels";
-                        circels.x = endabgabe2.placeableObjectsArray[i].x;
-                        circels.y = endabgabe2.placeableObjectsArray[i].y;
-                        circels.color = "#" + endabgabe2.placeableObjectsArray[i].color;
-                        circels.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
-                        circels.renderObject();
+                    case "circles":
+                        let circles = new endabgabe2.Circle();
+                        circles.type = "circles";
+                        circles.x = endabgabe2.placeableObjectsArray[i].x;
+                        circles.y = endabgabe2.placeableObjectsArray[i].y;
+                        circles.color = "#" + endabgabe2.placeableObjectsArray[i].color;
+                        circles.r = 17 * endabgabe2.placeableObjectsArray[i].scale;
+                        circles.renderObject();
                         break;
                     default:
                         break;
@@ -150,16 +150,16 @@ var endabgabe2;
         console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
-        let circels = new endabgabe2.Circle();
-        circels.type = "circels";
-        circels.x = x;
-        circels.y = y;
-        circels.color = color;
-        circels.r = 17 * scale;
+        let circles = new endabgabe2.Circle();
+        circles.type = "circles";
+        circles.x = x;
+        circles.y = y;
+        circles.color = color;
+        circles.r = 17 * scale;
         //hier die farbe 
         //hier der Radius 
-        endabgabe2.placeableObjectsArray.push(circels);
-        circels.renderObject();
+        endabgabe2.placeableObjectsArray.push(circles);
+        circles.renderObject();
         console.log(endabgabe2.placeableObjectsArray);
     }
     //DREIECK

@@ -129,7 +129,7 @@ export function renderCanvas(): void {
                     break;
 
                 case "triangels":
-                    let triangels: Square = new Square ();
+                    let triangels: Triangle = new Triangle ();
                     triangels.type = "triangels";
                     triangels.x = placeableObjectsArray[i].x;
                     triangels.y = placeableObjectsArray[i].y;
@@ -138,14 +138,14 @@ export function renderCanvas(): void {
                     triangels.renderObject();
                     break;
 
-                case "circels":   
-                    let circels: Circle = new Circle ();
-                    circels.type = "circels";
-                    circels.x = placeableObjectsArray[i].x;
-                    circels.y = placeableObjectsArray[i].y;
-                    circels.color = "#" + placeableObjectsArray[i].color;
-                    circels.r = 17 * placeableObjectsArray[i].scale;
-                    circels.renderObject();
+                case "circles":   
+                    let circles: Circle = new Circle ();
+                    circles.type = "circles";
+                    circles.x = placeableObjectsArray[i].x;
+                    circles.y = placeableObjectsArray[i].y;
+                    circles.color = "#" + placeableObjectsArray[i].color;
+                    circles.r = 17 * placeableObjectsArray[i].scale;
+                    circles.renderObject();
                     break;
 
                 default:
@@ -200,16 +200,16 @@ function placeCircle(_event: MouseEvent): void {
     console.log(_event);
     let x: number = _event.offsetX;
     let y: number = _event.offsetY;
-    let circels: Circle = new Circle ();
-    circels.type = "circels";
-    circels.x = x;
-    circels.y = y;
-    circels.color = color;
-    circels.r = 17 * scale;
+    let circles: Circle = new Circle ();
+    circles.type = "circles";
+    circles.x = x;
+    circles.y = y;
+    circles.color = color;
+    circles.r = 17 * scale;
     //hier die farbe 
     //hier der Radius 
-    placeableObjectsArray.push(circels);
-    circels.renderObject();
+    placeableObjectsArray.push(circles);
+    circles.renderObject();
     console.log(placeableObjectsArray);
 }
 
