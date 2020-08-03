@@ -120,13 +120,13 @@ var endabgabe2;
     function deleteObject(_event) {
         for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
             let cType = endabgabe2.placeableObjectsArray[i].type;
+            let cScale = endabgabe2.placeableObjectsArray[i].scale;
             switch (cType) {
                 case "squares": // 
-                    if ((endabgabe2.placeableObjectsArray[i].scale * 15) / 2 - endabgabe2.placeableObjectsArray[i].x >= _event.offsetX &&
-                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 + endabgabe2.placeableObjectsArray[i].x <= _event.offsetX &&
-                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 - endabgabe2.placeableObjectsArray[i].y >= _event.offsetY &&
-                        (endabgabe2.placeableObjectsArray[i].scale * 15) / 2 + endabgabe2.placeableObjectsArray[i].y <= _event.offsetY) {
+                    if (_event.offsetX >= endabgabe2.placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= endabgabe2.placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= endabgabe2.placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= endabgabe2.placeableObjectsArray[i].y + 2 / (cScale * 15)) {
+                        console.log("deleting Square");
                         endabgabe2.placeableObjectsArray.splice(i);
+                        renderCanvas();
                     }
                     break;
                 case "triangels":
@@ -134,7 +134,9 @@ var endabgabe2;
                         endabgabe2.placeableObjectsArray[i].x + (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetX &&
                         endabgabe2.placeableObjectsArray[i].y - (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetY &&
                         endabgabe2.placeableObjectsArray[i].y + (endabgabe2.placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetY) {
+                        console.log("deleting Square");
                         endabgabe2.placeableObjectsArray.splice(i);
+                        renderCanvas();
                     }
                     break;
                 case "circles":
@@ -142,7 +144,9 @@ var endabgabe2;
                         endabgabe2.placeableObjectsArray[i].x + (endabgabe2.placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetX &&
                         endabgabe2.placeableObjectsArray[i].y - (endabgabe2.placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetY &&
                         endabgabe2.placeableObjectsArray[i].y + (endabgabe2.placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetY) {
+                        console.log("deleting Square");
                         endabgabe2.placeableObjectsArray.splice(i);
+                        renderCanvas();
                     }
                     break;
                 default:

@@ -157,13 +157,13 @@ function initDeleteObject(): void {
 function deleteObject(_event: MouseEvent): void {
     for (let i: number = 0; i < placeableObjectsArray.length; i++) {
         let cType: string = placeableObjectsArray[i].type;
+        let cScale: number = placeableObjectsArray[i].scale;
         switch (cType) {
             case "squares": // 
-                if ( (placeableObjectsArray[i].scale * 15) / 2 - placeableObjectsArray[i].x >= _event.offsetX && 
-                 (placeableObjectsArray[i].scale * 15) / 2 + placeableObjectsArray[i].x <= _event.offsetX && 
-                (placeableObjectsArray[i].scale * 15) / 2 - placeableObjectsArray[i].y >= _event.offsetY && 
-                (placeableObjectsArray[i].scale * 15) / 2 + placeableObjectsArray[i].y  <= _event.offsetY) {
+                if ( _event.offsetX >= placeableObjectsArray[i].x - 2 / (cScale * 15) && _event.offsetX <= placeableObjectsArray[i].x + 2 / (cScale * 15) && _event.offsetY >= placeableObjectsArray[i].y - 2 / (cScale * 15) && _event.offsetY <= placeableObjectsArray[i].y + 2 / (cScale * 15) ) {
+                    console.log("deleting Square");
                     placeableObjectsArray.splice(i);
+                    renderCanvas();
                 }
                 
                 break;
@@ -173,7 +173,9 @@ function deleteObject(_event: MouseEvent): void {
                 placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetX && 
                 placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 10) / 2 >= _event.offsetY && 
                 placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 10) / 2 <= _event.offsetY) {
+                    console.log("deleting Square");
                     placeableObjectsArray.splice(i);
+                    renderCanvas();
                 }
                 
                 
@@ -184,7 +186,9 @@ function deleteObject(_event: MouseEvent): void {
                 placeableObjectsArray[i].x + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetX && 
                 placeableObjectsArray[i].y - (placeableObjectsArray[i].scale * 17) / 2 >= _event.offsetY && 
                 placeableObjectsArray[i].y + (placeableObjectsArray[i].scale * 17) / 2 <= _event.offsetY) {
+                    console.log("deleting Square");
                     placeableObjectsArray.splice(i);
+                    renderCanvas();
                 }
 
                 break;
