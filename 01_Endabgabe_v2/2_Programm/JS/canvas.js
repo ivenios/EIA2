@@ -155,6 +155,8 @@ var endabgabe2;
         circles.x = x;
         circles.y = y;
         circles.color = color;
+        circles.scale = scale; // das hier vergessen 
+        // auf den Radius wird zwar im Array nicht drauf zugegriffen, aber speichert dennoch ab 
         circles.r = 17 * scale;
         //hier die farbe 
         //hier der Radius 

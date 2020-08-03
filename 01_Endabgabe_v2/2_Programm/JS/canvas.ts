@@ -145,6 +145,7 @@ export function renderCanvas(): void {
                     circles.y = placeableObjectsArray[i].y;
                     circles.color = "#" + placeableObjectsArray[i].color;
                     circles.r = 17 * placeableObjectsArray[i].scale ;
+
                     circles.renderObject();
                     break;
 
@@ -205,6 +206,8 @@ function placeCircle(_event: MouseEvent): void {
     circles.x = x;
     circles.y = y;
     circles.color = color;
+    circles.scale = scale; // das hier vergessen 
+    // auf den Radius wird zwar im Array nicht drauf zugegriffen, aber speichert dennoch ab 
     circles.r = 17 * scale;
     //hier die farbe 
     //hier der Radius 
