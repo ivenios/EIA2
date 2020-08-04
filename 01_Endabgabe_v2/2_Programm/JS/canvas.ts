@@ -478,12 +478,12 @@ function updateObject(): void {
        
         console.log("im Running");
         for (let i: number = 0; i < placeableObjectsArray.length; i++) {
-        console.log(placeableObjectsArray[i]);
+        //console.log(placeableObjectsArray[i]);
         let cType: string = placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
         switch (cType) {
             case "triangels":
                 if (globalAnimatonType == "slow") {
-                    if (placeableObjectsArray[i].x >= canvas.width) {
+                    if (placeableObjectsArray[i].x >= canvas.width - 40) {
                         placeableObjectsArray[i].x -= canvas.width + 30 ;
 
                     }
@@ -737,7 +737,7 @@ function updateObject(): void {
             default:
                 break;
         }
-        console.log(placeableObjectsArray[i]);
+        //console.log(placeableObjectsArray[i]);
         renderCanvas();
 
 

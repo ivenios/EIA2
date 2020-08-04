@@ -3,15 +3,15 @@ Here we go Endabgabe die zweite:
 Die Endabgabe muss können: 
 
 [ ] Individuell gestaltbare Zeichenfläche (Größe & "Hintergrunddarstellung")
-	 [ ] Platzierung von grafischen Elementen und Symbolen 
-		[ ] Verschiedene Formen 
-		[ ] Gezielte Platzierung
+	 [X] Platzierung von grafischen Elementen und Symbolen 
+		[X] Verschiedene Formen 
+		[X] Gezielte Platzierung
 		[ ] Animiert in Farbe, Position und Größe, Rotation 
 			[ ] Verschiedene Animationsmuster
-			[ ] Nachträgliche Änderung Form 
+			[X] Nachträgliche Änderung Form 
 			[X] Löschbar
 			[X] Verschiebbar
-			[ ] Änderung der Farbe
+			[X] Änderung der Farbe
 [X] Serveranbindung 
 	[X] Nutzererstellung 
 	[X] Login 
@@ -45,7 +45,7 @@ Naive Aproach (as usual):
 [X] Schritt für schritt den Verlauf des Programmes programmieren 
 [ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
 [ ] Vorbereitung der "Verteidigung"
-[ ] CSS Breakpoint einarbeiten 
+[x] CSS Breakpoint einarbeiten 
 
 
 Was lässt sich wieder verwenden aus meiner Alten abgabe: 

@@ -392,12 +392,12 @@ var endabgabe2;
             //crc.putImageData(imgData, 0, 0);
             console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
-                console.log(endabgabe2.placeableObjectsArray[i]);
+                //console.log(placeableObjectsArray[i]);
                 let cType = endabgabe2.placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
                 switch (cType) {
                     case "triangels":
                         if (endabgabe2.globalAnimatonType == "slow") {
-                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width) {
+                            if (endabgabe2.placeableObjectsArray[i].x >= endabgabe2.canvas.width - 40) {
                                 endabgabe2.placeableObjectsArray[i].x -= endabgabe2.canvas.width + 30;
                             }
                             else if (endabgabe2.placeableObjectsArray[i].x <= 0) {
@@ -633,7 +633,7 @@ var endabgabe2;
                     default:
                         break;
                 }
-                console.log(endabgabe2.placeableObjectsArray[i]);
+                //console.log(placeableObjectsArray[i]);
                 renderCanvas();
             }
         }
