@@ -2,11 +2,11 @@ Here we go Endabgabe die zweite:
 
 Die Endabgabe muss können: 
 
-[ ] Individuell gestaltbare Zeichenfläche (Größe & "Hintergrunddarstellung")
+[X] Individuell gestaltbare Zeichenfläche (Größe & "Hintergrunddarstellung")
 	 [X] Platzierung von grafischen Elementen und Symbolen 
 		[X] Verschiedene Formen 
 		[X] Gezielte Platzierung
-		[ ] Animiert in Farbe, Position und Größe, Rotation 
+		[X] Animiert in Farbe, Position und Größe, Rotation 
 			[X] Verschiedene Animationsmuster
 			[X] Nachträgliche Änderung Form 
 			[X] Löschbar
@@ -20,9 +20,9 @@ Die Endabgabe muss können:
 
 
 Wierde Anforderungen: 
-[ ] Fasse die Konzeption als ein wohlformatiertes Designdokument in PDF zusammen!
-[ ] Platziere wie üblich einen Link zu Github-Pages auf die fertige und lauffähige Anwendung im Steckbrief.
-[ ] Platziere ebenso einen Link zu der Stelle in deinem Github-Repository, an dem der Quellcode und das Designdokument zu finden ist.
+[X] Fasse die Konzeption als ein wohlformatiertes Designdokument in PDF zusammen!
+[X] Platziere wie üblich einen Link zu Github-Pages auf die fertige und lauffähige Anwendung im Steckbrief.
+[X] Platziere ebenso einen Link zu der Stelle in deinem Github-Repository, an dem der Quellcode und das Designdokument zu finden ist.
 [ ] Stelle zudem auf diese Art auch ein gepacktes Archiv zur Verfügung, welches folgende Daten enthält
 [ ] Das Designdokument
     [ ] Die Projektordner inklusive aller erforderlichen Dateien, also auch Bild- und Audiodaten
