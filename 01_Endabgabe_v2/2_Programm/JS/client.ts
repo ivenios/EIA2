@@ -142,11 +142,12 @@ function createNewCanvas(): void {
 
     //query string wird gebaut:
     globalPicture = inputs[0].value;
+    globalPicture = globalPicture.trim(); //entfernt whitespaces am anfang und am ende von strings
     canvasSizeX = parseInt(inputs[1].value);
     canvasSizeY = parseInt(inputs[2].value);
     canvasColor = inputs[3].value;
     query += "&username=" + globalUser;
-    query += "&pictureName=" + inputs[0].value;
+    query += "&pictureName=" + globalPicture;
     query += "&canvasX=" + inputs[1].value;
     query += "&canvasY=" + inputs[2].value;
     query += "&canvasColor=" + queryColor;

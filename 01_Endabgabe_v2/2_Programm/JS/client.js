@@ -120,11 +120,12 @@ var endabgabe2;
         queryColor = queryColor.replace(re, "%23");
         //query string wird gebaut:
         endabgabe2.globalPicture = inputs[0].value;
+        endabgabe2.globalPicture = endabgabe2.globalPicture.trim(); //entfernt whitespaces am anfang und am ende von strings
         endabgabe2.canvasSizeX = parseInt(inputs[1].value);
         endabgabe2.canvasSizeY = parseInt(inputs[2].value);
         endabgabe2.canvasColor = inputs[3].value;
         query += "&username=" + endabgabe2.globalUser;
-        query += "&pictureName=" + inputs[0].value;
+        query += "&pictureName=" + endabgabe2.globalPicture;
         query += "&canvasX=" + inputs[1].value;
         query += "&canvasY=" + inputs[2].value;
         query += "&canvasColor=" + queryColor;
