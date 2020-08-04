@@ -23,9 +23,9 @@ Wierde Anforderungen:
 [X] Fasse die Konzeption als ein wohlformatiertes Designdokument in PDF zusammen!
 [X] Platziere wie üblich einen Link zu Github-Pages auf die fertige und lauffähige Anwendung im Steckbrief.
 [X] Platziere ebenso einen Link zu der Stelle in deinem Github-Repository, an dem der Quellcode und das Designdokument zu finden ist.
-[ ] Stelle zudem auf diese Art auch ein gepacktes Archiv zur Verfügung, welches folgende Daten enthält
-[ ] Das Designdokument
-    [ ] Die Projektordner inklusive aller erforderlichen Dateien, also auch Bild- und Audiodaten
+[X] Stelle zudem auf diese Art auch ein gepacktes Archiv zur Verfügung, welches folgende Daten enthält
+[X] Das Designdokument
+    [X] Die Projektordner inklusive aller erforderlichen Dateien, also auch Bild- und Audiodaten
     [X] Eine kurze Anleitung zur Installation der Anwendung unter Berücksichtigung der erforderlichen Dienste (z.B. Heroku, MongoDB etc.)
     [X] Eine kurze Anleitung zur Interaktion mit der Anwendung
 
@@ -34,17 +34,17 @@ Wierde Anforderungen:
 
 Naive Aproach (as usual): 
 
-[ ] Aufbau eines ersten grobkonzeptes 
-    [ ] Design Konzept ->UX
+[X] Aufbau eines ersten grobkonzeptes 
+    [X] Design Konzept ->UX
     [X] Anwendungsfall Diagramme ->UX
-    [ ] Aktivitätsdiagramme im Sinne von Divide and Conquer ->UX oder draw.io
+    [X] Aktivitätsdiagramme im Sinne von Divide and Conquer ->UX oder draw.io
     [X] Datenformate konzeptionieren ->Hier 
     [X] Welche tätigkeiten muss der Server erledigen können -> Funktions Wording erstellen und beschreibung
 [X] erneut Verständnis zu heroku und MongoDB einholen
 [X] How to Canvas 
 [X] Schritt für schritt den Verlauf des Programmes programmieren 
-[ ] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
-[ ] Vorbereitung der "Verteidigung"
+[X] Erneutes anpassen des Konzeptes nach fertigstellung des Programmes 
+[X] Vorbereitung der "Verteidigung"
 [x] CSS Breakpoint einarbeiten 
 
 
