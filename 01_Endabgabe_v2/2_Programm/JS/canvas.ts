@@ -642,18 +642,18 @@ namespace endabgabe2 {
 
                     case "circles":
                         if (globalAnimatonType == "slow") {
-                            if (placeableObjectsArray[i].x >= canvas.width - 15) {
+                            if (placeableObjectsArray[i].x >= canvas.width - 5) {
                                 placeableObjectsArray[i].x -= canvas.width - 15;
 
                             }
                             else if (placeableObjectsArray[i].x <= 0) {
-                                placeableObjectsArray[i].x += canvas.width - 15;
+                                placeableObjectsArray[i].x += canvas.width - 5;
                             } else if (placeableObjectsArray[i].y >= canvas.height - 15) {
                                 placeableObjectsArray[i].y -= canvas.height - 15;
 
                             }
                             else if (placeableObjectsArray[i].x <= 0) {
-                                placeableObjectsArray[i].x += canvas.height - 15;
+                                placeableObjectsArray[i].x += canvas.height - 5;
                             } 
                             placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
                             placeableObjectsArray[i].x += Math.random() * (7 - 3) + 3;
@@ -661,7 +661,7 @@ namespace endabgabe2 {
 
                         }
                         else if (globalAnimatonType == "stig") {
-                            if (placeableObjectsArray[i].x == canvas.width - 15) {
+                            if (placeableObjectsArray[i].x == canvas.width - 5) {
                                 placeableObjectsArray[i].x -= canvas.width - 15;
 
                             }
@@ -672,32 +672,32 @@ namespace endabgabe2 {
 
                             }
                             else if (placeableObjectsArray[i].x == 0) {
-                                placeableObjectsArray[i].x += canvas.height - 15;
+                                placeableObjectsArray[i].x += canvas.height - 5;
                             } 
                             placeableObjectsArray[i].x += Math.random() * (17 - 12) + 12;
                             placeableObjectsArray[i].x += Math.random() * (17 - 10) + 10;
                             //;
                         } else if (globalAnimatonType == "bendy") {
-                            if (placeableObjectsArray[i].x == canvas.width - 15) {
+                            if (placeableObjectsArray[i].x == canvas.width - 5) {
                                 placeableObjectsArray[i].x -= canvas.width - 15;
 
                             }
                             else if (placeableObjectsArray[i].x == 0) {
-                                placeableObjectsArray[i].x += canvas.width - 15;
+                                placeableObjectsArray[i].x += canvas.width - 5;
                             } else
                                 placeableObjectsArray[i].x -= Math.random() * (-7 - 3) + 3;
 
-                            if (placeableObjectsArray[i].y == canvas.height - 15) {
+                            if (placeableObjectsArray[i].y == canvas.height - 5) {
                                 placeableObjectsArray[i].y -= canvas.height - 15;
 
                             }
                             else if (placeableObjectsArray[i].x == 0) {
-                                placeableObjectsArray[i].x += canvas.height - 15;
+                                placeableObjectsArray[i].x += canvas.height - 5;
                             } else
                                 placeableObjectsArray[i].x += Math.random() * (-7 - 3) + 3;
                             placeableObjectsArray[i].scale = Math.random() * (4 - 2) + 2;
                         } else if (globalAnimatonType == "mayham") {
-                            if (placeableObjectsArray[i].x == canvas.width - 15) {
+                            if (placeableObjectsArray[i].x == canvas.width - 5) {
                                 placeableObjectsArray[i].x -= canvas.width - 15;
 
                             }
