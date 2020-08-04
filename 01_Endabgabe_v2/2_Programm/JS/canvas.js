@@ -84,7 +84,7 @@ var endabgabe2;
         if (endabgabe2.placeableObjectsArray.length > 0) {
             endabgabe2.crc.clearRect(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
             imgData = endabgabe2.crc.getImageData(0, 0, endabgabe2.canvas.width, endabgabe2.canvas.height);
-            console.log("Rendering original Objects from array");
+            //console.log("Rendering original Objects from array");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 let cType = endabgabe2.placeableObjectsArray[i].type;
                 switch (cType) {
@@ -390,7 +390,7 @@ var endabgabe2;
             window.setTimeout(updateObject, 1000 / fps, true);
             // crc.clearRect(0, 0, canvas.width, canvas.height);
             //crc.putImageData(imgData, 0, 0);
-            console.log("im Running");
+            // console.log("im Running");
             for (let i = 0; i < endabgabe2.placeableObjectsArray.length; i++) {
                 //console.log(placeableObjectsArray[i]);
                 let cType = endabgabe2.placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(

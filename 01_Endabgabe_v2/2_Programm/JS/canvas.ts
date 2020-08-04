@@ -114,7 +114,7 @@ namespace endabgabe2 {
         if (placeableObjectsArray.length > 0) {
             crc.clearRect(0, 0, canvas.width, canvas.height);
             imgData = crc.getImageData(0, 0, canvas.width, canvas.height);
-            console.log("Rendering original Objects from array");
+            //console.log("Rendering original Objects from array");
             for (let i: number = 0; i < placeableObjectsArray.length; i++) {
                 let cType: string = placeableObjectsArray[i].type;
                 switch (cType) {
@@ -476,7 +476,7 @@ namespace endabgabe2 {
             // crc.clearRect(0, 0, canvas.width, canvas.height);
             //crc.putImageData(imgData, 0, 0);
 
-            console.log("im Running");
+           // console.log("im Running");
             for (let i: number = 0; i < placeableObjectsArray.length; i++) {
                 //console.log(placeableObjectsArray[i]);
                 let cType: string = placeableObjectsArray[i].type; //leider muss ich das jetzt so machen, da meine Klassen einfach nicht darauf aus gelegt waren animationen zu übernehmen :(
